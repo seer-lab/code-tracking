@@ -1,0 +1,91 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,test,gender,programExperienceYears,programExperienceMonths,country,chosenTask,programmingLanguage
+2024-10-13T17:09:55.546-04:00,0,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,-1,python
+2024-10-13T17:11:37.093-04:00,0,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:37.556-04:00,1886,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:37.743-04:00,1892,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+p",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:37.838-04:00,1914,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+pr",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:37.929-04:00,1927,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+pri",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:38.050-04:00,1943,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+prin",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:38.443-04:00,1956,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:38.448-04:00,1970,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print(",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:38.736-04:00,1971,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print()",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:38.739-04:00,1981,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print(')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.095-04:00,1982,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.174-04:00,2022,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('h')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.360-04:00,2053,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('he')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.496-04:00,2082,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hel')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.678-04:00,2096,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hell')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:39.891-04:00,2110,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:40.047-04:00,2124,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello ')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:40.144-04:00,2138,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello w')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:40.239-04:00,2167,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello wo')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:40.318-04:00,2196,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello wor')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:40.469-04:00,2210,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello worl')",1,ON,5,male,5,-1,canada,voting,python
+2024-10-13T17:11:42.108-04:00,2224,voting.py,115907,571995045,"# Write code for the voting task in this file
+
+# Write your code here
+print('hello world')",1,ON,5,male,5,-1,canada,voting,python

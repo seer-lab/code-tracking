@@ -1,0 +1,55 @@
+[
+  {
+    "name": "DataItemRouter",
+    "path": "data-item-router"
+  },
+  {
+    "name": "TaskRouter",
+    "path": "task-router"
+  },
+  {
+    "name": "ActivityTrackerItemRouter",
+    "path": "activity-tracker-item-router"
+  },
+  {
+    "name": "DataDownloadRouter",
+    "path": "data-download-router"
+  },
+  {
+    "name": "SettingsRouter",
+    "path": "settings-router"
+  },
+  {
+    "name": "GenderRouter",
+    "path": "consts-lists/gender-router"
+  },
+  {
+    "name": "CountryRouter",
+    "path": "consts-lists/country-router"
+  },
+  {
+    "name": "LanguageRouter",
+    "path": "language-router"
+  },
+  {
+    "name": "ProgrammingLanguageRouter",
+    "path": "programming-language-router"
+  },
+  {
+    "name": "DialogTextRouter",
+    "path": "dialog-text-router"
+  },
+  {
+    "name": "StudentRouter",
+    "path": "user-router"
+  },
+  {
+    "name": "HintItemRouter",
+    "path": "hint-item-router"
+  },
+
+  {
+    "name": "TaskTrackerProjectRouter",
+    "path": "database-generator/task-tracker-project-router"
+  }
+]

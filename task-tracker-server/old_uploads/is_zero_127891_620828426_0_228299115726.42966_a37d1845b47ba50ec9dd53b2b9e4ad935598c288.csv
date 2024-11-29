@@ -1,0 +1,3885 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,chosenTask,programmingLanguage
+2024-11-06T21:09:37.187-05:00,0,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here",1,ON,3,male,4,-1,-1,python
+2024-11-06T21:10:03.021-05:00,0,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:15.202-05:00,37,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:15.343-05:00,43,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:15.580-05:00,47,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:15.793-05:00,51,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d =",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:15.913-05:00,55,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:16.259-05:00,59,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:16.548-05:00,66,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:16.769-05:00,70,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 +",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:16.943-05:00,76,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:17.345-05:00,80,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:19.704-05:00,91,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:20.547-05:00,123,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:20.715-05:00,132,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:21.217-05:00,140,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 +",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:21.495-05:00,148,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 +1",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:21.670-05:00,152,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 +",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:21.748-05:00,156,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:22.009-05:00,160,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:22.157-05:00,168,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:22.521-05:00,173,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:22.660-05:00,202,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+i",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:22.919-05:00,209,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:23.575-05:00,228,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:23.583-05:00,242,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:24.121-05:00,243,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if ()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:24.653-05:00,262,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:26.201-05:00,280,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:26.574-05:00,296,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d =)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:27.383-05:00,306,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:30.135-05:00,316,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:30.611-05:00,330,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:30.621-05:00,340,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:31.261-05:00,344,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:31.683-05:00,367,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    T",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:32.381-05:00,387,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:32.540-05:00,396,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    H",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:32.703-05:00,407,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    He",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:32.998-05:00,420,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    Hel",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.153-05:00,433,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    He",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.290-05:00,449,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    H",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.415-05:00,460,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.491-05:00,464,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    p",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.614-05:00,474,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    pr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.655-05:00,487,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    pri",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.693-05:00,499,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    prin",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.911-05:00,510,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:33.914-05:00,527,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print(",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:34.238-05:00,528,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:34.246-05:00,533,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print(')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:34.453-05:00,534,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:34.725-05:00,551,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('h')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:34.965-05:00,597,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('he')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:35.100-05:00,611,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hel')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:35.271-05:00,625,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hell')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:37.658-05:00,639,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:37.957-05:00,684,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello ')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:37.997-05:00,708,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello w')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:38.085-05:00,727,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello wo')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:38.451-05:00,754,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello wor')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:38.620-05:00,779,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello worl')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:43.629-05:00,793,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:44.486-05:00,835,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:46.331-05:00,871,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+    
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:46.336-05:00,886,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+    
+   ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:47.642-05:00,887,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+    
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:48.427-05:00,892,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:48.430-05:00,898,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+   ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:48.736-05:00,899,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:48.841-05:00,903,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+e",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:49.000-05:00,923,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+el",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:49.033-05:00,939,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+els",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:49.711-05:00,949,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:49.905-05:00,1014,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:49.911-05:00,1018,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:52.035-05:00,1022,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:52.459-05:00,1061,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    *",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:52.746-05:00,1109,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    *n",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:52.885-05:00,1143,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    *",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.351-05:00,1151,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.372-05:00,1205,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    s",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.444-05:00,1206,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    se",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.452-05:00,1217,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sej",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.565-05:00,1218,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejk",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.599-05:00,1229,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.685-05:00,1240,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkre",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:54.815-05:00,1251,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrej",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.086-05:00,1262,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkreje",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.238-05:00,1273,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrej",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.393-05:00,1284,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkre",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.556-05:00,1295,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.686-05:00,1306,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrf",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.812-05:00,1317,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.818-05:00,1328,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrf",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.823-05:00,1329,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfv",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:55.943-05:00,1330,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvb",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.107-05:00,1341,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfv",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.245-05:00,1352,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvf",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.368-05:00,1356,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfv",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.496-05:00,1360,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvf",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.623-05:00,1371,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfv",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.648-05:00,1375,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.754-05:00,1381,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvcd",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.845-05:00,1392,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:56.981-05:00,1403,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvcc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.094-05:00,1414,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.198-05:00,1425,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvcs",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.341-05:00,1436,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.463-05:00,1447,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvcs",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.621-05:00,1458,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfvc",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.792-05:00,1469,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrfv",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:57.977-05:00,1473,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkrf",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:58.561-05:00,1477,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:58.830-05:00,1531,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.316-05:00,1536,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    d",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.805-05:00,1569,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    dd",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.827-05:00,1598,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    do_daemon",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.830-05:00,1602,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    do_daemon(",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.868-05:00,1603,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    do_daemon()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:10:59.876-05:00,1620,is_zero.py,127891,620828426,"# Write code for the is_zero task in this filefrom mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    do_daemon()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:14.799-05:00,1635,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr
+    do_daemon()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:15.899-05:00,1730,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejkr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:16.055-05:00,1782,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sejk",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:16.214-05:00,1786,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    sej",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:16.396-05:00,1790,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    se",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:16.565-05:00,1794,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    s",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.348-05:00,1798,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.431-05:00,1854,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    p",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.526-05:00,1878,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    pr",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.574-05:00,1889,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    pri",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.646-05:00,1900,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    prin",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.872-05:00,1911,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:19.878-05:00,1922,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print(",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:20.104-05:00,1923,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print()",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:20.110-05:00,1927,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print(')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:20.669-05:00,1928,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:20.904-05:00,1963,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('w')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:20.948-05:00,1996,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.075-05:00,2010,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('y')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.121-05:00,2039,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('yo')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.375-05:00,2053,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.454-05:00,2067,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'r)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.564-05:00,2094,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you're)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.641-05:00,2105,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.719-05:00,2123,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:21.871-05:00,2127,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew r)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.138-05:00,2142,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew ro)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.297-05:00,2153,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew r)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.422-05:00,2164,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.574-05:00,2168,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'rew)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.745-05:00,2172,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you're)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:22.953-05:00,2176,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you'r)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:23.244-05:00,2180,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.001-05:00,2200,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.077-05:00,2246,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.141-05:00,2260,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you a)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.235-05:00,2299,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you ar)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.326-05:00,2325,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.564-05:00,2339,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are )",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:24.645-05:00,2353,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are w)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:25.029-05:00,2379,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are wr)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:25.149-05:00,2405,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are wro)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:25.299-05:00,2419,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are wron)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:25.551-05:00,2433,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are wrong)",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:28.268-05:00,2447,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d = 1):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:31.962-05:00,2495,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 1):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:32.065-05:00,2556,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == ):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:32.596-05:00,2564,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:32.720-05:00,2628,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == ):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:47.643-05:00,2636,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 1):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:11:47.745-05:00,2704,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == ):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:11.081-05:00,2712,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:11.227-05:00,2781,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:11.928-05:00,2786,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+    ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:11.933-05:00,2830,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+   ",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:12.694-05:00,2831,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.555-05:00,2837,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.557-05:00,3055,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.559-05:00,3056,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.561-05:00,3057,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.562-05:00,3058,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:22.566-05:00,3059,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.155-05:00,3060,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.158-05:00,3248,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.160-05:00,3249,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.162-05:00,3250,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.165-05:00,3251,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:29.168-05:00,3252,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.859-05:00,3253,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.863-05:00,3434,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.864-05:00,3435,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.866-05:00,3436,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.869-05:00,3437,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:30.871-05:00,3438,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.615-05:00,3439,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.618-05:00,3618,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.620-05:00,3619,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.621-05:00,3620,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.624-05:00,3621,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:31.626-05:00,3622,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.052-05:00,3623,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.053-05:00,3703,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.054-05:00,3704,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.056-05:00,3705,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.057-05:00,3706,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.059-05:00,3707,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.363-05:00,3708,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.366-05:00,3732,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.369-05:00,3733,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.370-05:00,3734,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.371-05:00,3735,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.372-05:00,3736,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.650-05:00,3737,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.653-05:00,3761,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.655-05:00,3762,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.657-05:00,3763,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.659-05:00,3764,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:32.660-05:00,3765,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.068-05:00,3766,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.069-05:00,3828,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.070-05:00,3829,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.071-05:00,3830,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.071-05:00,3831,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.073-05:00,3832,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.295-05:00,3833,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.298-05:00,3857,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.300-05:00,3858,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.301-05:00,3859,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.304-05:00,3860,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:33.307-05:00,3861,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.208-05:00,3862,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.210-05:00,4048,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.211-05:00,4049,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.214-05:00,4050,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.217-05:00,4051,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:35.219-05:00,4052,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.109-05:00,4053,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.111-05:00,4253,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.113-05:00,4254,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.114-05:00,4255,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.116-05:00,4256,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.118-05:00,4257,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.613-05:00,4258,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.618-05:00,4354,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.620-05:00,4355,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.623-05:00,4356,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.626-05:00,4357,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:36.628-05:00,4358,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.327-05:00,4359,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+    print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.331-05:00,4517,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.334-05:00,4518,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+    print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.336-05:00,4519,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.339-05:00,4520,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:37.342-05:00,4521,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:43.003-05:00,4522,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+    
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:12:43.006-05:00,4710,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+# 
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python
+2024-11-06T21:13:51.659-05:00,4711,is_zero.py,127891,620828426,"# Write code for the is_zero task in this file
+from mypy.dmypy.client import do_daemon
+
+# Write your code here
+# d = 1 + 1
+#
+# if (d == 2):
+#     print('hello world')
+# else:
+#     print('you are wrong')
+
+# Input: First line is the count of numbers, followed by the numbers themselves
+N = int(input(""Enter the number of integers: ""))
+
+# Flag to check if zero is found
+found_zero = False
+
+# Loop through each number and check if it is zero
+for _ in range(N):
+    num = int(input())
+    if num == 0:
+        found_zero = True
+        break
+
+# Output result based on whether zero was found
+if found_zero:
+    print(""YES"")
+else:
+    print(""NO"")
+",1,ON,3,male,4,-1,is_zero,python

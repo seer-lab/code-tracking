@@ -1,0 +1,91 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,chosenTask,programmingLanguage
+2024-11-20T15:59:35.509-05:00,0,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here",6,ON,3,male,4,-1,-1,python
+2024-11-20T16:01:25.665-05:00,0,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.036-05:00,1481,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.223-05:00,1487,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+p",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.297-05:00,1501,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+pr",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.401-05:00,1512,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+pri",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.940-05:00,1523,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:26.945-05:00,1537,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.297-05:00,1538,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin()",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.299-05:00,1546,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin("")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.498-05:00,1547,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin("""")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.649-05:00,1551,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""H"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.825-05:00,1563,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""He"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:27.979-05:00,1567,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hel"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.177-05:00,1571,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hell"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.344-05:00,1575,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.449-05:00,1579,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello "")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.605-05:00,1583,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello W"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.661-05:00,1593,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello Wo"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.769-05:00,1597,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello Wor"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:28.887-05:00,1601,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello Worl"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:40.357-05:00,1605,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+prin(""Hello World"")",6,ON,3,male,4,-1,brackets,python
+2024-11-20T16:01:46.460-05:00,1618,brackets.py,130106,1307712441,"# Write code for the brackets task in this file
+
+# Write your code here
+print(""Hello World"")",6,ON,3,male,4,-1,brackets,python

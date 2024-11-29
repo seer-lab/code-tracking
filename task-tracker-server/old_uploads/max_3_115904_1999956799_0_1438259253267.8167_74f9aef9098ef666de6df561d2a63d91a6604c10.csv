@@ -1,0 +1,91 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,test,gender,programExperienceYears,programExperienceMonths,country,chosenTask,programmingLanguage
+2024-10-13T17:09:55.498-04:00,0,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,-1,python
+2024-10-13T17:10:40.839-04:00,0,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.198-04:00,507,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.319-04:00,513,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+p",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.426-04:00,527,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+pr",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.506-04:00,538,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+pri",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.579-04:00,549,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+prin",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.908-04:00,560,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:41.911-04:00,571,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.236-04:00,572,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print()",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.240-04:00,577,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.336-04:00,578,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.418-04:00,592,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('h')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.543-04:00,621,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('he')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.685-04:00,648,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hel')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:42.846-04:00,677,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hell')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.032-04:00,691,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.102-04:00,705,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello ')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.193-04:00,719,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello w')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.288-04:00,748,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello wo')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.382-04:00,776,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello wor')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:43.510-04:00,804,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello worl')",1,ON,5,male,5,-1,canada,max_3,python
+2024-10-13T17:10:45.248-04:00,832,max_3.py,115904,1999956799,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello world')",1,ON,5,male,5,-1,canada,max_3,python

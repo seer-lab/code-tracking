@@ -1,0 +1,7 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,chosenTask,programmingLanguage
+2024-11-20T00:15:07.415-05:00,0,max_3.py,13399,658061180,"# Write code for the max_3 task in this file
+
+# Write your code here",4,ON,3,male,3,-1,-1,python
+2024-11-20T00:15:13.415-05:00,0,max_3.py,13399,658061180,"# Write code for the max_3 task in this file
+
+# Write your code here",4,ON,3,male,3,-1,max_3,python

@@ -1,0 +1,2678 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,country,chosenTask,programmingLanguage
+2024-11-03T16:27:59.416-05:00,0,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,3,male,3,-1,canada,-1,python
+2024-11-03T16:28:06.375-05:00,0,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:33.761-05:00,11,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:33.918-05:00,311,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.145-05:00,315,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.167-05:00,322,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Da",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.193-05:00,323,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Dan",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.251-05:00,329,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Dani",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.372-05:00,339,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Danie",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.592-05:00,349,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Daniel",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.721-05:00,359,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Danie",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:34.916-05:00,363,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Dani",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.013-05:00,367,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Dan",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.165-05:00,371,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#Da",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.384-05:00,375,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.489-05:00,379,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.580-05:00,383,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.741-05:00,393,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D Da",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:35.883-05:00,397,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.032-05:00,401,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.192-05:00,405,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.456-05:00,409,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+#",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.594-05:00,413,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.708-05:00,417,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# D",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.801-05:00,427,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Da",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.874-05:00,431,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Dan",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:36.952-05:00,435,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Dani",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.113-05:00,439,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Danie",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.372-05:00,443,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.588-05:00,447,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.728-05:00,451,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel H",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.794-05:00,462,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hi",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:37.953-05:00,466,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hin",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:38.016-05:00,470,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinb",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:38.139-05:00,474,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbe",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:38.252-05:00,478,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbes",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:38.338-05:00,482,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:42.772-05:00,486,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:42.946-05:00,492,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:43.043-05:00,506,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+de",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:43.257-05:00,516,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:43.842-05:00,533,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:43.969-05:00,542,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def t",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:44.010-05:00,560,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def to",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:44.137-05:00,564,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def tot",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:44.258-05:00,568,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def tota",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:44.543-05:00,572,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.176-05:00,576,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.403-05:00,583,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_c",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.481-05:00,587,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_co",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.600-05:00,591,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cos",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.973-05:00,595,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:45.978-05:00,600,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:46.176-05:00,601,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost()",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:46.464-05:00,611,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:46.675-05:00,633,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A,)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:46.767-05:00,637,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:47.257-05:00,641,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, b)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:47.402-05:00,658,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:48.244-05:00,662,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:48.460-05:00,674,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B,)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:48.689-05:00,678,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:49.644-05:00,682,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:50.042-05:00,700,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:50.054-05:00,705,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:51.485-05:00,709,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:51.683-05:00,715,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    t",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:51.790-05:00,736,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    to",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:51.963-05:00,747,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    tot",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.104-05:00,758,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    tota",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.357-05:00,769,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.507-05:00,781,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.593-05:00,792,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_c",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.652-05:00,803,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_ce",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.843-05:00,813,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cen",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:52.967-05:00,824,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cent",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:54.020-05:00,835,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:54.347-05:00,847,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:54.559-05:00,852,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:54.858-05:00,856,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:54.860-05:00,861,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:55.089-05:00,862,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = ()",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:55.678-05:00,868,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:56.489-05:00,894,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:56.747-05:00,901,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A *)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:56.890-05:00,908,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:57.072-05:00,912,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 1)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:57.239-05:00,920,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 10)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:58.434-05:00,924,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:58.743-05:00,936,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:59.019-05:00,945,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 +)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:28:59.210-05:00,959,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + )",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:00.337-05:00,963,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:01.072-05:00,1006,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:01.271-05:00,1018,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) *",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:01.490-05:00,1024,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:01.503-05:00,1028,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:01.981-05:00,1029,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * NB",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:03.748-05:00,1056,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:12.359-05:00,1113,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:12.618-05:00,1130,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:12.738-05:00,1134,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    t",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:12.850-05:00,1166,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    to",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:12.946-05:00,1181,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    tot",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:13.097-05:00,1194,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    tota",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:13.337-05:00,1205,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:13.679-05:00,1209,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:13.794-05:00,1220,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total_d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:14.040-05:00,1224,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total_do",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:16.372-05:00,1228,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total_dol",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:18.453-05:00,1240,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    
+    total_dollars = total_cents / 100",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:22.441-05:00,1256,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:22.819-05:00,1283,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:22.926-05:00,1309,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    r",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.098-05:00,1341,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    re",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.223-05:00,1357,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    rem",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.342-05:00,1374,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    rema",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.409-05:00,1386,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remai",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.689-05:00,1398,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remain",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.710-05:00,1409,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaini",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:23.776-05:00,1410,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remainin",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:24.665-05:00,1414,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:24.793-05:00,1439,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:24.896-05:00,1443,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_c",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.024-05:00,1447,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_ce",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.105-05:00,1451,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cen",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.232-05:00,1455,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cent",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.454-05:00,1459,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.727-05:00,1463,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:25.954-05:00,1467,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.088-05:00,1471,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.144-05:00,1475,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = t",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.233-05:00,1488,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = to",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.368-05:00,1503,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = tot",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.504-05:00,1515,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = tota",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.728-05:00,1519,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:26.880-05:00,1523,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.000-05:00,1527,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_c",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.114-05:00,1531,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_ce",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.222-05:00,1535,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cen",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.344-05:00,1539,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cent",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.507-05:00,1543,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:27.976-05:00,1547,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:28.197-05:00,1563,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents %",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:28.314-05:00,1569,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:28.479-05:00,1573,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 1",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:28.651-05:00,1581,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 10",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:29.098-05:00,1585,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.159-05:00,1616,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.250-05:00,1651,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    r",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.421-05:00,1673,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    re",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.453-05:00,1691,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reu",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.575-05:00,1692,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reut",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.630-05:00,1703,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reutn",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:30.989-05:00,1707,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reutnr",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:31.121-05:00,1739,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reutn",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:31.288-05:00,1743,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reut",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:31.456-05:00,1747,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reu",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:31.753-05:00,1751,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reut",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:31.883-05:00,1758,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    reu",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.002-05:00,1772,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    re",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.107-05:00,1788,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    ret",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.195-05:00,1800,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    retu",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.271-05:00,1811,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    retur",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.527-05:00,1815,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.849-05:00,1826,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:32.956-05:00,1832,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return t",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.064-05:00,1848,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return to",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.182-05:00,1860,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return tot",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.264-05:00,1871,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return tota",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.523-05:00,1875,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.708-05:00,1886,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:33.771-05:00,1890,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:34.160-05:00,1911,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total do",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:34.322-05:00,1945,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:34.484-05:00,1968,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:34.691-05:00,1976,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:34.997-05:00,1980,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.097-05:00,1998,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.304-05:00,2002,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_do",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.432-05:00,2006,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dol",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.512-05:00,2010,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_doll",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.601-05:00,2014,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dolla",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:35.769-05:00,2018,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollar",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:36.066-05:00,2022,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:36.874-05:00,2026,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:36.881-05:00,2075,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+    ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:37.043-05:00,2079,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:38.715-05:00,2083,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:38.912-05:00,2133,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:39.155-05:00,2162,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:39.462-05:00,2166,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A -",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:39.629-05:00,2172,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:39.778-05:00,2178,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:39.935-05:00,2182,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A =1",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:40.307-05:00,2186,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A =1 ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:40.493-05:00,2216,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A =1",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:40.647-05:00,2220,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:40.763-05:00,2224,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:41.010-05:00,2228,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 1",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:41.496-05:00,2234,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:42.225-05:00,2276,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:42.405-05:00,2321,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:42.617-05:00,2350,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:42.819-05:00,2355,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:42.901-05:00,2359,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:43.140-05:00,2363,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 1",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:43.413-05:00,2369,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:43.990-05:00,2373,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:44.264-05:00,2426,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+C",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:44.508-05:00,2449,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:44.703-05:00,2453,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:45.202-05:00,2474,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:45.405-05:00,2525,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N -",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:45.636-05:00,2531,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N -=",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:45.812-05:00,2535,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N -",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:45.963-05:00,2539,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:46.242-05:00,2545,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N =",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:46.350-05:00,2549,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:47.097-05:00,2553,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:47.260-05:00,2589,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:47.618-05:00,2594,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:47.721-05:00,2629,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+d",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:47.931-05:00,2644,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+do",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.048-05:00,2672,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dol",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.103-05:00,2684,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+doll",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.167-05:00,2688,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dolla",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.305-05:00,2692,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollar",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.426-05:00,2696,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.641-05:00,2700,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars,",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:48.828-05:00,2704,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.246-05:00,2708,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, e",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.364-05:00,2754,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.442-05:00,2762,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, c",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.593-05:00,2779,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, ce",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.660-05:00,2797,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cen",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:49.784-05:00,2809,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cent",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:50.580-05:00,2820,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:51.037-05:00,2873,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents ",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:52.105-05:00,2910,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:52.970-05:00,3047,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:53.090-05:00,3184,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+p",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:53.204-05:00,3209,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+pr",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:53.305-05:00,3228,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+pri",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:53.329-05:00,3267,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+prin",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:53.994-05:00,3277,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:54.449-05:00,3310,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+printf",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:54.660-05:00,3314,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:54.664-05:00,3318,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:55.426-05:00,3319,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print()",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:55.684-05:00,3474,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:55.689-05:00,3514,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f"")",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:56.827-05:00,3515,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f"""")",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:56.831-05:00,3696,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f"")",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:57.745-05:00,3697,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f)",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:57.749-05:00,3875,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:58.231-05:00,3876,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:59.059-05:00,4047,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'P')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:59.550-05:00,4205,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:29:59.552-05:00,4391,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.035-05:00,4392,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.112-05:00,4560,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{d}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.345-05:00,4595,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{do}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.475-05:00,4638,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dol}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.554-05:00,4667,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{doll}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.598-05:00,4687,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dolla}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:00.760-05:00,4707,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollar}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.013-05:00,4736,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.490-05:00,4915,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} ')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.493-05:00,5087,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.728-05:00,5088,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.895-05:00,5112,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {c}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:02.995-05:00,5166,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {ce}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:03.108-05:00,5196,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cen}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:03.224-05:00,5225,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cent}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:06.767-05:00,5239,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N    
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:29.057-05:00,5423,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents / 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:38.956-05:00,5603,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 10
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:39.154-05:00,5735,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 1
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:39.235-05:00,5739,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:41.229-05:00,5747,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 15
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:42.171-05:00,5944,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 5
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:43.039-05:00,6123,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 50
+N = 2
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:43.136-05:00,6287,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 50
+N = 
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:50.419-05:00,6295,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 50
+N = 4
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:50.699-05:00,6477,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 50
+N = 
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python
+2024-11-03T16:30:59.289-05:00,6485,pies.py,115903,1264367361,"# Write code for the pies task in this file
+
+# Write your code here
+# Daniel Hinbest
+def total_cost(A, B, N):
+    total_cents = (A * 100 + B) * N
+    total_dollars = total_cents // 100
+    remaining_cents = total_cents % 100
+    return total_dollars, remaining_cents
+
+A = 2
+B = 50
+N = 0
+
+dollars, cents = total_cost(A, B, N)
+print(f'{dollars} {cents}')",1,ON,3,male,3,-1,canada,pies,python

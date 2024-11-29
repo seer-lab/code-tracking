@@ -1,0 +1,3903 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,chosenTask,programmingLanguage
+2024-11-07T11:48:30.697-05:00,0,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here",1,ON,3,male,4,-1,-1,python
+2024-11-07T11:50:15.057-05:00,0,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:15.235-05:00,687,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:17.739-05:00,692,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.040-05:00,697,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.171-05:00,702,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+f",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.369-05:00,706,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+fr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.399-05:00,713,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+fro",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.604-05:00,714,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.635-05:00,733,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:22.748-05:00,737,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from c",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.324-05:00,753,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from co",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.388-05:00,763,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from col",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.490-05:00,767,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from coll",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.575-05:00,771,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from colle",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.756-05:00,775,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collec",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.797-05:00,779,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collect",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:23.947-05:00,783,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collecti",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.013-05:00,787,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collectio",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.106-05:00,791,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collection",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.258-05:00,795,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.422-05:00,808,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.526-05:00,814,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections i",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.715-05:00,830,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections im",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.891-05:00,834,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections imp",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:24.937-05:00,838,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections impo",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.093-05:00,842,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections impor",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.243-05:00,846,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.414-05:00,854,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.480-05:00,858,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import C",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.645-05:00,874,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Co",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.708-05:00,884,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Cou",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.773-05:00,888,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Coun",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.896-05:00,892,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Count",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:25.969-05:00,896,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counte",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:26.345-05:00,900,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:26.487-05:00,905,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:26.739-05:00,910,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:26.855-05:00,914,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+d",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:26.944-05:00,930,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+de",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:27.071-05:00,940,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:27.477-05:00,957,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:27.520-05:00,968,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def m",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:27.692-05:00,986,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:27.908-05:00,996,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.075-05:00,1000,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.139-05:00,1004,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_d",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.275-05:00,1008,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_di",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.303-05:00,1012,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_dig",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.479-05:00,1016,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digi",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.943-05:00,1020,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:28.947-05:00,1035,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.134-05:00,1036,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.185-05:00,1046,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(i)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.377-05:00,1068,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(in)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.532-05:00,1078,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(inp)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.596-05:00,1082,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(inpu)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:29.807-05:00,1086,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.070-05:00,1090,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.224-05:00,1094,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_s)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.406-05:00,1098,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_st)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.429-05:00,1102,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_sti)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.621-05:00,1103,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stir)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:30.727-05:00,1107,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stirn)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:31.691-05:00,1111,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stirng)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:31.828-05:00,1122,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stirng",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.002-05:00,1128,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stirn",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.169-05:00,1132,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stir",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.314-05:00,1136,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_sti",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.415-05:00,1140,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_st",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.578-05:00,1144,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_str",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.642-05:00,1160,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_stri",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.686-05:00,1164,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_strin",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:32.906-05:00,1168,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:33.167-05:00,1172,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:33.435-05:00,1178,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:33.448-05:00,1182,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:34.680-05:00,1186,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:34.839-05:00,1200,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    d",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:34.934-05:00,1218,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    di",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:35.016-05:00,1228,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    dig",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:35.126-05:00,1238,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digi",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:35.614-05:00,1249,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:35.770-05:00,1419,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:35.840-05:00,1430,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_c",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.057-05:00,1440,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_co",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.100-05:00,1451,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_cou",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.138-05:00,1461,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_coun",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.240-05:00,1471,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_count",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.343-05:00,1482,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:36.860-05:00,1500,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.067-05:00,1679,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts =",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.188-05:00,1683,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.283-05:00,1687,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = C",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.478-05:00,1700,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Co",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.519-05:00,1711,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Cou",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.586-05:00,1721,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Coun",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.705-05:00,1732,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Count",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:37.806-05:00,1743,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counte",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:38.399-05:00,1757,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:38.419-05:00,2088,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:38.597-05:00,2089,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:38.647-05:00,2093,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(i)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:38.853-05:00,2097,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(in)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.039-05:00,2318,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(inp)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.131-05:00,2334,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(inpu)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.414-05:00,2345,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.566-05:00,2359,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(inputS)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.810-05:00,2371,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(inputSt)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:39.953-05:00,2386,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(inputS)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.096-05:00,2397,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.265-05:00,2408,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.439-05:00,2419,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_s)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.614-05:00,2431,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_st)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.751-05:00,2445,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_str)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.815-05:00,2457,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_stri)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:40.924-05:00,2468,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_strin)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:42.705-05:00,2479,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:43.688-05:00,2513,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:43.755-05:00,2576,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    m",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:43.953-05:00,2598,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.301-05:00,2613,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.440-05:00,2635,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.591-05:00,2646,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_f",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.657-05:00,2660,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_fr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.757-05:00,2671,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_fre",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.910-05:00,2682,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_freq",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:44.986-05:00,2693,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.077-05:00,2704,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_freque",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.213-05:00,2715,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequec",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.459-05:00,2726,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequecn",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.585-05:00,2737,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequec",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.745-05:00,2748,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_freque",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.783-05:00,2759,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequen",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:45.995-05:00,2769,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequenc",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:46.456-05:00,2780,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:46.680-05:00,2821,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:46.871-05:00,2825,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency =",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:47.013-05:00,2829,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:47.040-05:00,2833,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = m",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:47.232-05:00,2845,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:47.606-05:00,2863,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:47.904-05:00,2904,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = maxd",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.111-05:00,2908,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.115-05:00,2912,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.358-05:00,2913,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.487-05:00,2917,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(d)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.766-05:00,2944,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(di)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:48.927-05:00,2961,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(dig)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:49.357-05:00,2972,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digi)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:49.678-05:00,3030,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:49.845-05:00,3055,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:49.951-05:00,3059,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_c)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.144-05:00,3063,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_co)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.214-05:00,3067,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_cou)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.275-05:00,3071,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_coun)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.374-05:00,3075,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_count)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.544-05:00,3079,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.712-05:00,3083,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.816-05:00,3116,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.v)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:50.885-05:00,3134,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.va)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:51.114-05:00,3149,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.val)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:51.155-05:00,3169,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.valu)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:51.258-05:00,3181,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.value)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:51.495-05:00,3199,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:51.498-05:00,3220,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:52.948-05:00,3221,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:53.099-05:00,3327,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:53.586-05:00,3332,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:53.594-05:00,3354,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    
+   ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:54.005-05:00,3355,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:54.499-05:00,3371,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:54.602-05:00,3459,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    m",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:54.795-05:00,3484,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.095-05:00,3502,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.280-05:00,3513,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.444-05:00,3517,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_f",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.507-05:00,3521,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_fr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.650-05:00,3525,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_fre",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.820-05:00,3529,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_freq",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:55.919-05:00,3533,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:56.083-05:00,3537,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_freque",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:56.300-05:00,3541,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequen",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:56.522-05:00,3545,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequenc",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:57.664-05:00,3549,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:57.865-05:00,3711,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:57.953-05:00,3715,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_d",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.070-05:00,3719,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_di",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.384-05:00,3723,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_did",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.494-05:00,3727,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_di",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.576-05:00,3731,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_dig",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.667-05:00,3742,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digi",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:58.788-05:00,3753,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digit",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:59.201-05:00,3764,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:59.512-05:00,3785,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:59.723-05:00,3789,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits =",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:59.991-05:00,3793,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:50:59.995-05:00,3797,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.178-05:00,3798,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = []",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.272-05:00,3804,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [d]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.389-05:00,3817,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [di]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.453-05:00,3830,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [dig]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.682-05:00,3842,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digi]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.859-05:00,3853,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:00.949-05:00,3867,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.033-05:00,3871,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit f]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.215-05:00,3891,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit fo]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.284-05:00,3905,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.358-05:00,3916,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.504-05:00,3920,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for d]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.561-05:00,3934,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for di]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.672-05:00,3938,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for dig]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:01.775-05:00,3942,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digi]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.228-05:00,3946,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.379-05:00,3951,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit,]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.466-05:00,3955,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.558-05:00,3959,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, c]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.706-05:00,3973,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, co]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.770-05:00,3977,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, cou]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.852-05:00,3981,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, coun]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:02.962-05:00,3985,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:03.137-05:00,3989,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:03.178-05:00,3993,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count i]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:03.400-05:00,4007,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:04.118-05:00,4036,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:04.280-05:00,4164,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in d]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:04.367-05:00,4192,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in di]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:04.427-05:00,4204,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in dig]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:04.580-05:00,4215,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digi]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.194-05:00,4226,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.364-05:00,4302,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.448-05:00,4306,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_c]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.663-05:00,4310,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_co]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.732-05:00,4314,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_cou]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.779-05:00,4318,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_coun]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:05.885-05:00,4322,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_count]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.068-05:00,4326,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.291-05:00,4330,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.347-05:00,4364,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.i]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.411-05:00,4378,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.it]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.496-05:00,4396,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.ite]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.615-05:00,4419,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.item]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.878-05:00,4459,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:06.881-05:00,4504,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items(]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:08.066-05:00,4505,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items()]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.269-05:00,4670,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.386-05:00,4893,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() i]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.500-05:00,4933,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.640-05:00,4982,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.724-05:00,4986,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if c]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.905-05:00,5021,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if co]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:10.964-05:00,5042,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if cou]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:11.067-05:00,5053,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if coun]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:11.228-05:00,5063,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:12.042-05:00,5082,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:12.830-05:00,5268,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count -]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:13.327-05:00,5440,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:13.380-05:00,5491,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count =]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:13.803-05:00,5509,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count ==]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:13.966-05:00,5534,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.019-05:00,5538,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == m]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.222-05:00,5552,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == ma]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.538-05:00,5579,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.601-05:00,5617,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.756-05:00,5629,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_f]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.845-05:00,5648,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_fr]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:14.925-05:00,5660,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_fre]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:15.043-05:00,5673,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_freq]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:15.114-05:00,5690,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequ]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:15.304-05:00,5706,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_freque]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:15.376-05:00,5727,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequen]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:15.583-05:00,5740,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequenc]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:16.547-05:00,5760,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:16.690-05:00,5803,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:18.799-05:00,5808,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:18.811-05:00,5866,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    r",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:19.586-05:00,5867,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    re",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:19.790-05:00,5917,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    ret",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:19.896-05:00,5930,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    retu",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:19.987-05:00,5941,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    retur",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:20.151-05:00,5951,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:20.724-05:00,5964,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digits[0]",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:20.891-05:00,6032,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digits[0",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.400-05:00,6036,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digits[",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.429-05:00,6113,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digits",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.464-05:00,6117,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digit",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.497-05:00,6121,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_digi",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.527-05:00,6125,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_dig",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.559-05:00,6129,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_di",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.591-05:00,6133,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_d",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.628-05:00,6137,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.660-05:00,6141,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequency",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.699-05:00,6145,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequenc",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.726-05:00,6149,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequen",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.759-05:00,6153,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_freque",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.792-05:00,6157,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_frequ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.824-05:00,6161,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_freq",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.857-05:00,6165,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_fre",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.889-05:00,6169,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_fr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.921-05:00,6173,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_f",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.955-05:00,6177,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max_",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:21.988-05:00,6181,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:22.080-05:00,6185,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:22.672-05:00,6189,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return m",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:22.858-05:00,6250,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return ma",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:23.137-05:00,6269,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:23.141-05:00,6280,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:23.377-05:00,6281,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:23.431-05:00,6285,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(m)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:23.615-05:00,6311,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(ma)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:24.985-05:00,6343,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:26.514-05:00,6369,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:26.523-05:00,6438,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+    ",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:26.677-05:00,6442,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:28.758-05:00,6446,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:28.951-05:00,6518,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+p",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.112-05:00,6545,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+pr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.194-05:00,6560,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+pri",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.257-05:00,6575,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+prin",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.562-05:00,6588,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.564-05:00,6616,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.903-05:00,6617,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:29.962-05:00,6645,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(m)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.159-05:00,6665,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(ma)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.430-05:00,6683,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.563-05:00,6698,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.659-05:00,6702,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_d)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.761-05:00,6706,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_di)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.820-05:00,6710,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_dig)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:30.940-05:00,6714,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digi)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:31.312-05:00,6718,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:31.316-05:00,6722,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:31.752-05:00,6723,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit())",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:31.757-05:00,6755,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit(""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.076-05:00,6756,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit(""""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.079-05:00,6761,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit(""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.269-05:00,6762,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit())",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.273-05:00,6766,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.495-05:00,6767,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit(''))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:32.666-05:00,6771,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('1'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:34.161-05:00,6783,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:34.927-05:00,6870,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:35.412-05:00,6943,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('1111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:35.603-05:00,7026,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:35.820-05:00,7030,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('111111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:35.990-05:00,7034,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('1111111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:37.509-05:00,7038,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.151-05:00,7122,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.250-05:00,7228,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+p",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.340-05:00,7247,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+pr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.426-05:00,7261,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+pri",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.480-05:00,7275,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+prin",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.821-05:00,7289,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:38.828-05:00,7300,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:39.203-05:00,7301,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:39.301-05:00,7308,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(m)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:39.783-05:00,7328,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(ms)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:39.799-05:00,7348,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(msa)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:39.915-05:00,7349,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(ms)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:40.202-05:00,7350,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(msx)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:40.348-05:00,7354,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(ms)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:40.392-05:00,7358,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(m)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:40.573-05:00,7362,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(ma)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:40.832-05:00,7382,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:41.000-05:00,7399,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:41.129-05:00,7410,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_d)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:41.221-05:00,7420,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_di)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:41.286-05:00,7430,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_dig)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:41.408-05:00,7440,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digi)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:44.153-05:00,7451,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:44.157-05:00,7524,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:44.646-05:00,7525,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit())",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:44.649-05:00,7595,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:45.126-05:00,7596,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:45.718-05:00,7676,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""1""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:46.053-05:00,7757,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""12""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:46.371-05:00,7764,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:46.629-05:00,7770,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""1230""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:47.483-05:00,7774,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""12303""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:48.013-05:00,7858,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:49.890-05:00,7942,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""1230346""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:50.182-05:00,8020,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""12303465""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:50.809-05:00,8024,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:51.042-05:00,8093,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""1230346559""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:51.536-05:00,8097,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""12303465594""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:52.942-05:00,8174,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:53.706-05:00,8241,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:53.827-05:00,8331,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+p",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:53.934-05:00,8348,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+pr",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.003-05:00,8363,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+pri",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.074-05:00,8375,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+prin",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.307-05:00,8389,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.311-05:00,8403,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.540-05:00,8404,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.614-05:00,8408,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(m)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:54.812-05:00,8428,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(ma)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:55.143-05:00,8441,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:55.447-05:00,8456,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(maxI)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:55.825-05:00,8460,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.114-05:00,8464,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.219-05:00,8468,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_d)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.325-05:00,8472,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_di)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.368-05:00,8476,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_dig)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.517-05:00,8480,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digi)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.868-05:00,8484,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit)",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:56.870-05:00,8500,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit()",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:57.530-05:00,8501,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit())",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:57.533-05:00,8577,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit('))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:57.721-05:00,8578,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit(''))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:59.159-05:00,8582,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""123034655943""))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:59.641-05:00,8659,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(""23034655943""))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:51:59.862-05:00,8733,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(23034655943""))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:52:04.169-05:00,8743,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit(123034655943""))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:52:05.634-05:00,8803,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit('123034655943'""))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:52:08.300-05:00,8889,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+    
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit('123034655943'))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python
+2024-11-07T11:52:27.994-05:00,8990,max_digit.py,127892,864527498,"# Write code for the max_digit task in this file
+
+# Write your code here
+from collections import Counter
+
+def max_digit(input_string):
+    digit_counts = Counter(input_string)
+    max_frequency = max(digit_counts.values())
+    max_frequency_digits = [digit for digit, count in digit_counts.items() if count == max_frequency]
+
+    return max(max_frequency_digits)
+
+print(max_digit('11111111'))
+print(max_digit('123034655943'))
+print(max_digit('4'))",1,ON,3,male,4,-1,max_digit,python

@@ -1,0 +1,18 @@
+2024-11-20T05:03:59.150Z [INFO]: Injected model: data-item
+2024-11-20T05:03:59.154Z [INFO]: Injected model: task/task-description
+2024-11-20T05:03:59.160Z [INFO]: Injected model: task/task
+2024-11-20T05:03:59.164Z [INFO]: Injected model: settings/settings-description
+2024-11-20T05:03:59.167Z [INFO]: Injected model: settings/settings
+2024-11-20T05:03:59.171Z [INFO]: Injected model: consts-lists/gender
+2024-11-20T05:03:59.173Z [INFO]: Injected model: consts-lists/country
+2024-11-20T05:03:59.176Z [INFO]: Injected model: activity-tracker-item
+2024-11-20T05:03:59.179Z [INFO]: Injected model: dialog-text/dialog-text-description
+2024-11-20T05:03:59.183Z [INFO]: Injected model: dialog-text/dialog-text
+2024-11-20T05:03:59.185Z [INFO]: Injected model: user
+2024-11-20T05:03:59.188Z [INFO]: Injected model: hint-item
+2024-11-20T05:03:59.301Z [ERROR]: Failed to inject routers: Cannot find module 'intel'
+Require stack:
+- C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\task-tracker-server\controllers\data-item-controller.js
+- C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\task-tracker-server\routers\data-item-router.js
+- C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\task-tracker-server\injector.js
+- C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\task-tracker-server\app.js

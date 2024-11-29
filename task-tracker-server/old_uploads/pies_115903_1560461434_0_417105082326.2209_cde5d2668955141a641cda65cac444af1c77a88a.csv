@@ -1,0 +1,91 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,test,gender,programExperienceYears,programExperienceMonths,country,chosenTask,programmingLanguage
+2024-10-13T17:09:55.421-04:00,0,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,-1,python
+2024-10-13T17:10:11.310-04:00,0,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:12.309-04:00,28,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:12.428-04:00,35,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+p",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:12.680-04:00,39,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+pr",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:12.703-04:00,46,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+pri",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:12.743-04:00,47,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+prin",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.063-04:00,59,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.071-04:00,69,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print(",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.466-04:00,70,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print()",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.473-04:00,74,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print(')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.664-04:00,75,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.722-04:00,85,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('h')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:13.908-04:00,93,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('he')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.060-04:00,131,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hel')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.201-04:00,177,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hell')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.465-04:00,226,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.568-04:00,283,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello ')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.793-04:00,308,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello w')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.872-04:00,320,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello wo')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:14.989-04:00,343,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello wor')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:15.122-04:00,388,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello worl')",1,ON,5,male,5,-1,canada,pies,python
+2024-10-13T17:10:17.067-04:00,435,pies.py,115903,1560461434,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello world')",1,ON,5,male,5,-1,canada,pies,python
