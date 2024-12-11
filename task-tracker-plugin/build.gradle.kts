@@ -1,6 +1,7 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 
 plugins {
     id("org.jetbrains.intellij.platform") version "2.1.0"
@@ -67,7 +68,8 @@ intellijPlatform {
 }
 
 javafx {
-    version = "15"
+    version = "21.0.4" +
+            ""
     modules("javafx.controls", "javafx.fxml", "javafx.swing")
     configuration = "compileOnly"
 }

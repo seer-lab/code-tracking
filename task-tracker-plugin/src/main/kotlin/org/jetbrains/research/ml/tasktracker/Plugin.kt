@@ -156,7 +156,7 @@ object Plugin {
         return RequiredPlugin(
             "JavaFX plugin",
             "com.intellij.javafx",
-            ResourceFile("JavaFX_plugin_1.0.4.zip", folder)
+            ResourceFile("JavaFX_plugin.zip", folder)
         )
     }
 
