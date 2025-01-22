@@ -5,7 +5,7 @@ const settings = {
                 'language': 'en',
                 'info': {
                     'surveyPane': {
-                        'program': 'Program of Study',
+                        'pin': 'Enter your survey PIN',
                         'year': 'Year',
                         'experience': 'Programming Experience',
                         // 'difficulty': 'How difficult do you think unit testing your project is?',

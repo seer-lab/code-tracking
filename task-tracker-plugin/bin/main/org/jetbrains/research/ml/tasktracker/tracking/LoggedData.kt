@@ -22,7 +22,7 @@ abstract class LoggedData<T, S> {
 }
 
 enum class UiLoggedDataHeader(val header: String) {
-    PROGRAM("program"),
+    PIN("pin"),
     YEAR("year"),
     PROGRAM_EXPERIENCE_YEARS("programExperienceYears"),
     PROGRAM_EXPERIENCE_MONTHS("programExperienceMonths"),
@@ -33,7 +33,7 @@ enum class UiLoggedDataHeader(val header: String) {
 
 object UiLoggedData : LoggedData<Unit, String>() {
     override val loggedDataGetters: List<LoggedDataGetter<Unit, String>> = arrayListOf(
-        LoggedDataGetter(UiLoggedDataHeader.PROGRAM.header) { SurveyUiData.program.uiValue.toString() },
+        LoggedDataGetter(UiLoggedDataHeader.PIN.header) { SurveyUiData.program.uiValue.toString() },
         LoggedDataGetter(UiLoggedDataHeader.YEAR.header) { SurveyUiData.year.toString() },
         LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_YEARS.header) { SurveyUiData.peYears.uiValue.toString() },
         LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_MONTHS.header) { SurveyUiData.peMonths.uiValue.toString() },

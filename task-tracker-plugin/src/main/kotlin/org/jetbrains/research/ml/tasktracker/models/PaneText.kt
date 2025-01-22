@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SurveyPaneText(
-    val program: String,
+    val pin: String,
     val year: String,
     val experience: String,
 //    val difficulty: String,

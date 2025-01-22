@@ -32,9 +32,9 @@ object SurveyControllerManager : ServerDependentPane<SurveyController>() {
 
 
 // Maybe its possible to make bounded properties instead?
-interface ProgramNotifier : Consumer<Int> {
+interface SurveyPin : Consumer<Int> {
     companion object {
-        val PROGRAM_NOTIFIER = Topic.create("program change", ProgramNotifier::class.java)
+        val PIN_NOTIFIER = Topic.create("pin change", SurveyPin::class.java)
     }
 }
 
@@ -79,7 +79,7 @@ object SurveyUiData : LanguagePaneUiData() {
     private val genders: List<Gender> = PluginServer.genders
     private val programmingLanguages: List<Language> = PluginServer.programmingLanguages
 
-    val program = UiField(-1, ProgramNotifier.PROGRAM_NOTIFIER, StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PROGRAM, -1))
+    val pin = UiField(-1, SurveyPin.PIN_NOTIFIER, StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PIN, -1))
     val year = ListedUiField(
         // TODO: Change genders to years. This needs to be done in both the server and plugin
         genders,
@@ -115,7 +115,7 @@ object SurveyUiData : LanguagePaneUiData() {
     )
 
     override fun getData() = listOf(
-        program,
+        pin,
         year,
         peYears,
         peMonths,
@@ -129,10 +129,10 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
     LanguagePaneController(project, scale, fxPanel, id) {
     // Age
     @FXML
-    private lateinit var programLabel: Label
+    private lateinit var pinLabel: Label
 
     @FXML
-    private lateinit var programTextField: TextField
+    private lateinit var pinTextField: TextField
 
     // Gender
     @FXML
@@ -223,7 +223,7 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         logger.info("${Plugin.PLUGIN_NAME}:${this::class.simpleName} init controller")
         mainPane.styleProperty().bind(Bindings.concat("-fx-font-size: ${scale}px;"))
         scalePolygons(arrayListOf(orangePolygon, bluePolygon))
-        initProgram()
+        initPin()
         initYear()
         initPeYears()
         initPeMonths()
@@ -234,14 +234,14 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         super.initialize(url, resource)
     }
 
-    private fun initProgram() {
-        programTextField.addIntegerFormatter(regexFilter("[1-9][0-9]{0,1}"))
-        programTextField.textProperty().addListener { _, _, new ->
-            paneUiData.program.uiValue = new.toIntOrNull() ?: paneUiData.program.defaultValue
+    private fun initPin() {
+        pinTextField.addIntegerFormatter(regexFilter("[1-9][0-9]{0,1}"))
+        pinTextField.textProperty().addListener { _, _, new ->
+            paneUiData.pin.uiValue = new.toIntOrNull() ?: paneUiData.pin.defaultValue
         }
-        subscribe(ProgramNotifier.PROGRAM_NOTIFIER, object : ProgramNotifier {
+        subscribe(SurveyPin.PIN_NOTIFIER, object : SurveyPin {
             override fun accept(newAge: Int) {
-                programTextField.text = newAge.toString()
+                pinTextField.text = newAge.toString()
                 startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
             }
         })
@@ -369,7 +369,7 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
                 val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
                 val surveyPaneText = translations?.get(newLanguage)
                 surveyPaneText?.let {
-                    programLabel.text = it.program
+                    pinLabel.text = it.pin
                     yearLabel.text = it.year
                     experienceLabel.text = it.experience
                     peYearsLabel.text = it.years

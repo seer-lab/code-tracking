@@ -31,11 +31,11 @@
         <Rectangle fx:id="yellowRectangle" arcHeight="5.0" arcWidth="5.0" fill="#fff782" height="${281.0 * scale}" layoutY="${415.0 * scale}" opacity="0.25" stroke="WHITE" strokeType="INSIDE" width="${560.0 * scale}" />
         <Polygon fx:id="bluePolygon" fill="#7abaf5" layoutX="${45.0 * scale}" layoutY="${238.0 * scale}" opacity="0.25" points="-45.0, 128.0, 515.0, 198.0, 515.0, -102.0, -45.0, -102.0" stroke="WHITE" strokeType="INSIDE" />
         <HBox layoutX="${30.0 * scale}" layoutY="${49.0 * scale}" styleClass="h-box">
-            <Label fx:id="programLabel" styleClass="sanserif-bold-20">
+            <Label fx:id="pinLabel" styleClass="sanserif-bold-20">
             </Label>
             <Pane>
-                <TextField fx:id="programTextField" prefHeight="${26.0 * scale}" prefWidth="${70.0 * scale}" />
-                <Line fx:id="programLine" endX="${-17.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
+                <TextField fx:id="pinTextField" prefHeight="${26.0 * scale}" prefWidth="${70.0 * scale}" />
+                <Line fx:id="pinLine" endX="${-17.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
             </Pane>
         </HBox>
         <Label fx:id="yearLabel" layoutX="${30.0 * scale}" layoutY="${110.0 * scale}" styleClass="sanserif-bold-20">
