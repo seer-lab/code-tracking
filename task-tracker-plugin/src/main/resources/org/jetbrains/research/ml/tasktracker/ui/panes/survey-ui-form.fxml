@@ -38,47 +38,7 @@
                 <Line fx:id="pinLine" endX="${123.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
             </Pane>
         </HBox>
-<!--        <Label fx:id="yearLabel" layoutX="${30.0 * scale}" layoutY="${110.0 * scale}" styleClass="sanserif-bold-20">-->
-<!--        </Label>-->
-<!--        <RadioButton fx:id="year1" layoutX="${80.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16">-->
-<!--            <toggleGroup>-->
-<!--                <ToggleGroup fx:id="yearGroup" />-->
-<!--            </toggleGroup>-->
-<!--        </RadioButton>-->
-<!--        <RadioButton fx:id="year2" layoutX="${80.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
-<!--        </RadioButton>-->
-<!--        <RadioButton fx:id="year3" layoutX="${80.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
-<!--        </RadioButton>-->
-<!--        <RadioButton fx:id="year4" layoutX="${340.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
-<!--        </RadioButton>-->
-<!--        <RadioButton fx:id="year5" layoutX="${340.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
-<!--        </RadioButton>-->
-<!--        <RadioButton fx:id="year6" layoutX="${340.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
-<!--        </RadioButton>-->
-<!--        <Label fx:id="experienceLabel" layoutX="${25.0 * scale}" layoutY="${290.0 * scale}" styleClass="sanserif-bold-20">-->
-<!--        </Label>-->
-<!--        <HBox layoutX="${25.0 * scale}" layoutY="${330.0 * scale}" styleClass="h-box">-->
-<!--            <Label fx:id="peYearsLabel" styleClass="sanserif-16">-->
-<!--            </Label>-->
-<!--            <Pane prefHeight="${25.0 * scale}" prefWidth="${70.0 * scale}">-->
-<!--                <TextField fx:id="peYearsTextField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="${25.0 * scale}" prefWidth="${70.0 * scale}" />-->
-<!--                <Line fx:id="peYearsLine" endX="${-17.0 * scale}" layoutX="${87.0 * scale}" layoutY="${22.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>-->
-<!--            </Pane>-->
-<!--        </HBox>-->
-<!--        <HBox fx:id="peMonthsHBox" layoutX="${301.0 * scale}" layoutY="${330.0 * scale}" styleClass="h-box">-->
-<!--            <Label fx:id="peMonthsLabel" styleClass="sanserif-16">-->
-<!--            </Label>-->
-<!--            <Pane prefHeight="${25.0 * scale}" prefWidth="${70.0 * scale}">-->
-<!--                <TextField fx:id="peMonthsTextField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="${25.0 * scale}" prefWidth="${70.0 * scale}" />-->
-<!--                <Line fx:id="peMonthsLine" endX="${-17.0 * scale}" layoutX="${87.0 * scale}" layoutY="${22.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>-->
-<!--            </Pane>-->
-<!--        </HBox>-->
-<!--        <Label fx:id="difficultyLabel" layoutX="${25.0 * scale}" layoutY="${390.0 * scale}" styleClass="sanserif-bold-20">-->
-<!--        </Label>-->
-<!--        <ComboBox fx:id="difficultyComboBox" layoutX="${80.0 * scale}" layoutY="${440.0 * scale}" prefHeight="${20.0 * scale}" prefWidth="${396.0 * scale}" />-->
         <ComboBox fx:id="languageComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="${25.0 * scale}" prefWidth="${40.0 * scale}" layoutX="${510.0 * scale}" layoutY="${8.0 * scale}" styleClass="language" visibleRowCount="5" visible="false"/>
-<!--        <ComboBox fx:id="programmingLanguageComboBox" layoutX="${80.0 * scale}" layoutY="${550.0 * scale}" prefHeight="${20.0 * scale}" prefWidth="${396.0 * scale}" />-->
-<!--        <Label fx:id="programmingLanguageLabel" layoutX="${25.0 * scale}" layoutY="${500.0 * scale}" styleClass="sanserif-bold-20" text="programming language:" />-->
         <Button fx:id="startWorkingButton" layoutX="${440.0 * scale}" layoutY="${610.0 * scale}" mnemonicParsing="false" prefHeight="${93.0 * scale}" prefWidth="${93.0 * scale}">
             <graphic>
                 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="${106.0 * scale}" prefWidth="${122.0 * scale}" styleClass="v-box">

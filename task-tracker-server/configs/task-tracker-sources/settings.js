@@ -6,11 +6,6 @@ const settings = {
                 'info': {
                     'surveyPane': {
                         'pin': 'Enter your survey PIN',
-                        // 'year': 'Year',
-                        // 'experience': 'Programming Experience',
-                        // 'difficulty': 'How difficult do you think unit testing your project is?',
-                        // 'years': 'Full years',
-                        // 'months': 'Months',
                         'startSession': 'Start the session',
                         'programmingLanguage': 'Programming language'
                     },
