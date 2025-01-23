@@ -38,23 +38,23 @@
                 <Line fx:id="pinLine" endX="${123.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
             </Pane>
         </HBox>
-        <Label fx:id="yearLabel" layoutX="${30.0 * scale}" layoutY="${110.0 * scale}" styleClass="sanserif-bold-20">
-        </Label>
-        <RadioButton fx:id="year1" layoutX="${80.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16">
-            <toggleGroup>
-                <ToggleGroup fx:id="yearGroup" />
-            </toggleGroup>
-        </RadioButton>
-        <RadioButton fx:id="year2" layoutX="${80.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">
-        </RadioButton>
-        <RadioButton fx:id="year3" layoutX="${80.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">
-        </RadioButton>
-        <RadioButton fx:id="year4" layoutX="${340.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">
-        </RadioButton>
-        <RadioButton fx:id="year5" layoutX="${340.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">
-        </RadioButton>
-        <RadioButton fx:id="year6" layoutX="${340.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">
-        </RadioButton>
+<!--        <Label fx:id="yearLabel" layoutX="${30.0 * scale}" layoutY="${110.0 * scale}" styleClass="sanserif-bold-20">-->
+<!--        </Label>-->
+<!--        <RadioButton fx:id="year1" layoutX="${80.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16">-->
+<!--            <toggleGroup>-->
+<!--                <ToggleGroup fx:id="yearGroup" />-->
+<!--            </toggleGroup>-->
+<!--        </RadioButton>-->
+<!--        <RadioButton fx:id="year2" layoutX="${80.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
+<!--        </RadioButton>-->
+<!--        <RadioButton fx:id="year3" layoutX="${80.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
+<!--        </RadioButton>-->
+<!--        <RadioButton fx:id="year4" layoutX="${340.0 * scale}" layoutY="${150.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
+<!--        </RadioButton>-->
+<!--        <RadioButton fx:id="year5" layoutX="${340.0 * scale}" layoutY="${190.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
+<!--        </RadioButton>-->
+<!--        <RadioButton fx:id="year6" layoutX="${340.0 * scale}" layoutY="${230.0 * scale}" mnemonicParsing="false" prefHeight="${26.0 * scale}" prefWidth="${221.0 * scale}" styleClass="sanserif-16" toggleGroup="$genderGroup">-->
+<!--        </RadioButton>-->
 <!--        <Label fx:id="experienceLabel" layoutX="${25.0 * scale}" layoutY="${290.0 * scale}" styleClass="sanserif-bold-20">-->
 <!--        </Label>-->
 <!--        <HBox layoutX="${25.0 * scale}" layoutY="${330.0 * scale}" styleClass="h-box">-->

@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const SettingsDescriptionSchema = new Schema({
     surveyPane: {
         pin: {type: String},
-        year: {type: String},
+        // year: {type: String},
         // experience: {type: String},
         // difficulty: {type: String},
         // years: {type: String},

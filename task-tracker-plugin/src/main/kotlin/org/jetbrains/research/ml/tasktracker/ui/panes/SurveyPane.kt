@@ -38,11 +38,11 @@ interface SurveyPin : Consumer<Int> {
     }
 }
 
-interface YearNotifier : Consumer<Int> {
-    companion object {
-        val YEAR_TOPIC = Topic.create("YEAR change", YearNotifier::class.java)
-    }
-}
+//interface YearNotifier : Consumer<Int> {
+//    companion object {
+//        val YEAR_TOPIC = Topic.create("YEAR change", YearNotifier::class.java)
+//    }
+//}
 
 //interface PeYearsNotifier : Consumer<Int> {
 //    companion object {
@@ -80,13 +80,13 @@ object SurveyUiData : LanguagePaneUiData() {
     private val programmingLanguages: List<Language> = PluginServer.programmingLanguages
 
     val pin = UiField(-1, SurveyPin.PIN_NOTIFIER, StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PIN, -1))
-    val year = ListedUiField(
-        // TODO: Change genders to years. This needs to be done in both the server and plugin
-        genders,
-        -1,
-        YearNotifier.YEAR_TOPIC,
-        initValue = StoredInfoHandler.getIndexByStoredKey(UiLoggedDataHeader.YEAR, genders, -1)
-    )
+//    val year = ListedUiField(
+//        // TODO: Change genders to years. This needs to be done in both the server and plugin
+//        genders,
+//        -1,
+//        YearNotifier.YEAR_TOPIC,
+//        initValue = StoredInfoHandler.getIndexByStoredKey(UiLoggedDataHeader.YEAR, genders, -1)
+//    )
 //    val peYears = UiField(
 //        -1,
 //        PeYearsNotifier.PE_YEARS_TOPIC,
@@ -116,7 +116,7 @@ object SurveyUiData : LanguagePaneUiData() {
 
     override fun getData() = listOf(
         pin,
-        year,
+//        year,
 //        peYears,
 //        peMonths,
 //        difficulty,
@@ -135,32 +135,32 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
     private lateinit var pinTextField: TextField
 
     // Gender
-    @FXML
-    private lateinit var yearLabel: Label
-
-    @FXML
-    private lateinit var yearGroup: ToggleGroup
-
-    @FXML
-    private lateinit var year1: RadioButton
-
-    @FXML
-    private lateinit var year2: RadioButton
-
-    @FXML
-    private lateinit var year3: RadioButton
-
-    @FXML
-    private lateinit var year4: RadioButton
-
-    @FXML
-    private lateinit var year5: RadioButton
-
-    @FXML
-    private lateinit var year6: RadioButton
-
-    @FXML
-    private lateinit var yearRadioButtons: List<RadioButton>
+//    @FXML
+//    private lateinit var yearLabel: Label
+//
+//    @FXML
+//    private lateinit var yearGroup: ToggleGroup
+//
+//    @FXML
+//    private lateinit var year1: RadioButton
+//
+//    @FXML
+//    private lateinit var year2: RadioButton
+//
+//    @FXML
+//    private lateinit var year3: RadioButton
+//
+//    @FXML
+//    private lateinit var year4: RadioButton
+//
+//    @FXML
+//    private lateinit var year5: RadioButton
+//
+//    @FXML
+//    private lateinit var year6: RadioButton
+//
+//    @FXML
+//    private lateinit var yearRadioButtons: List<RadioButton>
 
     // Program Experience
 //    @FXML
@@ -224,7 +224,7 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         mainPane.styleProperty().bind(Bindings.concat("-fx-font-size: ${scale}px;"))
         scalePolygons(arrayListOf(orangePolygon, bluePolygon))
         initPin()
-        initYear()
+//        initYear()
 //        initPeYears()
 //        initPeMonths()
 //        initDifficulty()
@@ -251,24 +251,23 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         })
     }
 
-    private fun initYear() {
-        //TODO: Change all gender references to year
-        yearRadioButtons = listOf(year1, year2, year3, year4, year5, year6)
-        val gendersSize = paneUiData.year.dataList.size
-        yearRadioButtons.forEachIndexed { i, rb -> rb.isVisible = i < gendersSize }
-
-        yearGroup.selectedToggleProperty().addListener { _, _, new ->
-            paneUiData.year.uiValue = yearRadioButtons.indexOf(new)
-        }
-        subscribe(YearNotifier.YEAR_TOPIC, object : YearNotifier {
-            override fun accept(newGenderIndex: Int) {
-                if (paneUiData.year.isValid(newGenderIndex)) {
-                    yearGroup.selectToggle(yearRadioButtons[newGenderIndex])
-                    startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
-                }
-            }
-        })
-    }
+//    private fun initYear() {
+//        yearRadioButtons = listOf(year1, year2, year3, year4, year5, year6)
+//        val gendersSize = paneUiData.year.dataList.size
+//        yearRadioButtons.forEachIndexed { i, rb -> rb.isVisible = i < gendersSize }
+//
+//        yearGroup.selectedToggleProperty().addListener { _, _, new ->
+//            paneUiData.year.uiValue = yearRadioButtons.indexOf(new)
+//        }
+//        subscribe(YearNotifier.YEAR_TOPIC, object : YearNotifier {
+//            override fun accept(newGenderIndex: Int) {
+//                if (paneUiData.year.isValid(newGenderIndex)) {
+//                    yearGroup.selectToggle(yearRadioButtons[newGenderIndex])
+//                    startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
+//                }
+//            }
+//        })
+//    }
 
 //    private fun initPeYears() {
 //        peYearsTextField.addIntegerFormatter(regexFilter("0|[1-9][0-9]{0,1}"))
@@ -374,7 +373,7 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
                 val surveyPaneText = translations?.get(newLanguage)
                 surveyPaneText?.let {
                     pinLabel.text = it.pin
-                    yearLabel.text = it.year
+//                    yearLabel.text = it.year
 //                    experienceLabel.text = it.experience
 //                    peYearsLabel.text = it.years
 //                    peMonthsLabel.text = it.months
@@ -384,9 +383,9 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
 //                    paneUiData.difficulty.dataListComparator =
 //                        compareBy { c -> c.translation.getOrDefault(newLanguage, "") }
                 }
-                yearRadioButtons.zip(paneUiData.year.dataList) { rb, g ->
-                    rb.text = g.translation[newLanguage] ?: ""
-                }
+//                yearRadioButtons.zip(paneUiData.year.dataList) { rb, g ->
+//                    rb.text = g.translation[newLanguage] ?: ""
+//                }
             }
         })
     }
