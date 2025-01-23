@@ -24,8 +24,8 @@ abstract class LoggedData<T, S> {
 enum class UiLoggedDataHeader(val header: String) {
     PIN("program"),
     YEAR("year"),
-    PROGRAM_EXPERIENCE_YEARS("programExperienceYears"),
-    PROGRAM_EXPERIENCE_MONTHS("programExperienceMonths"),
+//    PROGRAM_EXPERIENCE_YEARS("programExperienceYears"),
+//    PROGRAM_EXPERIENCE_MONTHS("programExperienceMonths"),
 //    DIFFICULTY("difficulty"),
     CHOSEN_TASK("chosenTask"),
     PROGRAMMING_LANGUAGE("programmingLanguage")
@@ -35,8 +35,8 @@ object UiLoggedData : LoggedData<Unit, String>() {
     override val loggedDataGetters: List<LoggedDataGetter<Unit, String>> = arrayListOf(
         LoggedDataGetter(UiLoggedDataHeader.PIN.header) { SurveyUiData.pin.uiValue.toString() },
         LoggedDataGetter(UiLoggedDataHeader.YEAR.header) { SurveyUiData.year.toString() },
-        LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_YEARS.header) { SurveyUiData.peYears.uiValue.toString() },
-        LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_MONTHS.header) { SurveyUiData.peMonths.uiValue.toString() },
+//        LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_YEARS.header) { SurveyUiData.peYears.uiValue.toString() },
+//        LoggedDataGetter(UiLoggedDataHeader.PROGRAM_EXPERIENCE_MONTHS.header) { SurveyUiData.peMonths.uiValue.toString() },
 //        LoggedDataGetter(UiLoggedDataHeader.DIFFICULTY.header) {SurveyUiData.difficulty.toString() },
         LoggedDataGetter(UiLoggedDataHeader.CHOSEN_TASK.header) { TaskChoosingUiData.chosenTask.toString() },
         LoggedDataGetter(UiLoggedDataHeader.PROGRAMMING_LANGUAGE.header) { SurveyUiData.programmingLanguage.toString() }

@@ -7,10 +7,10 @@ const SettingsDescriptionSchema = new Schema({
     surveyPane: {
         pin: {type: String},
         year: {type: String},
-        experience: {type: String},
+        // experience: {type: String},
         // difficulty: {type: String},
-        years: {type: String},
-        months: {type: String},
+        // years: {type: String},
+        // months: {type: String},
         startSession: {type: String},
         programmingLanguage: {type: String}
     },

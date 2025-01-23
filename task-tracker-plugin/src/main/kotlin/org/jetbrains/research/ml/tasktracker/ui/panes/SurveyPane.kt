@@ -44,17 +44,17 @@ interface YearNotifier : Consumer<Int> {
     }
 }
 
-interface PeYearsNotifier : Consumer<Int> {
-    companion object {
-        val PE_YEARS_TOPIC = Topic.create("program experience years change", PeYearsNotifier::class.java)
-    }
-}
-
-interface PeMonthsNotifier : Consumer<Int> {
-    companion object {
-        val PE_MONTHS_TOPIC = Topic.create("program experience months change", PeMonthsNotifier::class.java)
-    }
-}
+//interface PeYearsNotifier : Consumer<Int> {
+//    companion object {
+//        val PE_YEARS_TOPIC = Topic.create("program experience years change", PeYearsNotifier::class.java)
+//    }
+//}
+//
+//interface PeMonthsNotifier : Consumer<Int> {
+//    companion object {
+//        val PE_MONTHS_TOPIC = Topic.create("program experience months change", PeMonthsNotifier::class.java)
+//    }
+//}
 
 //interface DifficultyNotifier : Consumer<Int> {
 //    companion object {
@@ -87,18 +87,18 @@ object SurveyUiData : LanguagePaneUiData() {
         YearNotifier.YEAR_TOPIC,
         initValue = StoredInfoHandler.getIndexByStoredKey(UiLoggedDataHeader.YEAR, genders, -1)
     )
-    val peYears = UiField(
-        -1,
-        PeYearsNotifier.PE_YEARS_TOPIC,
-        StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PROGRAM_EXPERIENCE_YEARS, -1)
-
-    )
-    val peMonths = UiField(
-        -1,
-        PeMonthsNotifier.PE_MONTHS_TOPIC,
-        StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PROGRAM_EXPERIENCE_MONTHS, -1),
-        false
-    )
+//    val peYears = UiField(
+//        -1,
+//        PeYearsNotifier.PE_YEARS_TOPIC,
+//        StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PROGRAM_EXPERIENCE_YEARS, -1)
+//
+//    )
+//    val peMonths = UiField(
+//        -1,
+//        PeMonthsNotifier.PE_MONTHS_TOPIC,
+//        StoredInfoHandler.getIntStoredField(UiLoggedDataHeader.PROGRAM_EXPERIENCE_MONTHS, -1),
+//        false
+//    )
 //    val difficulty = ListedUiField(
 //        difficulties,
 //        -1,
@@ -117,8 +117,8 @@ object SurveyUiData : LanguagePaneUiData() {
     override fun getData() = listOf(
         pin,
         year,
-        peYears,
-        peMonths,
+//        peYears,
+//        peMonths,
 //        difficulty,
 //        programmingLanguage,
         language
@@ -163,23 +163,23 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
     private lateinit var yearRadioButtons: List<RadioButton>
 
     // Program Experience
-    @FXML
-    private lateinit var experienceLabel: Label
-
-    @FXML
-    private lateinit var peYearsLabel: Label
-
-    @FXML
-    private lateinit var peYearsTextField: TextField
-
-    @FXML
-    private lateinit var peMonthsHBox: HBox
-
-    @FXML
-    private lateinit var peMonthsLabel: Label
-
-    @FXML
-    private lateinit var peMonthsTextField: TextField
+//    @FXML
+//    private lateinit var experienceLabel: Label
+//
+//    @FXML
+//    private lateinit var peYearsLabel: Label
+//
+//    @FXML
+//    private lateinit var peYearsTextField: TextField
+//
+//    @FXML
+//    private lateinit var peMonthsHBox: HBox
+//
+//    @FXML
+//    private lateinit var peMonthsLabel: Label
+//
+//    @FXML
+//    private lateinit var peMonthsTextField: TextField
 
     // Country
 //    @FXML
@@ -225,8 +225,8 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         scalePolygons(arrayListOf(orangePolygon, bluePolygon))
         initPin()
         initYear()
-        initPeYears()
-        initPeMonths()
+//        initPeYears()
+//        initPeMonths()
 //        initDifficulty()
 //        initProgrammingLanguage()
         initStartWorkingButton()
@@ -270,39 +270,39 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
         })
     }
 
-    private fun initPeYears() {
-        peYearsTextField.addIntegerFormatter(regexFilter("0|[1-9][0-9]{0,1}"))
-        peYearsTextField.textProperty().addListener { _, _, new ->
-            paneUiData.peYears.uiValue = new.toIntOrNull() ?: paneUiData.peYears.defaultValue
-        }
-        subscribe(PeYearsNotifier.PE_YEARS_TOPIC, object : PeYearsNotifier {
-            override fun accept(newPeYears: Int) {
-                peYearsTextField.text = newPeYears.toString()
-                val isPeMonthsRequired =
-                    !paneUiData.peYears.isUiValueDefault && newPeYears < PE_YEARS_NUMBER_TO_SHOW_MONTHS
-                paneUiData.peMonths.isRequired = isPeMonthsRequired
-                peMonthsHBox.isVisible = isPeMonthsRequired
-                if (!isPeMonthsRequired) {
-                    paneUiData.peMonths.uiValue = paneUiData.peMonths.defaultValue
-                }
-                startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
-            }
-        })
-    }
-
-    private fun initPeMonths() {
-        peMonthsHBox.isVisible = paneUiData.peMonths.isRequired
-        peMonthsTextField.addIntegerFormatter(regexFilter("[0-9]|1[01]"))
-        peMonthsTextField.textProperty().addListener { _, old, new ->
-            paneUiData.peMonths.uiValue = new.toIntOrNull() ?: paneUiData.peMonths.defaultValue
-        }
-        subscribe(PeMonthsNotifier.PE_MONTHS_TOPIC, object : PeMonthsNotifier {
-            override fun accept(newPeMonths: Int) {
-                peMonthsTextField.text = newPeMonths.toString()
-                startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
-            }
-        })
-    }
+//    private fun initPeYears() {
+//        peYearsTextField.addIntegerFormatter(regexFilter("0|[1-9][0-9]{0,1}"))
+//        peYearsTextField.textProperty().addListener { _, _, new ->
+//            paneUiData.peYears.uiValue = new.toIntOrNull() ?: paneUiData.peYears.defaultValue
+//        }
+//        subscribe(PeYearsNotifier.PE_YEARS_TOPIC, object : PeYearsNotifier {
+//            override fun accept(newPeYears: Int) {
+//                peYearsTextField.text = newPeYears.toString()
+//                val isPeMonthsRequired =
+//                    !paneUiData.peYears.isUiValueDefault && newPeYears < PE_YEARS_NUMBER_TO_SHOW_MONTHS
+//                paneUiData.peMonths.isRequired = isPeMonthsRequired
+//                peMonthsHBox.isVisible = isPeMonthsRequired
+//                if (!isPeMonthsRequired) {
+//                    paneUiData.peMonths.uiValue = paneUiData.peMonths.defaultValue
+//                }
+//                startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
+//            }
+//        })
+//    }
+//
+//    private fun initPeMonths() {
+//        peMonthsHBox.isVisible = paneUiData.peMonths.isRequired
+//        peMonthsTextField.addIntegerFormatter(regexFilter("[0-9]|1[01]"))
+//        peMonthsTextField.textProperty().addListener { _, old, new ->
+//            paneUiData.peMonths.uiValue = new.toIntOrNull() ?: paneUiData.peMonths.defaultValue
+//        }
+//        subscribe(PeMonthsNotifier.PE_MONTHS_TOPIC, object : PeMonthsNotifier {
+//            override fun accept(newPeMonths: Int) {
+//                peMonthsTextField.text = newPeMonths.toString()
+//                startWorkingButton.isDisable = paneUiData.anyRequiredDataDefault()
+//            }
+//        })
+//    }
 
 //    private fun initDifficulty() {
 ////        Todo: make it autocomplete https://stackoverflow.com/questions/19924852/autocomplete-combobox-in-javafx
@@ -375,9 +375,9 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
                 surveyPaneText?.let {
                     pinLabel.text = it.pin
                     yearLabel.text = it.year
-                    experienceLabel.text = it.experience
-                    peYearsLabel.text = it.years
-                    peMonthsLabel.text = it.months
+//                    experienceLabel.text = it.experience
+//                    peYearsLabel.text = it.years
+//                    peMonthsLabel.text = it.months
 //                    difficultyLabel.text = it.difficulty
                     startWorkingText.text = it.startSession
 //                    programmingLanguageLabel.text = it.programmingLanguage

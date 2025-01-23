@@ -6,10 +6,10 @@ import kotlinx.serialization.Serializable
 data class SurveyPaneText(
     val pin: String,
     val year: String,
-    val experience: String,
+//    val experience: String,
 //    val difficulty: String,
-    val years: String,
-    val months: String,
+//    val years: String,
+//    val months: String,
     val startSession: String,
     val programmingLanguage: String
 )
