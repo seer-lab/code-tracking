@@ -3412,3 +3412,76 @@ Wed Jan 22 2025 21:13:02 GMT-0500 (Eastern Standard Time): 3 genders were receiv
 Wed Jan 22 2025 21:13:02 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
 Wed Jan 22 2025 21:13:02 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
 Wed Jan 22 2025 21:13:02 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Wed Jan 22 2025 21:47:58 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Wed Jan 22 2025 21:58:05 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Wed Jan 22 2025 22:13:44 GMT-0500 (Eastern Standard Time): 1 data items were received successfully
+Wed Jan 22 2025 22:15:37 GMT-0500 (Eastern Standard Time): file was not received Error: File was not received
+    at C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\routers\data-item-router.js:18:70
+    at Layer.handle [as handle_request] (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\multer\lib\make-middleware.js:53:37
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at listener (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\on-finished\index.js:170:15)
+    at onFinish (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\on-finished\index.js:101:5)
+    at callback (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\ee-first\index.js:55:10)
+    at IncomingMessage.onevent (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\ee-first\index.js:93:5)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Wed Jan 22 2025 22:22:50 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Wed Jan 22 2025 22:25:32 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Wed Jan 22 2025 22:27:28 GMT-0500 (Eastern Standard Time): file was not received Error: File was not received
+    at C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\routers\data-item-router.js:18:70
+    at Layer.handle [as handle_request] (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\multer\lib\make-middleware.js:53:37
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at listener (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\on-finished\index.js:170:15)
+    at onFinish (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\on-finished\index.js:101:5)
+    at callback (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\ee-first\index.js:55:10)
+    at IncomingMessage.onevent (C:\Users\Daniel\Documents\Ontario Tech\Computer Science Thesis Project\code-tracking\task-tracker-server\node_modules\ee-first\index.js:93:5)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Wed Jan 22 2025 22:29:10 GMT-0500 (Eastern Standard Time):Settings was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task pies was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task max_3 was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task is_zero was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task max_digit was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task voting was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Task brackets was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
+Wed Jan 22 2025 22:29:11 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Wed Jan 22 2025 22:31:30 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Wed Jan 22 2025 22:32:07 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Wed Jan 22 2025 22:32:39 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time):Settings was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task pies was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task max_3 was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task is_zero was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task max_digit was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task voting was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Task brackets was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
+Wed Jan 22 2025 22:33:16 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Wed Jan 22 2025 22:34:20 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
