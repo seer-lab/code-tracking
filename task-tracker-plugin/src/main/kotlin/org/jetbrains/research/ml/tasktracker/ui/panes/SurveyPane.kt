@@ -142,11 +142,15 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
     private fun makeTranslatable() {
         subscribe(LanguageNotifier.LANGUAGE_TOPIC, object : LanguageNotifier {
             override fun accept(newLanguageIndex: Int) {
-                val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
-                val surveyPaneText = translations?.get(newLanguage)
-                surveyPaneText?.let {
-                    pinLabel.text = it.pin
-                    startWorkingText.text = it.startSession
+                if (LanguagePaneUiData.language.dataList.isNotEmpty()) {
+                    val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
+                    val surveyPaneText = translations?.get(newLanguage)
+                    surveyPaneText?.let {
+                        pinLabel.text = it.pin
+                        startWorkingText.text = it.startSession
+                    }
+                } else {
+                    logger.warn("Language data list is empty.")
                 }
             }
         })

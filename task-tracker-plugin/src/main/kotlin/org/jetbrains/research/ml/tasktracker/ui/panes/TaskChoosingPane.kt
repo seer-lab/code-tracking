@@ -98,7 +98,16 @@ class TaskChoosingController(project: Project, scale: Double, fxPanel: JFXPanel,
     }
 
     private fun initChoseTaskComboBox() {
-        choseTaskObservableList = FXCollections.observableList(paneUiData.chosenTask.dataList.map {
+        val dataList = paneUiData.chosenTask.dataList
+        if (dataList.isEmpty()) {
+            logger.warn("No tasks available to populate ComboBox.")
+            choseTaskObservableList = FXCollections.observableArrayList("No tasks available")
+            choseTaskComboBox.isDisable = true
+            startSolvingButton.isDisable = true
+            return
+        }
+
+        choseTaskObservableList = FXCollections.observableList(dataList.map {
             it.infoTranslation[LanguagePaneUiData.language.currentValue]?.name
         })
         choseTaskComboBox.items = choseTaskObservableList
