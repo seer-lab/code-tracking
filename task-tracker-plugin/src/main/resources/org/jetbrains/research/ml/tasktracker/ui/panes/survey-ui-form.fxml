@@ -34,8 +34,8 @@
             <Label fx:id="pinLabel" styleClass="sanserif-bold-20">
             </Label>
             <Pane>
-                <TextField fx:id="pinTextField" prefHeight="${26.0 * scale}" prefWidth="${70.0 * scale}" />
-                <Line fx:id="pinLine" endX="${-17.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
+                <TextField fx:id="pinTextField" prefHeight="${26.0 * scale}" prefWidth="${140.0 * scale}" />
+                <Line fx:id="pinLine" endX="${123.0 * scale}" layoutX="${85.0 * scale}" layoutY="${25.0 * scale}" startX="${-87.0 * scale}" styleClass="line"/>
             </Pane>
         </HBox>
         <Label fx:id="yearLabel" layoutX="${30.0 * scale}" layoutY="${110.0 * scale}" styleClass="sanserif-bold-20">

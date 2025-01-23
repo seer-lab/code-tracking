@@ -235,8 +235,12 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
     }
 
     private fun initPin() {
-        pinTextField.addIntegerFormatter(regexFilter("[1-9][0-9]{0,1}"))
-        pinTextField.textProperty().addListener { _, _, new ->
+        pinTextField.textProperty().addListener { _, oldValue, newValue ->
+            if (!newValue.matches("\\d{0,7}".toRegex())) {
+                pinTextField.text = oldValue
+            }
+        }
+        pinTextField.textProperty().addListener {_, _, new ->
             paneUiData.pin.uiValue = new.toIntOrNull() ?: paneUiData.pin.defaultValue
         }
         subscribe(SurveyPin.PIN_NOTIFIER, object : SurveyPin {
