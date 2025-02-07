@@ -163,20 +163,22 @@ class TaskChoosingController(project: Project, scale: Double, fxPanel: JFXPanel,
     private fun makeTranslatable() {
         subscribe(LanguageNotifier.LANGUAGE_TOPIC, object : LanguageNotifier {
             override fun accept(newLanguageIndex: Int) {
-                val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
-                val taskChooserPaneText = translations?.get(newLanguage)
-                taskChooserPaneText?.let { it ->
-                    choseTaskLabel.text = it.chooseTask
-                    startSolvingText.text = it.startSolving
-                    finishWorkText.text = it.finishSession
-                    val text = translations?.get(newLanguage)?.description ?: ""
-                    setInstruction()
-                    changeComboBoxItems(
-                        choseTaskComboBox,
-                        choseTaskObservableList,
-                        paneUiData.chosenTask.dataList.map { task ->
-                            task.infoTranslation[LanguagePaneUiData.language.currentValue]?.name
-                        })
+                if (LanguagePaneUiData.language.dataList.isNotEmpty()) {
+                    val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
+                    val taskChooserPaneText = translations?.get(newLanguage)
+                    taskChooserPaneText?.let { it ->
+                        choseTaskLabel.text = it.chooseTask
+                        startSolvingText.text = it.startSolving
+                        finishWorkText.text = it.finishSession
+                        val text = translations?.get(newLanguage)?.description ?: ""
+                        setInstruction()
+                        changeComboBoxItems(
+                            choseTaskComboBox,
+                            choseTaskObservableList,
+                            paneUiData.chosenTask.dataList.map { task ->
+                                task.infoTranslation[LanguagePaneUiData.language.currentValue]?.name
+                            })
+                    }
                 }
             }
         })

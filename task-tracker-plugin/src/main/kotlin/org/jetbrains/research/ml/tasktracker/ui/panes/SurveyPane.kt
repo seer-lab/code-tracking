@@ -150,7 +150,7 @@ class SurveyController(project: Project, scale: Double, fxPanel: JFXPanel, id: I
                         startWorkingText.text = it.startSession
                     }
                 } else {
-                    logger.warn("Language data list is empty.")
+                    logger.warn("Language data list is empty. Defaulting to English.")
                 }
             }
         })

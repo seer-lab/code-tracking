@@ -54,13 +54,15 @@ class FinalController(project: Project, scale: Double, fxPanel: JFXPanel, id: In
     private fun makeTranslatable() {
         subscribe(LanguageNotifier.LANGUAGE_TOPIC, object : LanguageNotifier {
             override fun accept(newLanguageIndex: Int) {
-                val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
-                val finishPaneText = translations?.get(newLanguage)
-                finishPaneText?.let {
-                    greatWorkLabel.text = it.praise
-                    messageText.text = it.finalMessage
-                    backToTasksText.text = it.backToTasks
-                    backToProfileText.text = it.backToSurvey
+                if (LanguagePaneUiData.language.dataList.isNotEmpty()) {
+                    val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
+                    val finalPaneText = translations?.get(newLanguage)
+                    finalPaneText?.let {
+                        greatWorkLabel.text = it.praise
+                        messageText.text = it.finalMessage
+                        backToTasksText.text = it.backToTasks
+                        backToProfileText.text = it.backToSurvey
+                    }
                 }
             }
         })

@@ -112,23 +112,25 @@ class TaskSolvingController(project: Project, scale: Double, fxPanel: JFXPanel, 
     private fun makeTranslatable() {
         subscribe(LanguageNotifier.LANGUAGE_TOPIC, object : LanguageNotifier {
             override fun accept(newLanguageIndex: Int) {
-                val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
-                val taskPaneText = translations?.get(newLanguage)
-                taskPaneText?.let {
-                    taskInputHeaderText.text = it.inputData
-                    taskOutputHeaderText.text = it.outputData
-                    inputLabel.text = it.inputData
-                    outputLabel.text = it.outputData
-                    sendSolutionText.text = it.submit
-                    backToTasksText.text = it.backToTasks
-                }
+                if (LanguagePaneUiData.language.dataList.isNotEmpty()) {
+                    val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
+                    val taskPaneText = translations?.get(newLanguage)
+                    taskPaneText?.let {
+                        taskInputHeaderText.text = it.inputData
+                        taskOutputHeaderText.text = it.outputData
+                        inputLabel.text = it.inputData
+                        outputLabel.text = it.outputData
+                        sendSolutionText.text = it.submit
+                        backToTasksText.text = it.backToTasks
+                    }
 
-                val taskInfo = TaskChoosingUiData.chosenTask.currentValue?.infoTranslation?.get(newLanguage)
-                taskInfo?.let {
-                    taskNameText.text = it.name
-                    taskDescriptionText.text = it.description
-                    taskInputText.text = it.input
-                    taskOutputText.text = it.output
+                    val taskInfo = TaskChoosingUiData.chosenTask.currentValue?.infoTranslation?.get(newLanguage)
+                    taskInfo?.let {
+                        taskNameText.text = it.name
+                        taskDescriptionText.text = it.description
+                        taskInputText.text = it.input
+                        taskOutputText.text = it.output
+                    }
                 }
             }
         })

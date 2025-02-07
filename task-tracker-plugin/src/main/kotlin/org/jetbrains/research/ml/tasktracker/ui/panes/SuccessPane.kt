@@ -71,14 +71,17 @@ class SuccessController(project: Project, scale: Double, fxPanel: JFXPanel, id: 
         backToTasksButton.onMouseClicked { changeVisiblePane(TaskChoosingControllerManager) }
     }
 
+
     private fun makeTranslatable() {
         subscribe(LanguageNotifier.LANGUAGE_TOPIC, object : LanguageNotifier {
             override fun accept(newLanguageIndex: Int) {
-                val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
-                val successPaneText = translations?.get(newLanguage)
-                successPaneText?.let {
-                    setSuccessText()
-                    backToTasksText.text = it.backToTasks
+                if (LanguagePaneUiData.language.dataList.isNotEmpty()) {
+                    val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
+                    val successPaneText = translations?.get(newLanguage)
+                    successPaneText?.let {
+                        setSuccessText()
+                        backToTasksText.text = it.backToTasks
+                    }
                 }
             }
         })
