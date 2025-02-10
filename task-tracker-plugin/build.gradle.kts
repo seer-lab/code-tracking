@@ -50,6 +50,7 @@ dependencies {
     implementation("org.openjfx:javafx-controls:21.0.4")
     implementation("org.openjfx:javafx-fxml:21.0.4")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 
     testImplementation("junit:junit:4.12")
 

@@ -3825,3 +3825,126 @@ Thu Jan 23 2025 18:36:10 GMT-0500 (Eastern Standard Time): Task brackets was cre
 Thu Jan 23 2025 18:36:10 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
 Thu Jan 23 2025 18:36:10 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
 Thu Jan 23 2025 18:36:10 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Sat Feb 08 2025 21:18:39 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time):Settings was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task pies was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task max_3 was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task is_zero was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task max_digit was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task voting was created successfully
+Sat Feb 08 2025 21:18:42 GMT-0500 (Eastern Standard Time): Task brackets was created successfully
+Sat Feb 08 2025 21:18:43 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
+Sat Feb 08 2025 21:18:43 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
+Sat Feb 08 2025 21:18:43 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Sat Feb 08 2025 21:21:28 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Sat Feb 08 2025 21:21:41 GMT-0500 (Eastern Standard Time): User was created successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): Activity tracker item was created successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): Data item was created successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): User with id 1 was received successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): Data item with id 1 was received successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): Activity tracker item with id 1 was received successfully
+Sat Feb 08 2025 21:21:56 GMT-0500 (Eastern Standard Time): user 1 was updates successfully. Added data: di 1, ati 1
+Sat Feb 08 2025 21:22:17 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Sat Feb 08 2025 21:22:35 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Sat Feb 08 2025 21:24:56 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Sat Feb 08 2025 21:25:15 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 09:56:13 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 09:56:42 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 09:56:43 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 09:59:55 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:00:13 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:01:46 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time):Settings was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task pies was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task max_3 was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task is_zero was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task max_digit was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task voting was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Task brackets was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
+Mon Feb 10 2025 10:01:59 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:07:33 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:17:21 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:21:29 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:22:19 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:26:08 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 10 2025 10:29:44 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 10 2025 10:30:16 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
