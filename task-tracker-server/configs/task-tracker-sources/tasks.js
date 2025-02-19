@@ -66,9 +66,9 @@ const tasks = [
                     'language': 'en',
                     'info': {
                         'name': 'Path Coverage',
-                        "description": "Ensures that every unique path through the program, from start to finish, is executed at least once.\n" +
-                            "System: Design test cases to cover all possible paths in the control flow graph of the program.\n" +
-                            "Completion criterion: A test case for every distinct control flow path.\n" +
+                        "description": "Ensures that every unique path through the program, from start to finish, is executed at least once.\n\n" +
+                            "System: Design test cases to cover all possible paths in the control flow graph of the program.\n\n" +
+                            "Completion criterion: A test case for every distinct control flow path.\n\n" +
                             "Note: You only need to do path coverage for the provided code for this study.",
                         'input': 'TBD',
                         'output': 'TBD'

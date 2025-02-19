@@ -69,11 +69,11 @@ class TaskSolvingController(project: Project, scale: Double, fxPanel: JFXPanel, 
     }
 
     private fun initTaskInfo() {
-        exampleTexts = listOf(
-            ExampleText(firstExampleInput, firstExampleOutput),
-            ExampleText(secondExampleInput, secondExampleOutput),
-            ExampleText(thirdExampleInput, thirdExampleOutput)
-        )
+//        exampleTexts = listOf(
+//            ExampleText(firstExampleInput, firstExampleOutput),
+//            ExampleText(secondExampleInput, secondExampleOutput),
+//            ExampleText(thirdExampleInput, thirdExampleOutput)
+//        )
         subscribe(ChosenTaskNotifier.CHOSEN_TASK_TOPIC, object : ChosenTaskNotifier {
             override fun accept(newTaskIndex: Int) {
                 val newTask = TaskChoosingUiData.chosenTask.currentValue
@@ -82,13 +82,13 @@ class TaskSolvingController(project: Project, scale: Double, fxPanel: JFXPanel, 
                     newTaskInfo?.let {
                         taskNameText.text = it.name
                         taskDescriptionText.text = it.description
-                        taskInputText.text = it.input
-                        taskOutputText.text = it.output
+//                        taskInputText.text = it.input
+//                        taskOutputText.text = it.output
                     }
-                    exampleTexts.zip(newTask.examples) { t, e ->
-                        t.input.text = e.input
-                        t.output.text = e.output
-                    }
+//                    exampleTexts.zip(newTask.examples) { t, e ->
+//                        t.input.text = e.input
+//                        t.output.text = e.output
+//                    }
                 }
             }
         })
@@ -115,10 +115,10 @@ class TaskSolvingController(project: Project, scale: Double, fxPanel: JFXPanel, 
                 val newLanguage = LanguagePaneUiData.language.dataList[newLanguageIndex]
                 val taskPaneText = translations?.get(newLanguage)
                 taskPaneText?.let {
-                    taskInputHeaderText.text = it.inputData
-                    taskOutputHeaderText.text = it.outputData
-                    inputLabel.text = it.inputData
-                    outputLabel.text = it.outputData
+//                    taskInputHeaderText.text = it.inputData
+//                    taskOutputHeaderText.text = it.outputData
+//                    inputLabel.text = it.inputData
+//                    outputLabel.text = it.outputData
                     sendSolutionText.text = it.submit
                     backToTasksText.text = it.backToTasks
                 }
