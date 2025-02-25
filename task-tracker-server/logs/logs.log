@@ -3855,3 +3855,57 @@ Mon Feb 24 2025 13:52:14 GMT-0500 (Eastern Standard Time): 3 genders were receiv
 Mon Feb 24 2025 13:52:14 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
 Mon Feb 24 2025 13:52:14 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
 Mon Feb 24 2025 13:52:14 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 24 2025 21:06:20 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time):Settings was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task pies was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task max_3 was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task is_zero was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task max_digit was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task voting was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Task brackets was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Dialog text successful_submit was created successfully
+Mon Feb 24 2025 21:06:33 GMT-0500 (Eastern Standard Time): Dialog text task_submit_error was created successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 24 2025 21:07:41 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): Settings was received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): 1 languages were received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): 6 tasks were received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): 3 genders were received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): 1 countries were received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): Dialog text task_solving_error was received successfully
+Mon Feb 24 2025 21:07:57 GMT-0500 (Eastern Standard Time): 1 programming languages were received successfully
+Mon Feb 24 2025 21:08:38 GMT-0500 (Eastern Standard Time): User was created successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): Activity tracker item was created successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): Data item was created successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): User with id 1 was received successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): Data item with id 1 was received successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): Activity tracker item with id 1 was received successfully
+Mon Feb 24 2025 21:11:42 GMT-0500 (Eastern Standard Time): user 1 was updates successfully. Added data: di 1, ati 1
+Mon Feb 24 2025 21:13:38 GMT-0500 (Eastern Standard Time): 1 data items were received successfully
+Mon Feb 24 2025 21:13:54 GMT-0500 (Eastern Standard Time): Data item with id 1 was received successfully
+Mon Feb 24 2025 21:19:09 GMT-0500 (Eastern Standard Time): ...starting get all users
+Mon Feb 24 2025 21:19:09 GMT-0500 (Eastern Standard Time): 1 users was received successfully
+Mon Feb 24 2025 21:19:09 GMT-0500 (Eastern Standard Time): ...starting handle user with id 1
+Mon Feb 24 2025 21:19:09 GMT-0500 (Eastern Standard Time): ...is creating archive
+Mon Feb 24 2025 21:19:09 GMT-0500 (Eastern Standard Time): ...is deleting tmp folder
+Mon Feb 24 2025 21:19:14 GMT-0500 (Eastern Standard Time): ...starting get all users
+Mon Feb 24 2025 21:19:14 GMT-0500 (Eastern Standard Time): 1 users was received successfully
+Mon Feb 24 2025 21:19:14 GMT-0500 (Eastern Standard Time): ...starting handle user with id 1
+Mon Feb 24 2025 21:19:14 GMT-0500 (Eastern Standard Time): ...is creating archive
+Mon Feb 24 2025 21:19:15 GMT-0500 (Eastern Standard Time): ...is deleting tmp folder
+Mon Feb 24 2025 21:21:13 GMT-0500 (Eastern Standard Time): ...starting get all users
+Mon Feb 24 2025 21:21:13 GMT-0500 (Eastern Standard Time): 1 users was received successfully
+Mon Feb 24 2025 21:21:13 GMT-0500 (Eastern Standard Time): ...starting handle user with id 1
+Mon Feb 24 2025 21:21:13 GMT-0500 (Eastern Standard Time): ...is creating archive
+Mon Feb 24 2025 21:21:13 GMT-0500 (Eastern Standard Time): ...is deleting tmp folder
+Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...starting get all users
+Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): 1 users was received successfully
+Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...starting handle user with id 1
+Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...is creating archive
+Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...is deleting tmp folder
