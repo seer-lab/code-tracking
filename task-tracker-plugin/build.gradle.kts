@@ -33,6 +33,7 @@ repositories {
 }
 
 dependencies {
+    val javafxVersion = "21.0.4"
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.22")
@@ -47,8 +48,13 @@ dependencies {
     implementation("net.lingala.zip4j:zip4j:2.6.1")
     implementation("com.github.holgerbrandl:krangl:v0.13")
     implementation("com.beust:klaxon:5.5")
-    implementation("org.openjfx:javafx-controls:21.0.4")
-    implementation("org.openjfx:javafx-fxml:21.0.4")
+    implementation("org.openjfx:javafx-controls:$javafxVersion")
+    implementation("org.openjfx:javafx-fxml:$javafxVersion")
+    implementation("org.openjfx:javafx-base:$javafxVersion")
+    implementation("org.openjfx:javafx-graphics:$javafxVersion") {
+        exclude(group = "org.openjfx", module = "javafx-graphics-macos")
+    }
+    implementation("org.openjfx:javafx-media:$javafxVersion")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     testImplementation("junit:junit:4.12")
@@ -59,6 +65,16 @@ dependencies {
         create("PY", ideVersion) // 'PY' for PyCharm Professional, 'PC' for PyCharm Community
         instrumentationTools()
     }
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21)) // Java 17+ recommended for JavaFX
+    }
+}
+
+gluonClient {
+    target = "ios macos-arm64 macos-x86_64 linux-x86_64 windows-x86_64"
 }
 
 intellijPlatform {
@@ -107,6 +123,16 @@ tasks.withType<ShadowJar> {
 
 tasks.withType<Wrapper> {
     gradleVersion = "8.10"
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs = listOf("--add-modules", "javafx.controls,javafx.fxml", "-Dprism.order=metal")
+}
+
+tasks.named<Jar>("jar") {
+    manifest {
+        attributes["JavaFX-Plugins-Runtime"] = "true"
+    }
 }
 
 tasks.register("assemblePlugin") {
