@@ -60,7 +60,7 @@ dependencies {
     testImplementation("junit:junit:4.12")
 
     intellijPlatform {
-        val ideVersion = System.getenv().getOrDefault("TASK_TRACKER_PYCHARM_VERSION", "2024.3.1")
+        val ideVersion = System.getenv().getOrDefault("TASK_TRACKER_PYCHARM_VERSION", "2024.3.3")
         println("Using ide version: $ideVersion")
         create("PY", ideVersion) // 'PY' for PyCharm Professional, 'PC' for PyCharm Community
         instrumentationTools()
