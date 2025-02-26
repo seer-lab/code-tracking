@@ -143,3 +143,7 @@ tasks.named<org.jetbrains.intellij.platform.gradle.tasks.RunIdeTask>("runIde") {
     dependsOn("shadowJar", "buildPlugin")
     jvmArgs = listOf("-Xmx2048m")
 }
+
+tasks.matching { it.name == "buildSearchableOptions" }.configureEach {
+    enabled = false
+}
