@@ -8,10 +8,10 @@ plugins {
     java
     kotlin("jvm") version "2.0.20"
     kotlin("plugin.serialization") version "2.0.20"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.openjfx.javafxplugin") version "0.0.13"
     id("com.gluonhq.client-gradle-plugin") version "0.1.42"
-    id("org.jetbrains.dokka") version "1.8.10"
+    id("org.jetbrains.dokka") version "2.0.0"
 }
 
 group = "org.jetbrains.research.ml.tasktracker"
@@ -35,19 +35,19 @@ repositories {
 dependencies {
     val javafxVersion = "21.0.4"
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.22")
-    implementation("com.opencsv:opencsv:5.0")
-    implementation("joda-time:joda-time:2.9.2")
-    implementation("org.apache.commons:commons-csv:1.7")
-    implementation("com.gluonhq:charm-glisten:6.0.1")
-    implementation("com.google.code.gson:gson:2.8.5")
-    implementation("com.squareup.okhttp3:okhttp:4.2.2")
-    implementation("com.google.auto.service:auto-service:1.0-rc7")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.10")
+    implementation("com.opencsv:opencsv:5.10")
+    implementation("joda-time:joda-time:2.13.1")
+    implementation("org.apache.commons:commons-csv:1.13")
+    implementation("com.gluonhq:charm-glisten:6.2.3")
+    implementation("com.google.code.gson:gson:2.12.1")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.auto.service:auto-service:1.1.1")
     implementation("org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5")
-    implementation("net.lingala.zip4j:zip4j:2.6.1")
-    implementation("com.github.holgerbrandl:krangl:v0.13")
-    implementation("com.beust:klaxon:5.5")
+    implementation("net.lingala.zip4j:zip4j:2.11.5")
+    implementation("com.github.holgerbrandl:krangl:0.18.4")
+    implementation("com.beust:klaxon:5.6")
     implementation("org.openjfx:javafx-controls:$javafxVersion")
     implementation("org.openjfx:javafx-fxml:$javafxVersion")
     implementation("org.openjfx:javafx-base:$javafxVersion")

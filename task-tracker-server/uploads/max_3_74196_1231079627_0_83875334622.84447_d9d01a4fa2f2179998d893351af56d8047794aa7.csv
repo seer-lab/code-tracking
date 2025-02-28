@@ -1,0 +1,127 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,chosenTask,programmingLanguage
+2025-02-26T13:27:55.765-05:00,0,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here",2,ON,1111111,-1,python
+2025-02-26T13:28:06.628-05:00,0,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here",2,ON,1111111,max_3,python
+2025-02-26T13:28:06.842-05:00,16,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+",2,ON,1111111,max_3,python
+2025-02-26T13:28:07.398-05:00,21,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+p",2,ON,1111111,max_3,python
+2025-02-26T13:28:07.626-05:00,35,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+pr",2,ON,1111111,max_3,python
+2025-02-26T13:28:07.710-05:00,45,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+prn",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.066-05:00,56,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+prnt",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.172-05:00,66,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+prn",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.390-05:00,77,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+pr",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.463-05:00,87,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+pri",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.524-05:00,97,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+prin",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.857-05:00,107,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print",2,ON,1111111,max_3,python
+2025-02-26T13:28:08.867-05:00,117,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(",2,ON,1111111,max_3,python
+2025-02-26T13:28:09.218-05:00,118,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print()",2,ON,1111111,max_3,python
+2025-02-26T13:28:09.222-05:00,122,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print)",2,ON,1111111,max_3,python
+2025-02-26T13:28:09.424-05:00,123,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print",2,ON,1111111,max_3,python
+2025-02-26T13:28:09.966-05:00,127,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+printl",2,ON,1111111,max_3,python
+2025-02-26T13:28:10.418-05:00,138,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print",2,ON,1111111,max_3,python
+2025-02-26T13:28:10.423-05:00,149,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(",2,ON,1111111,max_3,python
+2025-02-26T13:28:10.756-05:00,150,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print()",2,ON,1111111,max_3,python
+2025-02-26T13:28:10.764-05:00,154,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(')",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.176-05:00,155,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('')",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.180-05:00,189,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(')",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.880-05:00,190,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print()",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.885-05:00,239,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print(')",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.898-05:00,240,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('')",2,ON,1111111,max_3,python
+2025-02-26T13:28:11.916-05:00,241,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('h')",2,ON,1111111,max_3,python
+2025-02-26T13:28:12.004-05:00,242,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('he')",2,ON,1111111,max_3,python
+2025-02-26T13:28:12.265-05:00,272,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hel')",2,ON,1111111,max_3,python
+2025-02-26T13:28:12.504-05:00,326,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hell')",2,ON,1111111,max_3,python
+2025-02-26T13:28:13.551-05:00,358,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello')",2,ON,1111111,max_3,python
+2025-02-26T13:28:15.689-05:00,413,max_3.py,74196,1231079627,"# Write code for the max_3 task in this file
+
+# Write your code here
+print('hello world')",2,ON,1111111,max_3,python
