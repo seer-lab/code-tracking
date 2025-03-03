@@ -1,7 +1,0 @@
-date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,year,programExperienceYears,programExperienceMonths,chosenTask,programmingLanguage
-2024-11-07T11:48:30.573-05:00,0,pies.py,127889,1558505287,"# Write code for the pies task in this file
-
-# Write your code here",1,ON,3,male,4,-1,-1,python
-2024-11-07T11:53:51.324-05:00,0,pies.py,127889,1558505287,"# Write code for the pies task in this file
-
-# Write your code here",1,ON,3,male,4,-1,pies,python
