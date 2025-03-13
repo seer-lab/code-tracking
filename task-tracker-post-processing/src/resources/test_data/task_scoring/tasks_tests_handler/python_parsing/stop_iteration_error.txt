@@ -1,3 +1,0 @@
-i = iter([1])
-next(i)
-next(i)

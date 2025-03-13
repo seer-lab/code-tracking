@@ -1,8 +1,0 @@
-fun main() {
-    with(Scanner(System.`in`)) {
-        val x = nextInt()
-        val y = nextInt()
-        val z = nextInt()
-        println(0)
-    }
-}
