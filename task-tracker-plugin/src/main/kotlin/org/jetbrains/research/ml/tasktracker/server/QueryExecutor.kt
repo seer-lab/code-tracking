@@ -29,7 +29,7 @@ abstract class QueryExecutor {
     }
 
     // Base url for the TaskTracker server
-    protected val baseUrl: String = "https://task-tracker.apps.staging.science.ontariotechu.ca/api/"
+    protected val baseUrl: String = "https://task-tracker.apps.production.science.ontariotechu.ca/api/"
 
     protected fun executeQuery(request: Request): Response? {
         var curCountAttempts = 0

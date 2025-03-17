@@ -56,7 +56,7 @@ dependencies {
     intellijPlatform {
         val ideVersion = System.getenv().getOrDefault("TASK_TRACKER_PYCHARM_VERSION", "2024.3.4")
         println("Using ide version: $ideVersion")
-        create("PC", ideVersion) // 'PY' for PyCharm Professional, 'PC' for PyCharm Community
+        create("PY", ideVersion) // 'PY' for PyCharm Professional, 'PC' for PyCharm Community
         instrumentationTools()
     }
 }
