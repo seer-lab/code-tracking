@@ -27,7 +27,8 @@ def __merge_dataframes(dataframes: List[pd.DataFrame], empty_df: pd.DataFrame = 
     Combine all dataframes according to timestamps, excluding duplicates.
     """
     for df in dataframes:
-        empty_df = empty_df.append(df, ignore_index=True)
+        empty_df = pd.concat([empty_df, df], ignore_index=True)
+
     empty_df.drop_duplicates(keep='first')
     if sorted_column is not None:
         empty_df.sort_values(by=[sorted_column])
@@ -69,10 +70,10 @@ def __handle_tt_files(tt_files: List[str], output_task_path: str) -> bool:
     file_name = None
     for tt_file in tt_files:
         current_df = pd.read_csv(tt_file, encoding=consts.ISO_ENCODING)
-        if not is_test_mode(current_df):
-            dataframes.append(current_df)
-            if file_name is None:
-                file_name = get_name_from_path(tt_file)
+        #if not is_test_mode(current_df):
+        dataframes.append(current_df)
+        if file_name is None:
+            file_name = get_name_from_path(tt_file)
     if len(dataframes) == 0:
         return False
     new_tt_path = os.path.join(output_task_path, file_name)
