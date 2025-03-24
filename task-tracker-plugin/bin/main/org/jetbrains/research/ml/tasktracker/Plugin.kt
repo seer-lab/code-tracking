@@ -86,7 +86,7 @@ data class RequiredPlugin(val name: String, val id: String, val zipFile: Resourc
 
 object Plugin {
     private val logger: Logger = Logger.getInstance(javaClass)
-    val testMode = TestMode.ON
+    val testMode = TestMode.OFF
 
     const val PLUGIN_NAME = "tasktracker"
     val taskTrackerFolderPath = "${PathManager.getPluginsPath()}/${PLUGIN_NAME}"
