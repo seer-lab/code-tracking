@@ -1,0 +1,355 @@
+,date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,chosenTask,programmingLanguage
+0,2025-03-14T16:27:10.363-04:00,0,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here",6,ON,1111111,-1,python
+1,2025-03-14T17:33:41.606-04:00,0,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here",6,ON,1111111,branch_coverage,python
+2,2025-03-14T17:33:42.531-04:00,14,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+",6,ON,1111111,branch_coverage,python
+3,2025-03-14T17:33:43.215-04:00,20,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+P",6,ON,1111111,branch_coverage,python
+4,2025-03-14T17:33:43.797-04:00,33,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+",6,ON,1111111,branch_coverage,python
+5,2025-03-14T17:33:43.966-04:00,38,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+p",6,ON,1111111,branch_coverage,python
+6,2025-03-14T17:33:44.005-04:00,48,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+pr",6,ON,1111111,branch_coverage,python
+7,2025-03-14T17:33:44.110-04:00,52,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+pri",6,ON,1111111,branch_coverage,python
+8,2025-03-14T17:33:44.185-04:00,63,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+prin",6,ON,1111111,branch_coverage,python
+9,2025-03-14T17:33:44.499-04:00,73,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print",6,ON,1111111,branch_coverage,python
+10,2025-03-14T17:33:44.506-04:00,83,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(",6,ON,1111111,branch_coverage,python
+11,2025-03-14T17:33:44.759-04:00,84,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print()",6,ON,1111111,branch_coverage,python
+12,2025-03-14T17:33:44.766-04:00,88,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print("")",6,ON,1111111,branch_coverage,python
+13,2025-03-14T17:33:44.913-04:00,89,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print("""")",6,ON,1111111,branch_coverage,python
+14,2025-03-14T17:33:45.021-04:00,96,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""H"")",6,ON,1111111,branch_coverage,python
+15,2025-03-14T17:33:45.136-04:00,112,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""He"")",6,ON,1111111,branch_coverage,python
+16,2025-03-14T17:33:45.268-04:00,138,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hel"")",6,ON,1111111,branch_coverage,python
+17,2025-03-14T17:33:45.412-04:00,174,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hell"")",6,ON,1111111,branch_coverage,python
+18,2025-03-14T17:33:45.639-04:00,210,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello"")",6,ON,1111111,branch_coverage,python
+19,2025-03-14T17:33:45.685-04:00,251,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello "")",6,ON,1111111,branch_coverage,python
+20,2025-03-14T17:33:45.732-04:00,264,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello w"")",6,ON,1111111,branch_coverage,python
+21,2025-03-14T17:33:45.828-04:00,292,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello wo"")",6,ON,1111111,branch_coverage,python
+22,2025-03-14T17:33:45.901-04:00,325,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello wor"")",6,ON,1111111,branch_coverage,python
+23,2025-03-14T17:33:46.052-04:00,358,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello worl"")",6,ON,1111111,branch_coverage,python
+24,2025-03-14T17:33:46.303-04:00,395,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")",6,ON,1111111,branch_coverage,python
+25,2025-03-14T17:33:46.308-04:00,427,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"""""")",6,ON,1111111,branch_coverage,python
+26,2025-03-14T17:33:46.327-04:00,428,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+"""")",6,ON,1111111,branch_coverage,python
+27,2025-03-14T17:33:46.824-04:00,434,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+      """")",6,ON,1111111,branch_coverage,python
+28,2025-03-14T17:33:46.832-04:00,475,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+      "")",6,ON,1111111,branch_coverage,python
+29,2025-03-14T17:33:47.102-04:00,476,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+      )",6,ON,1111111,branch_coverage,python
+30,2025-03-14T17:33:47.109-04:00,484,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+     )",6,ON,1111111,branch_coverage,python
+31,2025-03-14T17:33:47.293-04:00,485,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+    )",6,ON,1111111,branch_coverage,python
+32,2025-03-14T17:33:47.297-04:00,489,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+   )",6,ON,1111111,branch_coverage,python
+33,2025-03-14T17:33:47.494-04:00,490,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world""
+)",6,ON,1111111,branch_coverage,python
+34,2025-03-14T17:33:47.660-04:00,494,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")",6,ON,1111111,branch_coverage,python
+35,2025-03-14T17:33:48.575-04:00,508,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world)",6,ON,1111111,branch_coverage,python
+36,2025-03-14T17:33:49.276-04:00,548,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")",6,ON,1111111,branch_coverage,python
+37,2025-03-14T17:33:49.645-04:00,585,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+",6,ON,1111111,branch_coverage,python
+38,2025-03-14T17:33:49.765-04:00,622,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+p",6,ON,1111111,branch_coverage,python
+39,2025-03-14T17:33:49.884-04:00,637,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+pr",6,ON,1111111,branch_coverage,python
+40,2025-03-14T17:33:49.957-04:00,641,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+pri",6,ON,1111111,branch_coverage,python
+41,2025-03-14T17:33:50.036-04:00,645,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+prin",6,ON,1111111,branch_coverage,python
+42,2025-03-14T17:33:50.469-04:00,655,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print",6,ON,1111111,branch_coverage,python
+43,2025-03-14T17:33:50.476-04:00,665,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(",6,ON,1111111,branch_coverage,python
+44,2025-03-14T17:33:50.565-04:00,666,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print()",6,ON,1111111,branch_coverage,python
+45,2025-03-14T17:33:50.570-04:00,670,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print("")",6,ON,1111111,branch_coverage,python
+46,2025-03-14T17:33:50.683-04:00,671,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print("""")",6,ON,1111111,branch_coverage,python
+47,2025-03-14T17:33:50.868-04:00,692,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""T"")",6,ON,1111111,branch_coverage,python
+48,2025-03-14T17:33:51.002-04:00,723,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Th"")",6,ON,1111111,branch_coverage,python
+49,2025-03-14T17:33:51.350-04:00,745,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Ths"")",6,ON,1111111,branch_coverage,python
+50,2025-03-14T17:33:51.564-04:00,773,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Thsi"")",6,ON,1111111,branch_coverage,python
+51,2025-03-14T17:33:51.678-04:00,794,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Ths"")",6,ON,1111111,branch_coverage,python
+52,2025-03-14T17:33:51.858-04:00,808,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Th"")",6,ON,1111111,branch_coverage,python
+53,2025-03-14T17:33:51.948-04:00,822,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""Thi"")",6,ON,1111111,branch_coverage,python
+54,2025-03-14T17:33:52.044-04:00,849,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This"")",6,ON,1111111,branch_coverage,python
+55,2025-03-14T17:33:52.171-04:00,886,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This "")",6,ON,1111111,branch_coverage,python
+56,2025-03-14T17:33:52.236-04:00,900,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This i"")",6,ON,1111111,branch_coverage,python
+57,2025-03-14T17:33:52.359-04:00,927,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is"")",6,ON,1111111,branch_coverage,python
+58,2025-03-14T17:33:52.466-04:00,964,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is "")",6,ON,1111111,branch_coverage,python
+59,2025-03-14T17:33:52.588-04:00,978,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is f"")",6,ON,1111111,branch_coverage,python
+60,2025-03-14T17:33:52.668-04:00,1006,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fo"")",6,ON,1111111,branch_coverage,python
+61,2025-03-14T17:33:52.772-04:00,1035,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for"")",6,ON,1111111,branch_coverage,python
+62,2025-03-14T17:33:52.924-04:00,1062,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore"")",6,ON,1111111,branch_coverage,python
+63,2025-03-14T17:33:52.979-04:00,1090,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore "")",6,ON,1111111,branch_coverage,python
+64,2025-03-14T17:33:53.123-04:00,1104,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore a"")",6,ON,1111111,branch_coverage,python
+65,2025-03-14T17:33:53.420-04:00,1132,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore a "")",6,ON,1111111,branch_coverage,python
+66,2025-03-14T17:33:53.567-04:00,1146,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore a"")",6,ON,1111111,branch_coverage,python
+67,2025-03-14T17:33:53.711-04:00,1160,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore "")",6,ON,1111111,branch_coverage,python
+68,2025-03-14T17:33:53.867-04:00,1174,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is fore"")",6,ON,1111111,branch_coverage,python
+69,2025-03-14T17:33:54.237-04:00,1188,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for"")",6,ON,1111111,branch_coverage,python
+70,2025-03-14T17:33:55.779-04:00,1222,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for "")",6,ON,1111111,branch_coverage,python
+71,2025-03-14T17:33:55.925-04:00,1250,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a"")",6,ON,1111111,branch_coverage,python
+72,2025-03-14T17:33:56.025-04:00,1278,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a "")",6,ON,1111111,branch_coverage,python
+73,2025-03-14T17:33:56.194-04:00,1292,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a d"")",6,ON,1111111,branch_coverage,python
+74,2025-03-14T17:33:56.324-04:00,1320,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a de"")",6,ON,1111111,branch_coverage,python
+75,2025-03-14T17:33:56.412-04:00,1343,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a dem"")",6,ON,1111111,branch_coverage,python
+76,2025-03-14T17:33:59.155-04:00,1371,branch_coverage.py,158136,1427717833,"# Write code for the branch_coverage task in this file
+
+# Write your code here
+print(""Hello world"")
+print(""This is for a demo"")",6,ON,1111111,branch_coverage,python

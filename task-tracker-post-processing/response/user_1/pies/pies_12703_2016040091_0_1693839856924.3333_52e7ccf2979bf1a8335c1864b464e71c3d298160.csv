@@ -1,0 +1,91 @@
+date,timestamp,fileName,fileHashCode,documentHashCode,fragment,userId,testMode,program,chosenTask,programmingLanguage
+2025-03-06T11:51:45.731-05:00,0,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,1111111,-1,python
+2025-03-06T11:51:52.699-05:00,0,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here",1,ON,1111111,pies,python
+2025-03-06T11:51:55.102-05:00,33,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+",1,ON,1111111,pies,python
+2025-03-06T11:51:55.128-05:00,39,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+p",1,ON,1111111,pies,python
+2025-03-06T11:51:55.220-05:00,40,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+pr",1,ON,1111111,pies,python
+2025-03-06T11:51:55.482-05:00,44,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+pri",1,ON,1111111,pies,python
+2025-03-06T11:51:55.513-05:00,51,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+prin",1,ON,1111111,pies,python
+2025-03-06T11:51:56.428-05:00,52,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print",1,ON,1111111,pies,python
+2025-03-06T11:51:56.436-05:00,66,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print(",1,ON,1111111,pies,python
+2025-03-06T11:51:56.699-05:00,67,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print()",1,ON,1111111,pies,python
+2025-03-06T11:51:56.706-05:00,71,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print(')",1,ON,1111111,pies,python
+2025-03-06T11:51:57.199-05:00,72,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('')",1,ON,1111111,pies,python
+2025-03-06T11:51:57.328-05:00,114,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('h')",1,ON,1111111,pies,python
+2025-03-06T11:51:57.489-05:00,139,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('he')",1,ON,1111111,pies,python
+2025-03-06T11:51:57.672-05:00,162,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hel')",1,ON,1111111,pies,python
+2025-03-06T11:51:57.809-05:00,185,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hell')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.011-05:00,208,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.117-05:00,239,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello ')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.202-05:00,256,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello w')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.294-05:00,279,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello wo')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.392-05:00,302,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello wor')",1,ON,1111111,pies,python
+2025-03-06T11:51:58.487-05:00,325,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello worl')",1,ON,1111111,pies,python
+2025-03-06T11:52:03.679-05:00,348,pies.py,12703,2016040091,"# Write code for the pies task in this file
+
+# Write your code here
+print('hello world')",1,ON,1111111,pies,python
