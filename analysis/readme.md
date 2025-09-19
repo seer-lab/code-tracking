@@ -1,13 +1,15 @@
 # IDE Usage Analysis Scripts
 
-This repository contains scripts for analyzing IDE usage data collected through KOALA (JetBrains Research's updated IDE tracking system). The analysis focuses on user behavior patterns, action frequencies, and state transitions during coding sessions.
+This repository contains scripts for analyzing IDE usage data collected through TaskTracker (JetBrains Research's IDE tracking system). The analysis focuses on user behavior patterns, action frequencies, and state transitions during coding sessions.
 
 ## Overview
 
 The analysis toolkit consists of:
-1. **Data Preparation** (`prepare_data.py`) - Processes raw KOALA data files  
+1. **Data Preparation** (`prepare_data.py`) - Processes raw TaskTracker data files  
 2. **Action Analysis** (`tasktracker_actions_count.py`) - Counts IDE action frequencies
 3. **State Analysis** (`tasktracker_states.py`) - Analyzes IDE state durations and transitions
+4. **CSV Merger** (`merge_csv_data.py`) - Merges code activity and IDE event data with Excel output
+5. **Code Extraction** (`extract_code.py`) - Extracts final code submissions from CSV data
 
 ## Key Features
 
@@ -31,7 +33,7 @@ The analysis toolkit consists of:
 
 ### 1. Data Preparation Script (`prepare_data.py`)
 
-Processes raw KOALA data files and creates standardized versions for analysis.
+Processes raw TaskTracker data files and creates standardized versions for analysis.
 
 #### Usage
 ```bash
@@ -43,7 +45,7 @@ python prepare_data.py [raw_data_folder] [output_folder] --compress-ide-events
 ```
 
 #### What it does
-- Reads CSV files containing IDE events and code changes from KOALA
+- Reads CSV files containing IDE events and code changes from TaskTracker
 - Standardizes data formats and timestamps
 - Creates per-user and per-task files for targeted analysis
 - Combines all data into aggregate files for cross-user analysis
@@ -128,10 +130,82 @@ python tasktracker_states.py [study_data_folder] [output_folder]
 - `*_state_totals.csv` - Cumulative time analysis (State, Total_Seconds, Total_Minutes, Total_Hours)
 - `*_state_sessions.csv` - Individual session records (Start_Time, End_Time, State, Duration, User, Task)
 
-## KOALA Data Format
+### 4. CSV Merger Script (`merge_csv_data.py`)
+
+Merges code activity and IDE event CSV files for detailed temporal analysis with Excel output.
+
+#### Usage
+```bash
+# Merge files for analysis
+python merge_csv_data.py [input_directory] [output_directory]
+```
+
+#### What it does
+- Combines code activity and IDE event CSV files for each user/task combination
+- Sorts all events chronologically by timestamp
+- Creates Excel files with calculated program length and difference metrics
+- Generates both sorted and unsorted versions for analysis flexibility
+
+#### Output Structure
+```
+output_directory/
+├── combined_sorted/
+│   └── user_24/
+│       ├── user_24_task1_combined_sorted.xlsx
+│       └── user_24_task2_combined_sorted.xlsx
+└── combined_unsorted/
+    └── user_24/
+        ├── user_24_task1_combined_unsorted.xlsx
+        └── user_24_task2_combined_unsorted.xlsx
+```
+
+#### Excel Output Format
+- **Column A**: Timestamp (sorted chronologically)
+- **Column B**: Code fragment or IDE event description  
+- **Column C**: Program count (length of code using Excel LEN formula)
+- **Column D**: Fragment difference (change in code length from previous coding event)
+
+### 5. Code Extraction Script (`extract_code.py`)
+
+Extracts final Python code submissions from CSV files containing code fragments.
+
+#### Usage
+```bash
+# Extract code from directory
+python extract_code.py [csv_directory]
+
+# Extract code with custom output directory
+python extract_code.py [csv_directory] --output-dir [output_directory]
+```
+
+#### What it does
+- Scans CSV files for code fragments containing student submissions
+- Extracts the final version of code from each file
+- Removes comment lines and cleans up formatting
+- Creates individual Python files for each code submission
+- Organizes output by user ID
+
+#### Output Structure
+```
+output_directory/
+├── user_24/
+│   ├── test_user_24_task1.py
+│   └── test_user_24_task2.py
+└── user_25/
+    └── test_user_25_task1.py
+```
+
+#### Processing Logic
+- Looks for fragments containing "# Write your code here" markers
+- Takes the last (final) code fragment from each CSV
+- Removes comment lines while preserving code structure
+- Adds 'test_' prefix to output filenames
+- Handles multiple CSV files automatically
+
+## TaskTracker Data Format
 
 ### Expected CSV Structure
-KOALA generates CSV files with the following structure:
+TaskTracker generates CSV files with the following structure:
 - **Column 0**: Timestamp
 - **Column 1**: Event Type ("IdeState" or "Action")  
 - **Column 2**: State name (Active/Inactive/NoProject) or Action name
@@ -149,6 +223,9 @@ KOALA generates CSV files with the following structure:
 - Python 3.6+
 - Standard library modules: `csv`, `glob`, `os`, `sys`, `collections`, `datetime`
 
+### Optional (for CSV merger)
+- `openpyxl` for Excel file generation: `pip install openpyxl`
+
 ### Configuration Files
 - `tasktracker_actions.py` - Contains list of IDE actions to count
 - `tasktracker.states` - Contains list of IDE states to track (if using external module)
@@ -157,14 +234,20 @@ KOALA generates CSV files with the following structure:
 
 ### Complete Analysis Workflow
 ```bash
-# Step 1: Prepare raw KOALA data
-python prepare_data.py raw_koala_data/ prepared_data/
+# Step 1: Prepare raw TaskTracker data
+python prepare_data.py raw_tasktracker_data/ prepared_data/
 
 # Step 2: Analyze action frequencies  
 python tasktracker_actions_count.py prepared_data/ action_results/
 
 # Step 3: Analyze state transitions
 python tasktracker_states.py prepared_data/ state_results/
+
+# Step 4: Merge data for detailed temporal analysis
+python merge_csv_data.py prepared_data/ merged_analysis/
+
+# Step 5: Extract final code submissions
+python extract_code.py prepared_data/ --output-dir extracted_code/
 ```
 
 ### Quick Analysis (if data already prepared)
@@ -190,21 +273,20 @@ python tasktracker_actions_count.py prepared_data/user_24/user_24_task1_ide_even
 - **Session patterns**: Work rhythm and break frequency
 - **State transitions**: Task engagement and disengagement patterns
 
+### Temporal Analysis (CSV Merger)
+- **Code evolution**: How programs develop over time
+- **Edit patterns**: Frequency and size of code changes
+- **IDE interaction timing**: Relationship between coding and IDE usage
+
+### Code Extraction Results
+- **Final submissions**: Clean Python code files for each user/task combination
+- **Code evolution**: Compare final submissions to identify successful approaches
+- **Submission analysis**: Analyze what students actually submitted vs. intermediate attempts
+
 ### Comparative Analysis
 - **Cross-user comparisons**: Identify different working styles
 - **Task complexity indicators**: Actions and states that suggest difficulty
 - **Temporal patterns**: How usage changes throughout study sessions
-
-## Study Transition Notes
-
-### From Legacy TaskTracker to KOALA
-- **Improved data quality**: KOALA provides more reliable event capture
-- **Enhanced state tracking**: Better distinction between active/inactive periods  
-- **Consistent formatting**: More predictable CSV structure
-- **Reduced data corruption**: More stable event logging
-
-### Backward Compatibility
-These scripts are designed to work with KOALA data format while maintaining compatibility with analysis approaches from the original study.
 
 ## Troubleshooting
 
@@ -228,20 +310,14 @@ These scripts are designed to work with KOALA data format while maintaining comp
    ```
    **Solution**: Ensure `tasktracker_actions.py` exists with proper `actions` list
 
+4. **Excel file creation errors**
+   ```
+   Error creating Excel file: can't compare offset-naive and offset-aware datetimes
+   ```
+   **Solution**: This is handled automatically by the timestamp parsing functions
+
 ### Performance Considerations
 - Large datasets (100,000+ events) may take several minutes to process
 - State analysis is more computationally intensive than action counting
 - Batch processing scales linearly with number of users and tasks
-
-### Data Quality
-- KOALA provides more consistent timestamps than legacy TaskTracker
-- Fewer missing or corrupted events expected
-- State transitions should be more reliable and complete
-
-## Future Enhancements
-
-Potential additions for advanced analysis:
-- Statistical significance testing between user groups
-- Temporal pattern analysis (time-of-day effects)
-- Learning progression tracking across tasks
-- Integration with code quality metrics
+- Excel file generation adds processing time but provides rich analysis capabilities
