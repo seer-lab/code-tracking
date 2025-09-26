@@ -32,6 +32,7 @@ mongoose.connect(MONGODB, {
     useCreateIndex: true,
     useUnifiedTopology: true
 });
+// mongoose.connect(process.env.MONGO_URI);
 
 // Set the uploads dir
 const uploadsDir = './uploads';

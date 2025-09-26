@@ -3909,3 +3909,28 @@ Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): 1 users was received 
 Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...starting handle user with id 1
 Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...is creating archive
 Mon Feb 24 2025 21:21:21 GMT-0500 (Eastern Standard Time): ...is deleting tmp folder
+Sat Mar 08 2025 19:30:28 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Sat Mar 08 2025 19:52:14 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Sat Mar 08 2025 20:00:08 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Sat Mar 08 2025 20:10:15 GMT-0500 (Eastern Standard Time): Server is listening on port 3000
+Mon Mar 17 2025 11:22:31 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 14:16:16 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 14:38:46 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 14:42:28 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 14:50:00 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 15:01:53 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 15:17:16 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 15:28:01 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 15:28:15 GMT-0400 (Eastern Daylight Time): Task task 1: simple debugging and fixing a syntax error was created successfully
+Wed Mar 19 2025 15:35:18 GMT-0400 (Eastern Daylight Time): 1 tasks were received successfully
+Wed Mar 19 2025 15:40:16 GMT-0400 (Eastern Daylight Time): 1 tasks were received successfully
+Wed Mar 19 2025 16:04:44 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Wed Mar 19 2025 16:11:38 GMT-0400 (Eastern Daylight Time): Task task 1: simple debugging and fixing a syntax error was not created Error: Task task 1: simple debugging and fixing a syntax error is already taken
+    at Object.createTask (C:\Users\devth\Desktop\code-tracking\task-tracker-server\controllers\task-controller.js:30:68)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\devth\Desktop\code-tracking\task-tracker-server\routers\task-router.js:9:26
+Wed Mar 19 2025 16:11:51 GMT-0400 (Eastern Daylight Time): 1 tasks were received successfully
+Wed Mar 19 2025 16:25:34 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Thu Mar 20 2025 19:07:25 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Thu Mar 20 2025 19:44:11 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000
+Sun Mar 23 2025 18:05:18 GMT-0400 (Eastern Daylight Time): Server is listening on port 3000

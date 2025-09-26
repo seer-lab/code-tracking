@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Anastasiia Birillo
+1// Copyright (c) 2020 Anastasiia Birillo
 
 const TASKS = require('../../configs/task-tracker-sources/tasks');
 const GENDERS = require('../../configs/task-tracker-sources/genders');

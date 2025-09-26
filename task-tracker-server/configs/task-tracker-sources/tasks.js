@@ -1,6 +1,6 @@
 const tasks = [
     {
-        'key': 'pies',
+        'key': 'Task 1: Simple Debugging and Fixing a Syntax Error',
         'examples':
             [
                 {
@@ -27,13 +27,10 @@ const tasks = [
                 {
                     'language': 'en',
                     'info': {
-                        'name': 'Pies',
-                        'description': 'A single pie costs A dollars and B cents in the cafe. Calculate how many dollars and cents you would need to buy N pies.',
-                        'input': 'The program receives three numbers as an input:\n' +
-                            'A - how many dollars a pie costs;\n' +
-                            'B - how many cents a pie costs;\n' +
-                            'N - how many pies do you need to buy.',
-                        'output': 'Print out two numbers: the cost of N pies in dollars and cents.'
+                        'name': 'Task 1: Simple Debugging and Fixing a Syntax Error',
+                        'description': 'You are given the following code that is meant to calculate the sum of all even numbers in a list. However, there is a syntax error. Fix the code to make it work.',
+                        'input': 'The program receives a list of numbers as an input.',
+                        'output': 'Returns the sum of all even numbers in the input list.'
                     }
                 }
             ]
