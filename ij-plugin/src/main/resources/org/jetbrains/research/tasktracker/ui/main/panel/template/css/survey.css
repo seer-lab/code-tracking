@@ -1,0 +1,17 @@
+.form-container{
+    align-items: flex-start;
+    text-align: left;
+    justify-content: left;
+}
+
+.required:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
+}
+
+.box{
+    padding: 3px;
+    margin: 6px;
+    border-radius: 3px;
+}

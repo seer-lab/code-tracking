@@ -1,0 +1,25 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>org.jetbrains.research.tasktracker</id>
+    <name>Task Tracker</name>
+    <vendor>JetBrains Research</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow doNotActivateOnStart="true"
+                    factoryClass="org.jetbrains.research.tasktracker.ui.main.panel.MainPluginPanelFactory"
+                    id="TaskTracker" anchor="right"/>
+        <notificationGroup id="tasktracker" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <group text="MyNavBarGroup">
+            <add-to-group group-id="ToolbarRunGroup" relative-to-action="RunConfiguration" anchor="before"/>
+            <add-to-group group-id="TouchBarDefault" relative-to-action="RunConfiguration" anchor="before"/>
+            <add-to-group group-id="RightToolbarSideGroup" anchor="first"/>
+        </group>
+    </actions>
+</idea-plugin>

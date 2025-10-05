@@ -1,0 +1,29 @@
+# https://detekt.dev/docs/introduction/configurations
+
+# default config at https://github.com/detekt/detekt/blob/main/detekt-core/src/main/resources/default-detekt-config.yml
+
+build:
+  maxIssues: 0
+
+style:
+  ForbiddenComment:
+    active: false
+  WildcardImport:
+    active: false
+
+formatting:
+  ArgumentListWrapping:
+    active: false
+  Indentation:
+    active: false
+  NoWildcardImports:
+    active: false
+
+complexity:
+  TooManyFunctions:
+    thresholdInObjects: 14
+    thresholdInClasses: 13
+
+performance:
+  SpreadOperator:
+    active: false

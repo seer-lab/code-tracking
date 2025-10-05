@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.big-font {
+    font-size: 9vmin;
+    margin-top: 2vmin;
+    margin-bottom: 5vmin;
+    font-weight: 900;
+}
+
+.small-font {
+    font-size: 4vmin;
+    margin-top: 0;
+    margin-bottom: 2vmin;
+}
+
+.container {
+    min-height: 100vh;
+    margin: 4vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+label {
+    font-size: 4vmin;
+    font-weight: bold;
+}
+
+label, select {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+select {
+    margin-left: 5px;
+    font-size: 0.8em;
+    padding: 6px;
+    border-radius: 4px;
+    width: 200px;
+}
+
+a:link {
+    color: #808080;
+}
+
+a:visited {
+    color: #696969;
+}
+
+.webcam-info-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vmin;
+}
+
+.webcam-info-name {
+    margin-right: 2vmin;
+}
+
+.webcam-select-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.webcam-info-list {
+    margin-bottom: 2vmin;
+    margin-top: 5vmin;
+}
+
+.webcam-info-img {
+    width: 25vmin;
+}

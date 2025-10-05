@@ -1,0 +1,33 @@
+surveys:
+  - id: default
+    htmlQuestions:
+      - !<Radio>
+        text: Single choice question
+        elementId: single
+        required: true
+        info:
+          - id: single1
+            value: 1
+          - id: single2
+            value: 2
+          - id: single3
+            value: 3
+      - !<Checkbox>
+        text: Multichoice question
+        elementId: multichoice
+        required: true
+        info:
+          - id: multichoice1
+            value: 1
+          - id: multichoice2
+            value: 2
+          - id: multichoice3
+            value: 3
+      - !<Input>
+        text: Input question
+        elementId: input
+      - !<Textarea>
+        text: Textarea question
+        elementId: textarea
+        rows: 5
+        cols: 50

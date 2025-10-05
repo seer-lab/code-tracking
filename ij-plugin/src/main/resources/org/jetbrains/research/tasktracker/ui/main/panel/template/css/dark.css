@@ -1,0 +1,13 @@
+body {
+    background: black;
+}
+
+p, label, h1, h2, h3, h4, h5 {
+    color: #fefefe;
+}
+
+select {
+    border: 1px solid #575555;
+    background-color: #1e1e1e;
+    color: #fefefe;
+}

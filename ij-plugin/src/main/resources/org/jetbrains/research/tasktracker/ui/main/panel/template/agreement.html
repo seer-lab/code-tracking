@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="box">
+        <p class="big-font">Register in study</p>
+        <div class="form-group">
+            <input class="input" type="text" name="name" id="name" placeholder="Name" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <input class="input" type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="agreement-container">
+            <p>I agree to the terms and conditions:</p>
+            %s
+            <p><span style="color: red">*</span> - Required field</p>
+        </div>
+    </div>
+</div>
+<script>
+    let requiredFields = document.querySelectorAll('input[required]')
+
+    requiredFields.forEach(function (inputElement) {
+        const parentLabel = inputElement.parentElement.querySelector('label');
+        if (parentLabel) {
+            parentLabel.classList.add('required');
+        }
+    });
+
+    requiredFields.forEach(function (field) {
+        field.onclick = function () {
+            if (field.type === "checkbox") {
+                field.style.outline = '1px solid black'
+            } else {
+                field.style.border = '1px solid black';
+            }
+        };
+    });
+
+    function checkAllInputs() {
+        requiredFields.forEach(function (field) {
+            if (field.type === "checkbox") {
+                if (!field.checked) {
+                    field.style.outline = '1px solid red'
+                }
+            } else if (field.value.trim() === "") {
+                field.style.border = "1px solid red"
+            }
+        });
+        return JSON.stringify(getData())
+    }
+
+    function getData() {
+        let email = document.getElementById('email')
+        let name = document.getElementById('name')
+        let inputs = {
+            email: email.value,
+            name: name.value,
+            agreements: []
+        }
+        let checkboxes = document.querySelectorAll('input[type=checkbox]')
+        checkboxes.forEach(function (field) {
+            inputs.agreements.push({
+                checked: field.checked,
+                text: findLabelForControl(field),
+                required: field.hasAttribute("required")
+            })
+        })
+        return inputs
+    }
+
+    function findLabelForControl(field) {
+        let labelId = field.id
+        let labels = document.getElementsByTagName('label')
+        for (let i = 0; i < labels.length; i++) {
+            if (labels[i].htmlFor === labelId)
+                return labels[i].innerHTML
+        }
+    }
+</script>

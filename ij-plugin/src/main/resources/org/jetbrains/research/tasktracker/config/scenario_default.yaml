@@ -1,0 +1,7 @@
+scenario:
+  steps:
+    - units:
+        - !<Task>
+          id: "main"
+        - !<Survey>
+          id: "default"

@@ -1,0 +1,41 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vmin;
+    align-items: center;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.agreement-container {
+    align-items: flex-start;
+    text-align: left;
+    justify-content: left;
+}
+
+.agreement-container div {
+    display: flex;
+    align-items: center;
+}
+
+.agreement-container div label {
+    font-size: 15px;
+    margin-left: 3px;
+    font-weight: normal !important;
+}
+
+.required:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
+}
+
+.box {
+    width: 60%;
+    height: 70%;
+}
