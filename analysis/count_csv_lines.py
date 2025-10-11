@@ -58,7 +58,7 @@ def count_csv_lines(directory_path):
 
     # Final results
     print("=" * 50)
-    print(f"📊 FINAL RESULTS:")
+    print(f"\U0001F4CA FINAL RESULTS:")
     print(f"   Total CSV files: {file_count:,}")
     print(f"   Total lines: {total_lines:,}")
     print(f"   Average lines per file: {total_lines // file_count if file_count > 0 else 0:,}")
@@ -71,7 +71,7 @@ def count_csv_lines(directory_path):
     #     print(f"   That's {total_lines / 100000:.1f}x your original estimate!")
 
     # if total_lines > 1000000:
-    #     print(f"   🎉 Congrats! You've officially hit the million+ line club!")
+    #     print(f"   \U0001F389 Congrats! You've officially hit the million+ line club!")
 
 
 def main():
