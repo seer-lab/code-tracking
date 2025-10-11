@@ -49,6 +49,3 @@ Each subfolder contains CSV files and summaries relevant to that analysis.
 - The `analysis/study_data/` and `analysis/results/` folders are ignored by Git (see .gitignore).
 - You can run individual scripts manually if you wish, but the master script is recommended for consistency.
 - Make sure you have all required Python dependencies installed (see requirements.txt).
-
-## Contact
-For questions or issues, contact the project maintainer.
