@@ -231,6 +231,30 @@ def write_all_summaries(output_folder):
         task_file = os.path.join(user_task_folder, f'{task}_action_counts.csv')
         write_csv(task_file, task_dict)
 
+    # --- Per-user-per-task output ---
+    import pandas as pd
+    by_user_task_dir = os.path.join(output_folder, 'by_user_task')
+    os.makedirs(by_user_task_dir, exist_ok=True)
+
+    # Group detailed_events by (user, task)
+    user_task_events = {}
+    for event in detailed_events:
+        key = (event['user'], event['task'])
+        if key not in user_task_events:
+            user_task_events[key] = []
+        user_task_events[key].append(event)
+
+    print(f"Writing {len(user_task_events)} per-user-per-task detailed summaries...")
+
+    for (user, task), events in user_task_events.items():
+        user_dir = os.path.join(by_user_task_dir, f'user_{user}')
+        os.makedirs(user_dir, exist_ok=True)
+        file_path = os.path.join(user_dir, f'user_{user}_task_{task}_actions.csv')
+        df = pd.DataFrame(events)
+        df.to_csv(file_path, index=False)
+
+    print(f"Per-user-per-task action event logs written to {by_user_task_dir}")
+
     # Print summary of what was created
     actions_with_counts = sum(1 for _, count in combined_action_dict.items() if count > 0)
     print(f"Successfully created:")

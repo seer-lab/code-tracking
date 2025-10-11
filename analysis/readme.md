@@ -1,323 +1,54 @@
-# IDE Usage Analysis Scripts
+# Analysis Scripts for Code Tracking Study
 
-This repository contains scripts for analyzing IDE usage data collected through TaskTracker (JetBrains Research's IDE tracking system). The analysis focuses on user behavior patterns, action frequencies, and state transitions during coding sessions.
+This folder contains scripts for analyzing user code tracking data, including keystrokes, copy/paste actions, code changes, and task tracking. The scripts are designed to process raw study data and produce clean, organized results for further analysis.
 
-## Overview
+## Quick Start: Run All Analyses
 
-The analysis toolkit consists of:
-1. **Data Preparation** (`prepare_data.py`) - Processes raw TaskTracker data files  
-2. **Action Analysis** (`tasktracker_actions_count.py`) - Counts IDE action frequencies
-3. **State Analysis** (`tasktracker_states.py`) - Analyzes IDE state durations and transitions
-4. **CSV Merger** (`merge_csv_data.py`) - Merges code activity and IDE event data with Excel output
-5. **Code Extraction** (`extract_code.py`) - Extracts final code submissions from CSV data
+To run all analysis scripts in the correct order, use the master script:
 
-## Key Features
-
-### Comprehensive Data Processing
-- **Batch processing** of entire user study datasets
-- **Hierarchical organization** by user and task
-- **Flexible input handling** for single files or complete directory structures
-- **Multiple output formats** for different analysis needs
-
-### Action Analysis
-- **Frequency counting** of all IDE actions (typing, navigation, debugging, etc.)
-- **Hierarchical summaries** at combined, user, and task levels
-- **Sorted output** by frequency for easy pattern identification
-
-### State Analysis  
-- **Duration tracking** for Active, Inactive, and NoProject states
-- **Session grouping** that combines consecutive identical states
-- **Temporal analysis** with detailed start/end timestamps
-
-## Scripts
-
-### 1. Data Preparation Script (`prepare_data.py`)
-
-Processes raw TaskTracker data files and creates standardized versions for analysis.
-
-#### Usage
-```bash
-# Standard processing
-python prepare_data.py [raw_data_folder] [output_folder]
-
-# With IDE events compression (reduces file size by grouping consecutive identical events)
-python prepare_data.py [raw_data_folder] [output_folder] --compress-ide-events
+```
+python run_all_analyses.py
 ```
 
-#### What it does
-- Reads CSV files containing IDE events and code changes from TaskTracker
-- Standardizes data formats and timestamps
-- Creates per-user and per-task files for targeted analysis
-- Combines all data into aggregate files for cross-user analysis
-- **Optional**: Compresses consecutive identical IDE events to reduce file size
+This will process the data in `study_data/` and output results to the appropriate subfolders in `results/`.
 
-#### Input Structure
-Expects directory structure:
+## Script Overview
+
+- **count_csv_lines.py**: Counts lines in all CSV files in the study data.
+- **count_execute_events.py**: Analyzes code execution events.
+- **count_writing_and_copy_paste.py**: Logs keystrokes and copy/cut/paste actions, with per-user and per-task breakdowns.
+- **count_xlsx_lines.py**: Counts lines in all XLSX files in the study data.
+- **extract_code.py**: Extracts code fragments from the study data.
+- **merge_csv_data.py**: Merges multiple CSV data files into a unified dataset.
+- **prepare_data.py**: Prepares and cleans the merged data for further analysis.
+- **tasktracker.py**: Analyzes task tracking data.
+- **tasktracker_actions.py**: Analyzes user actions related to task tracking.
+- **tasktracker_states.py**: Analyzes user state changes related to task tracking.
+
+## Output Structure
+
+All results are written to the `results/` directory, with each script creating its own subfolder. For example:
+
 ```
-raw_data/
-├── user_24/
-│   ├── 1/
-│   │   ├── ide-events-file.csv
-│   │   └── code-changes.csv
-│   └── 2/
-│       └── ide-events-file.csv
-└── user_25/
-    └── 1/
-        └── ide-events-file.csv
-```
-
-### 2. Action Analysis Script (`tasktracker_actions_count.py`)
-
-Analyzes IDE action frequencies across users and tasks.
-
-#### Usage
-```bash
-# Single file analysis
-python tasktracker_actions_count.py [ide_events_file.csv] [output_folder]
-
-# Batch analysis
-python tasktracker_actions_count.py [study_data_folder] [output_folder]
+results/
+    csv_line_counts/
+    execute_events/
+    write_copy_paste/
+    xlsx_line_counts/
+    extracted_code/
+    merged_data/
+    prepared_data/
+    tasktracker/
+    tasktracker_actions/
+    tasktracker_states/
 ```
 
-#### What it does
-- Counts occurrences of each IDE action (defined in `tasktracker_actions.py`)
-- Generates frequency reports at multiple levels:
-  - **Combined**: Total counts across all users and tasks
-  - **By User**: Individual user summaries across all their tasks  
-  - **By Task**: Individual task summaries organized by user
+Each subfolder contains CSV files and summaries relevant to that analysis.
 
-#### Output Structure
-```
-output_folder/
-├── combined_action_counts.csv          # Overall totals
-├── by_user/
-│   ├── user_24_action_counts.csv       # All tasks for user_24
-│   └── user_25_action_counts.csv       # All tasks for user_25
-└── by_task/
-    ├── user_24/
-    │   ├── user_24_1_action_counts.csv # Specific user/task combinations
-    │   └── user_24_2_action_counts.csv
-    └── user_25/
-        └── user_25_1_action_counts.csv
-```
+## Notes
+- The `analysis/study_data/` and `analysis/results/` folders are ignored by Git (see .gitignore).
+- You can run individual scripts manually if you wish, but the master script is recommended for consistency.
+- Make sure you have all required Python dependencies installed (see requirements.txt).
 
-### 3. State Analysis Script (`tasktracker_states.py`)
-
-Analyzes IDE state durations and transitions between Active, Inactive, and NoProject states.
-
-#### Usage
-```bash
-# Single file analysis  
-python tasktracker_states.py [ide_events_file.csv] [output_folder]
-
-# Batch analysis
-python tasktracker_states.py [study_data_folder] [output_folder]
-```
-
-#### What it does
-- Tracks time spent in each IDE state
-- Groups consecutive identical states into meaningful sessions
-- Generates two types of analysis:
-  - **State Totals**: Cumulative time spent in each state
-  - **State Sessions**: Individual state transition records with durations
-
-#### State Detection Logic
-- **Explicit States**: When Column 1 = "IdeState", Column 2 contains state name
-- **Implicit Active**: When Column 1 = "Action", assumes "Active" state (user performing IDE action)
-- **Session Grouping**: Consecutive periods in the same state are combined into single sessions
-
-#### Output Files
-- `*_state_totals.csv` - Cumulative time analysis (State, Total_Seconds, Total_Minutes, Total_Hours)
-- `*_state_sessions.csv` - Individual session records (Start_Time, End_Time, State, Duration, User, Task)
-
-### 4. CSV Merger Script (`merge_csv_data.py`)
-
-Merges code activity and IDE event CSV files for detailed temporal analysis with Excel output.
-
-#### Usage
-```bash
-# Merge files for analysis
-python merge_csv_data.py [input_directory] [output_directory]
-```
-
-#### What it does
-- Combines code activity and IDE event CSV files for each user/task combination
-- Sorts all events chronologically by timestamp
-- Creates Excel files with calculated program length and difference metrics
-- Generates both sorted and unsorted versions for analysis flexibility
-
-#### Output Structure
-```
-output_directory/
-├── combined_sorted/
-│   └── user_24/
-│       ├── user_24_task1_combined_sorted.xlsx
-│       └── user_24_task2_combined_sorted.xlsx
-└── combined_unsorted/
-    └── user_24/
-        ├── user_24_task1_combined_unsorted.xlsx
-        └── user_24_task2_combined_unsorted.xlsx
-```
-
-#### Excel Output Format
-- **Column A**: Timestamp (sorted chronologically)
-- **Column B**: Code fragment or IDE event description  
-- **Column C**: Program count (length of code using Excel LEN formula)
-- **Column D**: Fragment difference (change in code length from previous coding event)
-
-### 5. Code Extraction Script (`extract_code.py`)
-
-Extracts final Python code submissions from CSV files containing code fragments.
-
-#### Usage
-```bash
-# Extract code from directory
-python extract_code.py [csv_directory]
-
-# Extract code with custom output directory
-python extract_code.py [csv_directory] --output-dir [output_directory]
-```
-
-#### What it does
-- Scans CSV files for code fragments containing student submissions
-- Extracts the final version of code from each file
-- Removes comment lines and cleans up formatting
-- Creates individual Python files for each code submission
-- Organizes output by user ID
-
-#### Output Structure
-```
-output_directory/
-├── user_24/
-│   ├── test_user_24_task1.py
-│   └── test_user_24_task2.py
-└── user_25/
-    └── test_user_25_task1.py
-```
-
-#### Processing Logic
-- Looks for fragments containing "# Write your code here" markers
-- Takes the last (final) code fragment from each CSV
-- Removes comment lines while preserving code structure
-- Adds 'test_' prefix to output filenames
-- Handles multiple CSV files automatically
-
-## TaskTracker Data Format
-
-### Expected CSV Structure
-TaskTracker generates CSV files with the following structure:
-- **Column 0**: Timestamp
-- **Column 1**: Event Type ("IdeState" or "Action")  
-- **Column 2**: State name (Active/Inactive/NoProject) or Action name
-- **Column 3**: Context information (optional)
-- **Column 4**: Additional metadata (optional)
-
-### State Definitions
-- **Active**: User actively working in the IDE (explicitly marked or performing actions)
-- **Inactive**: IDE open but user not actively working
-- **NoProject**: No project loaded in the IDE
-
-## Dependencies
-
-### Required
-- Python 3.6+
-- Standard library modules: `csv`, `glob`, `os`, `sys`, `collections`, `datetime`
-
-### Optional (for CSV merger)
-- `openpyxl` for Excel file generation: `pip install openpyxl`
-
-### Configuration Files
-- `tasktracker_actions.py` - Contains list of IDE actions to count
-- `tasktracker.states` - Contains list of IDE states to track (if using external module)
-
-## Usage Examples
-
-### Complete Analysis Workflow
-```bash
-# Step 1: Prepare raw TaskTracker data
-python prepare_data.py raw_tasktracker_data/ prepared_data/
-
-# Step 2: Analyze action frequencies  
-python tasktracker_actions_count.py prepared_data/ action_results/
-
-# Step 3: Analyze state transitions
-python tasktracker_states.py prepared_data/ state_results/
-
-# Step 4: Merge data for detailed temporal analysis
-python merge_csv_data.py prepared_data/ merged_analysis/
-
-# Step 5: Extract final code submissions
-python extract_code.py prepared_data/ --output-dir extracted_code/
-```
-
-### Quick Analysis (if data already prepared)
-```bash
-python tasktracker_actions_count.py prepared_data/ quick_actions/
-python tasktracker_states.py prepared_data/ quick_states/
-```
-
-### Single User Analysis
-```bash
-python tasktracker_actions_count.py prepared_data/user_24/user_24_task1_ide_events.csv single_user_results/
-```
-
-## Output Analysis
-
-### Action Analysis Results
-- **High-frequency actions**: Indicate primary IDE usage patterns
-- **User variations**: Different coding/debugging approaches
-- **Task differences**: How task complexity affects IDE usage
-
-### State Analysis Results  
-- **Active time**: Actual engagement duration per user/task
-- **Session patterns**: Work rhythm and break frequency
-- **State transitions**: Task engagement and disengagement patterns
-
-### Temporal Analysis (CSV Merger)
-- **Code evolution**: How programs develop over time
-- **Edit patterns**: Frequency and size of code changes
-- **IDE interaction timing**: Relationship between coding and IDE usage
-
-### Code Extraction Results
-- **Final submissions**: Clean Python code files for each user/task combination
-- **Code evolution**: Compare final submissions to identify successful approaches
-- **Submission analysis**: Analyze what students actually submitted vs. intermediate attempts
-
-### Comparative Analysis
-- **Cross-user comparisons**: Identify different working styles
-- **Task complexity indicators**: Actions and states that suggest difficulty
-- **Temporal patterns**: How usage changes throughout study sessions
-
-## Troubleshooting
-
-### Common Issues
-
-1. **No user folders found**
-   ```
-   Found 0 user folders
-   ```
-   **Solution**: Ensure directory structure matches expected format (user_*/task_*/)
-
-2. **No IDE event files found**
-   ```
-   Found 0 IDE event files
-   ```
-   **Solution**: Verify files contain "ide-events" in filename and have .csv extension
-
-3. **Missing configuration files**
-   ```
-   ModuleNotFoundError: No module named 'tasktracker_actions'
-   ```
-   **Solution**: Ensure `tasktracker_actions.py` exists with proper `actions` list
-
-4. **Excel file creation errors**
-   ```
-   Error creating Excel file: can't compare offset-naive and offset-aware datetimes
-   ```
-   **Solution**: This is handled automatically by the timestamp parsing functions
-
-### Performance Considerations
-- Large datasets (100,000+ events) may take several minutes to process
-- State analysis is more computationally intensive than action counting
-- Batch processing scales linearly with number of users and tasks
-- Excel file generation adds processing time but provides rich analysis capabilities
+## Contact
+For questions or issues, contact the project maintainer.

@@ -1,3 +1,40 @@
+"""
+Excel File Line Counter
+
+Counts the total number of rows across all Excel files (.xlsx, .xls, .xlsm, .xlsb) in a directory structure.
+Provides summary statistics, including largest files by size and row count, and displays top 5 files in each category.
+
+Usage:
+    python count_xlsx_lines.py [directory_path] [--output OUTPUT_DIR]
+
+Arguments:
+    directory_path (optional): Path to the directory to scan. If not provided, prompts the user or defaults to the current directory.
+    --output, -o (optional): Directory to save results (default: results)
+
+Features:
+- Recursively scans the specified directory and all subdirectories for Excel files.
+- Counts the total number of rows across all sheets in each Excel file.
+- Reports file size (bytes and human-readable format).
+- Saves all results to CSV files in the output directory:
+    - all_files.csv: All scanned files with size and row count
+    - top5_by_size.csv: Top 5 largest files by size
+    - top5_by_row_count.csv: Top 5 largest files by row count
+    - summary.csv: Overall summary statistics
+- Displays a brief summary to the console.
+- Handles unreadable files and sheets gracefully with warnings.
+
+Example:
+    python count_xlsx_lines.py study_data/ --output my_results
+
+Output:
+- CSV files in the output directory (default: results)
+- Console summary for quick feedback
+
+Dependencies:
+- pandas
+
+"""
+
 import os
 import pandas as pd
 from pathlib import Path
@@ -125,30 +162,77 @@ def display_results(files_info):
         print(f"{i}. {file_info['name']} - {file_info['row_count']:,} rows ({file_info['size_formatted']})")
 
 
+def save_results_to_csv(files_info, output_dir):
+    import csv
+    import os
+    os.makedirs(output_dir, exist_ok=True)
+    # Save all file details
+    all_files_csv = os.path.join(output_dir, 'all_files.csv')
+    with open(all_files_csv, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=['relative_path', 'name', 'size_bytes', 'size_formatted', 'row_count'])
+        writer.writeheader()
+        for file_info in files_info:
+            writer.writerow({k: file_info[k] for k in writer.fieldnames})
+    # Save top 5 by size
+    top5_size = sorted(files_info, key=lambda x: x['size_bytes'], reverse=True)[:5]
+    top5_size_csv = os.path.join(output_dir, 'top5_by_size.csv')
+    with open(top5_size_csv, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=['relative_path', 'name', 'size_bytes', 'size_formatted', 'row_count'])
+        writer.writeheader()
+        for file_info in top5_size:
+            writer.writerow({k: file_info[k] for k in writer.fieldnames})
+    # Save top 5 by row count
+    top5_rows = sorted(files_info, key=lambda x: x['row_count'], reverse=True)[:5]
+    top5_rows_csv = os.path.join(output_dir, 'top5_by_row_count.csv')
+    with open(top5_rows_csv, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=['relative_path', 'name', 'size_bytes', 'size_formatted', 'row_count'])
+        writer.writeheader()
+        for file_info in top5_rows:
+            writer.writerow({k: file_info[k] for k in writer.fieldnames})
+    # Save summary
+    summary_csv = os.path.join(output_dir, 'summary.csv')
+    with open(summary_csv, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(['statistic', 'value'])
+        writer.writerow(['total_files', len(files_info)])
+        writer.writerow(['total_rows', sum(f['row_count'] for f in files_info)])
+        if files_info:
+            largest_by_size = max(files_info, key=lambda x: x['size_bytes'])
+            largest_by_rows = max(files_info, key=lambda x: x['row_count'])
+            writer.writerow(['largest_file_by_size', largest_by_size['relative_path']])
+            writer.writerow(['largest_file_by_size_bytes', largest_by_size['size_bytes']])
+            writer.writerow(['largest_file_by_row_count', largest_by_rows['relative_path']])
+            writer.writerow(['largest_file_by_row_count_rows', largest_by_rows['row_count']])
+    print(f"Results saved to {output_dir}")
+
+
 def main():
     """Main function"""
     # Get directory to scan
-    if len(sys.argv) > 1:
-        directory = sys.argv[1]
-    else:
+    import argparse
+    parser = argparse.ArgumentParser(description='Count rows in Excel files and output results to a directory.')
+    parser.add_argument('directory', nargs='?', default=None, help='Directory to scan for Excel files')
+    parser.add_argument('--output', '-o', default='results', help='Directory to save results (default: results)')
+    args = parser.parse_args()
+    directory = args.directory
+    output_dir = args.output
+    if not directory:
         directory = input("Enter the directory path to scan (or press Enter for current directory): ").strip()
         if not directory:
             directory = "."
-
     # Check if directory exists
     if not os.path.exists(directory):
         print(f"Error: Directory '{directory}' does not exist.")
         return
-
     if not os.path.isdir(directory):
         print(f"Error: '{directory}' is not a directory.")
         return
-
     try:
         # Scan for Excel files
         files_info = scan_excel_files(directory)
-
-        # Display results
+        # Save results to CSVs
+        save_results_to_csv(files_info, output_dir)
+        # Display brief summary
         display_results(files_info)
 
     except KeyboardInterrupt:

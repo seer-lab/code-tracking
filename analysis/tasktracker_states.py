@@ -311,41 +311,44 @@ def write_all_summaries(output_folder):
     Args:
         output_folder: Base output folder
     """
-    # Write combined summaries
-    print("Writing combined summaries...")
-    combined_totals_file = os.path.join(output_folder, 'combined_state_totals.csv')
-    combined_sessions_file = os.path.join(output_folder, 'combined_state_sessions.csv')
-    write_csv(combined_totals_file, combined_state_dict)
-    write_state_changes_csv(combined_sessions_file, all_state_changes)
+    # Write combined summary
+    combined_file = os.path.join(output_folder, 'combined_state_totals.csv')
+    write_csv(combined_file, combined_state_dict)
 
     # Write user summaries
-    print(f"Writing {len(user_state_dict)} user summaries...")
     for user, user_dict in user_state_dict.items():
-        # Total times
-        user_totals_file = os.path.join(output_folder, 'by_user', f'{user}_state_totals.csv')
-        write_csv(user_totals_file, user_dict)
+        user_file = os.path.join(output_folder, 'by_user', f'{user}_state_totals.csv')
+        write_csv(user_file, user_dict)
 
-        # Individual sessions
-        user_sessions_file = os.path.join(output_folder, 'by_user', f'{user}_state_sessions.csv')
-        write_state_changes_csv(user_sessions_file, user_state_changes[user])
-
-    # Write task summaries with user subdirectories
-    print(f"Writing {len(task_state_dict)} task summaries...")
+    # Write task summaries
     for task, task_dict in task_state_dict.items():
-        # Extract user from task name
         user_part = '_'.join(task.split('_')[:2])
-
-        # Create user subdirectory in by_task folder
         user_task_folder = os.path.join(output_folder, 'by_task', user_part)
         os.makedirs(user_task_folder, exist_ok=True)
+        task_file = os.path.join(user_task_folder, f'{task}_state_totals.csv')
+        write_csv(task_file, task_dict)
 
-        # Total times
-        task_totals_file = os.path.join(user_task_folder, f'{task}_state_totals.csv')
-        write_csv(task_totals_file, task_dict)
+    # --- Per-user-per-task output ---
+    import pandas as pd
+    by_user_task_dir = os.path.join(output_folder, 'by_user_task')
+    os.makedirs(by_user_task_dir, exist_ok=True)
 
-        # Individual sessions
-        task_sessions_file = os.path.join(user_task_folder, f'{task}_state_sessions.csv')
-        write_state_changes_csv(task_sessions_file, task_state_changes[task])
+    # Group detailed_state_events by (user, task)
+    user_task_events = {}
+    for event in detailed_state_events:
+        key = (event['user'], event['task'])
+        if key not in user_task_events:
+            user_task_events[key] = []
+        user_task_events[key].append(event)
+
+    for (user, task), events in user_task_events.items():
+        user_dir = os.path.join(by_user_task_dir, f'user_{user}')
+        os.makedirs(user_dir, exist_ok=True)
+        file_path = os.path.join(user_dir, f'user_{user}_task_{task}_states.csv')
+        df = pd.DataFrame(events)
+        df.to_csv(file_path, index=False)
+
+    print(f"Per-user-per-task state session logs written to {by_user_task_dir}")
 
     # Print summary
     total_sessions = len(all_state_changes)

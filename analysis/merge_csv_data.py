@@ -26,10 +26,6 @@ def merge_csv_data(input_directory, output_directory):
     """
     # Create output directory structure
     os.makedirs(output_directory, exist_ok=True)
-    combined_sorted_dir = os.path.join(output_directory, 'combined_sorted')
-    combined_unsorted_dir = os.path.join(output_directory, 'combined_unsorted')
-    os.makedirs(combined_sorted_dir, exist_ok=True)
-    os.makedirs(combined_unsorted_dir, exist_ok=True)
 
     # Find all user folders
     user_folders = glob.glob(os.path.join(input_directory, 'user_*'))
@@ -45,11 +41,9 @@ def merge_csv_data(input_directory, output_directory):
         user_id = os.path.basename(user_folder)
         print(f"Processing {user_id}...")
 
-        # Create user output directories
-        user_sorted_dir = os.path.join(combined_sorted_dir, user_id)
-        user_unsorted_dir = os.path.join(combined_unsorted_dir, user_id)
-        os.makedirs(user_sorted_dir, exist_ok=True)
-        os.makedirs(user_unsorted_dir, exist_ok=True)
+        # Create user output directory
+        user_output_dir = os.path.join(output_directory, user_id)
+        os.makedirs(user_output_dir, exist_ok=True)
 
         # Find task folders (1, 2, 3, 4) within user folder
         task_folders = []
@@ -60,13 +54,13 @@ def merge_csv_data(input_directory, output_directory):
 
         # Process each task
         for task_id, task_folder in task_folders:
-            merged_count = merge_task_files(user_id, task_id, task_folder, user_sorted_dir, user_unsorted_dir)
+            merged_count = merge_task_files(user_id, task_id, task_folder, user_output_dir)
             total_merged += merged_count
 
     print(f"Successfully merged {total_merged} task combinations")
 
 
-def merge_task_files(user_id, task_id, task_folder, sorted_output_dir, unsorted_output_dir):
+def merge_task_files(user_id, task_id, task_folder, output_dir):
     """
     Merge code activity and IDE event files for a specific task
     """
@@ -141,17 +135,12 @@ def merge_task_files(user_id, task_id, task_folder, sorted_output_dir, unsorted_
         print(f"  No data found for {user_id} task {task_id}")
         return 0
 
-    # Create unsorted version
-    unsorted_filename = f"{user_id}_task{task_id}_combined.xlsx"
-    unsorted_path = os.path.join(unsorted_output_dir, unsorted_filename)
-    create_excel_file(combined_data, unsorted_path, sort_data=False)
-
-    # Create sorted version
+    # Create sorted version only
     sorted_filename = f"{user_id}_task{task_id}_combined.xlsx"
-    sorted_path = os.path.join(sorted_output_dir, sorted_filename)
+    sorted_path = os.path.join(output_dir, sorted_filename)
     create_excel_file(combined_data, sorted_path, sort_data=True)
 
-    print(f"    Created: {unsorted_filename} and {sorted_filename}")
+    print(f"    Created: {sorted_filename}")
     return 1
 
 
