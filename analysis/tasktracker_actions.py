@@ -23,6 +23,9 @@ combined_action_dict = {action: 0 for action in tasktracker.actions}
 user_action_dicts = defaultdict(lambda: {action: 0 for action in tasktracker.actions})
 task_action_dicts = defaultdict(lambda: {action: 0 for action in tasktracker.actions})
 
+# Store detailed events for per-user-per-task analysis
+detailed_events = []
+
 def main():
     """Main function"""
     if len(sys.argv) < 3:
@@ -117,6 +120,21 @@ def read_csv(ide_file):
                         # Increment task-specific count
                         if task_info:
                             task_action_dicts[task_info][action_value] += 1
+
+                        # Store detailed event for per-user-per-task analysis
+                        if user_info and task_info:
+                            detailed_events.append({
+                                'timestamp': row[0] if len(row) > 0 else '',
+                                'event_type': row[1] if len(row) > 1 else '',
+                                'action': action_value,
+                                'context': row[3] if len(row) > 3 else '',
+                                'filename': row[4] if len(row) > 4 else '',
+                                'line': row[5] if len(row) > 5 else '',
+                                'char': row[6] if len(row) > 6 else '',
+                                'user': user_info.replace('user_', '') if user_info else '',
+                                'task': task_info.split('_')[-1] if task_info else '',
+                                'user_task': task_info
+                            })
 
     except Exception as e:
         print(f"Error parsing {ide_file}: {e}")
@@ -219,6 +237,56 @@ def write_all_summaries(output_folder):
     print(f"  - 1 combined summary with {actions_with_counts} actions")
     print(f"  - {len(user_action_dicts)} user summaries")
     print(f"  - {len(task_action_dicts)} task summaries organized by user")
+
+    # Write per-user-per-task detailed summaries
+    write_per_user_task_summaries(output_folder)
+
+def write_per_user_task_summaries(output_folder):
+    """
+    Write detailed per-user-per-task summaries
+    Args:
+        output_folder: Base output folder
+    """
+    import pandas as pd
+    
+    if not detailed_events:
+        return
+        
+    # Create per-user-per-task directory
+    per_user_task_dir = os.path.join(output_folder, 'by_user_task')
+    os.makedirs(per_user_task_dir, exist_ok=True)
+    
+    # Group events by user_task
+    from collections import defaultdict
+    user_task_events = defaultdict(list)
+    
+    for event in detailed_events:
+        user_task_key = event['user_task']
+        user_task_events[user_task_key].append(event)
+    
+    print(f"Writing {len(user_task_events)} per-user-per-task detailed summaries...")
+    
+    for user_task, events in user_task_events.items():
+        # Extract user from task name (e.g., "user_25_1" -> "user_25")
+        user_part = '_'.join(user_task.split('_')[:2])
+        
+        # Create user subdirectory
+        user_folder = os.path.join(per_user_task_dir, user_part)
+        os.makedirs(user_folder, exist_ok=True)
+        
+        # Write detailed events CSV
+        detailed_file = os.path.join(user_folder, f'{user_task}_detailed_actions.csv')
+        df = pd.DataFrame(events)
+        df.to_csv(detailed_file, index=False)
+        
+        # Create action count summary for this user-task
+        action_counts = defaultdict(int)
+        for event in events:
+            action_counts[event['action']] += 1
+        
+        # Write action counts CSV
+        counts_file = os.path.join(user_folder, f'{user_task}_action_counts.csv')
+        write_csv(counts_file, dict(action_counts))
 
 if __name__ == '__main__':
     main()

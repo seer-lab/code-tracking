@@ -14,7 +14,7 @@ actions = [
     "Resume",
     "StepInto",
     "CompileDirty",
-    "EditiorBackSpace",
+    "EditorBackSpace",
     "EditorLeft",
     "EditorRight",
     "EditorEnter",

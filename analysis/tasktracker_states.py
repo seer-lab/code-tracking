@@ -26,6 +26,9 @@ all_state_changes = []
 user_state_changes = defaultdict(list)
 task_state_changes = defaultdict(list)
 
+# Store detailed events for per-user-per-task analysis
+detailed_state_events = []
+
 def main():
     """Main function"""
     if len(sys.argv) < 3:
@@ -194,6 +197,19 @@ def end_previous_session(state, start_time, end_time, user_info, task_info):
         if task_info:
             task_state_changes[task_info].append(state_session)
 
+        # Store detailed event for per-user-per-task analysis
+        if user_info and task_info:
+            detailed_state_events.append({
+                'start_time': start_time.isoformat(),
+                'end_time': end_time.isoformat(),
+                'state': state,
+                'duration_seconds': duration_seconds,
+                'duration_minutes': duration_seconds / 60,
+                'user': user_info.replace('user_', '') if user_info else '',
+                'task': task_info.split('_')[-1] if task_info else '',
+                'user_task': task_info
+            })
+
 def extract_user_task_from_path(file_path):
     """
     Extract user and task information from file path
@@ -338,6 +354,56 @@ def write_all_summaries(output_folder):
     print(f"  - Combined summaries ({total_sessions} state sessions, {total_time/3600:.2f} total hours)")
     print(f"  - {len(user_state_dict)} user summaries")
     print(f"  - {len(task_state_dict)} task summaries organized by user")
+
+    # Write per-user-per-task detailed summaries
+    write_per_user_task_state_summaries(output_folder)
+
+def write_per_user_task_state_summaries(output_folder):
+    """
+    Write detailed per-user-per-task state summaries
+    Args:
+        output_folder: Base output folder
+    """
+    import pandas as pd
+    
+    if not detailed_state_events:
+        return
+        
+    # Create per-user-per-task directory
+    per_user_task_dir = os.path.join(output_folder, 'by_user_task')
+    os.makedirs(per_user_task_dir, exist_ok=True)
+    
+    # Group events by user_task
+    from collections import defaultdict
+    user_task_events = defaultdict(list)
+    
+    for event in detailed_state_events:
+        user_task_key = event['user_task']
+        user_task_events[user_task_key].append(event)
+    
+    print(f"Writing {len(user_task_events)} per-user-per-task state summaries...")
+    
+    for user_task, events in user_task_events.items():
+        # Extract user from task name (e.g., "user_25_1" -> "user_25")
+        user_part = '_'.join(user_task.split('_')[:2])
+        
+        # Create user subdirectory
+        user_folder = os.path.join(per_user_task_dir, user_part)
+        os.makedirs(user_folder, exist_ok=True)
+        
+        # Write detailed state sessions CSV
+        detailed_file = os.path.join(user_folder, f'{user_task}_detailed_state_sessions.csv')
+        df = pd.DataFrame(events)
+        df.to_csv(detailed_file, index=False)
+        
+        # Create state duration summary for this user-task
+        state_totals = defaultdict(float)
+        for event in events:
+            state_totals[event['state']] += event['duration_seconds']
+        
+        # Write state totals CSV
+        totals_file = os.path.join(user_folder, f'{user_task}_state_totals.csv')
+        write_csv(totals_file, dict(state_totals))
 
 if __name__ == '__main__':
     main()
