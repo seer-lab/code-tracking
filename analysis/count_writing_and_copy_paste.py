@@ -15,12 +15,17 @@ import glob
 import csv
 import pandas as pd
 from collections import defaultdict
+import argparse
+import matplotlib.pyplot as plt
 
 # Define event types to track
 COPY_PASTE_ACTIONS = {
     "EditorCopy": "copy",
     "EditorCut": "cut", 
-    "EditorPaste": "paste"
+    "EditorPaste": "paste",
+    "$Copy": "copy",
+    "$Paste": "paste",
+    "$Undo": "undo"
 }
 
 # Define writing actions (individual keystrokes)
@@ -44,16 +49,17 @@ code_snapshots = {}     # Track code state at each timestamp
 
 def main():
     """Main function"""
-    if len(sys.argv) < 3:
-        print("Usage: python count_writing_and_copy_paste.py [study_data_folder] [output_folder]")
-        print("Example: python count_writing_and_copy_paste.py study_data/ copy_paste_counts/")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='Analyze writing and copy/paste actions and optionally create visuals')
+    parser.add_argument('input_path', help='Path to study_data folder')
+    parser.add_argument('output_folder', help='Folder to write results (per-user-task and summaries)')
+    parser.add_argument('--visuals', action='store_true', help='Create PNG visualizations from the produced CSV summaries')
+    args = parser.parse_args()
 
-    input_path = sys.argv[1]
-    output_folder = sys.argv[2]
-
-    count_copy_paste_actions(input_path, output_folder)
+    count_copy_paste_actions(args.input_path, args.output_folder)
     print('Copy/Paste/Writing analysis complete!')
+
+    if args.visuals:
+        create_visuals(args.output_folder)
 
 def count_copy_paste_actions(input_path, output_folder):
     """Main function to analyze copy/paste/writing actions and content from IDE events and code changes"""
@@ -62,21 +68,28 @@ def count_copy_paste_actions(input_path, output_folder):
     # Removed creation of by_user and by_task subdirectories
 
     # Find all data files
+    print(f"DEBUG: Searching in {os.path.abspath(input_path)}")
     ide_files = glob.glob(os.path.join(input_path, '**', '*ide-events*.csv'), recursive=True)
     code_files = glob.glob(os.path.join(input_path, '**', '*.csv'), recursive=True)
     code_files = [f for f in code_files if 'ide-events' not in f]  # Exclude IDE events from code files
     
     print(f"Found {len(ide_files)} IDE event files")
+    if ide_files:
+        print(f"  Sample: {ide_files[0]}")
     print(f"Found {len(code_files)} code change files")
+    if code_files:
+        print(f"  Sample: {code_files[0]}")
 
     if not ide_files:
         print("No IDE event files found")
         return
 
     # Process each user/task combination
+    print(f"DEBUG: Processing user/task combinations...")
     processed_combinations = set()
     for ide_file in ide_files:
         user_info, task_info = extract_user_task_from_path(ide_file)
+        print(f"DEBUG: Extracted user={user_info}, task={task_info} from {ide_file}")
         if user_info and task_info:
             combination = (user_info, task_info)
             if combination not in processed_combinations:
@@ -84,6 +97,7 @@ def count_copy_paste_actions(input_path, output_folder):
                 process_user_task_data(input_path, user_info, task_info, output_folder)
 
     # Write all the different summary files
+    print(f"DEBUG: Writing summaries, detailed_events count = {len(detailed_events)}")
     write_all_summaries(output_folder)
 
 def process_user_task_data(input_path, user_info, task_info, output_folder):
@@ -123,9 +137,12 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
     for i, event in enumerate(ide_events):
         action = event['action']
         if action in WRITING_ACTIONS:
+            # Update global counter
+            combined_action_dict[action] += 1
+
             # Find code change near this event
             content = extract_content_around_timestamp(event, code_changes, action)
-            keystroke_events.append({
+            keystroke_event = {
                 'timestamp': event['timestamp'],
                 'user': user_info.replace('user_', '') if user_info else '',
                 'task': task_info.split('_')[-1] if task_info else '',
@@ -135,10 +152,21 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
                 'char': event['char'],
                 'content': content[:200] if content else '',
                 'content_length': len(content) if content else 0
-            })
+            }
+            keystroke_events.append(keystroke_event)
+
+            # Also add to global detailed_events for summary
+            detailed_event = keystroke_event.copy()
+            detailed_event['event_type'] = 'writing'
+            detailed_event['context'] = event['context']
+            detailed_events.append(detailed_event)
+
         elif action in COPY_PASTE_ACTIONS:
+            # Update global counter
+            combined_action_dict[action] += 1
+
             content = extract_content_around_timestamp(event, code_changes, action)
-            copycutpaste_events.append({
+            copycutpaste_event = {
                 'timestamp': event['timestamp'],
                 'user': user_info.replace('user_', '') if user_info else '',
                 'task': task_info.split('_')[-1] if task_info else '',
@@ -149,7 +177,13 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
                 'char': event['char'],
                 'content': content[:200] if content else '',
                 'content_length': len(content) if content else 0
-            })
+            }
+            copycutpaste_events.append(copycutpaste_event)
+
+            # Also add to global detailed_events for summary
+            detailed_event = copycutpaste_event.copy()
+            detailed_event['context'] = event['context']
+            detailed_events.append(detailed_event)
 
     # Write per-user-task output files
     # Use the output_folder provided by the user for all outputs
@@ -169,15 +203,17 @@ def load_ide_events(ide_file):
         with open(ide_file, 'r', encoding='utf-8') as f:
             reader = csv.reader(f)
             for row in reader:
-                if len(row) >= 3 and row[1] == "Action":
-                    events.append({
-                        'timestamp': row[0],
-                        'action': row[2],
-                        'context': row[3] if len(row) > 3 else "",
-                        'filename': row[4] if len(row) > 4 else "",
-                        'line': int(row[5]) if len(row) > 5 and row[5].isdigit() else -1,
-                        'char': int(row[6]) if len(row) > 6 and row[6].isdigit() else -1
-                    })
+                # Accept both "Action" type events and direct action names starting with $
+                if len(row) >= 3:
+                    if row[1] == "Action" or row[2].startswith('$'):
+                        events.append({
+                            'timestamp': row[0],
+                            'action': row[2],
+                            'context': row[3] if len(row) > 3 else "",
+                            'filename': row[4] if len(row) > 4 else "",
+                            'line': int(row[5]) if len(row) > 5 and row[5].isdigit() else -1,
+                            'char': int(row[6]) if len(row) > 6 and row[6].isdigit() else -1
+                        })
     except Exception as e:
         print(f"Error loading IDE events from {ide_file}: {e}")
     return events
@@ -467,6 +503,29 @@ def create_content_summary(detailed_events, output_file):
         
     except Exception as e:
         print(f"Error creating content summary: {e}")
+
+def create_visuals(output_folder):
+    """Create simple visualizations from the summary CSVs in output_folder."""
+    try:
+        combined_file = os.path.join(output_folder, 'combined_copy_paste_counts.csv')
+
+        # Combined action counts bar chart
+        if os.path.exists(combined_file):
+            df_comb = pd.read_csv(combined_file)
+            if not df_comb.empty:
+                plt.figure(figsize=(10,6))
+                plt.bar(df_comb['Action'].astype(str), df_comb['Count'].astype(int), color='steelblue')
+                plt.xticks(rotation=45, ha='right')
+                plt.ylabel('Count')
+                plt.title('Combined Copy/Cut/Paste and Writing Counts')
+                out_comb = os.path.join(output_folder, 'combined_action_counts.png')
+                plt.tight_layout()
+                plt.savefig(out_comb)
+                plt.close()
+                print(f"Saved combined action visualization to {out_comb}")
+
+    except Exception as e:
+        print(f"Error creating visuals: {e}")
 
 if __name__ == '__main__':
     main()

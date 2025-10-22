@@ -8,12 +8,13 @@ python count_execute_events.py [study_data_folder] [output_dir]
 """
 
 import os
-import sys
 import glob
 import csv
 import pandas as pd
 from collections import defaultdict
 import datetime
+import argparse
+import matplotlib.pyplot as plt
 
 # Event types that indicate code execution
 EXECUTE_ACTIONS = {"Run", "RunClass", "RunAnything"}
@@ -106,17 +107,18 @@ def log_execution(study_data_folder, output_dir, total_count):
 
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python count_execute_events.py [study_data_folder] [output_dir]")
-        sys.exit(1)
-    study_data_folder = sys.argv[1]
-    output_dir = sys.argv[2]
-    result = count_execute_events(study_data_folder)
+    parser = argparse.ArgumentParser(description='Count execute events and optionally create visuals')
+    parser.add_argument('study_data_folder', help='Path to study_data folder')
+    parser.add_argument('output_dir', help='Folder to write CSV summary and optional visuals')
+    parser.add_argument('--visuals', action='store_true', help='Generate visualization PNGs (execs by user and by task)')
+    args = parser.parse_args()
+
+    result = count_execute_events(args.study_data_folder)
     if result:
         summary_by_user_task, summary_by_user, summary_by_task, total_count = result
-        save_summary_csv(summary_by_user_task, output_dir)
-        save_per_user_task_csv(summary_by_user_task, output_dir)
-        log_execution(study_data_folder, output_dir, total_count)
+        save_summary_csv(summary_by_user_task, args.output_dir)
+        save_per_user_task_csv(summary_by_user_task, args.output_dir)
+        log_execution(args.study_data_folder, args.output_dir, total_count)
         print("\n📊 EXECUTE EVENT SUMMARY:")
         print(f"  Total execute events: {total_count:,}")
         print(f"  Users: {len(summary_by_user)}")
@@ -127,6 +129,37 @@ def main():
         print("\n  By task:")
         for task, count in sorted(summary_by_task.items()):
             print(f"    Task {task}: {count}")
+
+        # Visuals
+        if args.visuals:
+            os.makedirs(args.output_dir, exist_ok=True)
+            # By user
+            users = list(summary_by_user.keys())
+            user_counts = [summary_by_user[u] for u in users]
+            plt.figure(figsize=(10,6))
+            plt.bar(users, user_counts, color='C1')
+            plt.xticks(rotation=45, ha='right')
+            plt.ylabel('Execute count')
+            plt.title('Execute events by user')
+            out_user = os.path.join(args.output_dir, 'execute_by_user.png')
+            plt.tight_layout()
+            plt.savefig(out_user)
+            plt.close()
+            print(f"Saved user visualization to {out_user}")
+
+            # By task
+            tasks = list(summary_by_task.keys())
+            task_counts = [summary_by_task[t] for t in tasks]
+            plt.figure(figsize=(10,6))
+            plt.bar(tasks, task_counts, color='C2')
+            plt.xticks(rotation=45, ha='right')
+            plt.ylabel('Execute count')
+            plt.title('Execute events by task')
+            out_task = os.path.join(args.output_dir, 'execute_by_task.png')
+            plt.tight_layout()
+            plt.savefig(out_task)
+            plt.close()
+            print(f"Saved task visualization to {out_task}")
 
 if __name__ == "__main__":
     main()

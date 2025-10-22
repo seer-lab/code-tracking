@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import os
+import argparse
 
 # Paths to analysis scripts (relative to this script's location)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,9 +19,11 @@ SCRIPTS = [
     ('tasktracker_states.py', ['study_data', 'results/tasktracker_states']),
 ]
 
-def run_script(script, args):
+def run_script(script, args, forward_visuals=False):
     script_path = os.path.join(SCRIPT_DIR, script)
     cmd = [sys.executable, script_path] + args
+    if forward_visuals:
+        cmd = cmd + ['--visuals']
     print(f"\nRunning: {' '.join(cmd)}")
     result = subprocess.run(cmd)
     if result.returncode != 0:
@@ -28,10 +31,14 @@ def run_script(script, args):
         sys.exit(result.returncode)
 
 def main():
-    for script, args in SCRIPTS:
-        run_script(script, args)
-    print("\nAll analysis scripts completed successfully.")
+    parser = argparse.ArgumentParser(description='Run all analysis scripts (optionally visuals).')
+    parser.add_argument('--visuals', action='store_true', help='Run visualization code inside each analysis script')
+    args = parser.parse_args()
+
+    for script, s_args in SCRIPTS:
+        run_script(script, s_args, forward_visuals=args.visuals)
+
+    print("\nAll requested scripts completed successfully.")
 
 if __name__ == "__main__":
     main()
-
