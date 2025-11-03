@@ -18,6 +18,34 @@ import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Poster-friendly save helper (transparent PNG + PDF/SVG)
+def save_fig_variants(fig, out_base, dpi=600, transparent=True):
+    """Save a figure to PNG (transparent) and vector formats (PDF, SVG) with tight layout.
+    out_base: full path without extension (e.g. os.path.join(visuals_dir, 'name'))
+    """
+    try:
+        fig.patch.set_alpha(0)
+    except Exception:
+        pass
+    for ax in getattr(fig, 'axes', []):
+        try:
+            ax.set_facecolor('none')
+        except Exception:
+            pass
+
+    png_path = out_base + '.png'
+    pdf_path = out_base + '.pdf'
+    svg_path = out_base + '.svg'
+
+    # PNG: high-res transparent
+    fig.savefig(png_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+    # Vector outputs (best for poster printing)
+    try:
+        fig.savefig(pdf_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+        fig.savefig(svg_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+    except Exception:
+        pass
+
 # Event types that indicate code execution
 EXECUTE_ACTIONS = {"Run", "RunClass", "RunAnything"}
 
@@ -251,6 +279,18 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
     os.makedirs(visuals_dir, exist_ok=True)
 
     try:
+        # Poster-friendly rcParams (larger fonts, cleaner look)
+        import matplotlib as mpl
+        mpl.rcParams.update({
+            'font.size': 14,
+            'axes.titlesize': 18,
+            'axes.labelsize': 16,
+            'xtick.labelsize': 12,
+            'ytick.labelsize': 12,
+            'legend.fontsize': 12,
+            'figure.dpi': 300
+        })
+
         # 1. Combined execute action types bar chart
         combined_file = os.path.join(output_dir, 'combined_execute_summary.csv')
         if os.path.exists(combined_file):
@@ -286,10 +326,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
                                    f'{int(height):,}', ha='center', va='bottom', fontsize=10, fontweight='bold')
 
                         plt.tight_layout()
-                        out_actions = os.path.join(visuals_dir, 'execute_action_types.png')
-                        plt.savefig(out_actions, dpi=300, bbox_inches='tight')
+                        out_actions_base = os.path.join(visuals_dir, 'execute_action_types')
+                        save_fig_variants(fig, out_actions_base, dpi=600)
                         plt.close()
-                        print(f"Saved action types visualization to {out_actions}")
+                        print(f"Saved action types visualization to {out_actions_base}.png and vector formats")
 
         # 2. Execute events by user (enhanced bar chart)
         if summary_by_user:
@@ -313,10 +353,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
                        f'{int(height):,}', ha='center', va='bottom', fontsize=9)
 
             plt.tight_layout()
-            out_user = os.path.join(visuals_dir, 'execute_by_user.png')
-            plt.savefig(out_user, dpi=300, bbox_inches='tight')
+            out_user_base = os.path.join(visuals_dir, 'execute_by_user')
+            save_fig_variants(fig, out_user_base, dpi=600)
             plt.close()
-            print(f"Saved user visualization to {out_user}")
+            print(f"Saved user visualization to {out_user_base}.png and vector formats")
 
         # 3. Execute events by task (enhanced bar chart)
         if summary_by_task:
@@ -340,10 +380,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
                        f'{int(height):,}', ha='center', va='bottom', fontsize=9)
 
             plt.tight_layout()
-            out_task = os.path.join(visuals_dir, 'execute_by_task.png')
-            plt.savefig(out_task, dpi=300, bbox_inches='tight')
+            out_task_base = os.path.join(visuals_dir, 'execute_by_task')
+            save_fig_variants(fig, out_task_base, dpi=600)
             plt.close()
-            print(f"Saved task visualization to {out_task}")
+            print(f"Saved task visualization to {out_task_base}.png and vector formats")
 
         # 4. Heatmap of user x task executions
         if summary_by_user_task:
@@ -383,10 +423,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
             ax.set_ylabel('User', fontsize=12, fontweight='bold')
 
             plt.tight_layout()
-            out_heatmap = os.path.join(visuals_dir, 'execute_heatmap.png')
-            plt.savefig(out_heatmap, dpi=300, bbox_inches='tight')
+            out_heatmap_base = os.path.join(visuals_dir, 'execute_heatmap')
+            save_fig_variants(fig, out_heatmap_base, dpi=600)
             plt.close()
-            print(f"Saved heatmap visualization to {out_heatmap}")
+            print(f"Saved heatmap visualization to {out_heatmap_base}.png and vector formats")
 
         # 5. Distribution analysis - executions per user
         if summary_by_user:
@@ -416,10 +456,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
                     verticalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
             plt.tight_layout()
-            out_dist = os.path.join(visuals_dir, 'execute_distribution_users.png')
-            plt.savefig(out_dist, dpi=300, bbox_inches='tight')
+            out_dist_base = os.path.join(visuals_dir, 'execute_distribution_users')
+            save_fig_variants(fig, out_dist_base, dpi=600)
             plt.close()
-            print(f"Saved distribution visualization to {out_dist}")
+            print(f"Saved distribution visualization to {out_dist_base}.png and vector formats")
 
         # 6. Distribution analysis - executions per task
         if summary_by_task:
@@ -449,10 +489,10 @@ def create_visuals(output_dir, summary_by_user, summary_by_task, summary_by_user
                     verticalalignment='center', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
             plt.tight_layout()
-            out_dist_task = os.path.join(visuals_dir, 'execute_distribution_tasks.png')
-            plt.savefig(out_dist_task, dpi=300, bbox_inches='tight')
+            out_dist_task_base = os.path.join(visuals_dir, 'execute_distribution_tasks')
+            save_fig_variants(fig, out_dist_task_base, dpi=600)
             plt.close()
-            print(f"Saved task distribution visualization to {out_dist_task}")
+            print(f"Saved task distribution visualization to {out_dist_task_base}.png and vector formats")
 
         print("\n✅ All visualizations created successfully!")
 

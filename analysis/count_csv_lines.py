@@ -14,6 +14,27 @@ import sys
 import argparse
 import matplotlib.pyplot as plt
 
+# Poster-friendly save helper
+def save_fig_variants(fig, out_base, dpi=600, transparent=True):
+    try:
+        fig.patch.set_alpha(0)
+    except Exception:
+        pass
+    for ax in getattr(fig, 'axes', []):
+        try:
+            ax.set_facecolor('none')
+        except Exception:
+            pass
+    png_path = out_base + '.png'
+    pdf_path = out_base + '.pdf'
+    svg_path = out_base + '.svg'
+    fig.savefig(png_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+    try:
+        fig.savefig(pdf_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+        fig.savefig(svg_path, dpi=dpi, transparent=transparent, bbox_inches='tight', pad_inches=0.02, facecolor='none')
+    except Exception:
+        pass
+
 
 def count_csv_lines(directory_path):
     """
@@ -126,16 +147,16 @@ def main():
         out_dir = args.output_folder or os.path.join(os.getcwd(), 'results', 'csv_line_counts')
         os.makedirs(out_dir, exist_ok=True)
         counts = [c for _, c in per_file_counts]
-        plt.figure(figsize=(8,5))
-        plt.hist(counts, bins=30, color='C0', edgecolor='k')
-        plt.xlabel('Line counts')
-        plt.ylabel('Frequency')
-        plt.title('Distribution of CSV line counts')
-        out_path = os.path.join(out_dir, 'csv_line_counts_histogram.png')
-        plt.tight_layout()
-        plt.savefig(out_path)
+        fig = plt.figure(figsize=(8,5))
+        ax = fig.add_subplot(111)
+        ax.hist(counts, bins=30, color='C0', edgecolor='k')
+        ax.set_xlabel('Line counts')
+        ax.set_ylabel('Frequency')
+        ax.set_title('Distribution of CSV line counts')
+        out_base = os.path.join(out_dir, 'csv_line_counts_histogram')
+        save_fig_variants(fig, out_base, dpi=600)
         plt.close()
-        print(f"Saved histogram to {out_path}")
+        print(f"Saved histogram to {out_base}.png and vector formats")
 
 
 if __name__ == '__main__':
