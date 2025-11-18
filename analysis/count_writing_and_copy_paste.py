@@ -842,7 +842,7 @@ def create_visuals(output_folder):
         print('Action counts section is empty; no visuals created.')
         return
 
-    # Ensure numeric values and convert to int
+    # Convert counts to ints and normalize action names
     def to_int(v):
         try:
             return int(v)
@@ -855,29 +855,92 @@ def create_visuals(output_folder):
     actions['Count'] = actions['Value'].apply(to_int)
     actions['Action'] = actions['Metric'].astype(str).str.strip()
 
-    # Sort descending
-    actions = actions.sort_values('Count', ascending=False)
+    # --- Grouping: map each readable action into a high-level category ---
+    actions['Group'] = actions['Action'].apply(get_action_group)
 
-    # Plot: mimic original look (vertical bars, readable labels)
-    fig, ax = plt.subplots(figsize=(12, max(4, len(actions) * 0.3)))
-    bars = ax.bar(actions['Action'], actions['Count'], color='#4C72B0')
-    ax.set_ylabel('Count', fontsize=11)
-    ax.set_xlabel('Action', fontsize=11)
-    ax.set_title('Combined Action Counts', fontsize=14, fontweight='bold')
-    ax.tick_params(axis='x', rotation=45)
-    ax.grid(axis='y', alpha=0.25)
+    # Desired display order for groups
+    ordered_groups = ['Writing', 'Navigation', 'Deletion', 'Clipboard', 'Undo/Redo', 'Other']
 
-    # Add small labels on top of bars for clarity (only for visible bars)
-    for bar in bars:
+    # Aggregate counts per group
+    group_counts = actions.groupby('Group')['Count'].sum().reindex(ordered_groups).fillna(0).astype(int)
+
+    # --- Prepare grouped counts for plotting ---
+    # Remove the 'Other' group for poster visuals if present (often empty)
+    plot_group_counts = group_counts.drop(labels=['Other'], errors='ignore')
+
+    # If all groups are zero or none present, skip
+    if plot_group_counts.sum() == 0:
+        print('Grouped action counts are all zero; skipping grouped visual.')
+    else:
+        # Plot grouped bars (vertical for poster use)
+        # Poster-friendly font sizes: axis labels ~28pt, ticks slightly smaller to avoid overlap
+        title_fs = 32
+        axis_fs = 28
+        tick_fs = 24
+        bar_label_fs = 22
+
+        # Larger figure to reduce label crowding on poster
+        fig, ax = plt.subplots(figsize=(12, 8))
+        colors = ['#27ae60', '#3498db', '#e74c3c', '#9b59b6', '#f1c40f']
+        # If number of groups less than colors list, slice appropriately
+        colors = colors[:len(plot_group_counts)]
+
+        bars = ax.bar(plot_group_counts.index, plot_group_counts.values, color=colors)
+
+        ax.set_ylabel('Count', fontsize=axis_fs)
+        ax.set_xlabel('Action Group', fontsize=axis_fs)
+        ax.set_title('Editor Action Counts (Grouped)', fontsize=title_fs, fontweight='bold')
+        ax.grid(axis='y', alpha=0.25)
+
+        # Tick label sizes (slightly smaller for x to avoid overlapping)
+        ax.tick_params(axis='x', labelsize=tick_fs)
+        ax.tick_params(axis='y', labelsize=tick_fs)
+
+        # Add a little headroom so large bar labels don't get clipped by the frame
+        y_max = plot_group_counts.max()
+        if y_max <= 0:
+            y_max = 1
+        ax.set_ylim(0, y_max * 1.12)
+
+        # Add labels above bars and ensure they're not clipped by the axes
+        for bar in bars:
+            h = int(bar.get_height())
+            if h > 0:
+                label_y = h + max(1, y_max * 0.02)
+                ax.text(bar.get_x() + bar.get_width() / 2, label_y, f'{h:,}', ha='center', va='bottom', fontsize=bar_label_fs, clip_on=False)
+
+        # Prevent x-labels from overlapping the figure edge
+        plt.tight_layout()
+        try:
+            fig.subplots_adjust(bottom=0.15)
+        except Exception:
+            pass
+
+        out_grouped = os.path.join(visuals_dir, 'combined_action_counts_grouped')
+        save_fig_variants(fig, out_grouped, dpi=600)
+        plt.close(fig)
+        print(f'Grouped action counts visual saved to {out_grouped}.png/.pdf/.svg')
+
+    # --- Also keep the individual-action bar chart (for reference) ---
+    actions_sorted = actions.sort_values('Count', ascending=False)
+    fig2, ax2 = plt.subplots(figsize=(12, max(4, len(actions_sorted) * 0.3)))
+    bars2 = ax2.bar(actions_sorted['Action'], actions_sorted['Count'], color='#4C72B0')
+    ax2.set_ylabel('Count', fontsize=11)
+    ax2.set_xlabel('Action', fontsize=11)
+    ax2.set_title('Combined Action Counts (individual actions)', fontsize=13, fontweight='bold')
+    ax2.tick_params(axis='x', rotation=45)
+    ax2.grid(axis='y', alpha=0.25)
+
+    for bar in bars2:
         h = bar.get_height()
         if h > 0:
-            ax.text(bar.get_x() + bar.get_width() / 2, h, f'{int(h):,}', ha='center', va='bottom', fontsize=8)
+            ax2.text(bar.get_x() + bar.get_width() / 2, h, f'{int(h):,}', ha='center', va='bottom', fontsize=8)
 
     plt.tight_layout()
-    out_base = os.path.join(visuals_dir, 'combined_action_counts')
-    save_fig_variants(fig, out_base, dpi=600)
-    plt.close(fig)
-    print(f'Combined action counts visual saved to {out_base}.png/.pdf/.svg')
+    out_individual = os.path.join(visuals_dir, 'combined_action_counts')
+    save_fig_variants(fig2, out_individual, dpi=600)
+    plt.close(fig2)
+    print(f'Individual action counts visual saved to {out_individual}.png/.pdf/.svg')
 
 if __name__ == '__main__':
     # Run main() when executed as a script. Keep simple usage info.
