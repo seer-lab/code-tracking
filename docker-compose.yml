@@ -1,6 +1,7 @@
 services:
   server:
-    image: registry.jetbrains.team/p/tasktracker-3/sharable/tasktracker-server:latest
+    image: tasktracker-server:latest  # Create the local image: docker build --platform linux/amd64 -t tasktracker-server .
+    platform: linux/amd64
     ports:
       - "8080:8080"
     environment:
