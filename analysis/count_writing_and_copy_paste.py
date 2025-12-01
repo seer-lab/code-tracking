@@ -196,6 +196,9 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
         if action in WRITING_ACTIONS:
             # Update global counter
             combined_action_dict[action] += 1
+            # --- NEW: update per-user and per-task raw action counts ---
+            user_action_dicts[user_info][action] += 1
+            task_action_dicts[task_info][action] += 1
 
             # Calculate actual content change if we have a code change
             content = ""
@@ -242,6 +245,9 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
         elif action in COPY_PASTE_ACTIONS:
             # Update global counter
             combined_action_dict[action] += 1
+            # --- NEW: update per-user and per-task raw action counts ---
+            user_action_dicts[user_info][action] += 1
+            task_action_dicts[task_info][action] += 1
 
             # Get the actual content for copy/paste operations
             content = ""
@@ -311,6 +317,33 @@ def process_user_task_data(input_path, user_info, task_info, output_folder):
         'total_copy_paste_ops': len(copycutpaste_events)
     }
     pd.DataFrame([volume_data]).to_csv(volume_stats_file, index=False)
+
+    # --- NEW: write per-user-per-task raw action counts into the user's root folder ---
+    try:
+        user_root_dir = os.path.join(output_folder, user_info)
+        os.makedirs(user_root_dir, exist_ok=True)
+
+        # Count internal action names from the events collected for this user/task
+        from collections import defaultdict as _dd
+        action_counts = _dd(int)
+        for ev in keystroke_events:
+            a = ev.get('action')
+            if a:
+                action_counts[a] += 1
+        for ev in copycutpaste_events:
+            a = ev.get('action')
+            if a:
+                action_counts[a] += 1
+
+        user_task_raw_file = os.path.join(user_root_dir, f'task_{task_num}_raw_action_counts.csv')
+        with open(user_task_raw_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['action', 'count'])
+            for action, count in sorted(action_counts.items(), key=lambda x: x[0]):
+                writer.writerow([action, count])
+        print(f"Wrote per-user-per-task raw action counts to {user_task_raw_file}")
+    except Exception as e:
+        print(f"Error writing per-user-per-task raw counts for {user_info} task {task_num}: {e}")
 
     print(f"  Keystrokes saved to {keystroke_file}")
     print(f"  Copy/Cut/Paste saved to {copycutpaste_file}")
@@ -633,10 +666,29 @@ def write_csv(output_file, action_dict, volume_stats=None):
 
 def write_all_summaries(output_folder):
     """Write all summary files: overall, per-user, and per-task with consistent directory structure"""
-    # Write combined summary with volume statistics
+    # Ensure summaries directory structure exists (we write raw counts regardless of volume files)
+    summaries_dir = os.path.join(output_folder, 'summaries')
+    by_user_dir = os.path.join(summaries_dir, 'by_user')
+    by_task_dir = os.path.join(summaries_dir, 'by_task')
+    os.makedirs(by_user_dir, exist_ok=True)
+    os.makedirs(by_task_dir, exist_ok=True)
+
+    # Write combined summary with volume statistics (human-readable formatted)
     print("Writing combined summary...")
     combined_file = os.path.join(output_folder, 'combined_copy_paste_counts.csv')
     write_csv(combined_file, combined_action_dict, combined_volume_stats)
+
+    # Write raw combined action counts (internal names)
+    combined_raw_file = os.path.join(output_folder, 'combined_raw_action_counts.csv')
+    try:
+        with open(combined_raw_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['action', 'count'])
+            for action, count in sorted(combined_action_dict.items(), key=lambda x: x[0]):
+                writer.writerow([action, count])
+        print(f"Combined raw action counts saved to {combined_raw_file}")
+    except Exception as e:
+        print(f"Error writing {combined_raw_file}: {e}")
 
     # Write detailed events log with content
     if detailed_events:
@@ -649,6 +701,42 @@ def write_all_summaries(output_folder):
         content_summary_file = os.path.join(output_folder, 'content_operations_summary.csv')
         create_content_summary(detailed_events, content_summary_file)
     
+    # Write per-user raw action counts (internal names)
+    for user_key, action_dict in user_action_dicts.items():
+        # user_key usually looks like 'user_24' - extract id for filenames
+        user_id = user_key.replace('user_', '') if user_key.startswith('user_') else user_key
+        user_raw_file = os.path.join(by_user_dir, f'user_{user_id}_raw_action_counts.csv')
+        try:
+            with open(user_raw_file, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow(['action', 'count'])
+                for action, count in sorted(action_dict.items(), key=lambda x: x[0]):
+                    writer.writerow([action, count])
+            print(f"Wrote raw action counts for {user_key} -> {user_raw_file}")
+        except Exception as e:
+            print(f"Error writing {user_raw_file}: {e}")
+
+    # Aggregate task-level action counts across stored task_action_dicts by task id
+    task_agg = defaultdict(lambda: defaultdict(int))
+    for task_key, action_dict in task_action_dicts.items():
+        # task_key looks like 'user_24_1' so last segment is task id
+        task_id = task_key.split('_')[-1]
+        for action, count in action_dict.items():
+            task_agg[task_id][action] += count
+
+    # Write per-task raw action counts
+    for task_id, action_dict in task_agg.items():
+        task_raw_file = os.path.join(by_task_dir, f'task_{task_id}_raw_action_counts.csv')
+        try:
+            with open(task_raw_file, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow(['action', 'count'])
+                for action, count in sorted(action_dict.items(), key=lambda x: x[0]):
+                    writer.writerow([action, count])
+            print(f"Wrote raw action counts for task {task_id} -> {task_raw_file}")
+        except Exception as e:
+            print(f"Error writing {task_raw_file}: {e}")
+
     # Aggregate volume statistics from all user/task folders
     volume_stats = []
     for user_folder in glob.glob(os.path.join(output_folder, 'user_*')):
