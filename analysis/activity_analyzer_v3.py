@@ -1,22 +1,57 @@
-#!/usr/bin/env python3
 """
 Activity Tracker CSV Analyzer v3.0 - With Content Logging
-Analyzes CSV files and logs actual content of copy/paste/cut/undo operations.
+
+Usage (PowerShell, run from project root - the repository root containing `.venv`):
+
+1) Single file (explicit output path):
+    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data/user_1/session_1.csv" -o "analysis/results/user_1/session_1_analyzed.csv"
+
+2) Batch (recursive) scan and preserve input folder structure under an output root (recommended):
+    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d -o "analysis/results"
+
+   This will mirror the relative paths from the scanned root under the output root.
+   Example: input `analysis/study_data/user_1/session_1.csv` -> output `analysis/results/user_1/session_1_analyzed.csv`.
+
+3) Batch (recursive) scan, writing outputs next to each input file (no output root):
+    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d
+
+4) Other useful flags:
+    -t <ms>         Inactivity threshold in milliseconds (default: 5000)
+    --no-content    Disable the content column in outputs (smaller files)
+    --max-content N Limit content logged to N characters (0 = unlimited)
+
+Important notes:
+- Avoid setting the output root (`-o`) to a folder inside the scanned input tree (e.g. `-o analysis/study_data/output`). Doing that can cause the script to re-scan its own outputs on subsequent runs. Use an output directory outside the scanned tree (for example `analysis/results`).
+- You can activate the venv instead of calling the .venv python directly:
+    PowerShell: .\.venv\Scripts\Activate.ps1
+    then: python analysis\activity_analyzer_v3.py <input> -d -o <output>
+
+PyCharm run configuration (Python, not pytest):
+- Script path: <repo-root>/analysis/activity_analyzer_v3.py
+- Parameters: "analysis/study_data" -d -o "analysis/results"
+- Python interpreter: choose the project virtualenv (e.g., .venv) or the desired interpreter
+- Working directory: project root (the repository folder)
+
+Examples (copyable PowerShell):
+```powershell
+.\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d -o "analysis/results"
+.\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data/user_1/session_1.csv" -o "analysis/results/user_1/session_1_analyzed.csv"
+```
+
 """
 
 import csv
-import os
 import sys
 from pathlib import Path
-from typing import List, Dict, Optional
 import difflib
+from datetime import datetime
 
 
 class ActivityAnalyzer:
     """Analyzes activity tracking CSV files with content logging."""
     
     # Configurable parameters
-    INACTIVITY_THRESHOLD_MS = 50000
+    INACTIVITY_THRESHOLD_MS = 5000
     LOG_CONTENT = True
     MAX_CONTENT_LENGTH = 100
     SHOW_ESCAPED_NEWLINES = True
@@ -99,46 +134,58 @@ class ActivityAnalyzer:
         print()
     
     def analyze_directory(self, directory_path, output_dir=None):
-        """Analyze all CSV files in a directory."""
+        """Analyze all CSV files in a directory (recursively)."""
         directory = Path(directory_path)
-        
+
         if not directory.exists() or not directory.is_dir():
             print(f"Error: {directory_path} is not a valid directory")
             return
-        
-        csv_files = list(directory.glob("*.csv"))
-        
+
+        # Find all CSV files recursively
+        csv_files = list(directory.rglob("*.csv"))
+
         if not csv_files:
             print(f"No CSV files found in {directory_path}")
             return
-        
-        print(f"Found {len(csv_files)} CSV file(s) to process")
-        
-        if output_dir:
-            output_path = Path(output_dir)
-            output_path.mkdir(parents=True, exist_ok=True)
-            print(f"Output directory: {output_path.absolute()}")
+
+        print(f"Found {len(csv_files)} CSV file(s) to process (recursive)")
+
+        # If output_dir specified, prepare it
+        output_root = Path(output_dir) if output_dir else None
+        if output_root:
+            output_root.mkdir(parents=True, exist_ok=True)
+            print(f"Output directory: {output_root.absolute()}")
         else:
-            print(f"Output location: Same directory as input files")
-        
+            print(f"Output location: Same directory as input files (each file's folder)")
+
         print(f"Content logging: {'ON' if self.LOG_CONTENT else 'OFF'}")
         print()
-        
+
         for i, csv_file in enumerate(csv_files, 1):
-            print(f"[{i}/{len(csv_files)}] ", end="")
-            
-            if output_dir:
-                output_file = Path(output_dir) / f"{csv_file.stem}_analyzed.csv"
+            print(f"[{i}/{len(csv_files)}] Processing: {csv_file} ", end="")
+
+            if output_root:
+                # Preserve the input folder structure relative to the scanned root
+                try:
+                    rel = csv_file.relative_to(directory)
+                except Exception:
+                    # Fallback: use filename directly
+                    rel = Path(csv_file.name)
+
+                target_dir = output_root / rel.parent
+                target_dir.mkdir(parents=True, exist_ok=True)
+                output_file = target_dir / f"{csv_file.stem}_analyzed.csv"
             else:
                 output_file = None
-            
+
+            # Call analyze_file which will create parent dirs if needed
             self.analyze_file(str(csv_file), str(output_file) if output_file else None)
-        
+
         print(f"\n{'='*60}")
         print(f"Batch processing complete!")
         print(f"Processed {len(csv_files)} file(s)")
-        if output_dir:
-            print(f"All outputs saved to: {Path(output_dir).absolute()}")
+        if output_root:
+            print(f"All outputs saved to: {output_root.absolute()}")
         print(f"{'='*60}")
     
     def _read_csv(self, file_path):
@@ -151,78 +198,169 @@ class ActivityAnalyzer:
         return rows
     
     def _analyze_actions(self, rows):
-        """Analyze rows and extract human-readable actions with content."""
+        """Analyze rows and extract human-readable actions with content.
+
+        Use the CSV 'date' column (ISO 8601) exclusively for all timing.
+        For each row:
+         - start = current_row_date - session_start (ms)
+         - duration = next_row_date - current_row_date (ms)
+        Also record inactivity breaks when gap >= INACTIVITY_THRESHOLD_MS and a final Session total.
+        """
         actions = []
-        
+
         if not rows:
             return actions
-        
+
         has_action_column = 'action' in rows[0]
         previous_row = None
-        previous_fragment = None
-        
+        previous_fragment = ''
+
+        # Robust timestamp parser: returns milliseconds since epoch (int)
+        def _parse_ts(value):
+            if value is None:
+                return 0
+            # If already int/float
+            if isinstance(value, (int, float)):
+                iv = int(value)
+                # heuristic: if it's in seconds (<= 1e11) convert to ms
+                if iv < 10**11:
+                    return int(iv * 1000)
+                return iv
+            s = str(value).strip()
+            if s == '':
+                return 0
+            # All-digits (possibly seconds or milliseconds)
+            if s.isdigit():
+                iv = int(s)
+                if iv < 10**11:
+                    return int(iv * 1000)
+                return iv
+            # Handle trailing Z (UTC)
+            if s.endswith('Z'):
+                s = s[:-1] + '+00:00'
+            try:
+                dt = datetime.fromisoformat(s)
+                return int(dt.timestamp() * 1000)
+            except Exception:
+                # Try float conversion
+                try:
+                    fv = float(s)
+                    iv = int(fv)
+                    if iv < 10**11:
+                        return int(iv * 1000)
+                    return iv
+                except Exception:
+                    return 0
+
+        def _extract_command_from_row(r):
+            for k in ('command', 'parameters', 'cmd', 'programParameters', 'programArgs', 'programArguments', 'args'):
+                v = r.get(k)
+                if v:
+                    return v
+            return ''
+
+        # Use 'date' column exclusively (ISO 8601 expected)
+        session_start = _parse_ts(rows[0].get('date'))
+
         for i, row in enumerate(rows):
-            timestamp = int(row['timestamp'])
-            
+            # Parse current row date (ms)
+            curr_ts = _parse_ts(row.get('date'))
+
+            # Determine duration until next row
+            if i + 1 < len(rows):
+                next_ts = _parse_ts(rows[i + 1].get('date'))
+                duration_to_next = max(0, next_ts - curr_ts)
+            else:
+                duration_to_next = 0
+
+            # start relative to session_start (ms)
+            start_relative = curr_ts - session_start if curr_ts >= session_start else 0
+
+            # First row: session started
             if i == 0:
                 actions.append({
                     'action': 'Session started',
                     'start': 0,
-                    'duration': 0,
-                    'details': f"File: {row['fileName']}, Task: {row['chosenTask']}",
-                    'content': ''
+                    'duration': duration_to_next,
+                    'details': f"File: {row.get('fileName','')}, Task: {row.get('chosenTask','')}",
+                    'content': '',
+                    'command': _extract_command_from_row(row)
                 })
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
+                prev_ts = curr_ts
                 continue
-            
-            time_since_last = timestamp - int(previous_row['timestamp'])
-            
+
+            # Compute gap since previous row for inactivity detection
+            prev_ts = _parse_ts(previous_row.get('date'))
+            time_since_last = curr_ts - prev_ts
             if time_since_last < 0:
                 time_since_last = 0
-            
+
+            # If gap is large, record an inactivity/break action (start at previous row's timestamp)
             if time_since_last >= self.INACTIVITY_THRESHOLD_MS:
+                prev_start_rel = prev_ts - session_start if prev_ts >= session_start else 0
                 actions.append({
                     'action': 'Inactive/Break',
-                    'start': int(previous_row['timestamp']),
+                    'start': prev_start_rel,
                     'duration': time_since_last,
                     'details': f"No activity for {time_since_last/1000:.2f} seconds",
-                    'content': ''
+                    'content': '',
+                    'command': _extract_command_from_row(row)
                 })
-            
+
+            # Explicit action column handling (at current row)
             if has_action_column and row.get('action') and row['action'].strip():
                 explicit_action = row['action'].strip()
                 action_desc = self.ACTION_DESCRIPTIONS.get(explicit_action, explicit_action)
-                
-                content = self._extract_action_content(explicit_action, previous_fragment, 
-                                                       row.get('fragment', ''))
-                
+
+                content = self._extract_action_content(explicit_action, previous_fragment, row.get('fragment', ''))
+
                 details = action_desc
                 if explicit_action == 'CompilationFinished' and row.get('errorCount'):
                     details = f"Compilation finished with {row.get('errorCount')} error(s)"
-                
+
                 actions.append({
                     'action': action_desc,
-                    'start': int(previous_row['timestamp']),
-                    'duration': time_since_last,
+                    'start': start_relative,
+                    'duration': duration_to_next,
                     'details': details,
-                    'content': content
+                    'content': content,
+                    'command': _extract_command_from_row(row)
                 })
-            
-            action_info = self._detect_action(previous_row, row, previous_fragment)
-            
+
+            # Detect action from fragment changes between previous_row and current row
+            action_info = None
+            if previous_row is not None:
+                action_info = self._detect_action(previous_row, row, previous_fragment)
+
             if action_info:
                 actions.append({
                     'action': action_info['type'],
-                    'start': int(previous_row['timestamp']),
-                    'duration': time_since_last,
+                    'start': start_relative,
+                    'duration': duration_to_next,
                     'details': action_info['details'],
-                    'content': action_info.get('content', '')
+                    'content': action_info.get('content', ''),
+                    'command': _extract_command_from_row(row)
                 })
-            
+
+            # Advance previous row/fragment
             previous_row = row
             previous_fragment = row.get('fragment', '')
-        
+
+        # After processing all rows, append a session summary/total duration action
+        last_ts = _parse_ts(rows[-1].get('date'))
+        total_duration = max(0, last_ts - session_start)
+
+        actions.append({
+            'action': 'Session total',
+            'start': 0,
+            'duration': total_duration,
+            'details': f"Total session duration: {total_duration/1000:.1f} seconds",
+            'content': '',
+            'command': ''
+        })
+
         return actions
     
     def _extract_action_content(self, action, prev_fragment, curr_fragment):
@@ -230,7 +368,7 @@ class ActivityAnalyzer:
         if not self.LOG_CONTENT:
             return ''
         
-        if action in ['$Undo', '$Redo', 'EditorUndo']:
+        if action in ('$Undo', '$Redo', 'EditorUndo'):
             return self._get_diff_content(prev_fragment, curr_fragment)
         
         if action in ['EditorCopy', '$Copy']:
@@ -332,8 +470,8 @@ class ActivityAnalyzer:
                 'type': 'Replace text',
                 'details': f"Modified text (same length)",
                 'content': self._format_content(diff_content) if self.LOG_CONTENT else ''
-            }
-    
+                }
+
     def _find_added_char(self, prev_text, curr_text):
         """Find the character that was added."""
         for i, (p, c) in enumerate(zip(prev_text, curr_text)):
@@ -396,13 +534,21 @@ class ActivityAnalyzer:
     def _write_output_csv(self, output_path, actions):
         """Write actions to output CSV file."""
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
+            # Determine if any action contains a non-empty 'command' field
+            include_command = any(a.get('command') for a in actions)
+
             if self.LOG_CONTENT:
-                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_sec', 
-                            'duration_sec', 'details', 'content']
+                # keep milliseconds and add minutes (decimal) columns
+                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_min',
+                            'duration_min', 'details', 'content']
             else:
-                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_sec', 
-                            'duration_sec', 'details']
-            
+                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_min',
+                            'duration_min', 'details']
+
+            if include_command:
+                # Insert 'command' as the last column
+                fieldnames = fieldnames + ['command']
+
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             
             writer.writeheader()
@@ -411,13 +557,16 @@ class ActivityAnalyzer:
                     'action': action['action'],
                     'start_ms': action['start'],
                     'duration_ms': action['duration'],
-                    'start_sec': f"{action['start']/1000:.3f}",
-                    'duration_sec': f"{action['duration']/1000:.3f}",
+                    # minutes as decimal
+                    'start_min': f"{action['start']/60000:.6f}",
+                    'duration_min': f"{action['duration']/60000:.6f}",
                     'details': action['details']
                 }
                 if self.LOG_CONTENT:
                     row_data['content'] = action.get('content', '')
-                
+                if include_command:
+                    row_data['command'] = action.get('command', '')
+
                 writer.writerow(row_data)
     
     def _generate_output_path(self, input_path):
