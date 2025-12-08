@@ -1,6 +1,6 @@
 services:
   server:
-    image: tasktracker-server:latest  # Create the local image: docker build --platform linux/amd64 -t tasktracker-server .
+    image: koala-server:latest  # Create the local image: docker build --platform linux/amd64 -t koala-server .
     platform: linux/amd64
     ports:
       - "8080:8080"
