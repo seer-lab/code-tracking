@@ -262,6 +262,10 @@ class ActivityAnalyzer:
         # Use 'date' column exclusively (ISO 8601 expected)
         session_start = _parse_ts(rows[0].get('date'))
 
+        # Buffers for accumulating typing/edit and delete events into word-level transactions
+        pending_edit = None  # dict with keys: start, end, content, count, command
+        pending_delete = None  # dict with keys: start, end, content, count, command
+
         for i, row in enumerate(rows):
             # Parse current row date (ms)
             curr_ts = _parse_ts(row.get('date'))
@@ -297,22 +301,67 @@ class ActivityAnalyzer:
             if time_since_last < 0:
                 time_since_last = 0
 
-            # If gap is large, record an inactivity/break action (start at previous row's timestamp)
+            # If there's a large gap, finalize any pending edit or delete before continuing
             if time_since_last >= self.INACTIVITY_THRESHOLD_MS:
-                prev_start_rel = prev_ts - session_start if prev_ts >= session_start else 0
-                actions.append({
-                    'action': 'Inactive/Break',
-                    'start': prev_start_rel,
-                    'duration': time_since_last,
-                    'details': f"No activity for {time_since_last/1000:.2f} seconds",
-                    'content': '',
-                    'command': _extract_command_from_row(row)
-                })
+                if pending_edit:
+                    pending_start = pending_edit['start']
+                    pending_end = pending_edit['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Edit transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_edit['count']} edit actions",
+                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                        'command': pending_edit.get('command','')
+                    })
+                    pending_edit = None
+                if pending_delete:
+                    pending_start = pending_delete['start']
+                    pending_end = pending_delete['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Delete transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_delete['count']} delete actions",
+                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                        'command': pending_delete.get('command','')
+                    })
+                    pending_delete = None
 
             # Explicit action column handling (at current row)
             if has_action_column and row.get('action') and row['action'].strip():
                 explicit_action = row['action'].strip()
                 action_desc = self.ACTION_DESCRIPTIONS.get(explicit_action, explicit_action)
+
+                # For explicit actions, finalize any pending edit or delete first
+                if pending_edit:
+                    pending_start = pending_edit['start']
+                    pending_end = pending_edit['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Edit transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_edit['count']} edit actions",
+                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                        'command': pending_edit.get('command','')
+                    })
+                    pending_edit = None
+                if pending_delete:
+                    pending_start = pending_delete['start']
+                    pending_end = pending_delete['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Delete transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_delete['count']} delete actions",
+                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                        'command': pending_delete.get('command','')
+                    })
+                    pending_delete = None
 
                 content = self._extract_action_content(explicit_action, previous_fragment, row.get('fragment', ''))
 
@@ -329,24 +378,238 @@ class ActivityAnalyzer:
                     'command': _extract_command_from_row(row)
                 })
 
+                # advance and continue
+                previous_row = row
+                previous_fragment = row.get('fragment', '')
+                continue
+
             # Detect action from fragment changes between previous_row and current row
             action_info = None
             if previous_row is not None:
                 action_info = self._detect_action(previous_row, row, previous_fragment)
 
-            if action_info:
-                actions.append({
-                    'action': action_info['type'],
-                    'start': start_relative,
-                    'duration': duration_to_next,
-                    'details': action_info['details'],
-                    'content': action_info.get('content', ''),
-                    'command': _extract_command_from_row(row)
-                })
+            # Helper: determine whether action_info represents a typing/edit or delete event we should buffer
+            edit_types = {'Type character', 'Type text', 'Insert text', 'Copy/Paste (internal)', 'Paste (external)'}
+            delete_types = {'Delete character', 'Delete text', 'Delete block'}
+
+            if action_info and action_info['type'] in edit_types:
+                # determine raw added text between previous_fragment and curr_fragment
+                curr_fragment = row.get('fragment', '')
+                added = self._find_added_text(previous_fragment, curr_fragment)
+
+                # If we didn't detect added text, fallback to the action content
+                if not added:
+                    added = action_info.get('content', '')
+
+                # Start or extend pending edit
+                if not pending_edit:
+                    # store end as relative milliseconds (relative to session start)
+                    pending_edit = {
+                        'start': start_relative,
+                        'end': start_relative + duration_to_next,
+                        'content': added or '',
+                        'count': 1,
+                        'command': _extract_command_from_row(row)
+                    }
+                else:
+                    # if the gap is small, extend; otherwise finalize and start new
+                    gap = start_relative - pending_edit.get('end', start_relative)
+                    if gap < self.INACTIVITY_THRESHOLD_MS:
+                        # extend (update relative end)
+                        pending_edit['end'] = start_relative + duration_to_next
+                        pending_edit['content'] = (pending_edit['content'] or '') + (added or '')
+                        pending_edit['count'] += 1
+                    else:
+                        # finalize old and start new
+                        pending_start = pending_edit['start']
+                        pending_end = pending_edit['end']
+                        pending_duration = max(0, pending_end - pending_start)
+                        actions.append({
+                            'action': 'Edit transaction',
+                            'start': pending_start,
+                            'duration': pending_duration,
+                            'details': f"Grouped {pending_edit['count']} edit actions",
+                            'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                            'command': pending_edit.get('command','')
+                        })
+                        pending_edit = {
+                            'start': start_relative,
+                            'end': start_relative + duration_to_next,
+                            'content': added or '',
+                            'count': 1,
+                            'command': _extract_command_from_row(row)
+                        }
+
+                # If the added text ends with a non-word character (punctuation/newline/etc.),
+                # consider the current word complete and finalize the pending edit.
+                # We treat letters, digits and underscore as "word" characters; everything else is a boundary.
+                if added:
+                    last_ch = added[-1]
+                    is_word_char = (last_ch.isalnum() or last_ch == '_')
+                else:
+                    is_word_char = False
+
+                if added and not is_word_char:
+                     pending_start = pending_edit['start']
+                     pending_end = pending_edit['end']
+                     pending_duration = max(0, pending_end - pending_start)
+                     actions.append({
+                         'action': 'Edit transaction',
+                         'start': pending_start,
+                         'duration': pending_duration,
+                         'details': f"Grouped {pending_edit['count']} edit actions",
+                         'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                         'command': pending_edit.get('command','')
+                     })
+                     pending_edit = None
+
+            elif action_info and action_info['type'] in delete_types:
+                # deletion events: collect removed text and buffer into pending_delete
+                curr_fragment = row.get('fragment', '')
+                removed = self._find_removed_text(previous_fragment, curr_fragment)
+                if not removed:
+                    removed = action_info.get('content', '')
+
+                # finalize any pending_edit (we're in delete mode)
+                if pending_edit:
+                    pending_start = pending_edit['start']
+                    pending_end = pending_edit['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Edit transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_edit['count']} edit actions",
+                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                        'command': pending_edit.get('command','')
+                    })
+                    pending_edit = None
+
+                if not pending_delete:
+                    pending_delete = {
+                        'start': start_relative,
+                        'end': start_relative + duration_to_next,
+                        'content': removed or '',
+                        'count': 1,
+                        'command': _extract_command_from_row(row)
+                    }
+                else:
+                    gap = start_relative - pending_delete.get('end', start_relative)
+                    if gap < self.INACTIVITY_THRESHOLD_MS:
+                        pending_delete['end'] = start_relative + duration_to_next
+                        pending_delete['content'] = (pending_delete['content'] or '') + (removed or '')
+                        pending_delete['count'] += 1
+                    else:
+                        # finalize and start new
+                        pending_start = pending_delete['start']
+                        pending_end = pending_delete['end']
+                        pending_duration = max(0, pending_end - pending_start)
+                        actions.append({
+                            'action': 'Delete transaction',
+                            'start': pending_start,
+                            'duration': pending_duration,
+                            'details': f"Grouped {pending_delete['count']} delete actions",
+                            'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                            'command': pending_delete.get('command','')
+                        })
+                        pending_delete = {
+                            'start': start_relative,
+                            'end': start_relative + duration_to_next,
+                            'content': removed or '',
+                            'count': 1,
+                            'command': _extract_command_from_row(row)
+                        }
+
+                # finalize delete on word-boundary (if removed ends with non-word char)
+                if removed:
+                    last_ch = removed[-1]
+                    is_word_char = (last_ch.isalnum() or last_ch == '_')
+                else:
+                    is_word_char = False
+                if removed and not is_word_char:
+                    pending_start = pending_delete['start']
+                    pending_end = pending_delete['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Delete transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_delete['count']} delete actions",
+                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                        'command': pending_delete.get('command','')
+                    })
+                    pending_delete = None
+
+            else:
+                # Non-edit/non-delete action: finalize any pending groups first
+                if pending_edit:
+                    pending_start = pending_edit['start']
+                    pending_end = pending_edit['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Edit transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_edit['count']} edit actions",
+                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                        'command': pending_edit.get('command','')
+                    })
+                    pending_edit = None
+                if pending_delete:
+                    pending_start = pending_delete['start']
+                    pending_end = pending_delete['end']
+                    pending_duration = max(0, pending_end - pending_start)
+                    actions.append({
+                        'action': 'Delete transaction',
+                        'start': pending_start,
+                        'duration': pending_duration,
+                        'details': f"Grouped {pending_delete['count']} delete actions",
+                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                        'command': pending_delete.get('command','')
+                    })
+                    pending_delete = None
+
+                if action_info:
+                    actions.append({
+                        'action': action_info['type'],
+                        'start': start_relative,
+                        'duration': duration_to_next,
+                        'details': action_info['details'],
+                        'content': action_info.get('content', ''),
+                        'command': _extract_command_from_row(row)
+                    })
 
             # Advance previous row/fragment
             previous_row = row
             previous_fragment = row.get('fragment', '')
+
+        # End of rows: finalize any pending edit or delete
+        if pending_edit:
+            pending_start = pending_edit['start']
+            pending_end = pending_edit['end']
+            pending_duration = max(0, pending_end - pending_start)
+            actions.append({
+                'action': 'Edit transaction',
+                'start': pending_start,
+                'duration': pending_duration,
+                'details': f"Grouped {pending_edit['count']} edit actions",
+                'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
+                'command': pending_edit.get('command','')
+            })
+            pending_edit = None
+        if pending_delete:
+            pending_start = pending_delete['start']
+            pending_end = pending_delete['end']
+            pending_duration = max(0, pending_end - pending_start)
+            actions.append({
+                'action': 'Delete transaction',
+                'start': pending_start,
+                'duration': pending_duration,
+                'details': f"Grouped {pending_delete['count']} delete actions",
+                'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
+                'command': pending_delete.get('command','')
+            })
+            pending_delete = None
 
         # After processing all rows, append a session summary/total duration action
         last_ts = _parse_ts(rows[-1].get('date'))
@@ -538,12 +801,12 @@ class ActivityAnalyzer:
             include_command = any(a.get('command') for a in actions)
 
             if self.LOG_CONTENT:
-                # keep milliseconds and add minutes (decimal) columns
-                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_min',
-                            'duration_min', 'details', 'content']
+                # keep milliseconds and add minutes (decimal) columns; include end_ms and end_min
+                fieldnames = ['action', 'start_ms', 'end_ms', 'duration_ms', 'start_min',
+                            'end_min', 'duration_min', 'details', 'content']
             else:
-                fieldnames = ['action', 'start_ms', 'duration_ms', 'start_min',
-                            'duration_min', 'details']
+                fieldnames = ['action', 'start_ms', 'end_ms', 'duration_ms', 'start_min',
+                            'end_min', 'duration_min', 'details']
 
             if include_command:
                 # Insert 'command' as the last column
@@ -553,13 +816,19 @@ class ActivityAnalyzer:
             
             writer.writeheader()
             for action in actions:
+                start = action.get('start', 0)
+                duration = action.get('duration', 0)
+                end = start + duration
+
                 row_data = {
                     'action': action['action'],
-                    'start_ms': action['start'],
-                    'duration_ms': action['duration'],
+                    'start_ms': start,
+                    'end_ms': end,
+                    'duration_ms': duration,
                     # minutes as decimal
-                    'start_min': f"{action['start']/60000:.6f}",
-                    'duration_min': f"{action['duration']/60000:.6f}",
+                    'start_min': f"{start/60000:.6f}",
+                    'end_min': f"{end/60000:.6f}",
+                    'duration_min': f"{duration/60000:.6f}",
                     'details': action['details']
                 }
                 if self.LOG_CONTENT:
