@@ -1,61 +1,30 @@
 """
-Activity Tracker CSV Analyzer v3.0 - With Content Logging
+Activity Tracker CSV Analyzer
 
-Usage (PowerShell, run from project root - the repository root containing `.venv`):
+This script analyzes activity tracking CSV files to extract human-readable actions
+with timing information. It groups consecutive edit/delete actions and tracks
+inactivity periods.
 
-1) Single file (explicit output path):
-    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data/user_1/session_1.csv" -o "analysis/results/user_1/session_1_analyzed.csv"
+Usage:
+python activity_analyzer.py [input_path] [--output output_path] [--directory] [--threshold ms]
 
-2) Batch (recursive) scan and preserve input folder structure under an output root (recommended):
-    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d -o "analysis/results"
-
-   This will mirror the relative paths from the scanned root under the output root.
-   Example: input `analysis/study_data/user_1/session_1.csv` -> output `analysis/results/user_1/session_1_analyzed.csv`.
-
-3) Batch (recursive) scan, writing outputs next to each input file (no output root):
-    .\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d
-
-4) Other useful flags:
-    -t <ms>         Inactivity threshold in milliseconds (default: 5000)
-    --no-content    Disable the content column in outputs (smaller files)
-    --max-content N Limit content logged to N characters (0 = unlimited)
-
-Important notes:
-- Avoid setting the output root (`-o`) to a folder inside the scanned input tree (e.g. `-o analysis/study_data/output`). Doing that can cause the script to re-scan its own outputs on subsequent runs. Use an output directory outside the scanned tree (for example `analysis/results`).
-- You can activate the venv instead of calling the .venv python directly:
-    PowerShell: .\.venv\Scripts\Activate.ps1
-    then: python analysis\activity_analyzer_v3.py <input> -d -o <output>
-
-PyCharm run configuration (Python, not pytest):
-- Script path: <repo-root>/analysis/activity_analyzer_v3.py
-- Parameters: "analysis/study_data" -d -o "analysis/results"
-- Python interpreter: choose the project virtualenv (e.g., .venv) or the desired interpreter
-- Working directory: project root (the repository folder)
-
-Examples (copyable PowerShell):
-```powershell
-.\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data" -d -o "analysis/results"
-.\.venv\Scripts\python.exe analysis\activity_analyzer_v3.py "analysis/study_data/user_1/session_1.csv" -o "analysis/results/user_1/session_1_analyzed.csv"
-```
-
+Examples:
+python activity_analyzer_simplified.py input.csv -o output.csv
+python activity_analyzer_simplified.py study_data/ -d -o results/
 """
 
 import csv
 import sys
-from pathlib import Path
+import argparse
 import difflib
+from pathlib import Path
 from datetime import datetime
 
 
 class ActivityAnalyzer:
-    """Analyzes activity tracking CSV files with content logging."""
-    
-    # Configurable parameters
-    INACTIVITY_THRESHOLD_MS = 5000
-    LOG_CONTENT = True
-    MAX_CONTENT_LENGTH = 100
-    SHOW_ESCAPED_NEWLINES = True
-    
+    """Analyzes activity tracking CSV files and extracts action sequences."""
+
+    # Action descriptions for known IDE actions
     ACTION_DESCRIPTIONS = {
         'Active': 'IDE gained focus',
         'Inactive': 'IDE lost focus',
@@ -100,76 +69,82 @@ class ActivityAnalyzer:
         '$Redo': 'Redo (Ctrl+Y)',
         'CompilationFinished': 'Compilation finished',
     }
-    
-    def __init__(self, inactivity_threshold_ms=None, log_content=None, max_content_length=None):
-        if inactivity_threshold_ms is not None:
-            self.INACTIVITY_THRESHOLD_MS = inactivity_threshold_ms
-        if log_content is not None:
-            self.LOG_CONTENT = log_content
-        if max_content_length is not None:
-            self.MAX_CONTENT_LENGTH = max_content_length
-    
+
+    def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0):
+        """
+        Initialize the analyzer.
+
+        Args:
+            inactivity_threshold_ms (int): Threshold for detecting inactivity in milliseconds
+            log_content (bool): Whether to log actual content changes
+            max_content_length (int): Maximum length of content to log (0 = unlimited)
+        """
+        self.inactivity_threshold_ms = inactivity_threshold_ms
+        self.log_content = log_content
+        self.max_content_length = max_content_length
+
     def analyze_file(self, input_path, output_path=None):
-        """Analyze a single CSV file and generate output."""
+        """
+        Analyze a single CSV file and generate output.
+
+        Args:
+            input_path (str): Path to input CSV file
+            output_path (str): Path to output CSV file (optional)
+        """
         if output_path is None:
-            output_path = self._generate_output_path(input_path)
-        
-        output_dir = Path(output_path).parent
-        output_dir.mkdir(parents=True, exist_ok=True)
-        
+            input_file = Path(input_path)
+            output_path = input_file.parent / f"{input_file.stem}_analyzed.csv"
+
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+
         print(f"Processing: {input_path}")
-        
+
         rows = self._read_csv(input_path)
-        
+
         if not rows:
             print(f"Warning: No data found in {input_path}")
             return
-        
+
         actions = self._analyze_actions(rows)
         self._write_output_csv(output_path, actions)
-        
+
         print(f"✓ Output saved to: {output_path}")
         print(f"  Total actions logged: {len(actions)}")
-        print(f"  Content logging: {'ON' if self.LOG_CONTENT else 'OFF'}")
         print()
-    
+
     def analyze_directory(self, directory_path, output_dir=None):
-        """Analyze all CSV files in a directory (recursively)."""
+        """
+        Analyze all CSV files in a directory recursively.
+
+        Args:
+            directory_path (str): Root directory containing CSV files
+            output_dir (str): Directory to save output files (optional)
+        """
         directory = Path(directory_path)
 
         if not directory.exists() or not directory.is_dir():
             print(f"Error: {directory_path} is not a valid directory")
             return
 
-        # Find all CSV files recursively
         csv_files = list(directory.rglob("*.csv"))
 
         if not csv_files:
             print(f"No CSV files found in {directory_path}")
             return
 
-        print(f"Found {len(csv_files)} CSV file(s) to process (recursive)")
+        print(f"Found {len(csv_files)} CSV file(s) to process\n")
 
-        # If output_dir specified, prepare it
         output_root = Path(output_dir) if output_dir else None
         if output_root:
             output_root.mkdir(parents=True, exist_ok=True)
-            print(f"Output directory: {output_root.absolute()}")
-        else:
-            print(f"Output location: Same directory as input files (each file's folder)")
-
-        print(f"Content logging: {'ON' if self.LOG_CONTENT else 'OFF'}")
-        print()
 
         for i, csv_file in enumerate(csv_files, 1):
-            print(f"[{i}/{len(csv_files)}] Processing: {csv_file} ", end="")
+            print(f"[{i}/{len(csv_files)}] ", end="")
 
             if output_root:
-                # Preserve the input folder structure relative to the scanned root
                 try:
                     rel = csv_file.relative_to(directory)
                 except Exception:
-                    # Fallback: use filename directly
                     rel = Path(csv_file.name)
 
                 target_dir = output_root / rel.parent
@@ -178,191 +153,142 @@ class ActivityAnalyzer:
             else:
                 output_file = None
 
-            # Call analyze_file which will create parent dirs if needed
             self.analyze_file(str(csv_file), str(output_file) if output_file else None)
 
         print(f"\n{'='*60}")
-        print(f"Batch processing complete!")
-        print(f"Processed {len(csv_files)} file(s)")
-        if output_root:
-            print(f"All outputs saved to: {output_root.absolute()}")
+        print(f"Batch processing complete! Processed {len(csv_files)} file(s)")
         print(f"{'='*60}")
-    
+
     def _read_csv(self, file_path):
         """Read CSV file and return list of row dictionaries."""
-        rows = []
         with open(file_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                rows.append(row)
-        return rows
-    
-    def _analyze_actions(self, rows):
-        """Analyze rows and extract human-readable actions with content.
+            return list(csv.DictReader(f))
 
-        Use the CSV 'date' column (ISO 8601) exclusively for all timing.
-        For each row:
-         - start = current_row_date - session_start (ms)
-         - duration = next_row_date - current_row_date (ms)
-        Also record inactivity breaks when gap >= INACTIVITY_THRESHOLD_MS and a final Session total.
+    def _parse_timestamp(self, value):
+        """
+        Parse timestamp from various formats to milliseconds since epoch.
+
+        Args:
+            value: Timestamp value (int, float, or ISO string)
+
+        Returns:
+            int: Milliseconds since epoch
+        """
+        if value is None:
+            return 0
+
+        if isinstance(value, (int, float)):
+            iv = int(value)
+            # Convert seconds to milliseconds if needed
+            return int(iv * 1000) if iv < 10**11 else iv
+
+        s = str(value).strip()
+        if not s:
+            return 0
+
+        # Handle numeric strings
+        if s.isdigit():
+            iv = int(s)
+            return int(iv * 1000) if iv < 10**11 else iv
+
+        # Handle ISO format (with trailing Z for UTC)
+        if s.endswith('Z'):
+            s = s[:-1] + '+00:00'
+
+        try:
+            dt = datetime.fromisoformat(s)
+            return int(dt.timestamp() * 1000)
+        except Exception:
+            try:
+                fv = float(s)
+                iv = int(fv)
+                return int(iv * 1000) if iv < 10**11 else iv
+            except Exception:
+                return 0
+
+    def _analyze_actions(self, rows):
+        """
+        Analyze rows and extract human-readable actions with timing.
+
+        Args:
+            rows (list): List of CSV row dictionaries
+
+        Returns:
+            list: List of action dictionaries
         """
         actions = []
 
         if not rows:
             return actions
 
+        # Initialize session
+        session_start = self._parse_timestamp(rows[0].get('date'))
         has_action_column = 'action' in rows[0]
+
+        # Tracking variables
         previous_row = None
         previous_fragment = ''
+        pending_group = None  # Current action group being accumulated
 
-        # Robust timestamp parser: returns milliseconds since epoch (int)
-        def _parse_ts(value):
-            if value is None:
-                return 0
-            # If already int/float
-            if isinstance(value, (int, float)):
-                iv = int(value)
-                # heuristic: if it's in seconds (<= 1e11) convert to ms
-                if iv < 10**11:
-                    return int(iv * 1000)
-                return iv
-            s = str(value).strip()
-            if s == '':
-                return 0
-            # All-digits (possibly seconds or milliseconds)
-            if s.isdigit():
-                iv = int(s)
-                if iv < 10**11:
-                    return int(iv * 1000)
-                return iv
-            # Handle trailing Z (UTC)
-            if s.endswith('Z'):
-                s = s[:-1] + '+00:00'
-            try:
-                dt = datetime.fromisoformat(s)
-                return int(dt.timestamp() * 1000)
-            except Exception:
-                # Try float conversion
-                try:
-                    fv = float(s)
-                    iv = int(fv)
-                    if iv < 10**11:
-                        return int(iv * 1000)
-                    return iv
-                except Exception:
-                    return 0
+        # Edit and delete action types for grouping
+        edit_types = {'Type character', 'Type text', 'Insert text', 'Copy/Paste (internal)', 'Paste (external)'}
+        delete_types = {'Delete character', 'Delete text', 'Delete block'}
 
-        def _extract_command_from_row(r):
-            for k in ('command', 'parameters', 'cmd', 'programParameters', 'programArgs', 'programArguments', 'args'):
-                v = r.get(k)
-                if v:
-                    return v
-            return ''
+        # Add session start action
+        first_ts = self._parse_timestamp(rows[0].get('date'))
+        second_ts = self._parse_timestamp(rows[1].get('date')) if len(rows) > 1 else first_ts
 
-        # Use 'date' column exclusively (ISO 8601 expected)
-        session_start = _parse_ts(rows[0].get('date'))
+        actions.append({
+            'action': 'Session started',
+            'start': 0,
+            'duration': max(0, second_ts - first_ts),
+            'inactivity': 0,
+            'details': f"File: {rows[0].get('fileName','')}, Task: {rows[0].get('chosenTask','')}",
+            'content': ''
+        })
 
-        # Buffers for accumulating typing/edit and delete events into word-level transactions
-        pending_edit = None  # dict with keys: start, end, content, count, command
-        pending_delete = None  # dict with keys: start, end, content, count, command
+        for i, row in enumerate(rows[1:], 1):
+            curr_ts = self._parse_timestamp(row.get('date'))
+            prev_ts = self._parse_timestamp(previous_row.get('date')) if previous_row else session_start
 
-        for i, row in enumerate(rows):
-            # Parse current row date (ms)
-            curr_ts = _parse_ts(row.get('date'))
+            # Calculate timing
+            time_since_last = max(0, curr_ts - prev_ts)
+            start_relative = max(0, curr_ts - session_start)
 
-            # Determine duration until next row
+            # Get next timestamp for duration calculation
             if i + 1 < len(rows):
-                next_ts = _parse_ts(rows[i + 1].get('date'))
+                next_ts = self._parse_timestamp(rows[i + 1].get('date'))
                 duration_to_next = max(0, next_ts - curr_ts)
             else:
                 duration_to_next = 0
 
-            # start relative to session_start (ms)
-            start_relative = curr_ts - session_start if curr_ts >= session_start else 0
+            # Check for inactivity
+            if time_since_last >= self.inactivity_threshold_ms:
+                # Finalize any pending group
+                if pending_group:
+                    self._finalize_group(actions, pending_group)
+                    pending_group = None
 
-            # First row: session started
-            if i == 0:
+                # Add inactivity action
+                inactivity_start = prev_ts - session_start
                 actions.append({
-                    'action': 'Session started',
-                    'start': 0,
-                    'duration': duration_to_next,
-                    'details': f"File: {row.get('fileName','')}, Task: {row.get('chosenTask','')}",
-                    'content': '',
-                    'command': _extract_command_from_row(row)
+                    'action': 'Inactivity',
+                    'start': inactivity_start,
+                    'duration': time_since_last,
+                    'inactivity': time_since_last / 60000,  # Minutes
+                    'details': f"Inactive for {time_since_last/1000:.1f} seconds",
+                    'content': ''
                 })
-                previous_row = row
-                previous_fragment = row.get('fragment', '')
-                prev_ts = curr_ts
-                continue
 
-            # Compute gap since previous row for inactivity detection
-            prev_ts = _parse_ts(previous_row.get('date'))
-            time_since_last = curr_ts - prev_ts
-            if time_since_last < 0:
-                time_since_last = 0
+            # Handle explicit action column
+            if has_action_column and row.get('action', '').strip():
+                # Finalize any pending group before explicit action
+                if pending_group:
+                    self._finalize_group(actions, pending_group)
+                    pending_group = None
 
-            # If there's a large gap, finalize any pending edit or delete before continuing
-            if time_since_last >= self.INACTIVITY_THRESHOLD_MS:
-                if pending_edit:
-                    pending_start = pending_edit['start']
-                    pending_end = pending_edit['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Edit transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_edit['count']} edit actions",
-                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                        'command': pending_edit.get('command','')
-                    })
-                    pending_edit = None
-                if pending_delete:
-                    pending_start = pending_delete['start']
-                    pending_end = pending_delete['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Delete transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_delete['count']} delete actions",
-                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                        'command': pending_delete.get('command','')
-                    })
-                    pending_delete = None
-
-            # Explicit action column handling (at current row)
-            if has_action_column and row.get('action') and row['action'].strip():
                 explicit_action = row['action'].strip()
                 action_desc = self.ACTION_DESCRIPTIONS.get(explicit_action, explicit_action)
-
-                # For explicit actions, finalize any pending edit or delete first
-                if pending_edit:
-                    pending_start = pending_edit['start']
-                    pending_end = pending_edit['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Edit transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_edit['count']} edit actions",
-                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                        'command': pending_edit.get('command','')
-                    })
-                    pending_edit = None
-                if pending_delete:
-                    pending_start = pending_delete['start']
-                    pending_end = pending_delete['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Delete transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_delete['count']} delete actions",
-                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                        'command': pending_delete.get('command','')
-                    })
-                    pending_delete = None
-
                 content = self._extract_action_content(explicit_action, previous_fragment, row.get('fragment', ''))
 
                 details = action_desc
@@ -373,285 +299,122 @@ class ActivityAnalyzer:
                     'action': action_desc,
                     'start': start_relative,
                     'duration': duration_to_next,
+                    'inactivity': 0,
                     'details': details,
-                    'content': content,
-                    'command': _extract_command_from_row(row)
+                    'content': content
                 })
 
-                # advance and continue
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
                 continue
 
-            # Detect action from fragment changes between previous_row and current row
-            action_info = None
+            # Detect action from fragment changes
             if previous_row is not None:
                 action_info = self._detect_action(previous_row, row, previous_fragment)
 
-            # Helper: determine whether action_info represents a typing/edit or delete event we should buffer
-            edit_types = {'Type character', 'Type text', 'Insert text', 'Copy/Paste (internal)', 'Paste (external)'}
-            delete_types = {'Delete character', 'Delete text', 'Delete block'}
-
-            if action_info and action_info['type'] in edit_types:
-                # determine raw added text between previous_fragment and curr_fragment
-                curr_fragment = row.get('fragment', '')
-                added = self._find_added_text(previous_fragment, curr_fragment)
-
-                # If we didn't detect added text, fallback to the action content
-                if not added:
-                    added = action_info.get('content', '')
-
-                # Start or extend pending edit
-                if not pending_edit:
-                    # store end as relative milliseconds (relative to session start)
-                    pending_edit = {
-                        'start': start_relative,
-                        'end': start_relative + duration_to_next,
-                        'content': added or '',
-                        'count': 1,
-                        'command': _extract_command_from_row(row)
-                    }
-                else:
-                    # if the gap is small, extend; otherwise finalize and start new
-                    gap = start_relative - pending_edit.get('end', start_relative)
-                    if gap < self.INACTIVITY_THRESHOLD_MS:
-                        # extend (update relative end)
-                        pending_edit['end'] = start_relative + duration_to_next
-                        pending_edit['content'] = (pending_edit['content'] or '') + (added or '')
-                        pending_edit['count'] += 1
-                    else:
-                        # finalize old and start new
-                        pending_start = pending_edit['start']
-                        pending_end = pending_edit['end']
-                        pending_duration = max(0, pending_end - pending_start)
-                        actions.append({
-                            'action': 'Edit transaction',
-                            'start': pending_start,
-                            'duration': pending_duration,
-                            'details': f"Grouped {pending_edit['count']} edit actions",
-                            'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                            'command': pending_edit.get('command','')
-                        })
-                        pending_edit = {
-                            'start': start_relative,
-                            'end': start_relative + duration_to_next,
-                            'content': added or '',
-                            'count': 1,
-                            'command': _extract_command_from_row(row)
-                        }
-
-                # If the added text ends with a non-word character (punctuation/newline/etc.),
-                # consider the current word complete and finalize the pending edit.
-                # We treat letters, digits and underscore as "word" characters; everything else is a boundary.
-                if added:
-                    last_ch = added[-1]
-                    is_word_char = (last_ch.isalnum() or last_ch == '_')
-                else:
-                    is_word_char = False
-
-                if added and not is_word_char:
-                     pending_start = pending_edit['start']
-                     pending_end = pending_edit['end']
-                     pending_duration = max(0, pending_end - pending_start)
-                     actions.append({
-                         'action': 'Edit transaction',
-                         'start': pending_start,
-                         'duration': pending_duration,
-                         'details': f"Grouped {pending_edit['count']} edit actions",
-                         'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                         'command': pending_edit.get('command','')
-                     })
-                     pending_edit = None
-
-            elif action_info and action_info['type'] in delete_types:
-                # deletion events: collect removed text and buffer into pending_delete
-                curr_fragment = row.get('fragment', '')
-                removed = self._find_removed_text(previous_fragment, curr_fragment)
-                if not removed:
-                    removed = action_info.get('content', '')
-
-                # finalize any pending_edit (we're in delete mode)
-                if pending_edit:
-                    pending_start = pending_edit['start']
-                    pending_end = pending_edit['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Edit transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_edit['count']} edit actions",
-                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                        'command': pending_edit.get('command','')
-                    })
-                    pending_edit = None
-
-                if not pending_delete:
-                    pending_delete = {
-                        'start': start_relative,
-                        'end': start_relative + duration_to_next,
-                        'content': removed or '',
-                        'count': 1,
-                        'command': _extract_command_from_row(row)
-                    }
-                else:
-                    gap = start_relative - pending_delete.get('end', start_relative)
-                    if gap < self.INACTIVITY_THRESHOLD_MS:
-                        pending_delete['end'] = start_relative + duration_to_next
-                        pending_delete['content'] = (pending_delete['content'] or '') + (removed or '')
-                        pending_delete['count'] += 1
-                    else:
-                        # finalize and start new
-                        pending_start = pending_delete['start']
-                        pending_end = pending_delete['end']
-                        pending_duration = max(0, pending_end - pending_start)
-                        actions.append({
-                            'action': 'Delete transaction',
-                            'start': pending_start,
-                            'duration': pending_duration,
-                            'details': f"Grouped {pending_delete['count']} delete actions",
-                            'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                            'command': pending_delete.get('command','')
-                        })
-                        pending_delete = {
-                            'start': start_relative,
-                            'end': start_relative + duration_to_next,
-                            'content': removed or '',
-                            'count': 1,
-                            'command': _extract_command_from_row(row)
-                        }
-
-                # finalize delete on word-boundary (if removed ends with non-word char)
-                if removed:
-                    last_ch = removed[-1]
-                    is_word_char = (last_ch.isalnum() or last_ch == '_')
-                else:
-                    is_word_char = False
-                if removed and not is_word_char:
-                    pending_start = pending_delete['start']
-                    pending_end = pending_delete['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Delete transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_delete['count']} delete actions",
-                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                        'command': pending_delete.get('command','')
-                    })
-                    pending_delete = None
-
-            else:
-                # Non-edit/non-delete action: finalize any pending groups first
-                if pending_edit:
-                    pending_start = pending_edit['start']
-                    pending_end = pending_edit['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Edit transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_edit['count']} edit actions",
-                        'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                        'command': pending_edit.get('command','')
-                    })
-                    pending_edit = None
-                if pending_delete:
-                    pending_start = pending_delete['start']
-                    pending_end = pending_delete['end']
-                    pending_duration = max(0, pending_end - pending_start)
-                    actions.append({
-                        'action': 'Delete transaction',
-                        'start': pending_start,
-                        'duration': pending_duration,
-                        'details': f"Grouped {pending_delete['count']} delete actions",
-                        'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                        'command': pending_delete.get('command','')
-                    })
-                    pending_delete = None
-
                 if action_info:
-                    actions.append({
-                        'action': action_info['type'],
-                        'start': start_relative,
-                        'duration': duration_to_next,
-                        'details': action_info['details'],
-                        'content': action_info.get('content', ''),
-                        'command': _extract_command_from_row(row)
-                    })
+                    action_type = action_info['type']
 
-            # Advance previous row/fragment
+                    # Check if we should group this action
+                    should_group = action_type in edit_types or action_type in delete_types
+
+                    if should_group:
+                        # Determine group category
+                        if action_type in edit_types:
+                            group_category = 'Edit transaction'
+                        else:
+                            group_category = 'Delete transaction'
+
+                        # Check if we need to start a new group
+                        if pending_group is None or pending_group['category'] != group_category:
+                            # Finalize previous group if exists
+                            if pending_group:
+                                self._finalize_group(actions, pending_group)
+
+                            # Start new group
+                            pending_group = {
+                                'category': group_category,
+                                'start': start_relative,
+                                'end': start_relative + duration_to_next,
+                                'content': action_info.get('content', ''),
+                                'count': 1
+                            }
+                        else:
+                            # Extend existing group
+                            pending_group['end'] = start_relative + duration_to_next
+                            pending_group['content'] += action_info.get('content', '')
+                            pending_group['count'] += 1
+                    else:
+                        # Non-groupable action - finalize pending group first
+                        if pending_group:
+                            self._finalize_group(actions, pending_group)
+                            pending_group = None
+
+                        # Add standalone action
+                        actions.append({
+                            'action': action_info['type'],
+                            'start': start_relative,
+                            'duration': duration_to_next,
+                            'inactivity': 0,
+                            'details': action_info['details'],
+                            'content': action_info.get('content', '')
+                        })
+
             previous_row = row
             previous_fragment = row.get('fragment', '')
 
-        # End of rows: finalize any pending edit or delete
-        if pending_edit:
-            pending_start = pending_edit['start']
-            pending_end = pending_edit['end']
-            pending_duration = max(0, pending_end - pending_start)
-            actions.append({
-                'action': 'Edit transaction',
-                'start': pending_start,
-                'duration': pending_duration,
-                'details': f"Grouped {pending_edit['count']} edit actions",
-                'content': self._format_content(pending_edit['content']) if self.LOG_CONTENT else '',
-                'command': pending_edit.get('command','')
-            })
-            pending_edit = None
-        if pending_delete:
-            pending_start = pending_delete['start']
-            pending_end = pending_delete['end']
-            pending_duration = max(0, pending_end - pending_start)
-            actions.append({
-                'action': 'Delete transaction',
-                'start': pending_start,
-                'duration': pending_duration,
-                'details': f"Grouped {pending_delete['count']} delete actions",
-                'content': self._format_content(pending_delete['content']) if self.LOG_CONTENT else '',
-                'command': pending_delete.get('command','')
-            })
-            pending_delete = None
+        # Finalize any remaining pending group
+        if pending_group:
+            self._finalize_group(actions, pending_group)
 
-        # After processing all rows, append a session summary/total duration action
-        last_ts = _parse_ts(rows[-1].get('date'))
+        # Add session total
+        last_ts = self._parse_timestamp(rows[-1].get('date'))
         total_duration = max(0, last_ts - session_start)
 
         actions.append({
             'action': 'Session total',
             'start': 0,
             'duration': total_duration,
+            'inactivity': 0,
             'details': f"Total session duration: {total_duration/1000:.1f} seconds",
-            'content': '',
-            'command': ''
+            'content': ''
         })
 
         return actions
-    
-    def _extract_action_content(self, action, prev_fragment, curr_fragment):
-        """Extract the actual content involved in an action."""
-        if not self.LOG_CONTENT:
-            return ''
-        
-        if action in ('$Undo', '$Redo', 'EditorUndo'):
-            return self._get_diff_content(prev_fragment, curr_fragment)
-        
-        if action in ['EditorCopy', '$Copy']:
-            return '[Content copied to clipboard]'
-        
-        if action in ['EditorPaste', '$Paste']:
-            added = self._find_added_text(prev_fragment, curr_fragment)
-            return self._format_content(added)
-        
-        if action in ['EditorCut']:
-            removed = self._find_removed_text(prev_fragment, curr_fragment)
-            return self._format_content(removed)
-        
-        return ''
-    
+
+    def _finalize_group(self, actions, group):
+        """
+        Finalize a pending action group and add it to actions.
+
+        Args:
+            actions (list): List to append the finalized action
+            group (dict): Group information to finalize
+        """
+        duration = max(0, group['end'] - group['start'])
+        actions.append({
+            'action': group['category'],
+            'start': group['start'],
+            'duration': duration,
+            'inactivity': 0,
+            'details': f"Grouped {group['count']} actions",
+            'content': self._format_content(group['content']) if self.log_content else ''
+        })
+
     def _detect_action(self, prev_row, curr_row, prev_fragment):
-        """Detect what action occurred between two rows."""
+        """
+        Detect what action occurred between two rows.
+
+        Args:
+            prev_row (dict): Previous row data
+            curr_row (dict): Current row data
+            prev_fragment (str): Previous code fragment
+
+        Returns:
+            dict: Action information or None
+        """
         prev_fragment = prev_row.get('fragment', '')
         curr_fragment = curr_row.get('fragment', '')
-        
+
         if prev_fragment == curr_fragment:
             if prev_row.get('testMode') != curr_row.get('testMode'):
                 return {
@@ -660,116 +423,123 @@ class ActivityAnalyzer:
                     'content': ''
                 }
             return None
-        
-        prev_len = len(prev_fragment)
-        curr_len = len(curr_fragment)
-        length_diff = curr_len - prev_len
-        
+
+        length_diff = len(curr_fragment) - len(prev_fragment)
+
+        # Large insertion - detect paste
         if length_diff > 10:
             added_text = self._find_added_text(prev_fragment, curr_fragment)
-            if added_text and len(added_text) > 10:
+            if added_text:
                 if added_text.strip() in prev_fragment:
                     return {
                         'type': 'Copy/Paste (internal)',
                         'details': f"Pasted {len(added_text)} character(s) from same file",
-                        'content': self._format_content(added_text) if self.LOG_CONTENT else ''
+                        'content': self._format_content(added_text) if self.log_content else ''
                     }
                 else:
                     return {
                         'type': 'Paste (external)',
                         'details': f"Pasted {len(added_text)} character(s) from clipboard",
-                        'content': self._format_content(added_text) if self.LOG_CONTENT else ''
+                        'content': self._format_content(added_text) if self.log_content else ''
                     }
-        
+
+        # Text added
         if length_diff > 0:
+            added_text = self._find_added_text(prev_fragment, curr_fragment)
             if length_diff == 1:
-                added_char = self._find_added_char(prev_fragment, curr_fragment)
                 return {
                     'type': 'Type character',
-                    'details': f"Added: '{added_char}'",
-                    'content': self._format_content(added_char) if self.LOG_CONTENT else ''
+                    'details': f"Added character",
+                    'content': self._format_content(added_text) if self.log_content else ''
                 }
             elif length_diff <= 10:
-                added_text = self._find_added_text(prev_fragment, curr_fragment)
                 return {
                     'type': 'Type text',
                     'details': f"Added {length_diff} character(s)",
-                    'content': self._format_content(added_text) if self.LOG_CONTENT else ''
+                    'content': self._format_content(added_text) if self.log_content else ''
                 }
             else:
-                added_text = self._find_added_text(prev_fragment, curr_fragment)
                 return {
                     'type': 'Insert text',
-                    'details': f"Inserted {length_diff} character(s) (paste/autocomplete)",
-                    'content': self._format_content(added_text) if self.LOG_CONTENT else ''
+                    'details': f"Inserted {length_diff} character(s)",
+                    'content': self._format_content(added_text) if self.log_content else ''
                 }
-        
+
+        # Text deleted
         elif length_diff < 0:
             deleted_count = abs(length_diff)
             deleted_text = self._find_removed_text(prev_fragment, curr_fragment)
-            
+
             if deleted_count == 1:
                 return {
                     'type': 'Delete character',
                     'details': f"Deleted 1 character",
-                    'content': self._format_content(deleted_text) if self.LOG_CONTENT else ''
+                    'content': self._format_content(deleted_text) if self.log_content else ''
                 }
             elif deleted_count <= 10:
                 return {
                     'type': 'Delete text',
                     'details': f"Deleted {deleted_count} character(s)",
-                    'content': self._format_content(deleted_text) if self.LOG_CONTENT else ''
+                    'content': self._format_content(deleted_text) if self.log_content else ''
                 }
             else:
                 return {
                     'type': 'Delete block',
-                    'details': f"Deleted {deleted_count} character(s) (possibly cut)",
-                    'content': self._format_content(deleted_text) if self.LOG_CONTENT else ''
+                    'details': f"Deleted {deleted_count} character(s)",
+                    'content': self._format_content(deleted_text) if self.log_content else ''
                 }
-        
+
+        # Text replaced (same length)
         else:
             diff_content = self._get_diff_content(prev_fragment, curr_fragment)
             return {
                 'type': 'Replace text',
                 'details': f"Modified text (same length)",
-                'content': self._format_content(diff_content) if self.LOG_CONTENT else ''
-                }
+                'content': self._format_content(diff_content) if self.log_content else ''
+            }
 
-    def _find_added_char(self, prev_text, curr_text):
-        """Find the character that was added."""
-        for i, (p, c) in enumerate(zip(prev_text, curr_text)):
-            if p != c:
-                return c
-        if len(curr_text) > len(prev_text):
-            return curr_text[len(prev_text)]
-        return '?'
-    
+    def _extract_action_content(self, action, prev_fragment, curr_fragment):
+        """Extract content for explicit actions."""
+        if not self.log_content:
+            return ''
+
+        if action in ('$Undo', '$Redo', 'EditorUndo'):
+            return self._get_diff_content(prev_fragment, curr_fragment)
+
+        if action in ['EditorCopy', '$Copy']:
+            return '[Content copied to clipboard]'
+
+        if action in ['EditorPaste', '$Paste']:
+            added = self._find_added_text(prev_fragment, curr_fragment)
+            return self._format_content(added)
+
+        if action in ['EditorCut']:
+            removed = self._find_removed_text(prev_fragment, curr_fragment)
+            return self._format_content(removed)
+
+        return ''
+
     def _find_added_text(self, prev_text, curr_text):
-        """Find the text that was added between two versions."""
+        """Find text that was added between two versions."""
         matcher = difflib.SequenceMatcher(None, prev_text, curr_text)
-        
         added_text = []
         for tag, i1, i2, j1, j2 in matcher.get_opcodes():
             if tag == 'insert':
                 added_text.append(curr_text[j1:j2])
-        
         return ''.join(added_text)
-    
+
     def _find_removed_text(self, prev_text, curr_text):
-        """Find the text that was removed between two versions."""
+        """Find text that was removed between two versions."""
         matcher = difflib.SequenceMatcher(None, prev_text, curr_text)
-        
         removed_text = []
         for tag, i1, i2, j1, j2 in matcher.get_opcodes():
             if tag == 'delete':
                 removed_text.append(prev_text[i1:i2])
-        
         return ''.join(removed_text)
-    
+
     def _get_diff_content(self, prev_text, curr_text):
-        """Get a summary of what changed between two texts."""
+        """Get a summary of changes between two texts."""
         matcher = difflib.SequenceMatcher(None, prev_text, curr_text)
-        
         changes = []
         for tag, i1, i2, j1, j2 in matcher.get_opcodes():
             if tag == 'delete':
@@ -778,102 +548,77 @@ class ActivityAnalyzer:
                 changes.append(f"[+{curr_text[j1:j2]}]")
             elif tag == 'replace':
                 changes.append(f"[-{prev_text[i1:i2]}] [+{curr_text[j1:j2]}]")
-        
         return ' '.join(changes)
-    
+
     def _format_content(self, content):
         """Format content for display in CSV."""
         if not content:
             return ''
-        
-        if self.SHOW_ESCAPED_NEWLINES:
-            content = content.replace('\n', '\\n').replace('\r', '\\r').replace('\t', '\\t')
-        
-        if self.MAX_CONTENT_LENGTH > 0 and len(content) > self.MAX_CONTENT_LENGTH:
-            content = content[:self.MAX_CONTENT_LENGTH] + '...'
-        
+
+        # Escape special characters
+        content = content.replace('\n', '\\n').replace('\r', '\\r').replace('\t', '\\t')
+
+        # Truncate if needed
+        if self.max_content_length > 0 and len(content) > self.max_content_length:
+            content = content[:self.max_content_length] + '...'
+
         return content
-    
+
     def _write_output_csv(self, output_path, actions):
-        """Write actions to output CSV file."""
+        """
+        Write actions to output CSV file.
+
+        Args:
+            output_path (str): Path to output CSV file
+            actions (list): List of action dictionaries
+        """
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
-            # Determine if any action contains a non-empty 'command' field
-            include_command = any(a.get('command') for a in actions)
+            fieldnames = [
+                'action',
+                'start_ms',
+                'end_ms',
+                'duration_ms',
+                'start_min',
+                'end_min',
+                'duration_min',
+                'inactivity_min',
+                'details'
+            ]
 
-            if self.LOG_CONTENT:
-                # keep milliseconds and add minutes (decimal) columns; include end_ms and end_min
-                fieldnames = ['action', 'start_ms', 'end_ms', 'duration_ms', 'start_min',
-                            'end_min', 'duration_min', 'details', 'content']
-            else:
-                fieldnames = ['action', 'start_ms', 'end_ms', 'duration_ms', 'start_min',
-                            'end_min', 'duration_min', 'details']
-
-            if include_command:
-                # Insert 'command' as the last column
-                fieldnames = fieldnames + ['command']
+            if self.log_content:
+                fieldnames.append('content')
 
             writer = csv.DictWriter(f, fieldnames=fieldnames)
-            
             writer.writeheader()
+
             for action in actions:
                 start = action.get('start', 0)
                 duration = action.get('duration', 0)
                 end = start + duration
+                inactivity = action.get('inactivity', 0)
 
                 row_data = {
                     'action': action['action'],
                     'start_ms': start,
                     'end_ms': end,
                     'duration_ms': duration,
-                    # minutes as decimal
                     'start_min': f"{start/60000:.6f}",
                     'end_min': f"{end/60000:.6f}",
                     'duration_min': f"{duration/60000:.6f}",
+                    'inactivity_min': f"{inactivity:.6f}" if inactivity > 0 else '',
                     'details': action['details']
                 }
-                if self.LOG_CONTENT:
+
+                if self.log_content:
                     row_data['content'] = action.get('content', '')
-                if include_command:
-                    row_data['command'] = action.get('command', '')
 
                 writer.writerow(row_data)
-    
-    def _generate_output_path(self, input_path):
-        """Generate output file path from input path."""
-        path = Path(input_path)
-        return str(path.parent / f"{path.stem}_analyzed.csv")
 
 
 def main():
     """Main entry point for the script."""
-    import argparse
-    
     parser = argparse.ArgumentParser(
-        description='Analyze activity tracking CSV files with content logging.',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  # Single file with content logging (default)
-  python activity_analyzer_v3.py data.csv
-  
-  # Single file with custom output location
-  python activity_analyzer_v3.py data.csv -o results/analyzed.csv
-  
-  # Process all CSV files in a directory
-  python activity_analyzer_v3.py study_data/ -d
-  
-  # Disable content logging for smaller files
-  python activity_analyzer_v3.py data.csv --no-content
-  
-  # Custom content length limit (50 characters)
-  python activity_analyzer_v3.py data.csv --max-content 50
-  
-  # Unlimited content length
-  python activity_analyzer_v3.py data.csv --max-content 0
-  
-  # Batch process with custom settings
-  python activity_analyzer_v3.py study_data/ -d -o results/ -t 8000 --max-content 200
-        """
+        description='Analyze activity tracking CSV files and extract action sequences.'
     )
     parser.add_argument(
         'input',
@@ -886,8 +631,8 @@ Examples:
     parser.add_argument(
         '-t', '--threshold',
         type=int,
-        default=5000,
-        help='Inactivity threshold in milliseconds (default: 5000 = 5 seconds)'
+        default=60000,
+        help='Inactivity threshold in milliseconds (default: 5000)'
     )
     parser.add_argument(
         '-d', '--directory',
@@ -897,7 +642,7 @@ Examples:
     parser.add_argument(
         '--no-content',
         action='store_true',
-        help='Disable logging of actual content (smaller output files)'
+        help='Disable logging of actual content'
     )
     parser.add_argument(
         '--max-content',
@@ -905,17 +650,17 @@ Examples:
         default=100,
         help='Maximum length of content to log (default: 100, use 0 for unlimited)'
     )
-    
+
     args = parser.parse_args()
-    
+
     analyzer = ActivityAnalyzer(
         inactivity_threshold_ms=args.threshold,
         log_content=not args.no_content,
         max_content_length=args.max_content
     )
-    
+
     print(f"\n{'='*60}")
-    print("Activity Tracker CSV Analyzer v3.0 - WITH CONTENT LOGGING")
+    print("Activity Tracker CSV Analyzer")
     print(f"{'='*60}")
     print(f"Inactivity threshold: {args.threshold}ms ({args.threshold/1000}s)")
     print(f"Content logging: {'OFF' if args.no_content else 'ON'}")
@@ -923,20 +668,17 @@ Examples:
         max_len = args.max_content if args.max_content > 0 else 'Unlimited'
         print(f"Max content length: {max_len}")
     print(f"{'='*60}\n")
-    
+
     input_path = Path(args.input)
-    
+
     if not input_path.exists():
         print(f"Error: {args.input} does not exist")
         sys.exit(1)
-    
+
     if input_path.is_dir() or args.directory:
         analyzer.analyze_directory(args.input, args.output)
     else:
         analyzer.analyze_file(args.input, args.output)
-        if not args.output:
-            print(f"\nTip: Use -o flag to specify custom output location")
-            print(f"Example: python activity_analyzer_v3.py {args.input} -o results/output.csv")
 
 
 if __name__ == '__main__':
