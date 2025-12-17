@@ -1,16 +1,12 @@
 """
-Activity Tracker CSV Analyzer
+Activity Tracker CSV Analyzer with IDE Events Integration
 
-This script analyzes activity tracking CSV files to extract human-readable actions
-with timing information. It groups consecutive edit/delete actions and tracks
-inactivity periods.
+This script analyzes activity tracking CSV files by merging code fragment data
+from task files (1_, 2_, 3_, 4_) with explicit IDE actions from ide-events files.
+All consecutive actions of the same type are grouped together.
 
 Usage:
 python activity_analyzer.py [input_path] [--output output_path] [--directory] [--threshold ms]
-
-Examples:
-python activity_analyzer_simplified.py input.csv -o output.csv
-python activity_analyzer_simplified.py study_data/ -d -o results/
 """
 
 import csv
@@ -22,7 +18,7 @@ from datetime import datetime
 
 
 class ActivityAnalyzer:
-    """Analyzes activity tracking CSV files and extracts action sequences."""
+    """Analyzes activity tracking CSV files and merges with IDE event data."""
 
     # Action descriptions for known IDE actions
     ACTION_DESCRIPTIONS = {
@@ -31,6 +27,7 @@ class ActivityAnalyzer:
         'NoProject': 'All projects closed',
         'NewProject': 'Create new project',
         'SaveAs': 'Save file as',
+        'SaveAll': 'Save all files',
         'NewPythonFile': 'Create Python file',
         'ChooseRunConfiguration': 'Choose run configuration',
         'Run': 'Run program',
@@ -43,7 +40,7 @@ class ActivityAnalyzer:
         'Resume': 'Resume debug program',
         'StepInto': 'Step into (debugging)',
         'CompileDirty': 'Compile',
-        'EditorBackSpace': 'Press BackSpace',
+        'EditorBackSpace': 'Press Backspace',
         'EditorLeft': 'Press Left arrow',
         'EditorRight': 'Press Right arrow',
         'EditorEnter': 'Press Enter',
@@ -56,13 +53,15 @@ class ActivityAnalyzer:
         'EditorRightWithSelection': 'Select right',
         'EditorLeftWithSelection': 'Select left',
         'EditorDuplicate': 'Duplicate line',
-        'EditorCopy': 'Copy text (menu)',
-        'EditorPaste': 'Paste text (menu)',
-        'EditorCut': 'Cut text (menu)',
+        'EditorCopy': 'Copy text',
+        'EditorPaste': 'Paste text',
+        'EditorCut': 'Cut text',
         'CopyPaths': 'Copy file path',
         'ReformatCode': 'Reformat code',
         'NewElement': 'Create new element',
         'ShowPopupMenu': 'Show popup menu',
+        'SearchEverywhere': 'Search everywhere',
+        'InsertInlineCompletionAction': 'Accept inline completion',
         '$Undo': 'Undo (Ctrl+Z)',
         '$Paste': 'Paste (Ctrl+V)',
         '$Copy': 'Copy (Ctrl+C)',
@@ -83,6 +82,30 @@ class ActivityAnalyzer:
         self.log_content = log_content
         self.max_content_length = max_content_length
 
+    def _is_task_file(self, filepath):
+        """Check if file is a task file (1_, 2_, 3_, 4_ prefix)."""
+        filename = Path(filepath).name
+        return any(filename.startswith(prefix) for prefix in ['1_', '2_', '3_', '4_'])
+
+    def _find_ide_events_file(self, task_file_path):
+        """
+        Find the corresponding ide-events file for a task file.
+
+        Args:
+            task_file_path (str): Path to the task CSV file
+
+        Returns:
+            str: Path to ide-events file or None if not found
+        """
+        task_path = Path(task_file_path)
+        directory = task_path.parent
+
+        ide_events_files = list(directory.glob("ide-events*.csv"))
+
+        if ide_events_files:
+            return str(ide_events_files[0])
+        return None
+
     def analyze_file(self, input_path, output_path=None):
         """
         Analyze a single CSV file and generate output.
@@ -99,13 +122,23 @@ class ActivityAnalyzer:
 
         print(f"Processing: {input_path}")
 
+        # Check if this is a task file and find corresponding ide-events
+        ide_events_data = {}
+        if self._is_task_file(input_path):
+            ide_events_file = self._find_ide_events_file(input_path)
+            if ide_events_file:
+                print(f"  Found IDE events: {Path(ide_events_file).name}")
+                ide_events_data = self._read_ide_events(ide_events_file)
+            else:
+                print(f"  Warning: No IDE events file found")
+
         rows = self._read_csv(input_path)
 
         if not rows:
             print(f"Warning: No data found in {input_path}")
             return
 
-        actions = self._analyze_actions(rows)
+        actions = self._analyze_actions(rows, ide_events_data)
         self._write_output_csv(output_path, actions)
 
         print(f"✓ Output saved to: {output_path}")
@@ -126,13 +159,16 @@ class ActivityAnalyzer:
             print(f"Error: {directory_path} is not a valid directory")
             return
 
-        csv_files = list(directory.rglob("*.csv"))
+        # Find only task files (1_, 2_, 3_, 4_)
+        csv_files = []
+        for pattern in ['1_*.csv', '2_*.csv', '3_*.csv', '4_*.csv']:
+            csv_files.extend(directory.rglob(pattern))
 
         if not csv_files:
-            print(f"No CSV files found in {directory_path}")
+            print(f"No task CSV files found in {directory_path}")
             return
 
-        print(f"Found {len(csv_files)} CSV file(s) to process\n")
+        print(f"Found {len(csv_files)} task file(s) to process\n")
 
         output_root = Path(output_dir) if output_dir else None
         if output_root:
@@ -164,6 +200,53 @@ class ActivityAnalyzer:
         with open(file_path, 'r', encoding='utf-8') as f:
             return list(csv.DictReader(f))
 
+    def _read_ide_events(self, file_path):
+        """
+        Read IDE events file and return dictionary mapping timestamps to actions.
+
+        Args:
+            file_path (str): Path to ide-events CSV file
+
+        Returns:
+            dict: Dictionary with timestamp (ms) as key and action info as value
+        """
+        events = {}
+
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                parts = line.strip().split(',')
+                if len(parts) >= 3:
+                    timestamp_str = parts[0]
+                    event_type = parts[1]
+                    action = parts[2]
+
+                    # Only process Action events (not IdeState)
+                    if event_type == 'Action':
+                        ts_ms = self._parse_timestamp(timestamp_str)
+                        events[ts_ms] = {
+                            'action': action,
+                            'raw_line': line.strip()
+                        }
+
+        return events
+
+    def _find_matching_ide_event(self, timestamp_ms, ide_events_data, window_ms=200):
+        """
+        Find IDE event matching a timestamp within a time window.
+
+        Args:
+            timestamp_ms (int): Timestamp to match
+            ide_events_data (dict): Dictionary of IDE events
+            window_ms (int): Time window in milliseconds
+
+        Returns:
+            str: Action name or None if no match found
+        """
+        for event_ts, event_info in ide_events_data.items():
+            if abs(event_ts - timestamp_ms) <= window_ms:
+                return event_info['action']
+        return None
+
     def _parse_timestamp(self, value):
         """
         Parse timestamp from various formats to milliseconds since epoch.
@@ -179,19 +262,16 @@ class ActivityAnalyzer:
 
         if isinstance(value, (int, float)):
             iv = int(value)
-            # Convert seconds to milliseconds if needed
             return int(iv * 1000) if iv < 10**11 else iv
 
         s = str(value).strip()
         if not s:
             return 0
 
-        # Handle numeric strings
         if s.isdigit():
             iv = int(s)
             return int(iv * 1000) if iv < 10**11 else iv
 
-        # Handle ISO format (with trailing Z for UTC)
         if s.endswith('Z'):
             s = s[:-1] + '+00:00'
 
@@ -206,12 +286,14 @@ class ActivityAnalyzer:
             except Exception:
                 return 0
 
-    def _analyze_actions(self, rows):
+    def _analyze_actions(self, rows, ide_events_data):
         """
         Analyze rows and extract human-readable actions with timing.
+        Groups ALL consecutive actions of the same type together.
 
         Args:
             rows (list): List of CSV row dictionaries
+            ide_events_data (dict): Dictionary of IDE events by timestamp
 
         Returns:
             list: List of action dictionaries
@@ -223,7 +305,6 @@ class ActivityAnalyzer:
 
         # Initialize session
         session_start = self._parse_timestamp(rows[0].get('date'))
-        has_action_column = 'action' in rows[0]
 
         # Tracking variables
         previous_row = None
@@ -275,90 +356,83 @@ class ActivityAnalyzer:
                     'action': 'Inactivity',
                     'start': inactivity_start,
                     'duration': time_since_last,
-                    'inactivity': time_since_last / 60000,  # Minutes
+                    'inactivity': time_since_last / 60000,
                     'details': f"Inactive for {time_since_last/1000:.1f} seconds",
                     'content': ''
                 })
 
-            # Handle explicit action column
-            if has_action_column and row.get('action', '').strip():
-                # Finalize any pending group before explicit action
-                if pending_group:
-                    self._finalize_group(actions, pending_group)
-                    pending_group = None
+            # Check for matching IDE event
+            ide_action = self._find_matching_ide_event(curr_ts, ide_events_data)
 
-                explicit_action = row['action'].strip()
-                action_desc = self.ACTION_DESCRIPTIONS.get(explicit_action, explicit_action)
-                content = self._extract_action_content(explicit_action, previous_fragment, row.get('fragment', ''))
+            if ide_action:
+                # Found explicit IDE action
+                action_desc = self.ACTION_DESCRIPTIONS.get(ide_action, ide_action)
+                content = self._extract_ide_action_content(
+                    ide_action,
+                    previous_fragment,
+                    row.get('fragment', '')
+                )
 
-                details = action_desc
-                if explicit_action == 'CompilationFinished' and row.get('errorCount'):
-                    details = f"Compilation finished with {row.get('errorCount')} error(s)"
+                # Check if we should group this with pending group
+                if pending_group is None or pending_group['action'] != action_desc:
+                    # Finalize previous group if exists
+                    if pending_group:
+                        self._finalize_group(actions, pending_group)
 
-                actions.append({
-                    'action': action_desc,
-                    'start': start_relative,
-                    'duration': duration_to_next,
-                    'inactivity': 0,
-                    'details': details,
-                    'content': content
-                })
+                    # Start new group
+                    pending_group = {
+                        'action': action_desc,
+                        'start': start_relative,
+                        'end': start_relative + duration_to_next,
+                        'content': content,
+                        'count': 1
+                    }
+                else:
+                    # Extend existing group (same action type)
+                    pending_group['end'] = start_relative + duration_to_next
+                    if content:
+                        pending_group['content'] += content
+                    pending_group['count'] += 1
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
                 continue
 
-            # Detect action from fragment changes
+            # No IDE event - detect action from fragment changes
             if previous_row is not None:
                 action_info = self._detect_action(previous_row, row, previous_fragment)
 
                 if action_info:
                     action_type = action_info['type']
 
-                    # Check if we should group this action
-                    should_group = action_type in edit_types or action_type in delete_types
-
-                    if should_group:
-                        # Determine group category
-                        if action_type in edit_types:
-                            group_category = 'Edit transaction'
-                        else:
-                            group_category = 'Delete transaction'
-
-                        # Check if we need to start a new group
-                        if pending_group is None or pending_group['category'] != group_category:
-                            # Finalize previous group if exists
-                            if pending_group:
-                                self._finalize_group(actions, pending_group)
-
-                            # Start new group
-                            pending_group = {
-                                'category': group_category,
-                                'start': start_relative,
-                                'end': start_relative + duration_to_next,
-                                'content': action_info.get('content', ''),
-                                'count': 1
-                            }
-                        else:
-                            # Extend existing group
-                            pending_group['end'] = start_relative + duration_to_next
-                            pending_group['content'] += action_info.get('content', '')
-                            pending_group['count'] += 1
+                    # Determine grouping category
+                    if action_type in edit_types:
+                        group_category = 'Edit '
+                    elif action_type in delete_types:
+                        group_category = 'Delete'
                     else:
-                        # Non-groupable action - finalize pending group first
+                        # Other actions get grouped by their exact type
+                        group_category = action_type
+
+                    # Check if we should group this
+                    if pending_group is None or pending_group['action'] != group_category:
+                        # Finalize previous group if exists
                         if pending_group:
                             self._finalize_group(actions, pending_group)
-                            pending_group = None
 
-                        # Add standalone action
-                        actions.append({
-                            'action': action_info['type'],
+                        # Start new group
+                        pending_group = {
+                            'action': group_category,
                             'start': start_relative,
-                            'duration': duration_to_next,
-                            'inactivity': 0,
-                            'details': action_info['details'],
-                            'content': action_info.get('content', '')
-                        })
+                            'end': start_relative + duration_to_next,
+                            'content': action_info.get('content', ''),
+                            'count': 1
+                        }
+                    else:
+                        # Extend existing group
+                        pending_group['end'] = start_relative + duration_to_next
+                        pending_group['content'] += action_info.get('content', '')
+                        pending_group['count'] += 1
 
             previous_row = row
             previous_fragment = row.get('fragment', '')
@@ -391,12 +465,19 @@ class ActivityAnalyzer:
             group (dict): Group information to finalize
         """
         duration = max(0, group['end'] - group['start'])
+
+        # Format details based on count
+        if group['count'] == 1:
+            details = group['action']
+        else:
+            details = f"{group['action']} (grouped {group['count']} actions)"
+
         actions.append({
-            'action': group['category'],
+            'action': group['action'],
             'start': group['start'],
             'duration': duration,
             'inactivity': 0,
-            'details': f"Grouped {group['count']} actions",
+            'details': details,
             'content': self._format_content(group['content']) if self.log_content else ''
         })
 
@@ -489,7 +570,7 @@ class ActivityAnalyzer:
                     'content': self._format_content(deleted_text) if self.log_content else ''
                 }
 
-        # Text replaced (same length)
+        # Text replaced
         else:
             diff_content = self._get_diff_content(prev_fragment, curr_fragment)
             return {
@@ -498,22 +579,26 @@ class ActivityAnalyzer:
                 'content': self._format_content(diff_content) if self.log_content else ''
             }
 
-    def _extract_action_content(self, action, prev_fragment, curr_fragment):
-        """Extract content for explicit actions."""
+    def _extract_ide_action_content(self, action, prev_fragment, curr_fragment):
+        """Extract content for IDE actions."""
         if not self.log_content:
             return ''
 
-        if action in ('$Undo', '$Redo', 'EditorUndo'):
+        if action in ('$Undo', '$Redo'):
             return self._get_diff_content(prev_fragment, curr_fragment)
 
         if action in ['EditorCopy', '$Copy']:
-            return '[Content copied to clipboard]'
+            return '[Copied]'
 
         if action in ['EditorPaste', '$Paste']:
             added = self._find_added_text(prev_fragment, curr_fragment)
             return self._format_content(added)
 
         if action in ['EditorCut']:
+            removed = self._find_removed_text(prev_fragment, curr_fragment)
+            return self._format_content(removed)
+
+        if action in ['EditorBackSpace']:
             removed = self._find_removed_text(prev_fragment, curr_fragment)
             return self._format_content(removed)
 
@@ -555,10 +640,8 @@ class ActivityAnalyzer:
         if not content:
             return ''
 
-        # Escape special characters
         content = content.replace('\n', '\\n').replace('\r', '\\r').replace('\t', '\\t')
 
-        # Truncate if needed
         if self.max_content_length > 0 and len(content) > self.max_content_length:
             content = content[:self.max_content_length] + '...'
 
@@ -618,7 +701,7 @@ class ActivityAnalyzer:
 def main():
     """Main entry point for the script."""
     parser = argparse.ArgumentParser(
-        description='Analyze activity tracking CSV files and extract action sequences.'
+        description='Analyze activity tracking CSV files with IDE events integration.'
     )
     parser.add_argument(
         'input',
@@ -647,7 +730,7 @@ def main():
     parser.add_argument(
         '--max-content',
         type=int,
-        default=100,
+        default=0,
         help='Maximum length of content to log (default: 100, use 0 for unlimited)'
     )
 
@@ -660,7 +743,7 @@ def main():
     )
 
     print(f"\n{'='*60}")
-    print("Activity Tracker CSV Analyzer")
+    print("Activity Tracker CSV Analyzer with IDE Events")
     print(f"{'='*60}")
     print(f"Inactivity threshold: {args.threshold}ms ({args.threshold/1000}s)")
     print(f"Content logging: {'OFF' if args.no_content else 'ON'}")
