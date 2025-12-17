@@ -407,7 +407,7 @@ class ActivityAnalyzer:
 
                     # Determine grouping category
                     if action_type in edit_types:
-                        group_category = 'Edit '
+                        group_category = 'Edit'
                     elif action_type in delete_types:
                         group_category = 'Delete'
                     else:
@@ -515,13 +515,13 @@ class ActivityAnalyzer:
                     return {
                         'type': 'Copy/Paste (internal)',
                         'details': f"Pasted {len(added_text)} character(s) from same file",
-                        'content': self._format_content(added_text) if self.log_content else ''
+                        'content': added_text if self.log_content else ''
                     }
                 else:
                     return {
                         'type': 'Paste (external)',
                         'details': f"Pasted {len(added_text)} character(s) from clipboard",
-                        'content': self._format_content(added_text) if self.log_content else ''
+                        'content': added_text if self.log_content else ''
                     }
 
         # Text added
@@ -531,19 +531,19 @@ class ActivityAnalyzer:
                 return {
                     'type': 'Type character',
                     'details': f"Added character",
-                    'content': self._format_content(added_text) if self.log_content else ''
+                    'content': added_text if self.log_content else ''
                 }
             elif length_diff <= 10:
                 return {
                     'type': 'Type text',
                     'details': f"Added {length_diff} character(s)",
-                    'content': self._format_content(added_text) if self.log_content else ''
+                    'content': added_text if self.log_content else ''
                 }
             else:
                 return {
                     'type': 'Insert text',
                     'details': f"Inserted {length_diff} character(s)",
-                    'content': self._format_content(added_text) if self.log_content else ''
+                    'content': added_text if self.log_content else ''
                 }
 
         # Text deleted
@@ -555,19 +555,19 @@ class ActivityAnalyzer:
                 return {
                     'type': 'Delete character',
                     'details': f"Deleted 1 character",
-                    'content': self._format_content(deleted_text) if self.log_content else ''
+                    'content': deleted_text if self.log_content else ''
                 }
             elif deleted_count <= 10:
                 return {
                     'type': 'Delete text',
                     'details': f"Deleted {deleted_count} character(s)",
-                    'content': self._format_content(deleted_text) if self.log_content else ''
+                    'content': deleted_text if self.log_content else ''
                 }
             else:
                 return {
                     'type': 'Delete block',
                     'details': f"Deleted {deleted_count} character(s)",
-                    'content': self._format_content(deleted_text) if self.log_content else ''
+                    'content': deleted_text if self.log_content else ''
                 }
 
         # Text replaced
@@ -576,7 +576,7 @@ class ActivityAnalyzer:
             return {
                 'type': 'Replace text',
                 'details': f"Modified text (same length)",
-                'content': self._format_content(diff_content) if self.log_content else ''
+                'content': diff_content if self.log_content else ''
             }
 
     def _extract_ide_action_content(self, action, prev_fragment, curr_fragment):
@@ -592,15 +592,11 @@ class ActivityAnalyzer:
 
         if action in ['EditorPaste', '$Paste']:
             added = self._find_added_text(prev_fragment, curr_fragment)
-            return self._format_content(added)
+            return added if added else ''
 
-        if action in ['EditorCut']:
+        if action in ['EditorCut', 'EditorBackSpace', 'EditorDelete']:
             removed = self._find_removed_text(prev_fragment, curr_fragment)
-            return self._format_content(removed)
-
-        if action in ['EditorBackSpace']:
-            removed = self._find_removed_text(prev_fragment, curr_fragment)
-            return self._format_content(removed)
+            return removed if removed else ''
 
         return ''
 
@@ -647,6 +643,24 @@ class ActivityAnalyzer:
 
         return content
 
+    def _format_time(self, ms):
+        """
+        Format time in milliseconds to seconds and minutes (only when >= 60s).
+
+        Args:
+            ms (int): Time in milliseconds
+
+        Returns:
+            tuple: (seconds_str, minutes_str) where minutes_str is empty if < 60s
+        """
+        seconds = ms / 1000
+        minutes = ms / 60000
+
+        seconds_str = f"{seconds:.2f}"
+        minutes_str = f"{minutes:.2f}" if seconds >= 60 else ''
+
+        return seconds_str, minutes_str
+
     def _write_output_csv(self, output_path, actions):
         """
         Write actions to output CSV file.
@@ -658,13 +672,12 @@ class ActivityAnalyzer:
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
             fieldnames = [
                 'action',
-                'start_ms',
-                'end_ms',
-                'duration_ms',
+                'start_sec',
                 'start_min',
+                'end_sec',
                 'end_min',
+                'duration_sec',
                 'duration_min',
-                'inactivity_min',
                 'details'
             ]
 
@@ -680,15 +693,20 @@ class ActivityAnalyzer:
                 end = start + duration
                 inactivity = action.get('inactivity', 0)
 
+                # Format times
+                start_sec, start_min = self._format_time(start)
+                end_sec, end_min = self._format_time(end)
+                duration_sec, duration_min = self._format_time(duration)
+
+
                 row_data = {
                     'action': action['action'],
-                    'start_ms': start,
-                    'end_ms': end,
-                    'duration_ms': duration,
-                    'start_min': f"{start/60000:.6f}",
-                    'end_min': f"{end/60000:.6f}",
-                    'duration_min': f"{duration/60000:.6f}",
-                    'inactivity_min': f"{inactivity:.6f}" if inactivity > 0 else '',
+                    'start_sec': start_sec,
+                    'start_min': start_min,
+                    'end_sec': end_sec,
+                    'end_min': end_min,
+                    'duration_sec': duration_sec,
+                    'duration_min': duration_min,
                     'details': action['details']
                 }
 
@@ -715,7 +733,7 @@ def main():
         '-t', '--threshold',
         type=int,
         default=60000,
-        help='Inactivity threshold in milliseconds (default: 5000)'
+        help='Inactivity threshold in milliseconds (default: 60000)'
     )
     parser.add_argument(
         '-d', '--directory',
@@ -731,7 +749,7 @@ def main():
         '--max-content',
         type=int,
         default=0,
-        help='Maximum length of content to log (default: 100, use 0 for unlimited)'
+        help='Maximum length of content to log (default: 0 = unlimited)'
     )
 
     args = parser.parse_args()
