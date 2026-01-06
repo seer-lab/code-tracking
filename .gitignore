@@ -57,3 +57,5 @@ Thumbs.db
 # Ignore all files and folders in analysis/study_data and analysis/results
 analysis/study_data/
 analysis/results/
+/analysis/sample/user_1/1/1_print_error_statement_coverage_13320_1167741_0_1027893529873.15_be6dccc04187dd310c753722766e02f4938801c1.csv
+/analysis/sample/user_1/1/ide-events_filtered_1711446290763.5986_07fb3d901ded4ab233ee7d7380d5462f4459e721.csv
