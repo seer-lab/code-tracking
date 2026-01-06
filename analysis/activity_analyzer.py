@@ -740,11 +740,13 @@ def main():
         action='store_true',
         help='Process all CSV files in the input directory'
     )
+    # Include the 'content' column only when --content is passed.
     parser.add_argument(
-        '--no-content',
+        '--content',
         action='store_true',
-        help='Disable logging of actual content'
+        help="Include the 'content' column in the output (default: excluded)"
     )
+
     parser.add_argument(
         '--max-content',
         type=int,
@@ -756,7 +758,7 @@ def main():
 
     analyzer = ActivityAnalyzer(
         inactivity_threshold_ms=args.threshold,
-        log_content=not args.no_content,
+        log_content=args.content,
         max_content_length=args.max_content
     )
 
@@ -764,8 +766,8 @@ def main():
     print("Activity Tracker CSV Analyzer with IDE Events")
     print(f"{'='*60}")
     print(f"Inactivity threshold: {args.threshold}ms ({args.threshold/1000}s)")
-    print(f"Content logging: {'OFF' if args.no_content else 'ON'}")
-    if not args.no_content:
+    print(f"Content column included: {'YES' if args.content else 'NO'}")
+    if args.content:
         max_len = args.max_content if args.max_content > 0 else 'Unlimited'
         print(f"Max content length: {max_len}")
     print(f"{'='*60}\n")
