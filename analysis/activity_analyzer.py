@@ -373,7 +373,8 @@ class ActivityAnalyzer:
             'duration': max(0, second_ts - first_ts),
             'inactivity': 0,
             'details': f"File: {rows[0].get('fileName','')}, Task: {rows[0].get('chosenTask','')}",
-            'content': ''
+            'content': '',
+            'change_len': 0
         })
 
         for i, row in enumerate(rows[1:], 1):
@@ -406,7 +407,8 @@ class ActivityAnalyzer:
                     'duration': time_since_last,
                     'inactivity': time_since_last / 60000,
                     'details': f"Inactive for {time_since_last/1000:.1f} seconds",
-                    'content': ''
+                    'content': '',
+                    'change_len': 0
                 })
 
             # Check for matching IDE event
@@ -421,6 +423,9 @@ class ActivityAnalyzer:
                     row.get('fragment', '')
                 )
 
+                # compute numeric change length for this action
+                change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
+
                 # Check if we should group this with pending group
                 if pending_group is None or pending_group['action'] != action_desc:
                     # Finalize previous group if exists
@@ -433,7 +438,8 @@ class ActivityAnalyzer:
                         'start': start_relative,
                         'end': start_relative + duration_to_next,
                         'content': content,
-                        'count': 1
+                        'count': 1,
+                        'change_len': change_len
                     }
                 else:
                     # Extend existing group (same action type)
@@ -441,6 +447,7 @@ class ActivityAnalyzer:
                     if content:
                         pending_group['content'] += content
                     pending_group['count'] += 1
+                    pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
@@ -462,6 +469,9 @@ class ActivityAnalyzer:
                         # Other actions get grouped by their exact type
                         group_category = action_type
 
+                    # numeric change length (from action_info if present)
+                    change_len = action_info.get('change_len', 0)
+
                     # Check if we should group this
                     if pending_group is None or pending_group['action'] != group_category:
                         # Finalize previous group if exists
@@ -474,13 +484,15 @@ class ActivityAnalyzer:
                             'start': start_relative,
                             'end': start_relative + duration_to_next,
                             'content': action_info.get('content', ''),
-                            'count': 1
+                            'count': 1,
+                            'change_len': change_len
                         }
                     else:
                         # Extend existing group
                         pending_group['end'] = start_relative + duration_to_next
                         pending_group['content'] += action_info.get('content', '')
                         pending_group['count'] += 1
+                        pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
             previous_row = row
             previous_fragment = row.get('fragment', '')
@@ -499,7 +511,8 @@ class ActivityAnalyzer:
             'duration': total_duration,
             'inactivity': 0,
             'details': f"Total session duration: {total_duration/1000:.1f} seconds",
-            'content': ''
+            'content': '',
+            'change_len': 0
         })
 
         return actions
@@ -526,7 +539,8 @@ class ActivityAnalyzer:
             'duration': duration,
             'inactivity': 0,
             'details': details,
-            'content': self._format_content(group['content']) if self.log_content else ''
+            'content': self._format_content(group['content']) if self.log_content else '',
+            'change_len': group.get('change_len', 0)
         })
 
     def _detect_action(self, prev_row, curr_row, prev_fragment):
@@ -549,11 +563,15 @@ class ActivityAnalyzer:
                 return {
                     'type': 'Mode change',
                     'details': f"Test mode: {prev_row.get('testMode')} → {curr_row.get('testMode')}",
-                    'content': ''
+                    'content': '',
+                    'change_len': 0
                 }
             return None
 
         length_diff = len(curr_fragment) - len(prev_fragment)
+
+        # compute numeric change length using opcode analysis
+        change_len = self._compute_change_length(prev_fragment, curr_fragment)
 
         # Large insertion - detect paste
         if length_diff > 10:
@@ -563,13 +581,15 @@ class ActivityAnalyzer:
                     return {
                         'type': 'Copy/Paste (internal)',
                         'details': f"Pasted {len(added_text)} character(s) from same file",
-                        'content': added_text if self.log_content else ''
+                        'content': added_text if self.log_content else '',
+                        'change_len': len(added_text)
                     }
                 else:
                     return {
                         'type': 'Paste (external)',
                         'details': f"Pasted {len(added_text)} character(s) from clipboard",
-                        'content': added_text if self.log_content else ''
+                        'content': added_text if self.log_content else '',
+                        'change_len': len(added_text)
                     }
 
         # Text added
@@ -579,19 +599,22 @@ class ActivityAnalyzer:
                 return {
                     'type': 'Type character',
                     'details': f"Added character",
-                    'content': added_text if self.log_content else ''
+                    'content': added_text if self.log_content else '',
+                    'change_len': change_len
                 }
             elif length_diff <= 10:
                 return {
                     'type': 'Type text',
                     'details': f"Added {length_diff} character(s)",
-                    'content': added_text if self.log_content else ''
+                    'content': added_text if self.log_content else '',
+                    'change_len': change_len
                 }
             else:
                 return {
                     'type': 'Insert text',
                     'details': f"Inserted {length_diff} character(s)",
-                    'content': added_text if self.log_content else ''
+                    'content': added_text if self.log_content else '',
+                    'change_len': change_len
                 }
 
         # Text deleted
@@ -603,19 +626,22 @@ class ActivityAnalyzer:
                 return {
                     'type': 'Delete character',
                     'details': f"Deleted 1 character",
-                    'content': deleted_text if self.log_content else ''
+                    'content': deleted_text if self.log_content else '',
+                    'change_len': change_len
                 }
             elif deleted_count <= 10:
                 return {
                     'type': 'Delete text',
                     'details': f"Deleted {deleted_count} character(s)",
-                    'content': deleted_text if self.log_content else ''
+                    'content': deleted_text if self.log_content else '',
+                    'change_len': change_len
                 }
             else:
                 return {
                     'type': 'Delete block',
                     'details': f"Deleted {deleted_count} character(s)",
-                    'content': deleted_text if self.log_content else ''
+                    'content': deleted_text if self.log_content else '',
+                    'change_len': change_len
                 }
 
         # Text replaced
@@ -624,7 +650,8 @@ class ActivityAnalyzer:
             return {
                 'type': 'Replace text',
                 'details': f"Modified text (same length)",
-                'content': diff_content if self.log_content else ''
+                'content': diff_content if self.log_content else '',
+                'change_len': change_len
             }
 
     def _extract_ide_action_content(self, action, prev_fragment, curr_fragment):
@@ -647,6 +674,23 @@ class ActivityAnalyzer:
             return removed if removed else ''
 
         return ''
+
+    def _compute_change_length(self, prev_text, curr_text):
+        """Compute a numeric change length between two text versions.
+
+        This counts the number of inserted and removed characters (and replaces as max of removed/inserted).
+        """
+        matcher = difflib.SequenceMatcher(None, prev_text or '', curr_text or '')
+        change = 0
+        for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+            if tag == 'delete':
+                change += (i2 - i1)
+            elif tag == 'insert':
+                change += (j2 - j1)
+            elif tag == 'replace':
+                # count the larger side of a replace as the change size
+                change += max(i2 - i1, j2 - j1)
+        return change
 
     def _find_added_text(self, prev_text, curr_text):
         """Find text that was added between two versions."""
@@ -726,7 +770,8 @@ class ActivityAnalyzer:
                 'end_min',
                 'duration_sec',
                 'duration_min',
-                'details'
+                'details',
+                'change_len'
             ]
 
             if self.log_content:
@@ -755,7 +800,8 @@ class ActivityAnalyzer:
                     'end_min': end_min,
                     'duration_sec': duration_sec,
                     'duration_min': duration_min,
-                    'details': action['details']
+                    'details': action['details'],
+                    'change_len': action.get('change_len', 0)
                 }
 
                 if self.log_content:
