@@ -358,10 +358,15 @@ class ActivityAnalyzer:
         previous_row = None
         previous_fragment = ''
         pending_group = None  # Current action group being accumulated
+        # Track the absolute (ms since epoch) end time of the last finalized action
+        # This is used to compute inactivity periods correctly (from last action end to next action start)
+        last_action_end_ms = session_start
 
         # Edit and delete action types for grouping
         edit_types = {'Type character', 'Type text', 'Insert text', 'Copy/Paste (internal)', 'Paste (external)'}
         delete_types = {'Delete character', 'Delete text', 'Delete block'}
+        # Actions that should NOT be grouped and should appear individually
+        non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)'}
 
         # Add session start action
         first_ts = self._parse_timestamp(rows[0].get('date'))
@@ -376,6 +381,8 @@ class ActivityAnalyzer:
             'content': '',
             'change_len': 0
         })
+        # update last action end to account for the session-start action duration
+        last_action_end_ms = session_start + actions[-1]['duration']
 
         for i, row in enumerate(rows[1:], 1):
             curr_ts = self._parse_timestamp(row.get('date'))
@@ -392,24 +399,45 @@ class ActivityAnalyzer:
             else:
                 duration_to_next = 0
 
-            # Check for inactivity
-            if time_since_last >= self.inactivity_threshold_ms:
-                # Finalize any pending group
+            # Determine last activity end (absolute ms). If there's a pending group,
+            # use its projected end; otherwise use last_action_end_ms
+            if pending_group:
+                last_activity_end_abs = session_start + pending_group.get('end', 0)
+            else:
+                last_activity_end_abs = last_action_end_ms
+
+            # Time since the end of the last activity (not the previous row timestamp)
+            time_since_last_activity = max(0, curr_ts - last_activity_end_abs)
+
+            # Check for inactivity: if no activity has occurred since the last activity end
+            if time_since_last_activity >= self.inactivity_threshold_ms:
+                # If there is a pending group, finalize it before adding inactivity
                 if pending_group:
+                    abs_end = session_start + pending_group.get('end', 0)
                     self._finalize_group(actions, pending_group)
                     pending_group = None
+                    last_action_end_ms = abs_end
+                elif actions:
+                    last = actions[-1]
+                    last_action_end_ms = session_start + last.get('start', 0) + last.get('duration', 0)
 
-                # Add inactivity action
-                inactivity_start = prev_ts - session_start
-                actions.append({
-                    'action': 'Inactivity',
-                    'start': inactivity_start,
-                    'duration': time_since_last,
-                    'inactivity': time_since_last / 60000,
-                    'details': f"Inactive for {time_since_last/1000:.1f} seconds",
-                    'content': '',
-                    'change_len': 0
-                })
+                # Now compute inactivity from the end of the last finalized action to current row timestamp
+                inactivity_start_abs = last_action_end_ms
+                inactivity_duration_abs = max(0, curr_ts - last_action_end_ms)
+
+                if inactivity_duration_abs > 0:
+                    actions.append({
+                        'action': 'Inactivity',
+                        'start': max(0, inactivity_start_abs - session_start),
+                        'duration': inactivity_duration_abs,
+                        'inactivity': inactivity_duration_abs / 60000,
+                        'details': f"Inactive for {inactivity_duration_abs/1000:.1f} seconds",
+                        'content': '',
+                        'change_len': 0
+                    })
+
+                # advance the last_action_end_ms to the current timestamp (we've consumed the gap)
+                last_action_end_ms = max(last_action_end_ms, curr_ts)
 
             # Check for matching IDE event
             ide_action = self._find_matching_ide_event(curr_ts, ide_events_data)
@@ -426,24 +454,50 @@ class ActivityAnalyzer:
                 # compute numeric change length for this action
                 change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
 
+                # If this action is non-groupable, finalize any pending group and append it immediately
+                if action_desc in non_groupable_actions:
+                    if pending_group:
+                        abs_end = session_start + pending_group.get('end', 0)
+                        self._finalize_group(actions, pending_group)
+                        pending_group = None
+                        last_action_end_ms = abs_end
+
+                    actions.append({
+                        'action': action_desc,
+                        'start': start_relative,
+                        # cap duration_to_next when it spans inactivity (duration_to_next may be 0 already)
+                        'duration': duration_to_next,
+                        'inactivity': 0,
+                        'details': action_desc,
+                        'content': content if self.log_content else '',
+                        'change_len': change_len
+                    })
+                    # update last action end
+                    last_action_end_ms = session_start + start_relative + duration_to_next
+                    previous_row = row
+                    previous_fragment = row.get('fragment', '')
+                    continue
+
                 # Check if we should group this with pending group
                 if pending_group is None or pending_group['action'] != action_desc:
                     # Finalize previous group if exists
                     if pending_group:
+                        abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
+                        last_action_end_ms = abs_end
 
                     # Start new group
                     pending_group = {
                         'action': action_desc,
                         'start': start_relative,
-                        'end': start_relative + duration_to_next,
+                        'end': start_relative,
                         'content': content,
                         'count': 1,
                         'change_len': change_len
                     }
                 else:
                     # Extend existing group (same action type)
-                    pending_group['end'] = start_relative + duration_to_next
+                    pending_group['end'] = start_relative
                     if content:
                         pending_group['content'] += content
                     pending_group['count'] += 1
@@ -472,24 +526,49 @@ class ActivityAnalyzer:
                     # numeric change length (from action_info if present)
                     change_len = action_info.get('change_len', 0)
 
+                    # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
+                    if group_category in non_groupable_actions or action_type in non_groupable_actions:
+                        if pending_group:
+                            abs_end = session_start + pending_group.get('end', 0)
+                            self._finalize_group(actions, pending_group)
+                            pending_group = None
+                            last_action_end_ms = abs_end
+
+                        actions.append({
+                            'action': action_type,
+                            'start': start_relative,
+                            'duration': duration_to_next,
+                            'inactivity': 0,
+                            'details': action_info.get('details', action_type),
+                            'content': action_info.get('content', '') if self.log_content else '',
+                            'change_len': change_len
+                        })
+                        last_action_end_ms = session_start + start_relative + duration_to_next
+                        # Continue to next row without creating/extending a pending group
+                        previous_row = row
+                        previous_fragment = row.get('fragment', '')
+                        continue
+
                     # Check if we should group this
                     if pending_group is None or pending_group['action'] != group_category:
                         # Finalize previous group if exists
                         if pending_group:
+                            abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
+                            last_action_end_ms = abs_end
 
                         # Start new group
                         pending_group = {
                             'action': group_category,
                             'start': start_relative,
-                            'end': start_relative + duration_to_next,
+                            'end': start_relative,
                             'content': action_info.get('content', ''),
                             'count': 1,
                             'change_len': change_len
                         }
                     else:
                         # Extend existing group
-                        pending_group['end'] = start_relative + duration_to_next
+                        pending_group['end'] = start_relative
                         pending_group['content'] += action_info.get('content', '')
                         pending_group['count'] += 1
                         pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
@@ -499,7 +578,54 @@ class ActivityAnalyzer:
 
         # Finalize any remaining pending group
         if pending_group:
+            abs_end = session_start + pending_group.get('end', 0)
             self._finalize_group(actions, pending_group)
+            last_action_end_ms = abs_end
+
+        # Post-process: ensure Inactivity entries do not overlap actions. Trim action durations
+        # that extend into an Inactivity period to ensure inactivity is exclusive.
+        cleaned = []
+        for idx, act in enumerate(actions):
+            a_start = float(act.get('start', 0))
+            a_dur = float(act.get('duration', 0))
+            a_end = a_start + a_dur
+
+            if act.get('action') == 'Inactivity':
+                # Ensure inactivity starts after last cleaned action end
+                prev_end = cleaned[-1]['start'] + cleaned[-1]['duration'] if cleaned else 0
+                if a_start < prev_end:
+                    # shift inactivity forward and reduce duration
+                    a_dur = max(0.0, a_end - prev_end)
+                    a_start = prev_end
+                    a_end = a_start + a_dur
+                if a_dur <= 0:
+                    continue
+                act['start'] = a_start
+                act['duration'] = a_dur
+                cleaned.append(act)
+                continue
+
+            # If next action is inactivity, trim this action to not overlap
+            if idx + 1 < len(actions) and actions[idx + 1].get('action') == 'Inactivity':
+                next_start = float(actions[idx + 1].get('start', 0))
+                if a_end > next_start:
+                    a_dur = max(0.0, next_start - a_start)
+                    a_end = a_start + a_dur
+
+            # Avoid overlapping previous cleaned action
+            prev_end = cleaned[-1]['start'] + cleaned[-1]['duration'] if cleaned else 0
+            if a_start < prev_end:
+                a_start = prev_end
+                a_dur = max(0.0, a_end - prev_end)
+                a_end = a_start + a_dur
+
+            if a_dur <= 0:
+                continue
+            act['start'] = a_start
+            act['duration'] = a_dur
+            cleaned.append(act)
+
+        actions = cleaned
 
         # Add session total
         last_ts = self._parse_timestamp(rows[-1].get('date'))
