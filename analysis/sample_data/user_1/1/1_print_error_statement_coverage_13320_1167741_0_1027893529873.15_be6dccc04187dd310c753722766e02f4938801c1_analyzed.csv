@@ -1,0 +1,14 @@
+action,start_sec,start_min,end_sec,end_min,duration_sec,duration_min,details,change_len,content
+Session started,0.00,,7.19,,7.19,,"File: 1_print_error_statement_coverage.py, Task: -1",0,
+Edit,8.72,,15.86,,7.14,,Edit (grouped 20 actions),20,\nprint()''hello worl
+Enter,15.86,,16.37,,0.50,,Enter,1,
+Paste,16.37,,19.78,,3.41,,Paste,1,\n
+Cut,19.78,,20.27,,0.49,,Cut,20,
+Paste,20.27,,20.75,,0.47,,Paste,20,
+Undo,20.75,,21.69,,0.95,,Undo,20,[+print('hello world')]
+Paste,21.69,,26.13,,4.44,,Paste,20,
+Delete,26.13,,28.36,,2.23,,Delete (grouped 10 actions),29,ello worl
+Backspace,28.36,,29.30,,0.94,,Backspace,1,d
+Delete,29.30,,29.37,,0.07,,Delete,1,h
+Edit,29.37,,63.25,1.05,33.87,,Edit (grouped 5 actions),5,hello
+Session total,0.00,,63.25,1.05,63.25,1.05,Total session duration: 63.2 seconds,0,
