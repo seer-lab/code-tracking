@@ -913,7 +913,9 @@ class ActivityAnalyzer:
                 'details',
                 'change_len',
                 # always include 'code' (fragment snapshot / group snapshot at end)
-                'code'
+                'code',
+                # length of code fragment (characters)
+                'code_len'
             ]
 
             if self.log_content:
@@ -934,6 +936,12 @@ class ActivityAnalyzer:
                 duration_sec, duration_min = self._format_time(duration)
 
 
+                code_val = action.get('code', '') or ''
+                try:
+                    code_len_val = len(code_val)
+                except Exception:
+                    code_len_val = 0
+
                 row_data = {
                     'action': action['action'],
                     'start_sec': start_sec,
@@ -945,7 +953,8 @@ class ActivityAnalyzer:
                     'details': action['details'],
                     'change_len': action.get('change_len', 0),
                     # always include the 'code' column
-                    'code': action.get('code', '')
+                    'code': code_val,
+                    'code_len': code_len_val
                 }
 
                 if self.log_content:
