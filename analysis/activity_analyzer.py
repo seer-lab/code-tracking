@@ -363,10 +363,12 @@ class ActivityAnalyzer:
         last_action_end_ms = session_start
 
         # Edit and delete action types for grouping
-        edit_types = {'Type character', 'Type text', 'Insert text', 'Copy/Paste (internal)', 'Paste (external)'}
+        edit_types = {'Type character', 'Type text', 'Insert text'}
         delete_types = {'Delete character', 'Delete text', 'Delete block'}
         # Actions that should NOT be grouped and should appear individually
-        non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)'}
+        # include both detected labels and common IDE event keys
+        non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)',
+                                 'EditorCopy', '$Copy', 'EditorPaste', '$Paste', 'EditorCut'}
 
         # Add session start action
         first_ts = self._parse_timestamp(rows[0].get('date'))
@@ -379,6 +381,7 @@ class ActivityAnalyzer:
             'inactivity': 0,
             'details': f"File: {rows[0].get('fileName','')}, Task: {rows[0].get('chosenTask','')}",
             'content': '',
+            'code': '',
             'change_len': 0
         })
         # update last action end to account for the session-start action duration
@@ -470,6 +473,7 @@ class ActivityAnalyzer:
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
+                        'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                         'change_len': change_len
                     })
                     # update last action end
@@ -486,20 +490,23 @@ class ActivityAnalyzer:
                         self._finalize_group(actions, pending_group)
                         last_action_end_ms = abs_end
 
-                    # Start new group
+                    # Start new group. Use end = start + duration_to_next so group end covers the span.
                     pending_group = {
                         'action': action_desc,
                         'start': start_relative,
-                        'end': start_relative,
+                        'end': start_relative + duration_to_next,
                         'content': content,
+                        'snapshot': row.get('fragment', ''),
                         'count': 1,
                         'change_len': change_len
                     }
                 else:
                     # Extend existing group (same action type)
-                    pending_group['end'] = start_relative
+                    pending_group['end'] = start_relative + duration_to_next
                     if content:
                         pending_group['content'] += content
+                    # always update snapshot to the latest fragment so group 'code' uses the end-state
+                    pending_group['snapshot'] = row.get('fragment', '')
                     pending_group['count'] += 1
                     pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
@@ -527,7 +534,7 @@ class ActivityAnalyzer:
                     change_len = action_info.get('change_len', 0)
 
                     # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
-                    if group_category in non_groupable_actions or action_type in non_groupable_actions:
+                    if action_type in non_groupable_actions or group_category in non_groupable_actions:
                         if pending_group:
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
@@ -541,6 +548,7 @@ class ActivityAnalyzer:
                             'inactivity': 0,
                             'details': action_info.get('details', action_type),
                             'content': action_info.get('content', '') if self.log_content else '',
+                            'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                             'change_len': change_len
                         })
                         last_action_end_ms = session_start + start_relative + duration_to_next
@@ -561,15 +569,17 @@ class ActivityAnalyzer:
                         pending_group = {
                             'action': group_category,
                             'start': start_relative,
-                            'end': start_relative,
+                            'end': start_relative + duration_to_next,
                             'content': action_info.get('content', ''),
+                            'snapshot': row.get('fragment', ''),
                             'count': 1,
                             'change_len': change_len
                         }
                     else:
                         # Extend existing group
-                        pending_group['end'] = start_relative
+                        pending_group['end'] = start_relative + duration_to_next
                         pending_group['content'] += action_info.get('content', '')
+                        pending_group['snapshot'] = row.get('fragment', '')
                         pending_group['count'] += 1
                         pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
@@ -638,6 +648,7 @@ class ActivityAnalyzer:
             'inactivity': 0,
             'details': f"Total session duration: {total_duration/1000:.1f} seconds",
             'content': '',
+            'code': '',
             'change_len': 0
         })
 
@@ -665,7 +676,10 @@ class ActivityAnalyzer:
             'duration': duration,
             'inactivity': 0,
             'details': details,
-            'content': self._format_content(group['content']) if self.log_content else '',
+            # preserve original content behavior
+            'content': self._format_content(group.get('content', '')) if self.log_content else '',
+            # new 'code' column: snapshot at group end
+            'code': group.get('snapshot', ''),
             'change_len': group.get('change_len', 0)
         })
 
@@ -897,7 +911,9 @@ class ActivityAnalyzer:
                 'duration_sec',
                 'duration_min',
                 'details',
-                'change_len'
+                'change_len',
+                # always include 'code' (fragment snapshot / group snapshot at end)
+                'code'
             ]
 
             if self.log_content:
@@ -927,7 +943,9 @@ class ActivityAnalyzer:
                     'duration_sec': duration_sec,
                     'duration_min': duration_min,
                     'details': action['details'],
-                    'change_len': action.get('change_len', 0)
+                    'change_len': action.get('change_len', 0),
+                    # always include the 'code' column
+                    'code': action.get('code', '')
                 }
 
                 if self.log_content:
