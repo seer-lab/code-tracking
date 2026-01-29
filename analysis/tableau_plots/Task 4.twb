@@ -1,0 +1,2822 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.25.1210.1815                               -->
+<workbook original-version='18.1' source-build='2025.3.1 (20253.25.1210.1815)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='student1' inline='true' name='federated.1siv0bj094mggt1d28q131sbn5ys' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='student1' name='textscan.1pvq6wn1hkyskb1c7yixz1y504df'>
+            <connection class='textscan' directory='C:/Users/Daniel/Ontario Tech/code-tracking/analysis/results/activity_data/task4' filename='student1.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation all='true' name='student1.csv+' type='union'>
+          <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+            <column datatype='string' name='action' />
+            <column datatype='string' name='start_sec' />
+            <column datatype='string' name='start_min' />
+            <column datatype='string' name='end_sec' />
+            <column datatype='string' name='end_min' />
+            <column datatype='string' name='duration_sec' />
+            <column datatype='real' name='duration_min' />
+            <column datatype='string' name='details' />
+            <column datatype='integer' name='change_len' />
+            <column datatype='string' name='code' />
+            <column datatype='string' name='code_len' />
+            <column datatype='string' name='content' />
+            <column datatype='string' name='F13' />
+            <column datatype='string' name='F14' />
+            <column datatype='string' name='F15' />
+            <column datatype='string' name='F16' />
+            <column datatype='string' name='F17' />
+            <column datatype='string' name='F18' />
+            <column datatype='string' name='F19' />
+            <column datatype='string' name='F20' />
+            <column datatype='string' name='F21' />
+            <column datatype='string' name='F22' />
+            <column datatype='string' name='F23' />
+            <column datatype='string' name='F24' />
+            <column datatype='string' name='F25' />
+            <column datatype='string' name='F26' />
+            <column datatype='string' name='Table Name' />
+          </columns>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student1.csv' table='[student1#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student11.csv' table='[student11#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student12.csv' table='[student12#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student13.csv' table='[student13#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+              <column datatype='string' name='F14' ordinal='13' />
+              <column datatype='string' name='F15' ordinal='14' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student14.csv' table='[student14#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student15.csv' table='[student15#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='string' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='string' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+              <column datatype='string' name='F14' ordinal='13' />
+              <column datatype='string' name='F15' ordinal='14' />
+              <column datatype='string' name='F16' ordinal='15' />
+              <column datatype='string' name='F17' ordinal='16' />
+              <column datatype='string' name='F18' ordinal='17' />
+              <column datatype='string' name='F19' ordinal='18' />
+              <column datatype='string' name='F20' ordinal='19' />
+              <column datatype='string' name='F21' ordinal='20' />
+              <column datatype='string' name='F22' ordinal='21' />
+              <column datatype='string' name='F23' ordinal='22' />
+              <column datatype='string' name='F24' ordinal='23' />
+              <column datatype='string' name='F25' ordinal='24' />
+              <column datatype='string' name='F26' ordinal='25' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student16.csv' table='[student16#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='string' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student17.csv' table='[student17#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student18.csv' table='[student18#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student19.csv' table='[student19#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student20.csv' table='[student20#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student22.csv' table='[student22#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='string' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student23.csv' table='[student23#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='string' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student24.csv' table='[student24#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student25.csv' table='[student25#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student26.csv' table='[student26#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='string' name='start_min' ordinal='2' />
+              <column datatype='string' name='end_sec' ordinal='3' />
+              <column datatype='string' name='end_min' ordinal='4' />
+              <column datatype='string' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student27.csv' table='[student27#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student28.csv' table='[student28#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student29.csv' table='[student29#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student3.csv' table='[student3#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student30.csv' table='[student30#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student31.csv' table='[student31#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='string' name='start_sec' ordinal='1' />
+              <column datatype='real' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='string' name='code_len' ordinal='10' />
+              <column datatype='integer' name='content' ordinal='11' />
+              <column datatype='string' name='F13' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student4.csv' table='[student4#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+              <column datatype='string' name='action' ordinal='0' />
+              <column datatype='real' name='start_sec' ordinal='1' />
+              <column datatype='string' name='start_min' ordinal='2' />
+              <column datatype='real' name='end_sec' ordinal='3' />
+              <column datatype='real' name='end_min' ordinal='4' />
+              <column datatype='real' name='duration_sec' ordinal='5' />
+              <column datatype='real' name='duration_min' ordinal='6' />
+              <column datatype='string' name='details' ordinal='7' />
+              <column datatype='integer' name='change_len' ordinal='8' />
+              <column datatype='string' name='code' ordinal='9' />
+              <column datatype='integer' name='code_len' ordinal='10' />
+              <column datatype='string' name='content' ordinal='11' />
+            </columns>
+          </relation>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>action</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[action]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>action</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_sec</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[start_sec]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>start_sec</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_min</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[start_min]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>start_min</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>end_sec</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[end_sec]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>end_sec</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>end_min</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[end_min]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>end_min</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_sec</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[duration_sec]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>duration_sec</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_min</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_min]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>duration_min</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>details</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[details]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>details</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>change_len</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[change_len]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>change_len</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[code]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>code</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>code_len</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[code_len]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>code_len</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F13</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F13]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F13</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F14</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F14]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F14</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F15</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F15]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F15</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F16</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F16]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F16</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F17</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F17]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F17</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F18</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F18]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F18</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F19</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F19]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F19</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F20</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F20]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F20</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F21</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F21]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F21</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F22</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F22]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F22</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F23</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F23]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F23</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F24</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F24]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F24</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F25</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F25]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F25</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F26</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F26]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>F26</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Table Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Table Name]</local-name>
+            <parent-name>[student1.csv+]</parent-name>
+            <remote-alias>Table Name</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Action Group' datatype='string' name='[Calculation_0953307264577536]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [action] IN (&#13;&#10;    &quot;Edit&quot;,&#13;&#10;    &quot;EditorStartNewLine&quot;,&#13;&#10;    &quot;EditorIndentSelection&quot;,&#13;&#10;    &quot;EditorUnindentSelection&quot;,&#13;&#10;    &quot;EditorDeleteToWordStart&quot;,&#13;&#10;    &quot;Replace text&quot;,&#13;&#10;    &quot;Backspace&quot;,&#13;&#10;    &quot;Delete&quot;&#13;&#10;) THEN &quot;Writing&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Paste&quot;,&#13;&#10;    &quot;Paste (external)&quot;,&#13;&#10;    &quot;Copy/Paste (internal)&quot;,&#13;&#10;    &quot;Cut&quot;&#13;&#10;) THEN &quot;Copy / Paste&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Left Arrow&quot;,&#13;&#10;    &quot;Right Arrow&quot;,&#13;&#10;    &quot;Up Arrow&quot;,&#13;&#10;    &quot;Down Arrow&quot;,&#13;&#10;    &quot;Tab&quot;&#13;&#10;) THEN &quot;Navigation&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Accept Inline Completion&quot;,&#13;&#10;    &quot;Choose Autocomplete&quot;,&#13;&#10;    &quot;EditorChooseLookupItem&quot;&#13;&#10;) THEN &quot;Autocomplete&quot;&#13;&#10;&#13;&#10;ELSEIF [action] = &quot;Inactivity&quot; THEN &quot;Inactivity&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Student' datatype='string' name='[Calculation_0953307264651265]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='SPLIT([Table Name], &quot;.csv&quot;, 1)' />
+      </column>
+      <column caption='Duration' datatype='real' name='[Calculation_0953307264704514]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[end_sec] - [start_sec]' />
+      </column>
+      <column caption='Duration (Minutes)' datatype='real' name='[Calculation_0953307264761859]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_0953307264704514]/60' />
+      </column>
+      <column caption='Duration (Visible)' datatype='real' name='[Calculation_0953307264839684]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_0953307264761859] &lt; 0.1 THEN 0.1&#13;&#10;ELSE [Calculation_0953307264761859]&#13;&#10;END' />
+      </column>
+      <column caption='Start Min (Normalized)' datatype='real' name='[Calculation_0953307264978949]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[start_min] - [Calculation_0953307265048582]' />
+      </column>
+      <column caption='Student Start Min' datatype='real' name='[Calculation_0953307265048582]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [Calculation_0953307264651265] : MIN([start_min]) }' />
+      </column>
+      <column caption='Code Size' datatype='integer' name='[Calculation_0979420808294400]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='LEN([code])' />
+      </column>
+      <column caption='Time % (Per Student)' datatype='real' name='[Calculation_1912082804133888]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX() / WINDOW_MAX(INDEX())'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Code Size (Normalized)' datatype='real' name='[Calculation_1912082805121025]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_0979420808294400]) / WINDOW_MAX(SUM([Calculation_0979420808294400]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='student1.csv' datatype='table' name='[__tableau_internal_object_id__].[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]' role='measure' type='quantitative' />
+      <column caption='Action' datatype='string' name='[action]' role='dimension' type='nominal' />
+      <column caption='Change Len' datatype='integer' name='[change_len]' role='measure' type='quantitative' />
+      <column caption='Code' datatype='string' name='[code]' role='dimension' type='nominal' />
+      <column caption='Code Len' datatype='string' name='[code_len]' role='dimension' type='nominal' />
+      <column caption='Content' datatype='string' name='[content]' role='dimension' type='nominal' />
+      <column caption='Details' datatype='string' name='[details]' role='dimension' type='nominal' />
+      <column caption='Duration Min' datatype='real' name='[duration_min]' role='measure' type='quantitative' />
+      <column caption='Duration Sec' datatype='string' default-role='measure' default-type='ordinal' name='[duration_sec]' role='dimension' type='nominal' />
+      <column caption='End Min' datatype='string' default-role='measure' default-type='ordinal' name='[end_min]' role='dimension' type='nominal' />
+      <column caption='End Sec' datatype='string' default-role='measure' default-type='ordinal' name='[end_sec]' role='dimension' type='nominal' />
+      <column aggregation='Count' caption='Start Min' datatype='real' datatype-customized='true' name='[start_min]' role='measure' type='quantitative' />
+      <column aggregation='Count' caption='Start Sec' datatype='real' datatype-customized='true' name='[start_sec]' role='measure' type='ordinal' />
+      <column-instance column='[Calculation_0953307264577536]' derivation='None' name='[none:Calculation_0953307264577536:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_0953307264651265]' derivation='None' name='[none:Calculation_0953307264651265:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Daniel/AppData/Local/Temp/TableauTemp/#TableauTemp_1okloot15lkrwr1d84c9n0ntkvoh.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='01/29/2026 06:58:43 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>action</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[action]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>action</remote-alias>
+              <ordinal>0</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1013</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>start_sec</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[start_sec]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>start_sec</remote-alias>
+              <ordinal>1</ordinal>
+              <family>student1.csv+</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1548</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>start_min</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[start_min]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>start_min</remote-alias>
+              <ordinal>2</ordinal>
+              <family>student1.csv+</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>760</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>end_sec</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[end_sec]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>end_sec</remote-alias>
+              <ordinal>3</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>629</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>end_min</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[end_min]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>end_min</remote-alias>
+              <ordinal>4</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>323</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>duration_sec</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[duration_sec]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>duration_sec</remote-alias>
+              <ordinal>5</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>804</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>duration_min</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[duration_min]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>duration_min</remote-alias>
+              <ordinal>6</ordinal>
+              <family>student1.csv+</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>details</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[details]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>details</remote-alias>
+              <ordinal>7</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>216</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>change_len</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[change_len]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>change_len</remote-alias>
+              <ordinal>8</ordinal>
+              <family>student1.csv+</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>87</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>code</remote-alias>
+              <ordinal>9</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>code_len</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[code_len]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>code_len</remote-alias>
+              <ordinal>10</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>content</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[content]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>content</remote-alias>
+              <ordinal>11</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F13</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F13]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F13</remote-alias>
+              <ordinal>12</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F14</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F14]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F14</remote-alias>
+              <ordinal>13</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F15</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F15]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F15</remote-alias>
+              <ordinal>14</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F16</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F16]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F16</remote-alias>
+              <ordinal>15</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F17</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F17]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F17</remote-alias>
+              <ordinal>16</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F18</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F18]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F18</remote-alias>
+              <ordinal>17</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F19</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F19]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F19</remote-alias>
+              <ordinal>18</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F20</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F20]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F20</remote-alias>
+              <ordinal>19</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F21</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F21]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F21</remote-alias>
+              <ordinal>20</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F22</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F22]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F22</remote-alias>
+              <ordinal>21</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F23</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F23]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F23</remote-alias>
+              <ordinal>22</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F24</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F24]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F24</remote-alias>
+              <ordinal>23</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F25</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F25]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F25</remote-alias>
+              <ordinal>24</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F26</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[F26]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F26</remote-alias>
+              <ordinal>25</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Table Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Table Name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Table Name</remote-alias>
+              <ordinal>26</ordinal>
+              <family>student1.csv+</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[student1.csv_AD31E087D58C4BD79328BF0678D82DE7]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_0953307264651265:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;student29&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;student9&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;student1&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;student21&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;student25&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;student5&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;student13&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;student10&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;student30&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;student26&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;student6&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;student19&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;student2&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;student22&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;student17&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;student27&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;student7&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;student14&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;student15&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;student18&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;student20&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;student11&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;student31&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;student28&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;student8&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;student23&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;student3&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;student16&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;student12&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;student24&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;student4&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_0953307264577536:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Autocomplete&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Navigation&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Inactivity&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Writing&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Editing&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Cut / Paste&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Copy / Paste&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Canada&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='student1.csv' id='student1.csv_AD31E087D58C4BD79328BF0678D82DE7'>
+            <properties context=''>
+              <relation all='true' name='student1.csv+' type='union'>
+                <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                  <column datatype='string' name='action' />
+                  <column datatype='string' name='start_sec' />
+                  <column datatype='string' name='start_min' />
+                  <column datatype='string' name='end_sec' />
+                  <column datatype='string' name='end_min' />
+                  <column datatype='string' name='duration_sec' />
+                  <column datatype='real' name='duration_min' />
+                  <column datatype='string' name='details' />
+                  <column datatype='integer' name='change_len' />
+                  <column datatype='string' name='code' />
+                  <column datatype='string' name='code_len' />
+                  <column datatype='string' name='content' />
+                  <column datatype='string' name='F13' />
+                  <column datatype='string' name='F14' />
+                  <column datatype='string' name='F15' />
+                  <column datatype='string' name='F16' />
+                  <column datatype='string' name='F17' />
+                  <column datatype='string' name='F18' />
+                  <column datatype='string' name='F19' />
+                  <column datatype='string' name='F20' />
+                  <column datatype='string' name='F21' />
+                  <column datatype='string' name='F22' />
+                  <column datatype='string' name='F23' />
+                  <column datatype='string' name='F24' />
+                  <column datatype='string' name='F25' />
+                  <column datatype='string' name='F26' />
+                  <column datatype='string' name='Table Name' />
+                </columns>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student1.csv' table='[student1#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student11.csv' table='[student11#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student12.csv' table='[student12#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student13.csv' table='[student13#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                    <column datatype='string' name='F14' ordinal='13' />
+                    <column datatype='string' name='F15' ordinal='14' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student14.csv' table='[student14#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student15.csv' table='[student15#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='string' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='string' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                    <column datatype='string' name='F14' ordinal='13' />
+                    <column datatype='string' name='F15' ordinal='14' />
+                    <column datatype='string' name='F16' ordinal='15' />
+                    <column datatype='string' name='F17' ordinal='16' />
+                    <column datatype='string' name='F18' ordinal='17' />
+                    <column datatype='string' name='F19' ordinal='18' />
+                    <column datatype='string' name='F20' ordinal='19' />
+                    <column datatype='string' name='F21' ordinal='20' />
+                    <column datatype='string' name='F22' ordinal='21' />
+                    <column datatype='string' name='F23' ordinal='22' />
+                    <column datatype='string' name='F24' ordinal='23' />
+                    <column datatype='string' name='F25' ordinal='24' />
+                    <column datatype='string' name='F26' ordinal='25' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student16.csv' table='[student16#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='string' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student17.csv' table='[student17#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student18.csv' table='[student18#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student19.csv' table='[student19#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student20.csv' table='[student20#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student22.csv' table='[student22#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='string' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student23.csv' table='[student23#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='string' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student24.csv' table='[student24#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student25.csv' table='[student25#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student26.csv' table='[student26#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='string' name='start_min' ordinal='2' />
+                    <column datatype='string' name='end_sec' ordinal='3' />
+                    <column datatype='string' name='end_min' ordinal='4' />
+                    <column datatype='string' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student27.csv' table='[student27#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student28.csv' table='[student28#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student29.csv' table='[student29#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student3.csv' table='[student3#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student30.csv' table='[student30#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student31.csv' table='[student31#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='string' name='start_sec' ordinal='1' />
+                    <column datatype='real' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='string' name='code_len' ordinal='10' />
+                    <column datatype='integer' name='content' ordinal='11' />
+                    <column datatype='string' name='F13' ordinal='12' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1pvq6wn1hkyskb1c7yixz1y504df' name='student4.csv' table='[student4#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+                    <column datatype='string' name='action' ordinal='0' />
+                    <column datatype='real' name='start_sec' ordinal='1' />
+                    <column datatype='string' name='start_min' ordinal='2' />
+                    <column datatype='real' name='end_sec' ordinal='3' />
+                    <column datatype='real' name='end_min' ordinal='4' />
+                    <column datatype='real' name='duration_sec' ordinal='5' />
+                    <column datatype='real' name='duration_min' ordinal='6' />
+                    <column datatype='string' name='details' ordinal='7' />
+                    <column datatype='integer' name='change_len' ordinal='8' />
+                    <column datatype='string' name='code' ordinal='9' />
+                    <column datatype='integer' name='code_len' ordinal='10' />
+                    <column datatype='string' name='content' ordinal='11' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Task 1 Code Size'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='student1' name='federated.1siv0bj094mggt1d28q131sbn5ys' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1siv0bj094mggt1d28q131sbn5ys'>
+            <column caption='Student' datatype='string' name='[Calculation_0953307264651265]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='SPLIT([Table Name], &quot;.csv&quot;, 1)' />
+            </column>
+            <column caption='Code Size' datatype='integer' name='[Calculation_0979420808294400]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='LEN([code])' />
+            </column>
+            <column caption='Time % (Per Student)' datatype='real' name='[Calculation_1912082804133888]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX() / WINDOW_MAX(INDEX())'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='string' name='[Table Name]' role='dimension' type='nominal' />
+            <column caption='Code' datatype='string' name='[code]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0953307264651265]' derivation='None' name='[none:Calculation_0953307264651265:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_0979420808294400]' derivation='None' name='[none:Calculation_0979420808294400:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_0979420808294400]' derivation='Sum' name='[sum:Calculation_0979420808294400:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1912082804133888]' derivation='User' name='[usr:Calculation_1912082804133888:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+          </datasource-dependencies>
+          <manual-sort column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;student1&quot;</bucket>
+              <bucket>&quot;student2&quot;</bucket>
+              <bucket>&quot;student3&quot;</bucket>
+              <bucket>&quot;student5&quot;</bucket>
+              <bucket>&quot;student6&quot;</bucket>
+              <bucket>&quot;student7&quot;</bucket>
+              <bucket>&quot;student8&quot;</bucket>
+              <bucket>&quot;student9&quot;</bucket>
+              <bucket>&quot;student10&quot;</bucket>
+              <bucket>&quot;student12&quot;</bucket>
+              <bucket>&quot;student14&quot;</bucket>
+              <bucket>&quot;student15&quot;</bucket>
+              <bucket>&quot;student16&quot;</bucket>
+              <bucket>&quot;student17&quot;</bucket>
+              <bucket>&quot;student18&quot;</bucket>
+              <bucket>&quot;student19&quot;</bucket>
+              <bucket>&quot;student20&quot;</bucket>
+              <bucket>&quot;student21&quot;</bucket>
+              <bucket>&quot;student22&quot;</bucket>
+              <bucket>&quot;student23&quot;</bucket>
+              <bucket>&quot;student24&quot;</bucket>
+              <bucket>&quot;student25&quot;</bucket>
+              <bucket>&quot;student26&quot;</bucket>
+              <bucket>&quot;student27&quot;</bucket>
+              <bucket>&quot;student28&quot;</bucket>
+              <bucket>&quot;student29&quot;</bucket>
+              <bucket>&quot;student30&quot;</bucket>
+              <bucket>&quot;student31&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='quantitative' column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0979420808294400:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0979420808294400:qk]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1siv0bj094mggt1d28q131sbn5ys].[usr:Calculation_1912082804133888:qk]' scope='cols' value='Time (Percentage)' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1siv0bj094mggt1d28q131sbn5ys].[usr:Calculation_1912082804133888:qk]' value='p0.00%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1siv0bj094mggt1d28q131sbn5ys].[usr:Calculation_1912082804133888:qk]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]' />
+              <lod column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1siv0bj094mggt1d28q131sbn5ys].[sum:Calculation_0979420808294400:qk]</rows>
+        <cols>[federated.1siv0bj094mggt1d28q131sbn5ys].[usr:Calculation_1912082804133888:qk]</cols>
+      </table>
+      <simple-id uuid='{21AFB276-F7A1-4960-83CF-92BD0064CA7A}' />
+    </worksheet>
+    <worksheet name='Task 1 Write vs. Copy/Paste'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='student1' name='federated.1siv0bj094mggt1d28q131sbn5ys' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1siv0bj094mggt1d28q131sbn5ys'>
+            <column caption='Action Group' datatype='string' name='[Calculation_0953307264577536]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [action] IN (&#13;&#10;    &quot;Edit&quot;,&#13;&#10;    &quot;EditorStartNewLine&quot;,&#13;&#10;    &quot;EditorIndentSelection&quot;,&#13;&#10;    &quot;EditorUnindentSelection&quot;,&#13;&#10;    &quot;EditorDeleteToWordStart&quot;,&#13;&#10;    &quot;Replace text&quot;,&#13;&#10;    &quot;Backspace&quot;,&#13;&#10;    &quot;Delete&quot;&#13;&#10;) THEN &quot;Writing&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Paste&quot;,&#13;&#10;    &quot;Paste (external)&quot;,&#13;&#10;    &quot;Copy/Paste (internal)&quot;,&#13;&#10;    &quot;Cut&quot;&#13;&#10;) THEN &quot;Copy / Paste&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Left Arrow&quot;,&#13;&#10;    &quot;Right Arrow&quot;,&#13;&#10;    &quot;Up Arrow&quot;,&#13;&#10;    &quot;Down Arrow&quot;,&#13;&#10;    &quot;Tab&quot;&#13;&#10;) THEN &quot;Navigation&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Accept Inline Completion&quot;,&#13;&#10;    &quot;Choose Autocomplete&quot;,&#13;&#10;    &quot;EditorChooseLookupItem&quot;&#13;&#10;) THEN &quot;Autocomplete&quot;&#13;&#10;&#13;&#10;ELSEIF [action] = &quot;Inactivity&quot; THEN &quot;Inactivity&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Student' datatype='string' name='[Calculation_0953307264651265]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='SPLIT([Table Name], &quot;.csv&quot;, 1)' />
+            </column>
+            <column caption='Duration' datatype='real' name='[Calculation_0953307264704514]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[end_sec] - [start_sec]' />
+            </column>
+            <column caption='Duration (Minutes)' datatype='real' name='[Calculation_0953307264761859]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_0953307264704514]/60' />
+            </column>
+            <column datatype='string' name='[Table Name]' role='dimension' type='nominal' />
+            <column caption='Action' datatype='string' name='[action]' role='dimension' type='nominal' />
+            <column caption='End Sec' datatype='string' default-role='measure' default-type='ordinal' name='[end_sec]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0953307264577536]' derivation='None' name='[none:Calculation_0953307264577536:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_0953307264651265]' derivation='None' name='[none:Calculation_0953307264651265:nk]' pivot='key' type='nominal' />
+            <column aggregation='Count' caption='Start Sec' datatype='real' datatype-customized='true' name='[start_sec]' role='measure' type='ordinal' />
+            <column-instance column='[Calculation_0953307264761859]' derivation='Sum' name='[sum:Calculation_0953307264761859:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Calculation_0953307264577536:nk]' member='&quot;Copy / Paste&quot;' />
+              <groupfilter function='member' level='[none:Calculation_0953307264577536:nk]' member='&quot;Cut / Paste&quot;' />
+              <groupfilter function='member' level='[none:Calculation_0953307264577536:nk]' member='&quot;Writing&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]</rows>
+        <cols>[federated.1siv0bj094mggt1d28q131sbn5ys].[sum:Calculation_0953307264761859:qk]</cols>
+      </table>
+      <simple-id uuid='{841EBBAA-D9BA-4FCE-B9D4-BE037BDB477E}' />
+    </worksheet>
+    <worksheet name='Timeline - Task 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='student1' name='federated.1siv0bj094mggt1d28q131sbn5ys' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1siv0bj094mggt1d28q131sbn5ys'>
+            <column caption='Action Group' datatype='string' name='[Calculation_0953307264577536]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [action] IN (&#13;&#10;    &quot;Edit&quot;,&#13;&#10;    &quot;EditorStartNewLine&quot;,&#13;&#10;    &quot;EditorIndentSelection&quot;,&#13;&#10;    &quot;EditorUnindentSelection&quot;,&#13;&#10;    &quot;EditorDeleteToWordStart&quot;,&#13;&#10;    &quot;Replace text&quot;,&#13;&#10;    &quot;Backspace&quot;,&#13;&#10;    &quot;Delete&quot;&#13;&#10;) THEN &quot;Writing&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Paste&quot;,&#13;&#10;    &quot;Paste (external)&quot;,&#13;&#10;    &quot;Copy/Paste (internal)&quot;,&#13;&#10;    &quot;Cut&quot;&#13;&#10;) THEN &quot;Copy / Paste&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Left Arrow&quot;,&#13;&#10;    &quot;Right Arrow&quot;,&#13;&#10;    &quot;Up Arrow&quot;,&#13;&#10;    &quot;Down Arrow&quot;,&#13;&#10;    &quot;Tab&quot;&#13;&#10;) THEN &quot;Navigation&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Accept Inline Completion&quot;,&#13;&#10;    &quot;Choose Autocomplete&quot;,&#13;&#10;    &quot;EditorChooseLookupItem&quot;&#13;&#10;) THEN &quot;Autocomplete&quot;&#13;&#10;&#13;&#10;ELSEIF [action] = &quot;Inactivity&quot; THEN &quot;Inactivity&quot;&#13;&#10;&#13;&#10;ELSE &quot;Other&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Student' datatype='string' name='[Calculation_0953307264651265]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='SPLIT([Table Name], &quot;.csv&quot;, 1)' />
+            </column>
+            <column caption='Duration' datatype='real' name='[Calculation_0953307264704514]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[end_sec] - [start_sec]' />
+            </column>
+            <column caption='Duration (Minutes)' datatype='real' name='[Calculation_0953307264761859]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_0953307264704514]/60' />
+            </column>
+            <column caption='Duration (Visible)' datatype='real' name='[Calculation_0953307264839684]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_0953307264761859] &lt; 0.1 THEN 0.1&#13;&#10;ELSE [Calculation_0953307264761859]&#13;&#10;END' />
+            </column>
+            <column caption='Start Min (Normalized)' datatype='real' name='[Calculation_0953307264978949]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[start_min] - [Calculation_0953307265048582]' />
+            </column>
+            <column caption='Student Start Min' datatype='real' name='[Calculation_0953307265048582]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [Calculation_0953307264651265] : MIN([start_min]) }' />
+            </column>
+            <column datatype='string' name='[Table Name]' role='dimension' type='nominal' />
+            <column caption='Action' datatype='string' name='[action]' role='dimension' type='nominal' />
+            <column caption='End Sec' datatype='string' default-role='measure' default-type='ordinal' name='[end_sec]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0953307264577536]' derivation='None' name='[none:Calculation_0953307264577536:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_0953307264651265]' derivation='None' name='[none:Calculation_0953307264651265:nk]' pivot='key' type='nominal' />
+            <column aggregation='Count' caption='Start Min' datatype='real' datatype-customized='true' name='[start_min]' role='measure' type='quantitative' />
+            <column aggregation='Count' caption='Start Sec' datatype='real' datatype-customized='true' name='[start_sec]' role='measure' type='ordinal' />
+            <column-instance column='[Calculation_0953307264839684]' derivation='Sum' name='[sum:Calculation_0953307264839684:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_0953307264978949]' derivation='Sum' name='[sum:Calculation_0953307264978949:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='GanttBar' />
+            <encodings>
+              <color column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]' />
+              <size column='[federated.1siv0bj094mggt1d28q131sbn5ys].[sum:Calculation_0953307264839684:qk]' />
+              <lod column='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]</rows>
+        <cols>[federated.1siv0bj094mggt1d28q131sbn5ys].[sum:Calculation_0953307264978949:qk]</cols>
+      </table>
+      <simple-id uuid='{38E838CC-CEB5-4420-B1A4-6BB7E944639D}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Timeline - Task 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]</field>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]</field>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:action:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E8600D4E-7EA9-407A-B39B-BEFABF43AB7C}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Task 1 Code Size'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='37'>
+            <card type='columns' />
+          </strip>
+          <strip size='37'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[cnt:start_min:ok]</field>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]</field>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264978949:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{9A5D9E07-A66A-4855-95F2-29C37810B9C0}' />
+    </window>
+    <window class='worksheet' name='Task 1 Write vs. Copy/Paste'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264577536:nk]</field>
+            <field>[federated.1siv0bj094mggt1d28q131sbn5ys].[none:Calculation_0953307264651265:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{75BBFD53-7FD9-42D9-A71B-706E8F58FD58}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Task 1 Code Size' width='192'>
+      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
+      YII=
+    </thumbnail>
+    <thumbnail height='192' name='Task 1 Write vs. Copy/Paste' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Timeline - Task 1' width='192'>
+      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
+      /wO4mh3B3nY4XwAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
