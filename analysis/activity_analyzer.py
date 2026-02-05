@@ -1020,6 +1020,23 @@ class ActivityAnalyzer:
             if self.log_content:
                 fieldnames.append('content')
 
+            # Calculate time_percent for each action (normalized 0.0 to 1.0)
+            if actions:
+                start_times = [action.get('start', 0) for action in actions]
+                min_start = min(start_times)
+                max_start = max(start_times)
+                time_range = max_start - min_start
+
+                # Add time_percent to each action
+                for action in actions:
+                    if time_range > 0:
+                        action['time_percent'] = (action.get('start', 0) - min_start) / time_range
+                    else:
+                        action['time_percent'] = 0.0
+
+            # Add time_percent to fieldnames (after start_min)
+            fieldnames.insert(3, 'time_percent')
+
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
 
@@ -1045,6 +1062,7 @@ class ActivityAnalyzer:
                     'action': action['action'],
                     'start_sec': start_sec,
                     'start_min': start_min,
+                    'time_percent': action.get('time_percent', 0.0),
                     'end_sec': end_sec,
                     'end_min': end_min,
                     'duration_sec': duration_sec,
@@ -1083,6 +1101,7 @@ class ActivityAnalyzer:
                         'action': action['action'],
                         'start_sec': self._format_time(start)[0],
                         'start_min': self._format_time(start)[1],
+                        'time_percent': action.get('time_percent', 0.0),
                         'end_sec': self._format_time(end)[0],
                         'end_min': self._format_time(end)[1],
                         'duration_sec': self._format_time(duration)[0],
