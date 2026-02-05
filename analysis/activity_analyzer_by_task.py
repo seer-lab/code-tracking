@@ -155,6 +155,7 @@ def main():
     parser.add_argument('-d', '--directory', action='store_true', help='Process as directory (required)')
     parser.add_argument('--content', action='store_true', help="Include 'content' column in outputs")
     parser.add_argument('--max-content', type=int, default=0, help='Max content length (0 = unlimited)')
+    parser.add_argument('--excel', action='store_true', help='Also write Excel (.xlsx) outputs')
 
     args = parser.parse_args()
 
@@ -163,6 +164,10 @@ def main():
         log_content=args.content,
         max_content_length=args.max_content,
     )
+
+    # If excel requested, set the flag on the inner analyzer
+    if args.excel:
+        analyzer.analyzer.excel_output = True
 
     if not Path(args.input).exists():
         print(f"Error: {args.input} does not exist")
