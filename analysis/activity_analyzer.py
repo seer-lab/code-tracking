@@ -370,6 +370,11 @@ class ActivityAnalyzer:
         # include both detected labels and common IDE event keys
         non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)',
                                  'EditorCopy', '$Copy', 'EditorPaste', '$Paste', 'EditorCut'}
+        # Also treat deletion/backspace and detected paste types as non-groupable to avoid long durations
+        non_groupable_actions.update({'Backspace', 'Delete character', 'Delete text', 'Delete block',
+                                      'Paste (external)', 'Copy/Paste (internal)'} )
+        # Small action duration (ms) to assign to isolated events before a long inactivity gap
+        small_action_duration_ms = 100
 
         # Add session start action
         first_ts = self._parse_timestamp(rows[0].get('date'))
@@ -402,6 +407,17 @@ class ActivityAnalyzer:
                 duration_to_next = max(0, next_ts - curr_ts)
             else:
                 duration_to_next = 0
+
+            # If the gap to the next row is a long inactivity, mark it
+            span_is_long_gap = duration_to_next >= self.inactivity_threshold_ms
+
+            # If there is a pending group that would otherwise be extended across a long inactivity
+            # finalize it now so inactivity can be logged separately.
+            if span_is_long_gap and pending_group:
+                abs_end = session_start + pending_group.get('end', 0)
+                self._finalize_group(actions, pending_group)
+                pending_group = None
+                last_action_end_ms = abs_end
 
             # Determine last activity end (absolute ms). If there's a pending group,
             # use its projected end; otherwise use last_action_end_ms
@@ -458,19 +474,21 @@ class ActivityAnalyzer:
                 # compute numeric change length for this action
                 change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
 
-                # If this action is non-groupable, finalize any pending group and append it immediately
-                if action_desc in non_groupable_actions:
+                # If the gap to next row is large, finalize any pending group (done earlier)
+                # and append this IDE action as an immediate short action so inactivity is exclusive.
+                if action_desc in non_groupable_actions or span_is_long_gap:
                     if pending_group:
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         pending_group = None
                         last_action_end_ms = abs_end
 
+                    # choose a small duration if a long gap follows, otherwise use duration_to_next
+                    dur = duration_to_next if not span_is_long_gap else small_action_duration_ms
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
-                        # cap duration_to_next when it spans inactivity (duration_to_next may be 0 already)
-                        'duration': duration_to_next,
+                        'duration': dur,
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
@@ -478,7 +496,7 @@ class ActivityAnalyzer:
                         'change_len': change_len
                     })
                     # update last action end
-                    last_action_end_ms = session_start + start_relative + duration_to_next
+                    last_action_end_ms = session_start + start_relative + dur
                     previous_row = row
                     previous_fragment = row.get('fragment', '')
                     continue
@@ -492,6 +510,24 @@ class ActivityAnalyzer:
                         last_action_end_ms = abs_end
 
                     # Start new group. Use end = start + duration_to_next so group end covers the span.
+                    # If the gap to next row is long, don't start a multi-row pending group; append immediate short action
+                    if span_is_long_gap:
+                        dur = small_action_duration_ms
+                        actions.append({
+                            'action': action_desc,
+                            'start': start_relative,
+                            'duration': dur,
+                            'inactivity': 0,
+                            'details': action_desc,
+                            'content': content if self.log_content else '',
+                            'code': row.get('fragment', '') if row.get('fragment') is not None else '',
+                            'change_len': change_len
+                        })
+                        last_action_end_ms = session_start + start_relative + dur
+                        previous_row = row
+                        previous_fragment = row.get('fragment', '')
+                        continue
+
                     pending_group = {
                         'action': action_desc,
                         'start': start_relative,
@@ -503,13 +539,33 @@ class ActivityAnalyzer:
                     }
                 else:
                     # Extend existing group (same action type)
-                    pending_group['end'] = start_relative + duration_to_next
-                    if content:
-                        pending_group['content'] += content
-                    # always update snapshot to the latest fragment so group 'code' uses the end-state
-                    pending_group['snapshot'] = row.get('fragment', '')
-                    pending_group['count'] += 1
-                    pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                    # If the upcoming gap is long, finalize instead of extending across inactivity
+                    if span_is_long_gap:
+                        abs_end = session_start + pending_group.get('end', 0)
+                        self._finalize_group(actions, pending_group)
+                        last_action_end_ms = abs_end
+                        pending_group = None
+                        # append current as short immediate action
+                        dur = small_action_duration_ms
+                        actions.append({
+                            'action': action_desc,
+                            'start': start_relative,
+                            'duration': dur,
+                            'inactivity': 0,
+                            'details': action_desc,
+                            'content': content if self.log_content else '',
+                            'code': row.get('fragment', '') if row.get('fragment') is not None else '',
+                            'change_len': change_len
+                        })
+                        last_action_end_ms = session_start + start_relative + dur
+                    else:
+                        pending_group['end'] = start_relative + duration_to_next
+                        if content:
+                            pending_group['content'] += content
+                        # always update snapshot to the latest fragment so group 'code' uses the end-state
+                        pending_group['snapshot'] = row.get('fragment', '')
+                        pending_group['count'] += 1
+                        pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
@@ -534,25 +590,27 @@ class ActivityAnalyzer:
                     # numeric change length (from action_info if present)
                     change_len = action_info.get('change_len', 0)
 
-                    # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
-                    if action_type in non_groupable_actions or group_category in non_groupable_actions:
+                    # If this detected action is non-groupable (e.g., paste/copy/cut) or a long gap follows,
+                    # append it immediately as a short action so inactivity remains separate.
+                    if action_type in non_groupable_actions or group_category in non_groupable_actions or span_is_long_gap:
                         if pending_group:
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             pending_group = None
                             last_action_end_ms = abs_end
 
+                        dur = duration_to_next if not span_is_long_gap else small_action_duration_ms
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
-                            'duration': duration_to_next,
+                            'duration': dur,
                             'inactivity': 0,
                             'details': action_info.get('details', action_type),
                             'content': action_info.get('content', '') if self.log_content else '',
                             'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                             'change_len': change_len
                         })
-                        last_action_end_ms = session_start + start_relative + duration_to_next
+                        last_action_end_ms = session_start + start_relative + dur
                         # Continue to next row without creating/extending a pending group
                         previous_row = row
                         previous_fragment = row.get('fragment', '')
@@ -566,6 +624,24 @@ class ActivityAnalyzer:
                             self._finalize_group(actions, pending_group)
                             last_action_end_ms = abs_end
 
+                        # If a long gap follows, don't start a multi-row pending group; append immediate short action
+                        if span_is_long_gap:
+                            dur = small_action_duration_ms
+                            actions.append({
+                                'action': group_category,
+                                'start': start_relative,
+                                'duration': dur,
+                                'inactivity': 0,
+                                'details': action_info.get('details', group_category),
+                                'content': action_info.get('content', '') if self.log_content else '',
+                                'code': row.get('fragment', '') if row.get('fragment') is not None else '',
+                                'change_len': change_len
+                            })
+                            last_action_end_ms = session_start + start_relative + dur
+                            previous_row = row
+                            previous_fragment = row.get('fragment', '')
+                            continue
+
                         # Start new group
                         pending_group = {
                             'action': group_category,
@@ -578,11 +654,31 @@ class ActivityAnalyzer:
                         }
                     else:
                         # Extend existing group
-                        pending_group['end'] = start_relative + duration_to_next
-                        pending_group['content'] += action_info.get('content', '')
-                        pending_group['snapshot'] = row.get('fragment', '')
-                        pending_group['count'] += 1
-                        pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                        # If the upcoming gap is long, finalize instead of extending across inactivity
+                        if span_is_long_gap:
+                            abs_end = session_start + pending_group.get('end', 0)
+                            self._finalize_group(actions, pending_group)
+                            last_action_end_ms = abs_end
+                            pending_group = None
+                            # append current as short immediate action
+                            dur = small_action_duration_ms
+                            actions.append({
+                                'action': group_category,
+                                'start': start_relative,
+                                'duration': dur,
+                                'inactivity': 0,
+                                'details': action_info.get('details', group_category),
+                                'content': action_info.get('content', '') if self.log_content else '',
+                                'code': row.get('fragment', '') if row.get('fragment') is not None else '',
+                                'change_len': change_len
+                            })
+                            last_action_end_ms = session_start + start_relative + dur
+                        else:
+                            pending_group['end'] = start_relative + duration_to_next
+                            pending_group['content'] += action_info.get('content', '')
+                            pending_group['snapshot'] = row.get('fragment', '')
+                            pending_group['count'] += 1
+                            pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
             previous_row = row
             previous_fragment = row.get('fragment', '')

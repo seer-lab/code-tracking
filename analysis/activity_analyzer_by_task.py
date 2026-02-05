@@ -116,6 +116,10 @@ class ActivityAnalyzerByTask:
 
         print(f"Found {len(csv_files)} task file(s) to process\n")
 
+        # If excel mode requested, prepare pandas ExcelWriters per task
+        excel_mode = getattr(self.analyzer, 'excel_output', False)
+        writers = {}  # task_num -> pandas.ExcelWriter
+
         for i, csv_file in enumerate(sorted(csv_files), 1):
             print(f"[{i}/{len(csv_files)}] Processing {csv_file}")
 
@@ -127,18 +131,81 @@ class ActivityAnalyzerByTask:
             student_key = self._get_student_key(csv_file, root)
             student_idx = self._get_student_index(student_key)
 
-            if output_root:
+            if output_root and not excel_mode:
                 task_dir = output_root / f"task{task_num}"
                 task_dir.mkdir(parents=True, exist_ok=True)
                 output_file = task_dir / f"student{student_idx}.csv"
-            else:
-                output_file = None
+                try:
+                    self.analyzer.analyze_file(str(csv_file), str(output_file))
+                except Exception as e:
+                    print(f"  Error processing {csv_file}: {e}")
+                continue
 
-            # run analysis for single file
+            if output_root and excel_mode:
+                # Write analyzer output to temporary CSV then append to Excel sheet named 'Student N'
+                import tempfile, os
+                import pandas as _pd
+
+                task_file = output_root / f"task{task_num}.xlsx"
+                fd, tmp_path = tempfile.mkstemp(suffix='.csv')
+                os.close(fd)
+                try:
+                    # analyzer writes its CSV output to tmp_path
+                    try:
+                        self.analyzer.analyze_file(str(csv_file), tmp_path)
+                    except Exception as e:
+                        print(f"  Error processing {csv_file}: {e}")
+                        continue
+
+                    # read produced CSV into DataFrame
+                    try:
+                        df = _pd.read_csv(tmp_path)
+                    except Exception as e:
+                        print(f"  Error reading temporary output for {csv_file}: {e}")
+                        continue
+
+                    sheet_name = f"Student {student_idx}"
+                    # create writer if needed
+                    if task_num not in writers:
+                        writers[task_num] = _pd.ExcelWriter(task_file, engine='openpyxl')
+
+                    writer = writers[task_num]
+                    # write DataFrame to the student's sheet
+                    safe_sheet = sheet_name[:31]
+                    df.to_excel(writer, sheet_name=safe_sheet, index=False)
+                finally:
+                    try:
+                        os.remove(tmp_path)
+                    except OSError:
+                        pass
+                continue
+
+            # run analysis for single file (no output_root)
             try:
-                self.analyzer.analyze_file(str(csv_file), str(output_file) if output_file else None)
+                self.analyzer.analyze_file(str(csv_file))
             except Exception as e:
                 print(f"  Error processing {csv_file}: {e}")
+
+        # finalize Excel writers (save workbooks)
+        for task_num, writer in writers.items():
+            try:
+                # modern pandas ExcelWriter exposes close(); older versions may have save()
+                try:
+                    writer.close()
+                except Exception:
+                    # fallback if close() isn't available
+                    if hasattr(writer, 'save'):
+                        writer.save()
+                    elif hasattr(writer, 'book'):
+                        # try saving workbook directly via openpyxl Book
+                        try:
+                            writer.book.save(str(output_root / f"task{task_num}.xlsx"))
+                        except Exception:
+                            pass
+
+                print(f"  Wrote workbook for task{task_num} -> {output_root / f'task{task_num}.xlsx'}")
+            except Exception as e:
+                print(f"  Error saving workbook for task{task_num}: {e}")
 
         print(f"\n{'='*60}")
         print(f"Batch processing complete! Processed {len(csv_files)} file(s)")
