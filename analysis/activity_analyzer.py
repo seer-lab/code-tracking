@@ -117,7 +117,7 @@ class ActivityAnalyzer:
         'CompilationFinished': 'Compilation Finished',
     }
 
-    def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0):
+    def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0, excel_output=False):
         """
         Initialize the analyzer.
 
@@ -129,6 +129,7 @@ class ActivityAnalyzer:
         self.inactivity_threshold_ms = inactivity_threshold_ms
         self.log_content = log_content
         self.max_content_length = max_content_length
+        self.excel_output = excel_output
 
     def _is_task_file(self, filepath):
         """Check if file is a task file (1_, 2_, 3_, 4_ prefix)."""
@@ -914,7 +915,9 @@ class ActivityAnalyzer:
                 'change_len',
                 # always include 'code' (fragment snapshot / group snapshot at end)
                 'code',
-                # length of code fragment (characters)
+                # explicit length column requested by user
+                'code_length',
+                # legacy name
                 'code_len'
             ]
 
@@ -950,10 +953,11 @@ class ActivityAnalyzer:
                     'end_min': end_min,
                     'duration_sec': duration_sec,
                     'duration_min': duration_min,
-                    'details': action['details'],
+                    'details': action.get('details', ''),
                     'change_len': action.get('change_len', 0),
                     # always include the 'code' column
                     'code': code_val,
+                    'code_length': code_len_val,
                     'code_len': code_len_val
                 }
 
@@ -961,6 +965,57 @@ class ActivityAnalyzer:
                     row_data['content'] = action.get('content', '')
 
                 writer.writerow(row_data)
+
+        # Optionally write Excel file with identical column order/format
+        if self.excel_output:
+            try:
+                import pandas as _pd
+                # read back the CSV via the rows we've just written or build DataFrame
+                df_rows = []
+                for action in actions:
+                    start = float(action.get('start', 0))
+                    duration = float(action.get('duration', 0))
+                    end = start + duration
+
+                    code_val = action.get('code', '') or ''
+                    try:
+                        code_len_val = len(code_val)
+                    except Exception:
+                        code_len_val = 0
+
+                    row = {
+                        'action': action['action'],
+                        'start_sec': self._format_time(start)[0],
+                        'start_min': self._format_time(start)[1],
+                        'end_sec': self._format_time(end)[0],
+                        'end_min': self._format_time(end)[1],
+                        'duration_sec': self._format_time(duration)[0],
+                        'duration_min': self._format_time(duration)[1],
+                        'details': action.get('details', ''),
+                        'change_len': action.get('change_len', 0),
+                        'code': code_val,
+                        'code_length': code_len_val,
+                        'code_len': code_len_val
+                    }
+                    if self.log_content:
+                        row['content'] = action.get('content', '')
+                    df_rows.append(row)
+
+                df = _pd.DataFrame(df_rows)
+                excel_path = str(output_path) + '.xlsx' if not str(output_path).lower().endswith('.xlsx') else str(output_path)
+                # Ensure columns order matches CSV fieldnames
+                cols = [
+                    'action','start_sec','start_min','end_sec','end_min','duration_sec','duration_min',
+                    'details','change_len','code','code_length','code_len'
+                ]
+                if self.log_content:
+                    cols.append('content')
+                # Reindex to ensure column order
+                df = df.reindex(columns=[c for c in cols if c in df.columns])
+                df.to_excel(excel_path, index=False)
+            except Exception:
+                # Fail silently to keep backward compatibility if pandas is not available
+                pass
 
 
 def main():
@@ -1001,12 +1056,19 @@ def main():
         help='Maximum length of content to log (default: 0 = unlimited)'
     )
 
+    parser.add_argument(
+        '--excel',
+        action='store_true',
+        help='Also write an Excel (.xlsx) copy of each output with identical columns'
+    )
+
     args = parser.parse_args()
 
     analyzer = ActivityAnalyzer(
         inactivity_threshold_ms=args.threshold,
         log_content=args.content,
-        max_content_length=args.max_content
+        max_content_length=args.max_content,
+        excel_output=args.excel
     )
 
     print(f"\n{'='*60}")
