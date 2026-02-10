@@ -117,7 +117,7 @@ class ActivityAnalyzer:
         'CompilationFinished': 'Compilation Finished',
     }
 
-    def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0, excel_output=False):
+    def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0):
         """
         Initialize the analyzer.
 
@@ -129,7 +129,6 @@ class ActivityAnalyzer:
         self.inactivity_threshold_ms = inactivity_threshold_ms
         self.log_content = log_content
         self.max_content_length = max_content_length
-        self.excel_output = excel_output
 
     def _is_task_file(self, filepath):
         """Check if file is a task file (1_, 2_, 3_, 4_ prefix)."""
@@ -154,6 +153,39 @@ class ActivityAnalyzer:
         if ide_events_files:
             return str(ide_events_files[0])
         return None
+
+    def analyze_file_to_actions(self, input_path):
+        """
+        Analyze a single CSV file and return the list of action dictionaries.
+
+        Args:
+            input_path (str): Path to input CSV file
+
+        Returns:
+            list: List of action dictionaries, or None if no data found
+        """
+        print(f"Processing: {input_path}")
+
+        # Check if this is a task file and find corresponding ide-events
+        ide_events_data = {}
+        if self._is_task_file(input_path):
+            ide_events_file = self._find_ide_events_file(input_path)
+            if ide_events_file:
+                print(f"  Found IDE events: {Path(ide_events_file).name}")
+                ide_events_data = self._read_ide_events(ide_events_file)
+            else:
+                print(f"  Warning: No IDE events file found")
+
+        rows = self._read_csv(input_path)
+
+        if not rows:
+            print(f"Warning: No data found in {input_path}")
+            return None
+
+        actions = self._analyze_actions(rows, ide_events_data)
+        print(f"  Total actions logged: {len(actions)}")
+        print()
+        return actions
 
     def analyze_file(self, input_path, output_path=None):
         """
@@ -370,11 +402,6 @@ class ActivityAnalyzer:
         # include both detected labels and common IDE event keys
         non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)',
                                  'EditorCopy', '$Copy', 'EditorPaste', '$Paste', 'EditorCut'}
-        # Also treat deletion/backspace and detected paste types as non-groupable to avoid long durations
-        non_groupable_actions.update({'Backspace', 'Delete character', 'Delete text', 'Delete block',
-                                      'Paste (external)', 'Copy/Paste (internal)'} )
-        # Small action duration (ms) to assign to isolated events before a long inactivity gap
-        small_action_duration_ms = 100
 
         # Add session start action
         first_ts = self._parse_timestamp(rows[0].get('date'))
@@ -407,17 +434,6 @@ class ActivityAnalyzer:
                 duration_to_next = max(0, next_ts - curr_ts)
             else:
                 duration_to_next = 0
-
-            # If the gap to the next row is a long inactivity, mark it
-            span_is_long_gap = duration_to_next >= self.inactivity_threshold_ms
-
-            # If there is a pending group that would otherwise be extended across a long inactivity
-            # finalize it now so inactivity can be logged separately.
-            if span_is_long_gap and pending_group:
-                abs_end = session_start + pending_group.get('end', 0)
-                self._finalize_group(actions, pending_group)
-                pending_group = None
-                last_action_end_ms = abs_end
 
             # Determine last activity end (absolute ms). If there's a pending group,
             # use its projected end; otherwise use last_action_end_ms
@@ -474,21 +490,19 @@ class ActivityAnalyzer:
                 # compute numeric change length for this action
                 change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
 
-                # If the gap to next row is large, finalize any pending group (done earlier)
-                # and append this IDE action as an immediate short action so inactivity is exclusive.
-                if action_desc in non_groupable_actions or span_is_long_gap:
+                # If this action is non-groupable, finalize any pending group and append it immediately
+                if action_desc in non_groupable_actions:
                     if pending_group:
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         pending_group = None
                         last_action_end_ms = abs_end
 
-                    # choose a small duration if a long gap follows, otherwise use duration_to_next
-                    dur = duration_to_next if not span_is_long_gap else small_action_duration_ms
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
-                        'duration': dur,
+                        # cap duration_to_next when it spans inactivity (duration_to_next may be 0 already)
+                        'duration': duration_to_next,
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
@@ -496,7 +510,7 @@ class ActivityAnalyzer:
                         'change_len': change_len
                     })
                     # update last action end
-                    last_action_end_ms = session_start + start_relative + dur
+                    last_action_end_ms = session_start + start_relative + duration_to_next
                     previous_row = row
                     previous_fragment = row.get('fragment', '')
                     continue
@@ -510,24 +524,6 @@ class ActivityAnalyzer:
                         last_action_end_ms = abs_end
 
                     # Start new group. Use end = start + duration_to_next so group end covers the span.
-                    # If the gap to next row is long, don't start a multi-row pending group; append immediate short action
-                    if span_is_long_gap:
-                        dur = small_action_duration_ms
-                        actions.append({
-                            'action': action_desc,
-                            'start': start_relative,
-                            'duration': dur,
-                            'inactivity': 0,
-                            'details': action_desc,
-                            'content': content if self.log_content else '',
-                            'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                            'change_len': change_len
-                        })
-                        last_action_end_ms = session_start + start_relative + dur
-                        previous_row = row
-                        previous_fragment = row.get('fragment', '')
-                        continue
-
                     pending_group = {
                         'action': action_desc,
                         'start': start_relative,
@@ -539,33 +535,13 @@ class ActivityAnalyzer:
                     }
                 else:
                     # Extend existing group (same action type)
-                    # If the upcoming gap is long, finalize instead of extending across inactivity
-                    if span_is_long_gap:
-                        abs_end = session_start + pending_group.get('end', 0)
-                        self._finalize_group(actions, pending_group)
-                        last_action_end_ms = abs_end
-                        pending_group = None
-                        # append current as short immediate action
-                        dur = small_action_duration_ms
-                        actions.append({
-                            'action': action_desc,
-                            'start': start_relative,
-                            'duration': dur,
-                            'inactivity': 0,
-                            'details': action_desc,
-                            'content': content if self.log_content else '',
-                            'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                            'change_len': change_len
-                        })
-                        last_action_end_ms = session_start + start_relative + dur
-                    else:
-                        pending_group['end'] = start_relative + duration_to_next
-                        if content:
-                            pending_group['content'] += content
-                        # always update snapshot to the latest fragment so group 'code' uses the end-state
-                        pending_group['snapshot'] = row.get('fragment', '')
-                        pending_group['count'] += 1
-                        pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                    pending_group['end'] = start_relative + duration_to_next
+                    if content:
+                        pending_group['content'] += content
+                    # always update snapshot to the latest fragment so group 'code' uses the end-state
+                    pending_group['snapshot'] = row.get('fragment', '')
+                    pending_group['count'] += 1
+                    pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
@@ -590,27 +566,25 @@ class ActivityAnalyzer:
                     # numeric change length (from action_info if present)
                     change_len = action_info.get('change_len', 0)
 
-                    # If this detected action is non-groupable (e.g., paste/copy/cut) or a long gap follows,
-                    # append it immediately as a short action so inactivity remains separate.
-                    if action_type in non_groupable_actions or group_category in non_groupable_actions or span_is_long_gap:
+                    # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
+                    if action_type in non_groupable_actions or group_category in non_groupable_actions:
                         if pending_group:
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             pending_group = None
                             last_action_end_ms = abs_end
 
-                        dur = duration_to_next if not span_is_long_gap else small_action_duration_ms
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
-                            'duration': dur,
+                            'duration': duration_to_next,
                             'inactivity': 0,
                             'details': action_info.get('details', action_type),
                             'content': action_info.get('content', '') if self.log_content else '',
                             'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                             'change_len': change_len
                         })
-                        last_action_end_ms = session_start + start_relative + dur
+                        last_action_end_ms = session_start + start_relative + duration_to_next
                         # Continue to next row without creating/extending a pending group
                         previous_row = row
                         previous_fragment = row.get('fragment', '')
@@ -624,24 +598,6 @@ class ActivityAnalyzer:
                             self._finalize_group(actions, pending_group)
                             last_action_end_ms = abs_end
 
-                        # If a long gap follows, don't start a multi-row pending group; append immediate short action
-                        if span_is_long_gap:
-                            dur = small_action_duration_ms
-                            actions.append({
-                                'action': group_category,
-                                'start': start_relative,
-                                'duration': dur,
-                                'inactivity': 0,
-                                'details': action_info.get('details', group_category),
-                                'content': action_info.get('content', '') if self.log_content else '',
-                                'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                                'change_len': change_len
-                            })
-                            last_action_end_ms = session_start + start_relative + dur
-                            previous_row = row
-                            previous_fragment = row.get('fragment', '')
-                            continue
-
                         # Start new group
                         pending_group = {
                             'action': group_category,
@@ -654,31 +610,11 @@ class ActivityAnalyzer:
                         }
                     else:
                         # Extend existing group
-                        # If the upcoming gap is long, finalize instead of extending across inactivity
-                        if span_is_long_gap:
-                            abs_end = session_start + pending_group.get('end', 0)
-                            self._finalize_group(actions, pending_group)
-                            last_action_end_ms = abs_end
-                            pending_group = None
-                            # append current as short immediate action
-                            dur = small_action_duration_ms
-                            actions.append({
-                                'action': group_category,
-                                'start': start_relative,
-                                'duration': dur,
-                                'inactivity': 0,
-                                'details': action_info.get('details', group_category),
-                                'content': action_info.get('content', '') if self.log_content else '',
-                                'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                                'change_len': change_len
-                            })
-                            last_action_end_ms = session_start + start_relative + dur
-                        else:
-                            pending_group['end'] = start_relative + duration_to_next
-                            pending_group['content'] += action_info.get('content', '')
-                            pending_group['snapshot'] = row.get('fragment', '')
-                            pending_group['count'] += 1
-                            pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                        pending_group['end'] = start_relative + duration_to_next
+                        pending_group['content'] += action_info.get('content', '')
+                        pending_group['snapshot'] = row.get('fragment', '')
+                        pending_group['count'] += 1
+                        pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
 
             previous_row = row
             previous_fragment = row.get('fragment', '')
@@ -998,9 +934,17 @@ class ActivityAnalyzer:
             output_path (str): Path to output CSV file
             actions (list): List of action dictionaries
         """
+        # Compute total duration for time_percent calculation
+        if actions:
+            last = actions[-1]
+            total_duration = last.get('start', 0) + last.get('duration', 0)
+        else:
+            total_duration = 0
+
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
             fieldnames = [
                 'action',
+                'time_percent',
                 'start_sec',
                 'start_min',
                 'end_sec',
@@ -1011,31 +955,12 @@ class ActivityAnalyzer:
                 'change_len',
                 # always include 'code' (fragment snapshot / group snapshot at end)
                 'code',
-                # explicit length column requested by user
-                'code_length',
-                # legacy name
+                # length of code fragment (characters)
                 'code_len'
             ]
 
             if self.log_content:
                 fieldnames.append('content')
-
-            # Calculate time_percent for each action (normalized 0.0 to 1.0)
-            if actions:
-                start_times = [action.get('start', 0) for action in actions]
-                min_start = min(start_times)
-                max_start = max(start_times)
-                time_range = max_start - min_start
-
-                # Add time_percent to each action
-                for action in actions:
-                    if time_range > 0:
-                        action['time_percent'] = (action.get('start', 0) - min_start) / time_range
-                    else:
-                        action['time_percent'] = 0.0
-
-            # Add time_percent to fieldnames (after start_min)
-            fieldnames.insert(3, 'time_percent')
 
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
@@ -1045,6 +970,9 @@ class ActivityAnalyzer:
                 duration = action.get('duration', 0)
                 end = start + duration
                 inactivity = action.get('inactivity', 0)
+
+                # Compute time_percent (0% at start, 100% at end)
+                time_percent = (start / total_duration * 100) if total_duration > 0 else 0.0
 
                 # Format times
                 start_sec, start_min = self._format_time(start)
@@ -1060,18 +988,17 @@ class ActivityAnalyzer:
 
                 row_data = {
                     'action': action['action'],
+                    'time_percent': f"{time_percent:.2f}",
                     'start_sec': start_sec,
                     'start_min': start_min,
-                    'time_percent': action.get('time_percent', 0.0),
                     'end_sec': end_sec,
                     'end_min': end_min,
                     'duration_sec': duration_sec,
                     'duration_min': duration_min,
-                    'details': action.get('details', ''),
+                    'details': action['details'],
                     'change_len': action.get('change_len', 0),
                     # always include the 'code' column
                     'code': code_val,
-                    'code_length': code_len_val,
                     'code_len': code_len_val
                 }
 
@@ -1079,58 +1006,6 @@ class ActivityAnalyzer:
                     row_data['content'] = action.get('content', '')
 
                 writer.writerow(row_data)
-
-        # Optionally write Excel file with identical column order/format
-        if self.excel_output:
-            try:
-                import pandas as _pd
-                # read back the CSV via the rows we've just written or build DataFrame
-                df_rows = []
-                for action in actions:
-                    start = float(action.get('start', 0))
-                    duration = float(action.get('duration', 0))
-                    end = start + duration
-
-                    code_val = action.get('code', '') or ''
-                    try:
-                        code_len_val = len(code_val)
-                    except Exception:
-                        code_len_val = 0
-
-                    row = {
-                        'action': action['action'],
-                        'start_sec': self._format_time(start)[0],
-                        'start_min': self._format_time(start)[1],
-                        'time_percent': action.get('time_percent', 0.0),
-                        'end_sec': self._format_time(end)[0],
-                        'end_min': self._format_time(end)[1],
-                        'duration_sec': self._format_time(duration)[0],
-                        'duration_min': self._format_time(duration)[1],
-                        'details': action.get('details', ''),
-                        'change_len': action.get('change_len', 0),
-                        'code': code_val,
-                        'code_length': code_len_val,
-                        'code_len': code_len_val
-                    }
-                    if self.log_content:
-                        row['content'] = action.get('content', '')
-                    df_rows.append(row)
-
-                df = _pd.DataFrame(df_rows)
-                excel_path = str(output_path) + '.xlsx' if not str(output_path).lower().endswith('.xlsx') else str(output_path)
-                # Ensure columns order matches CSV fieldnames
-                cols = [
-                    'action','start_sec','start_min','end_sec','end_min','duration_sec','duration_min',
-                    'details','change_len','code','code_length','code_len'
-                ]
-                if self.log_content:
-                    cols.append('content')
-                # Reindex to ensure column order
-                df = df.reindex(columns=[c for c in cols if c in df.columns])
-                df.to_excel(excel_path, index=False)
-            except Exception:
-                # Fail silently to keep backward compatibility if pandas is not available
-                pass
 
 
 def main():
@@ -1171,19 +1046,12 @@ def main():
         help='Maximum length of content to log (default: 0 = unlimited)'
     )
 
-    parser.add_argument(
-        '--excel',
-        action='store_true',
-        help='Also write an Excel (.xlsx) copy of each output with identical columns'
-    )
-
     args = parser.parse_args()
 
     analyzer = ActivityAnalyzer(
         inactivity_threshold_ms=args.threshold,
         log_content=args.content,
-        max_content_length=args.max_content,
-        excel_output=args.excel
+        max_content_length=args.max_content
     )
 
     print(f"\n{'='*60}")

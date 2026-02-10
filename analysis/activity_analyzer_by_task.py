@@ -5,14 +5,10 @@ This script reuses ActivityAnalyzer from activity_analyzer.py but when batch-pro
 an input directory writes outputs into an output directory with the following layout:
 
 output_dir/
-  task1/
-    student1.csv
-    student2.csv
-  task2/
-    student1.csv
-    student3.csv
-  task3/
-  task4/
+  task1.xlsx    (sheets: student1, student2, ...)
+  task2.xlsx    (sheets: student1, student3, ...)
+  task3.xlsx
+  task4.xlsx
 
 Student numbering (student1, student2, ...) is assigned once per unique student key
 (discovered from the input directory structure) and remains stable across tasks.
@@ -24,6 +20,10 @@ python activity_analyzer_by_task.py input_dir -o output_dir -d [--content] [--th
 import sys
 from pathlib import Path
 import argparse
+from collections import defaultdict
+
+from openpyxl import Workbook
+from openpyxl.styles import Font, Alignment
 
 # Reuse existing ActivityAnalyzer implementation
 try:
@@ -35,8 +35,8 @@ except Exception:
 
 
 class ActivityAnalyzerByTask:
-    """Wrapper around ActivityAnalyzer that writes outputs into per-task folders
-    with studentN filenames where N is a stable index assigned per-student.
+    """Wrapper around ActivityAnalyzer that writes outputs into per-task Excel files
+    with one sheet per student (studentN) where N is a stable index assigned per-student.
     """
 
     def __init__(self, inactivity_threshold_ms=60000, log_content=False, max_content_length=0):
@@ -95,6 +95,98 @@ class ActivityAnalyzerByTask:
                 return int(ch)
         return None
 
+    def _write_task_excel(self, output_path, task_data):
+        """Write all students for a single task into one Excel file with one sheet per student.
+
+        Args:
+            output_path (Path): Path to the output .xlsx file
+            task_data (dict): Mapping of student_name -> list of action dicts
+        """
+        wb = Workbook()
+        # Remove default sheet
+        wb.remove(wb.active)
+
+        fieldnames = [
+            'action',
+            'time_percent',
+            'start_sec',
+            'start_min',
+            'end_sec',
+            'end_min',
+            'duration_sec',
+            'duration_min',
+            'details',
+            'change_len',
+            'code',
+            'code_len',
+        ]
+
+        if self.analyzer.log_content:
+            fieldnames.append('content')
+
+        for student_name in sorted(task_data.keys(), key=lambda s: int(s.replace('student', ''))):
+            actions = task_data[student_name]
+            ws = wb.create_sheet(title=student_name)
+
+            # Compute total duration for time_percent
+            if actions:
+                last = actions[-1]
+                total_duration = last.get('start', 0) + last.get('duration', 0)
+            else:
+                total_duration = 0
+
+            # Write header row
+            for col_idx, header in enumerate(fieldnames, 1):
+                cell = ws.cell(row=1, column=col_idx, value=header)
+                cell.font = Font(bold=True)
+                cell.alignment = Alignment(horizontal='center')
+
+            # Write data rows
+            for row_idx, action in enumerate(actions, 2):
+                start = action.get('start', 0)
+                duration = action.get('duration', 0)
+                end = start + duration
+
+                start_sec, start_min = self.analyzer._format_time(start)
+                end_sec, end_min = self.analyzer._format_time(end)
+                duration_sec, duration_min = self.analyzer._format_time(duration)
+
+                # Compute time_percent (0% at start, 100% at end)
+                time_percent = (start / total_duration * 100) if total_duration > 0 else 0.0
+
+                code_val = action.get('code', '') or ''
+                try:
+                    code_len_val = len(code_val)
+                except Exception:
+                    code_len_val = 0
+
+                row_data = {
+                    'action': action['action'],
+                    'time_percent': f"{time_percent:.2f}",
+                    'start_sec': start_sec,
+                    'start_min': start_min,
+                    'end_sec': end_sec,
+                    'end_min': end_min,
+                    'duration_sec': duration_sec,
+                    'duration_min': duration_min,
+                    'details': action['details'],
+                    'change_len': action.get('change_len', 0),
+                    'code': code_val,
+                    'code_len': code_len_val,
+                }
+
+                if self.analyzer.log_content:
+                    row_data['content'] = action.get('content', '')
+
+                for col_idx, field in enumerate(fieldnames, 1):
+                    ws.cell(row=row_idx, column=col_idx, value=row_data.get(field, ''))
+
+            # Auto-size columns (approximate)
+            for col_idx, header in enumerate(fieldnames, 1):
+                ws.column_dimensions[ws.cell(row=1, column=col_idx).column_letter].width = max(len(header) + 2, 12)
+
+        wb.save(str(output_path))
+
     def analyze_directory(self, input_dir: str, output_dir: str = None):
         root = Path(input_dir)
         if not root.exists() or not root.is_dir():
@@ -116,9 +208,9 @@ class ActivityAnalyzerByTask:
 
         print(f"Found {len(csv_files)} task file(s) to process\n")
 
-        # If excel mode requested, prepare pandas ExcelWriters per task
-        excel_mode = getattr(self.analyzer, 'excel_output', False)
-        writers = {}  # task_num -> pandas.ExcelWriter
+        # Collect actions grouped by task number -> student name -> actions
+        # task_results[task_num][student_name] = actions_list
+        task_results = defaultdict(dict)
 
         for i, csv_file in enumerate(sorted(csv_files), 1):
             print(f"[{i}/{len(csv_files)}] Processing {csv_file}")
@@ -130,82 +222,23 @@ class ActivityAnalyzerByTask:
 
             student_key = self._get_student_key(csv_file, root)
             student_idx = self._get_student_index(student_key)
+            student_name = f"student{student_idx}"
 
-            if output_root and not excel_mode:
-                task_dir = output_root / f"task{task_num}"
-                task_dir.mkdir(parents=True, exist_ok=True)
-                output_file = task_dir / f"student{student_idx}.csv"
-                try:
-                    self.analyzer.analyze_file(str(csv_file), str(output_file))
-                except Exception as e:
-                    print(f"  Error processing {csv_file}: {e}")
-                continue
-
-            if output_root and excel_mode:
-                # Write analyzer output to temporary CSV then append to Excel sheet named 'Student N'
-                import tempfile, os
-                import pandas as _pd
-
-                task_file = output_root / f"task{task_num}.xlsx"
-                fd, tmp_path = tempfile.mkstemp(suffix='.csv')
-                os.close(fd)
-                try:
-                    # analyzer writes its CSV output to tmp_path
-                    try:
-                        self.analyzer.analyze_file(str(csv_file), tmp_path)
-                    except Exception as e:
-                        print(f"  Error processing {csv_file}: {e}")
-                        continue
-
-                    # read produced CSV into DataFrame
-                    try:
-                        df = _pd.read_csv(tmp_path)
-                    except Exception as e:
-                        print(f"  Error reading temporary output for {csv_file}: {e}")
-                        continue
-
-                    sheet_name = f"Student {student_idx}"
-                    # create writer if needed
-                    if task_num not in writers:
-                        writers[task_num] = _pd.ExcelWriter(task_file, engine='openpyxl')
-
-                    writer = writers[task_num]
-                    # write DataFrame to the student's sheet
-                    safe_sheet = sheet_name[:31]
-                    df.to_excel(writer, sheet_name=safe_sheet, index=False)
-                finally:
-                    try:
-                        os.remove(tmp_path)
-                    except OSError:
-                        pass
-                continue
-
-            # run analysis for single file (no output_root)
+            # Run analysis and collect actions
             try:
-                self.analyzer.analyze_file(str(csv_file))
+                actions = self.analyzer.analyze_file_to_actions(str(csv_file))
+                if actions is not None:
+                    task_results[task_num][student_name] = actions
             except Exception as e:
                 print(f"  Error processing {csv_file}: {e}")
 
-        # finalize Excel writers (save workbooks)
-        for task_num, writer in writers.items():
-            try:
-                # modern pandas ExcelWriter exposes close(); older versions may have save()
-                try:
-                    writer.close()
-                except Exception:
-                    # fallback if close() isn't available
-                    if hasattr(writer, 'save'):
-                        writer.save()
-                    elif hasattr(writer, 'book'):
-                        # try saving workbook directly via openpyxl Book
-                        try:
-                            writer.book.save(str(output_root / f"task{task_num}.xlsx"))
-                        except Exception:
-                            pass
-
-                print(f"  Wrote workbook for task{task_num} -> {output_root / f'task{task_num}.xlsx'}")
-            except Exception as e:
-                print(f"  Error saving workbook for task{task_num}: {e}")
+        # Write one Excel file per task
+        if output_root:
+            for task_num in sorted(task_results.keys()):
+                output_file = output_root / f"task{task_num}.xlsx"
+                self._write_task_excel(output_file, task_results[task_num])
+                sheet_count = len(task_results[task_num])
+                print(f"✓ Saved {output_file} ({sheet_count} student sheet(s))")
 
         print(f"\n{'='*60}")
         print(f"Batch processing complete! Processed {len(csv_files)} file(s)")
@@ -214,15 +247,14 @@ class ActivityAnalyzerByTask:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Analyze activity CSV files and write outputs into per-task student folders.'
+        description='Analyze activity CSV files and write outputs into per-task Excel files.'
     )
     parser.add_argument('input', help='Input directory containing student/task CSV files')
-    parser.add_argument('-o', '--output', help='Output directory to write task subfolders', required=True)
+    parser.add_argument('-o', '--output', help='Output directory to write task Excel files', required=True)
     parser.add_argument('-t', '--threshold', type=int, default=60000, help='Inactivity threshold in milliseconds')
     parser.add_argument('-d', '--directory', action='store_true', help='Process as directory (required)')
     parser.add_argument('--content', action='store_true', help="Include 'content' column in outputs")
     parser.add_argument('--max-content', type=int, default=0, help='Max content length (0 = unlimited)')
-    parser.add_argument('--excel', action='store_true', help='Also write Excel (.xlsx) outputs')
 
     args = parser.parse_args()
 
@@ -231,10 +263,6 @@ def main():
         log_content=args.content,
         max_content_length=args.max_content,
     )
-
-    # If excel requested, set the flag on the inner analyzer
-    if args.excel:
-        analyzer.analyzer.excel_output = True
 
     if not Path(args.input).exists():
         print(f"Error: {args.input} does not exist")
