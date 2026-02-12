@@ -743,7 +743,7 @@
       </table>
       <simple-id uuid='{893602C4-843E-435E-8BFE-83157BD950D5}' />
     </worksheet>
-    <worksheet name='Task 1 - TImeline'>
+    <worksheet name='Task 1 - Timeline'>
       <table>
         <view>
           <datasources>
@@ -851,7 +851,7 @@
     </worksheet>
   </worksheets>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
-    <window class='worksheet' name='Task 1 - TImeline'>
+    <window class='worksheet' maximized='true' name='Task 1 - Timeline'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -923,7 +923,7 @@
       </viewpoint>
       <simple-id uuid='{8D512AA0-4100-4E40-A65E-88E43E74BD08}' />
     </window>
-    <window class='worksheet' maximized='true' name='Task 1 - Write vs. Copy/Paste'>
+    <window class='worksheet' name='Task 1 - Write vs. Copy/Paste'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1402,7 +1402,7 @@
       A+zYvpOWZIR8JtMQ2hMBCZRucfjhd/Pwwa0sZIqETcHeA0cQSiGUZGF+HisUor13C21NSfoH
       eqnlZ6jqLQi/jEDgeR5LuUWU0HEcD8vavO8t4/8DniTqdfsEIlsAAAAASUVORK5CYII=
     </thumbnail>
-    <thumbnail height='192' name='Task 1 - TImeline' width='192'>
+    <thumbnail height='192' name='Task 1 - Timeline' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
       AAAgAElEQVR4nO29eZAk2XnY98uz7vvoqr7nPnZ2F1gABEECPMxLgkWKFhVkyLJkmbRDR0hB
       hUTJYoQtMRyBkC1KlBiUFMGgwzIlmiYNMyiaB0iChHiChLA4drHHzPRM30d13Xdl5fGe/6ie
