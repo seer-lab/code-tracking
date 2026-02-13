@@ -107,7 +107,7 @@ def test_negative_balance_after_convert(capsys, tmp_path, monkeypatch):
     line = build_line(balance="00001.00")
     path = write_single_line(tmp_path, line)
 
-    monkeypatch.setattr(read, "float", lambda _: -1.0)
+    monkeypatch.setattr(read, "float", lambda _: -1.0, raising=False)
     accounts = read.read_old_bank_accounts(str(path))
 
     captured = capsys.readouterr()
@@ -119,7 +119,7 @@ def test_negative_transactions_after_convert(capsys, tmp_path, monkeypatch):
     line = build_line(balance="00001.00", transactions="0001")
     path = write_single_line(tmp_path, line)
 
-    monkeypatch.setattr(read, "int", lambda _: -1)
+    monkeypatch.setattr(read, "int", lambda _: -1, raising=False)
     accounts = read.read_old_bank_accounts(str(path))
 
     captured = capsys.readouterr()
@@ -134,7 +134,7 @@ def test_unexpected_exception(capsys, tmp_path, monkeypatch):
     def boom(_):
         raise ValueError("boom")
 
-    monkeypatch.setattr(read, "float", boom)
+    monkeypatch.setattr(read, "float", boom, raising=False)
     accounts = read.read_old_bank_accounts(str(path))
 
     captured = capsys.readouterr()
