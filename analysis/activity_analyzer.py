@@ -462,6 +462,8 @@ class ActivityAnalyzer:
                 inactivity_duration_abs = max(0, curr_ts - last_action_end_ms)
 
                 if inactivity_duration_abs > 0:
+                    # Carry forward the last known code snapshot through inactivity
+                    inactivity_code = previous_fragment if previous_fragment else ''
                     actions.append({
                         'action': 'Inactivity',
                         'start': max(0, inactivity_start_abs - session_start),
@@ -469,6 +471,7 @@ class ActivityAnalyzer:
                         'inactivity': inactivity_duration_abs / 60000,
                         'details': f"Inactive for {inactivity_duration_abs/1000:.1f} seconds",
                         'content': '',
+                        'code': inactivity_code,
                         'change_len': 0
                     })
 
@@ -628,10 +631,17 @@ class ActivityAnalyzer:
         # Post-process: ensure Inactivity entries do not overlap actions. Trim action durations
         # that extend into an Inactivity period to ensure inactivity is exclusive.
         cleaned = []
+        # Track the last known code snapshot so it's never lost when actions are dropped
+        last_known_code = ''
         for idx, act in enumerate(actions):
             a_start = float(act.get('start', 0))
             a_dur = float(act.get('duration', 0))
             a_end = a_start + a_dur
+
+            # Update last known code from this action (if it has one)
+            act_code = act.get('code', '')
+            if act_code:
+                last_known_code = act_code
 
             if act.get('action') == 'Inactivity':
                 # Ensure inactivity starts after last cleaned action end
@@ -645,6 +655,9 @@ class ActivityAnalyzer:
                     continue
                 act['start'] = a_start
                 act['duration'] = a_dur
+                # Ensure inactivity always carries the last known code
+                if not act.get('code'):
+                    act['code'] = last_known_code
                 cleaned.append(act)
                 continue
 
@@ -663,9 +676,17 @@ class ActivityAnalyzer:
                 a_end = a_start + a_dur
 
             if a_dur <= 0:
-                continue
+                # Don't drop actions that carry a code snapshot — the code state
+                # would be lost. Keep them with zero duration.
+                if not act.get('code'):
+                    continue
+                a_dur = 0
+                a_end = a_start
             act['start'] = a_start
             act['duration'] = a_dur
+            # If this action somehow has no code, fill from last known
+            if not act.get('code'):
+                act['code'] = last_known_code
             cleaned.append(act)
 
         actions = cleaned
@@ -934,12 +955,18 @@ class ActivityAnalyzer:
             output_path (str): Path to output CSV file
             actions (list): List of action dictionaries
         """
-        # Compute total duration for time_percent calculation
-        if actions:
-            last = actions[-1]
-            total_duration = last.get('start', 0) + last.get('duration', 0)
-        else:
-            total_duration = 0
+        # Build time_percent: linear 0-100% across all real actions (excluding Session total).
+        # The first real action = 0%, the last real action = 100%.
+        real_actions = [a for a in actions if a.get('action') != 'Session total']
+        num_real = len(real_actions)
+        # Map each action dict id to its percent value
+        time_percent_map = {}
+        for idx, a in enumerate(real_actions):
+            if num_real <= 1:
+                pct = 0.0
+            else:
+                pct = idx / (num_real - 1) * 100.0
+            time_percent_map[id(a)] = pct
 
         with open(output_path, 'w', newline='', encoding='utf-8') as f:
             fieldnames = [
@@ -971,8 +998,8 @@ class ActivityAnalyzer:
                 end = start + duration
                 inactivity = action.get('inactivity', 0)
 
-                # Compute time_percent (0% at start, 100% at end)
-                time_percent = (start / total_duration * 100) if total_duration > 0 else 0.0
+                # time_percent: 0% for first action, 100% for last, linear in between
+                time_percent = time_percent_map.get(id(action), 0.0)
 
                 # Format times
                 start_sec, start_min = self._format_time(start)

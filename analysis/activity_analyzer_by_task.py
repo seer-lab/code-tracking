@@ -128,12 +128,17 @@ class ActivityAnalyzerByTask:
             actions = task_data[student_name]
             ws = wb.create_sheet(title=student_name)
 
-            # Compute total duration for time_percent
-            if actions:
-                last = actions[-1]
-                total_duration = last.get('start', 0) + last.get('duration', 0)
-            else:
-                total_duration = 0
+            # Build time_percent: linear 0-100% across all real actions (excluding Session total).
+            # The first real action = 0%, the last real action = 100%.
+            real_actions = [a for a in actions if a.get('action') != 'Session total']
+            num_real = len(real_actions)
+            time_percent_map = {}
+            for idx, a in enumerate(real_actions):
+                if num_real <= 1:
+                    pct = 0.0
+                else:
+                    pct = idx / (num_real - 1) * 100.0
+                time_percent_map[id(a)] = pct
 
             # Write header row
             for col_idx, header in enumerate(fieldnames, 1):
@@ -151,8 +156,8 @@ class ActivityAnalyzerByTask:
                 end_sec, end_min = self.analyzer._format_time(end)
                 duration_sec, duration_min = self.analyzer._format_time(duration)
 
-                # Compute time_percent (0% at start, 100% at end)
-                time_percent = (start / total_duration * 100) if total_duration > 0 else 0.0
+                # time_percent: 0% for first action, 100% for last, linear in between
+                time_percent = time_percent_map.get(id(action), 0.0)
 
                 code_val = action.get('code', '') or ''
                 try:
