@@ -117,6 +117,8 @@ class ActivityAnalyzerByTask:
             'duration_min',
             'details',
             'change_len',
+            'lines_added',
+            'lines_removed',
             'code',
             'code_len',
         ]
@@ -167,15 +169,17 @@ class ActivityAnalyzerByTask:
 
                 row_data = {
                     'action': action['action'],
-                    'time_percent': f"{time_percent:.2f}",
-                    'start_sec': start_sec,
-                    'start_min': start_min,
-                    'end_sec': end_sec,
-                    'end_min': end_min,
-                    'duration_sec': duration_sec,
-                    'duration_min': duration_min,
+                    'time_percent': round(time_percent, 2),
+                    'start_sec': round(start / 1000, 2),
+                    'start_min': round(start / 60000, 2),
+                    'end_sec': round(end / 1000, 2),
+                    'end_min': round(end / 60000, 2),
+                    'duration_sec': round(duration / 1000, 2),
+                    'duration_min': round(duration / 60000, 2),
                     'details': action['details'],
                     'change_len': action.get('change_len', 0),
+                    'lines_added': action.get('lines_added', 0),
+                    'lines_removed': action.get('lines_removed', 0),
                     'code': code_val,
                     'code_len': code_len_val,
                 }

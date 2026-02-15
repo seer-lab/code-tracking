@@ -403,22 +403,40 @@ class ActivityAnalyzer:
         non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)',
                                  'EditorCopy', '$Copy', 'EditorPaste', '$Paste', 'EditorCut'}
 
-        # Add session start action
+        # Add session start action (point event at time 0)
         first_ts = self._parse_timestamp(rows[0].get('date'))
         second_ts = self._parse_timestamp(rows[1].get('date')) if len(rows) > 1 else first_ts
 
         actions.append({
             'action': 'Session started',
             'start': 0,
-            'duration': max(0, second_ts - first_ts),
+            'duration': 0,
             'inactivity': 0,
             'details': f"File: {rows[0].get('fileName','')}, Task: {rows[0].get('chosenTask','')}",
             'content': '',
             'code': '',
-            'change_len': 0
+            'change_len': 0,
+            'lines_added': 0,
+            'lines_removed': 0
         })
-        # update last action end to account for the session-start action duration
-        last_action_end_ms = session_start + actions[-1]['duration']
+
+        # If there's a gap before the first real action, record it as Inactivity
+        gap_to_first = max(0, second_ts - first_ts)
+        if gap_to_first > 0 and len(rows) > 1:
+            actions.append({
+                'action': 'Inactivity',
+                'start': 0,
+                'duration': gap_to_first,
+                'inactivity': gap_to_first / 60000,
+                'details': f"Inactive for {gap_to_first/1000:.1f} seconds",
+                'content': '',
+                'code': '',
+                'change_len': 0,
+                'lines_added': 0,
+                'lines_removed': 0
+            })
+
+        last_action_end_ms = session_start + gap_to_first
 
         for i, row in enumerate(rows[1:], 1):
             curr_ts = self._parse_timestamp(row.get('date'))
@@ -435,6 +453,38 @@ class ActivityAnalyzer:
             else:
                 duration_to_next = 0
 
+            # ── Determine this row's action category BEFORE the inactivity check ──
+            # so we know whether the current row continues the pending group or not.
+            curr_ide_action = self._find_matching_ide_event(curr_ts, ide_events_data)
+            curr_action_info = None
+            if curr_ide_action:
+                curr_action_desc = self.ACTION_DESCRIPTIONS.get(curr_ide_action, curr_ide_action)
+                curr_is_non_groupable = curr_action_desc in non_groupable_actions
+                curr_group_category = curr_action_desc
+            elif previous_row is not None:
+                curr_action_info = self._detect_action(previous_row, row, previous_fragment)
+                if curr_action_info:
+                    curr_action_type = curr_action_info['type']
+                    if curr_action_type in edit_types:
+                        curr_group_category = 'Edit'
+                    elif curr_action_type in delete_types:
+                        curr_group_category = 'Delete'
+                    else:
+                        curr_group_category = curr_action_type
+                    curr_is_non_groupable = curr_action_type in non_groupable_actions or curr_group_category in non_groupable_actions
+                else:
+                    curr_group_category = None
+                    curr_is_non_groupable = False
+            else:
+                curr_group_category = None
+                curr_is_non_groupable = False
+
+            # ── Check whether the current row continues the same action type ──
+            is_same_type = (pending_group is not None
+                            and curr_group_category is not None
+                            and not curr_is_non_groupable
+                            and pending_group['action'] == curr_group_category)
+
             # Determine last activity end (absolute ms). If there's a pending group,
             # use its projected end; otherwise use last_action_end_ms
             if pending_group:
@@ -445,8 +495,11 @@ class ActivityAnalyzer:
             # Time since the end of the last activity (not the previous row timestamp)
             time_since_last_activity = max(0, curr_ts - last_activity_end_abs)
 
-            # Check for inactivity: if no activity has occurred since the last activity end
-            if time_since_last_activity >= self.inactivity_threshold_ms:
+            # ── Inactivity: only between same-type actions ──
+            # Between different action types, the gap is just natural transition time.
+            # Also insert inactivity when there is no pending group (truly idle period).
+            should_check_inactivity = (is_same_type or pending_group is None) and time_since_last_activity >= self.inactivity_threshold_ms
+            if should_check_inactivity:
                 # If there is a pending group, finalize it before adding inactivity
                 if pending_group:
                     abs_end = session_start + pending_group.get('end', 0)
@@ -472,18 +525,20 @@ class ActivityAnalyzer:
                         'details': f"Inactive for {inactivity_duration_abs/1000:.1f} seconds",
                         'content': '',
                         'code': inactivity_code,
-                        'change_len': 0
+                        'change_len': 0,
+                        'lines_added': 0,
+                        'lines_removed': 0
                     })
 
                 # advance the last_action_end_ms to the current timestamp (we've consumed the gap)
                 last_action_end_ms = max(last_action_end_ms, curr_ts)
 
-            # Check for matching IDE event
-            ide_action = self._find_matching_ide_event(curr_ts, ide_events_data)
+            # Check for matching IDE event (already determined above)
+            ide_action = curr_ide_action
 
             if ide_action:
                 # Found explicit IDE action
-                action_desc = self.ACTION_DESCRIPTIONS.get(ide_action, ide_action)
+                action_desc = curr_action_desc
                 content = self._extract_ide_action_content(
                     ide_action,
                     previous_fragment,
@@ -492,10 +547,13 @@ class ActivityAnalyzer:
 
                 # compute numeric change length for this action
                 change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
+                lines_added, lines_removed = self._compute_line_change(previous_fragment, row.get('fragment', ''))
 
                 # If this action is non-groupable, finalize any pending group and append it immediately
                 if action_desc in non_groupable_actions:
                     if pending_group:
+                        # Trim group end to current row's start (don't extend into different-type gap)
+                        pending_group['end'] = min(pending_group['end'], start_relative)
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         pending_group = None
@@ -504,24 +562,27 @@ class ActivityAnalyzer:
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
-                        # cap duration_to_next when it spans inactivity (duration_to_next may be 0 already)
-                        'duration': duration_to_next,
+                        # Non-groupable actions are point events; duration = 0
+                        'duration': 0,
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
                         'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                        'change_len': change_len
+                        'change_len': change_len,
+                        'lines_added': lines_added,
+                        'lines_removed': lines_removed
                     })
                     # update last action end
-                    last_action_end_ms = session_start + start_relative + duration_to_next
+                    last_action_end_ms = session_start + start_relative
                     previous_row = row
                     previous_fragment = row.get('fragment', '')
                     continue
 
                 # Check if we should group this with pending group
                 if pending_group is None or pending_group['action'] != action_desc:
-                    # Finalize previous group if exists
+                    # Finalize previous group if exists — trim end to this row's start
                     if pending_group:
+                        pending_group['end'] = min(pending_group['end'], start_relative)
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         last_action_end_ms = abs_end
@@ -534,7 +595,9 @@ class ActivityAnalyzer:
                         'content': content,
                         'snapshot': row.get('fragment', ''),
                         'count': 1,
-                        'change_len': change_len
+                        'change_len': change_len,
+                        'lines_added': lines_added,
+                        'lines_removed': lines_removed
                     }
                 else:
                     # Extend existing group (same action type)
@@ -545,33 +608,27 @@ class ActivityAnalyzer:
                     pending_group['snapshot'] = row.get('fragment', '')
                     pending_group['count'] += 1
                     pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                    pending_group['lines_added'] = pending_group.get('lines_added', 0) + lines_added
+                    pending_group['lines_removed'] = pending_group.get('lines_removed', 0) + lines_removed
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
                 continue
 
-            # No IDE event - detect action from fragment changes
-            if previous_row is not None:
-                action_info = self._detect_action(previous_row, row, previous_fragment)
-
-                if action_info:
-                    action_type = action_info['type']
-
-                    # Determine grouping category
-                    if action_type in edit_types:
-                        group_category = 'Edit'
-                    elif action_type in delete_types:
-                        group_category = 'Delete'
-                    else:
-                        # Other actions get grouped by their exact type
-                        group_category = action_type
+            # No IDE event - use the already-detected action from fragment changes
+            if previous_row is not None and curr_action_info:
+                    action_type = curr_action_info['type']
+                    group_category = curr_group_category
 
                     # numeric change length (from action_info if present)
-                    change_len = action_info.get('change_len', 0)
+                    change_len = curr_action_info.get('change_len', 0)
+                    lines_added, lines_removed = self._compute_line_change(previous_fragment, row.get('fragment', ''))
 
                     # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
-                    if action_type in non_groupable_actions or group_category in non_groupable_actions:
+                    if curr_is_non_groupable:
                         if pending_group:
+                            # Trim group end to current row's start
+                            pending_group['end'] = min(pending_group['end'], start_relative)
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             pending_group = None
@@ -580,14 +637,17 @@ class ActivityAnalyzer:
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
-                            'duration': duration_to_next,
+                            # Non-groupable actions are point events; duration = 0
+                            'duration': 0,
                             'inactivity': 0,
-                            'details': action_info.get('details', action_type),
-                            'content': action_info.get('content', '') if self.log_content else '',
+                            'details': curr_action_info.get('details', action_type),
+                            'content': curr_action_info.get('content', '') if self.log_content else '',
                             'code': row.get('fragment', '') if row.get('fragment') is not None else '',
-                            'change_len': change_len
+                            'change_len': change_len,
+                            'lines_added': lines_added,
+                            'lines_removed': lines_removed
                         })
-                        last_action_end_ms = session_start + start_relative + duration_to_next
+                        last_action_end_ms = session_start + start_relative
                         # Continue to next row without creating/extending a pending group
                         previous_row = row
                         previous_fragment = row.get('fragment', '')
@@ -595,8 +655,9 @@ class ActivityAnalyzer:
 
                     # Check if we should group this
                     if pending_group is None or pending_group['action'] != group_category:
-                        # Finalize previous group if exists
+                        # Finalize previous group if exists — trim end to this row's start
                         if pending_group:
+                            pending_group['end'] = min(pending_group['end'], start_relative)
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             last_action_end_ms = abs_end
@@ -606,18 +667,22 @@ class ActivityAnalyzer:
                             'action': group_category,
                             'start': start_relative,
                             'end': start_relative + duration_to_next,
-                            'content': action_info.get('content', ''),
+                            'content': curr_action_info.get('content', ''),
                             'snapshot': row.get('fragment', ''),
                             'count': 1,
-                            'change_len': change_len
+                            'change_len': change_len,
+                            'lines_added': lines_added,
+                            'lines_removed': lines_removed
                         }
                     else:
                         # Extend existing group
                         pending_group['end'] = start_relative + duration_to_next
-                        pending_group['content'] += action_info.get('content', '')
+                        pending_group['content'] += curr_action_info.get('content', '')
                         pending_group['snapshot'] = row.get('fragment', '')
                         pending_group['count'] += 1
                         pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
+                        pending_group['lines_added'] = pending_group.get('lines_added', 0) + lines_added
+                        pending_group['lines_removed'] = pending_group.get('lines_removed', 0) + lines_removed
 
             previous_row = row
             previous_fragment = row.get('fragment', '')
@@ -703,7 +768,9 @@ class ActivityAnalyzer:
             'details': f"Total session duration: {total_duration/1000:.1f} seconds",
             'content': '',
             'code': '',
-            'change_len': 0
+            'change_len': 0,
+            'lines_added': 0,
+            'lines_removed': 0
         })
 
         return actions
@@ -734,7 +801,9 @@ class ActivityAnalyzer:
             'content': self._format_content(group.get('content', '')) if self.log_content else '',
             # new 'code' column: snapshot at group end
             'code': group.get('snapshot', ''),
-            'change_len': group.get('change_len', 0)
+            'change_len': group.get('change_len', 0),
+            'lines_added': group.get('lines_added', 0),
+            'lines_removed': group.get('lines_removed', 0)
         })
 
     def _detect_action(self, prev_row, curr_row, prev_fragment):
@@ -886,6 +955,27 @@ class ActivityAnalyzer:
                 change += max(i2 - i1, j2 - j1)
         return change
 
+    def _compute_line_change(self, prev_text, curr_text):
+        """Compute the number of lines added and removed between two text versions.
+
+        Returns:
+            tuple: (lines_added, lines_removed)
+        """
+        prev_lines = (prev_text or '').splitlines()
+        curr_lines = (curr_text or '').splitlines()
+        matcher = difflib.SequenceMatcher(None, prev_lines, curr_lines)
+        added = 0
+        removed = 0
+        for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+            if tag == 'delete':
+                removed += (i2 - i1)
+            elif tag == 'insert':
+                added += (j2 - j1)
+            elif tag == 'replace':
+                removed += (i2 - i1)
+                added += (j2 - j1)
+        return added, removed
+
     def _find_added_text(self, prev_text, curr_text):
         """Find text that was added between two versions."""
         matcher = difflib.SequenceMatcher(None, prev_text, curr_text)
@@ -931,19 +1021,19 @@ class ActivityAnalyzer:
 
     def _format_time(self, ms):
         """
-        Format time in milliseconds to seconds and minutes (only when >= 60s).
+        Format time in milliseconds to seconds and minutes.
 
         Args:
             ms (int): Time in milliseconds
 
         Returns:
-            tuple: (seconds_str, minutes_str) where minutes_str is empty if < 60s
+            tuple: (seconds_str, minutes_str)
         """
         seconds = ms / 1000
         minutes = ms / 60000
 
         seconds_str = f"{seconds:.2f}"
-        minutes_str = f"{minutes:.2f}" if seconds >= 60 else ''
+        minutes_str = f"{minutes:.2f}"
 
         return seconds_str, minutes_str
 
@@ -980,6 +1070,8 @@ class ActivityAnalyzer:
                 'duration_min',
                 'details',
                 'change_len',
+                'lines_added',
+                'lines_removed',
                 # always include 'code' (fragment snapshot / group snapshot at end)
                 'code',
                 # length of code fragment (characters)
@@ -1024,6 +1116,8 @@ class ActivityAnalyzer:
                     'duration_min': duration_min,
                     'details': action['details'],
                     'change_len': action.get('change_len', 0),
+                    'lines_added': action.get('lines_added', 0),
+                    'lines_removed': action.get('lines_removed', 0),
                     # always include the 'code' column
                     'code': code_val,
                     'code_len': code_len_val
