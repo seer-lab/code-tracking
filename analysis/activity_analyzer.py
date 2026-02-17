@@ -405,7 +405,6 @@ class ActivityAnalyzer:
 
         # Add session start action (point event at time 0)
         first_ts = self._parse_timestamp(rows[0].get('date'))
-        second_ts = self._parse_timestamp(rows[1].get('date')) if len(rows) > 1 else first_ts
 
         actions.append({
             'action': 'Session started',
@@ -420,23 +419,10 @@ class ActivityAnalyzer:
             'lines_removed': 0
         })
 
-        # If there's a gap before the first real action, record it as Inactivity
-        gap_to_first = max(0, second_ts - first_ts)
-        if gap_to_first > 0 and len(rows) > 1:
-            actions.append({
-                'action': 'Inactivity',
-                'start': 0,
-                'duration': gap_to_first,
-                'inactivity': gap_to_first / 60000,
-                'details': f"Inactive for {gap_to_first/1000:.1f} seconds",
-                'content': '',
-                'code': '',
-                'change_len': 0,
-                'lines_added': 0,
-                'lines_removed': 0
-            })
-
-        last_action_end_ms = session_start + gap_to_first
+        # Start tracking from session start; the loop will create Inactivity for large gaps.
+        # For the initial gap (session start to first detected action), we set last_action_end_ms
+        # to session_start so the loop's inactivity check handles it naturally.
+        last_action_end_ms = session_start
 
         for i, row in enumerate(rows[1:], 1):
             curr_ts = self._parse_timestamp(row.get('date'))
@@ -495,11 +481,13 @@ class ActivityAnalyzer:
             # Time since the end of the last activity (not the previous row timestamp)
             time_since_last_activity = max(0, curr_ts - last_activity_end_abs)
 
-            # ── Inactivity: only between same-type actions ──
-            # Between different action types, the gap is just natural transition time.
-            # Also insert inactivity when there is no pending group (truly idle period).
-            should_check_inactivity = (is_same_type or pending_group is None) and time_since_last_activity >= self.inactivity_threshold_ms
-            if should_check_inactivity:
+            # ── Inactivity check ──
+            # When a same-type group is active: insert inactivity to break the group.
+            # When a different-type group is active: skip inactivity (natural transition).
+            # When no group is active: insert inactivity only if the gap is NOT caused
+            # by a type transition (i.e., the previous action ended long ago).
+            different_type_group_active = (pending_group is not None and not is_same_type)
+            if time_since_last_activity >= self.inactivity_threshold_ms and not different_type_group_active:
                 # If there is a pending group, finalize it before adding inactivity
                 if pending_group:
                     abs_end = session_start + pending_group.get('end', 0)
@@ -553,7 +541,7 @@ class ActivityAnalyzer:
                 if action_desc in non_groupable_actions:
                     if pending_group:
                         # Trim group end to current row's start (don't extend into different-type gap)
-                        pending_group['end'] = min(pending_group['end'], start_relative)
+                        # group end unchanged — duration_to_next fills timeline
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         pending_group = None
@@ -562,8 +550,7 @@ class ActivityAnalyzer:
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
-                        # Non-groupable actions are point events; duration = 0
-                        'duration': 0,
+                        'duration': duration_to_next,
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
@@ -573,7 +560,7 @@ class ActivityAnalyzer:
                         'lines_removed': lines_removed
                     })
                     # update last action end
-                    last_action_end_ms = session_start + start_relative
+                    last_action_end_ms = session_start + start_relative + duration_to_next
                     previous_row = row
                     previous_fragment = row.get('fragment', '')
                     continue
@@ -582,7 +569,7 @@ class ActivityAnalyzer:
                 if pending_group is None or pending_group['action'] != action_desc:
                     # Finalize previous group if exists — trim end to this row's start
                     if pending_group:
-                        pending_group['end'] = min(pending_group['end'], start_relative)
+                        # group end unchanged — duration_to_next fills timeline
                         abs_end = session_start + pending_group.get('end', 0)
                         self._finalize_group(actions, pending_group)
                         last_action_end_ms = abs_end
@@ -628,7 +615,7 @@ class ActivityAnalyzer:
                     if curr_is_non_groupable:
                         if pending_group:
                             # Trim group end to current row's start
-                            pending_group['end'] = min(pending_group['end'], start_relative)
+                            # group end unchanged — duration_to_next fills timeline
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             pending_group = None
@@ -637,8 +624,7 @@ class ActivityAnalyzer:
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
-                            # Non-groupable actions are point events; duration = 0
-                            'duration': 0,
+                            'duration': duration_to_next,
                             'inactivity': 0,
                             'details': curr_action_info.get('details', action_type),
                             'content': curr_action_info.get('content', '') if self.log_content else '',
@@ -647,7 +633,7 @@ class ActivityAnalyzer:
                             'lines_added': lines_added,
                             'lines_removed': lines_removed
                         })
-                        last_action_end_ms = session_start + start_relative
+                        last_action_end_ms = session_start + start_relative + duration_to_next
                         # Continue to next row without creating/extending a pending group
                         previous_row = row
                         previous_fragment = row.get('fragment', '')
@@ -657,7 +643,7 @@ class ActivityAnalyzer:
                     if pending_group is None or pending_group['action'] != group_category:
                         # Finalize previous group if exists — trim end to this row's start
                         if pending_group:
-                            pending_group['end'] = min(pending_group['end'], start_relative)
+                            # group end unchanged — duration_to_next fills timeline
                             abs_end = session_start + pending_group.get('end', 0)
                             self._finalize_group(actions, pending_group)
                             last_action_end_ms = abs_end
