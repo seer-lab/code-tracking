@@ -1062,7 +1062,7 @@
     </worksheet>
   </worksheets>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
-    <window class='worksheet' name='Task 1 - Timeline'>
+    <window class='worksheet' maximized='true' name='Task 1 - Timeline'>
       <cards>
         <edge name='left'>
           <strip size='200'>
@@ -1145,7 +1145,7 @@
       </viewpoint>
       <simple-id uuid='{8D512AA0-4100-4E40-A65E-88E43E74BD08}' />
     </window>
-    <window class='worksheet' maximized='true' name='Task 1 - Write vs. Copy/Paste'>
+    <window class='worksheet' name='Task 1 - Write vs. Copy/Paste'>
       <cards>
         <edge name='left'>
           <strip size='200'>
