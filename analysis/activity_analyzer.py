@@ -117,12 +117,17 @@ class ActivityAnalyzer:
         'CompilationFinished': 'Compilation Finished',
     }
 
+    # Hardcoded inactivity threshold (ms) for gaps between *different* Tableau groups
+    # (e.g. a pause between a Copy/Paste action and a Writing action).
+    CROSS_GROUP_INACTIVITY_THRESHOLD_MS = 500  # 0.5 seconds
+
     def __init__(self, inactivity_threshold_ms=60000, log_content=True, max_content_length=0):
         """
         Initialize the analyzer.
 
         Args:
-            inactivity_threshold_ms (int): Threshold for detecting inactivity in milliseconds
+            inactivity_threshold_ms (int): Threshold for detecting inactivity within the
+                same Tableau group in milliseconds (configurable via CLI --threshold).
             log_content (bool): Whether to log actual content changes
             max_content_length (int): Maximum length of content to log (0 = unlimited)
         """
@@ -548,7 +553,22 @@ class ActivityAnalyzer:
             # that initial gap belongs to Session started, not an Inactivity row.
             same_tableau_group = (prev_tableau_group is not None and prev_tableau_group == curr_tableau_group)
 
-            if time_since_last >= self.inactivity_threshold_ms and same_tableau_group:
+            # Cross-group: both sides must have a known group, and they must differ.
+            # A hardcoded 0.5-second threshold is used for these transitions (e.g. a pause
+            # between Copy/Paste and Writing), rather than the user-configurable threshold
+            # which only applies within the same Tableau group.
+            cross_tableau_group = (
+                prev_tableau_group is not None
+                and curr_tableau_group is not None
+                and prev_tableau_group != curr_tableau_group
+            )
+
+            is_inactivity = (
+                (same_tableau_group and time_since_last >= self.inactivity_threshold_ms)
+                or (cross_tableau_group and time_since_last >= self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS)
+            )
+
+            if is_inactivity:
                 # Finalise any open pending group up to the previous row before inserting inactivity
                 if pending_group:
                     # Cap the group's end at prev_ts (not curr_ts) — the gap belongs to inactivity
