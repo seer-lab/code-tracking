@@ -428,53 +428,47 @@ class ActivityAnalyzer:
         if not rows:
             return actions
 
-        # Initialize session
-        session_start = self._parse_timestamp(rows[0].get('date'))
+        # ── Find the true session start ──
+        # Scan forward from row 0 until the 'fragment' column changes.
+        # The first row where fragment differs from row 0 becomes the effective
+        # session start (time = 0 in all output timestamps).  All rows before it
+        # are skipped but the last skipped row seeds previous_row/previous_fragment
+        # so that action detection works correctly on the very first processed row.
+        initial_fragment = rows[0].get('fragment', '')
+        first_active_index = 0
+        for _fi, _fr in enumerate(rows):
+            if _fr.get('fragment', '') != initial_fragment:
+                first_active_index = _fi
+                break
+        # If every row has the same fragment, fall back to index 1 (original behaviour
+        # of skipping only row 0).
+        if first_active_index == 0:
+            first_active_index = min(1, len(rows) - 1)
+
+        session_start = self._parse_timestamp(rows[first_active_index].get('date'))
+
+        # Seed previous_row and previous_fragment from the last skipped row so that
+        # the first processed row can be compared against the state just before it.
+        previous_row = rows[first_active_index - 1] if first_active_index > 0 else None
+        previous_fragment = rows[first_active_index - 1].get('fragment', '') if first_active_index > 0 else ''
 
         # Tracking variables
-        previous_row = None
-        previous_fragment = ''
         pending_group = None  # Current action group being accumulated
         # Track the absolute (ms since epoch) end time of the last finalized action
-        # This is used to compute inactivity periods correctly (from last action end to next action start)
         last_action_end_ms = session_start
 
         # Edit and delete action types for grouping
         edit_types = {'Type character', 'Type text', 'Insert text'}
         delete_types = {'Delete character', 'Delete text', 'Delete block'}
         # Actions that should NOT be grouped and should appear individually
-        # include both detected labels and common IDE event keys
         non_groupable_actions = {'Copy', 'Paste', 'Cut', 'Copy/Paste (internal)', 'Paste (external)',
                                  'EditorCopy', '$Copy', 'EditorPaste', '$Paste', 'EditorCut'}
 
-        # Add session start action — duration will be updated after the loop to span
-        # from session start to the first real action, covering the initial idle period.
-        session_started_action = {
-            'action': 'Session started',
-            'start': 0,
-            'duration': 0,  # filled in after loop once first real action start is known
-            'inactivity': 0,
-            'details': f"File: {rows[0].get('fileName','')}, Task: {rows[0].get('chosenTask','')}",
-            'content': '',
-            'code': '',
-            'change_len': 0,
-            'lines_added': 0,
-            'lines_removed': 0
-        }
-        actions.append(session_started_action)
-
-        # Advance last_action_end_ms to rows[1] so the gap from session_start to rows[1]
-        # is absorbed into Session started and never double-counted as Inactivity.
-        # We set it to session_start here; the inactivity check is suppressed for the
-        # entire pre-action idle period because last_action_group stays None until the
-        # first real action fires, and Session started absorbs that span post-loop.
-        last_action_end_ms = session_start
-
         # Track the Tableau group of the most-recently finalised action so we can
         # enforce the "inactivity only within the same group" rule.
-        last_action_group = None  # None = session start, no group yet
+        last_action_group = None  # None = no action yet
 
-        for i, row in enumerate(rows[1:], 1):
+        for i, row in enumerate(rows[first_active_index:], first_active_index):
             curr_ts = self._parse_timestamp(row.get('date'))
             prev_ts = self._parse_timestamp(previous_row.get('date')) if previous_row else session_start
 
@@ -550,7 +544,7 @@ class ActivityAnalyzer:
 
             # Gate: same Tableau group on both sides of the gap.
             # When prev_tableau_group is None, no real action has been seen yet —
-            # that initial gap belongs to Session started, not an Inactivity row.
+            # that initial gap precedes any real action and should not create an Inactivity row.
             same_tableau_group = (prev_tableau_group is not None and prev_tableau_group == curr_tableau_group)
 
             # Cross-group: both sides must have a known group, and they must differ.
@@ -771,17 +765,6 @@ class ActivityAnalyzer:
             self._finalize_group(actions, pending_group)
             last_action_group = self._get_tableau_group(pending_group['action'])
             last_action_end_ms = abs_end
-
-        # Update Session started duration to reach the first real action (index 1,
-        # since index 0 is Session started itself). This covers the full initial idle
-        # period regardless of how many no-change snapshot rows precede the first action.
-        first_real_action = next((a for a in actions if a.get('action') not in ('Session started', 'Session total', 'Inactivity')), None)
-        if first_real_action:
-            session_started_action['duration'] = first_real_action.get('start', 0)
-        else:
-            # No real actions at all — span the whole session
-            last_ts = self._parse_timestamp(rows[-1].get('date'))
-            session_started_action['duration'] = max(0, last_ts - session_start)
 
         # Post-process: ensure Inactivity entries do not overlap actions. Trim action durations
         # that extend into an Inactivity period to ensure inactivity is exclusive.
