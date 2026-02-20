@@ -456,11 +456,12 @@ class ActivityAnalyzer:
         previous_row = rows[first_active_index - 1] if first_active_index > 0 else None
         previous_fragment = rows[first_active_index - 1].get('fragment', '') if first_active_index > 0 else ''
 
-        # If the initial fragment already contains code (student wrote it before
-        # the plugin started recording), treat it as an external paste at time zero.
-        # Ignore fragments <= 100 chars — that's just the auto-generated boilerplate.
-        if previous_fragment and previous_fragment.strip() and len(previous_fragment) > 100:
-            initial_ci = len(previous_fragment)
+        # If the initial fragment contains more than the auto-generated boilerplate
+        # (~100 chars of comments), treat the excess as an external paste at time zero.
+        # The boilerplate itself is not counted.
+        BOILERPLATE_LENGTH = 100
+        if previous_fragment and len(previous_fragment) > BOILERPLATE_LENGTH:
+            initial_ci = len(previous_fragment) - BOILERPLATE_LENGTH
             actions.append({
                 'action': 'Paste (external)',
                 'start': 0,
