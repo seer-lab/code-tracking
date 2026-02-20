@@ -153,6 +153,10 @@ class ActivityAnalyzer:
         'Paste (external)':        'Copy / Paste',
         'Copy/Paste (internal)':   'Copy / Paste',
         'Cut':                     'Copy / Paste',
+        # Additional paste-like actions
+        'Duplicate Line':          'Copy / Paste',
+        'Reformat Code':           'Copy / Paste',
+        'Split Line':              'Writing',
         # Navigation
         'Left Arrow':              'Navigation',
         'Right Arrow':             'Navigation',
@@ -452,6 +456,23 @@ class ActivityAnalyzer:
         previous_row = rows[first_active_index - 1] if first_active_index > 0 else None
         previous_fragment = rows[first_active_index - 1].get('fragment', '') if first_active_index > 0 else ''
 
+        # If the initial fragment already contains code (student wrote it before
+        # the plugin started recording), treat it as an external paste at time zero.
+        # Ignore fragments <= 100 chars — that's just the auto-generated boilerplate.
+        if previous_fragment and previous_fragment.strip() and len(previous_fragment) > 100:
+            initial_ci = len(previous_fragment)
+            actions.append({
+                'action': 'Paste (external)',
+                'start': 0,
+                'duration': 0,
+                'inactivity': 0,
+                'details': f'Code present before recording started ({initial_ci} characters)',
+                'content': previous_fragment if self.log_content else '',
+                'code': previous_fragment,
+                'change_len': initial_ci,
+                'chars_inserted': initial_ci,
+            })
+
         # Tracking variables
         pending_group = None  # Current action group being accumulated
         # Track the absolute (ms since epoch) end time of the last finalized action
@@ -467,6 +488,11 @@ class ActivityAnalyzer:
         # Track the Tableau group of the most-recently finalised action so we can
         # enforce the "inactivity only within the same group" rule.
         last_action_group = None  # None = no action yet
+
+        # When a non-groupable IDE event (e.g. EditorPaste) fires on a row where the
+        # fragment has not yet changed, store it here and apply it to the next row
+        # that actually shows a fragment change.
+        pending_paste_action = None  # dict: {action_desc, start_relative, ...}
 
         for i, row in enumerate(rows[first_active_index:], first_active_index):
             curr_ts = self._parse_timestamp(row.get('date'))
@@ -493,7 +519,7 @@ class ActivityAnalyzer:
                     _next_desc = self.ACTION_DESCRIPTIONS.get(_next_ide, _next_ide)
                     next_peek_group = self._get_tableau_group(_next_desc)
                 else:
-                    next_peek_group = None  # unknown; resolved conservatively below
+                    next_peek_group = None
             else:
                 next_peek_group = None
 
@@ -522,6 +548,46 @@ class ActivityAnalyzer:
             else:
                 curr_group_category = None
                 curr_is_non_groupable = False
+
+            # ── Pending paste check ──
+            # If a paste IDE event was deferred because the fragment hadn't updated yet,
+            # check now — BEFORE processing any IDE event for this row — whether the
+            # fragment has changed. If so, emit the paste using this row's diff and skip
+            # normal processing for this row entirely.
+            _curr_frag_now = row.get('fragment', '')
+            if pending_paste_action is not None and _curr_frag_now != previous_fragment:
+                pa = pending_paste_action
+                pending_paste_action = None
+                pa_change_len = self._compute_change_length(previous_fragment, _curr_frag_now)
+                pa_chars_inserted = self._compute_chars_inserted(previous_fragment, _curr_frag_now)
+                if pending_group:
+                    abs_end = session_start + pending_group.get('end', 0)
+                    self._finalize_group(actions, pending_group)
+                    last_action_group = self._get_tableau_group(pending_group['action'])
+                    pending_group = None
+                    last_action_end_ms = abs_end
+                _this_group = self._get_tableau_group(pa['action_desc'])
+                if next_peek_group is None or next_peek_group == _this_group:
+                    _cap = self.inactivity_threshold_ms
+                else:
+                    _cap = self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS
+                pa_duration = min(duration_to_next, _cap)
+                actions.append({
+                    'action': pa['action_desc'],
+                    'start': pa['start_relative'],
+                    'duration': pa_duration,
+                    'inactivity': 0,
+                    'details': pa['action_desc'],
+                    'content': pa['content'] if self.log_content else '',
+                    'code': _curr_frag_now if _curr_frag_now is not None else '',
+                    'change_len': pa_change_len,
+                    'chars_inserted': pa_chars_inserted,
+                })
+                last_action_end_ms = session_start + pa['start_relative'] + pa_duration
+                last_action_group = self._get_tableau_group(pa['action_desc'])
+                previous_row = row
+                previous_fragment = _curr_frag_now
+                continue
 
             # ── Inactivity check ──
             # Measure the raw gap between consecutive rows (prev_ts → curr_ts).
@@ -603,8 +669,7 @@ class ActivityAnalyzer:
                         'content': '',
                         'code': inactivity_code,
                         'change_len': 0,
-                        'lines_added': 0,
-                        'lines_removed': 0
+                        'chars_inserted': 0
                     })
 
                 last_action_end_ms = max(last_action_end_ms, curr_ts)
@@ -621,15 +686,27 @@ class ActivityAnalyzer:
             if ide_action:
                 # Found explicit IDE action
                 action_desc = curr_action_desc
+
+                # If a deletion-type IDE event fires but fragment grew by >4 chars,
+                # it's a timing mismatch — override with paste classification.
+                _frag_now = row.get('fragment', '') or ''
+                _len_diff = len(_frag_now) - len(previous_fragment)
+                if _len_diff > 4 and action_desc in {'Backspace', 'Delete', 'Left Arrow', 'Right Arrow', 'Up Arrow', 'Down Arrow'}:
+                    _added = self._find_added_text(previous_fragment, _frag_now)
+                    if _added and _added.strip() in previous_fragment:
+                        action_desc = 'Copy/Paste (internal)'
+                    else:
+                        action_desc = 'Paste (external)'
+
                 content = self._extract_ide_action_content(
                     ide_action,
                     previous_fragment,
                     row.get('fragment', '')
                 )
 
-                # compute numeric change length for this action (always, not gated on log_content)
+                # compute numeric change length for this action
                 change_len = self._compute_change_length(previous_fragment, row.get('fragment', ''))
-                lines_added, lines_removed = self._compute_line_change(previous_fragment, row.get('fragment', ''))
+                chars_inserted = self._compute_chars_inserted(previous_fragment, row.get('fragment', ''))
 
                 # If this action is non-groupable, finalize any pending group and append it immediately
                 if action_desc in non_groupable_actions:
@@ -642,15 +719,26 @@ class ActivityAnalyzer:
                         pending_group = None
                         last_action_end_ms = abs_end
 
-                    # Cap duration at the appropriate inactivity threshold so a long
-                    # idle gap after a paste/copy/cut doesn't inflate its duration.
+                    # If the fragment hasn't changed yet, the IDE snapshot is lagging.
+                    # Store paste action and apply it to the next row with a fragment change.
+                    if change_len == 0 and chars_inserted == 0 and action_desc in {'Paste', 'Paste (external)', 'Copy/Paste (internal)', 'Cut'}:
+                        pending_paste_action = {
+                            'action_desc': action_desc,
+                            'start_relative': start_relative,
+                            'content': content,
+                        }
+                        previous_row = row
+                        previous_fragment = row.get('fragment', '')
+                        continue
+
+                    # Cap duration at inactivity threshold so paste/copy actions
+                    # don't absorb long idle gaps into their duration.
                     _this_group = self._get_tableau_group(action_desc)
                     if next_peek_group is None or next_peek_group == _this_group:
                         _cap = self.inactivity_threshold_ms
                     else:
                         _cap = self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS
                     capped_duration = min(duration_to_next, _cap)
-
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
@@ -660,8 +748,7 @@ class ActivityAnalyzer:
                         'content': content if self.log_content else '',
                         'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                         'change_len': change_len,
-                        'lines_added': lines_added,
-                        'lines_removed': lines_removed
+                        'chars_inserted': chars_inserted,
                     })
                     # update last action end and group
                     last_action_end_ms = session_start + start_relative + capped_duration
@@ -689,8 +776,7 @@ class ActivityAnalyzer:
                         'snapshot': row.get('fragment', ''),
                         'count': 1,
                         'change_len': change_len,
-                        'lines_added': lines_added,
-                        'lines_removed': lines_removed
+                        'chars_inserted': chars_inserted,
                     }
                 else:
                     # Extend existing group (same action type)
@@ -701,21 +787,19 @@ class ActivityAnalyzer:
                     pending_group['snapshot'] = row.get('fragment', '')
                     pending_group['count'] += 1
                     pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
-                    pending_group['lines_added'] = pending_group.get('lines_added', 0) + lines_added
-                    pending_group['lines_removed'] = pending_group.get('lines_removed', 0) + lines_removed
+                    pending_group['chars_inserted'] = pending_group.get('chars_inserted', 0) + chars_inserted
 
                 previous_row = row
                 previous_fragment = row.get('fragment', '')
                 continue
 
-            # No IDE event - use the already-detected action from fragment changes
             if previous_row is not None and curr_action_info:
                     action_type = curr_action_info['type']
                     group_category = curr_group_category
 
                     # numeric change length (from action_info if present)
                     change_len = curr_action_info.get('change_len', 0)
-                    lines_added, lines_removed = self._compute_line_change(previous_fragment, row.get('fragment', ''))
+                    chars_inserted = self._compute_chars_inserted(previous_fragment, row.get('fragment', ''))
 
                     # If this detected action is non-groupable (e.g., paste/copy/cut), append immediately
                     if curr_is_non_groupable:
@@ -728,14 +812,14 @@ class ActivityAnalyzer:
                             pending_group = None
                             last_action_end_ms = abs_end
 
-                        # Cap duration at the appropriate inactivity threshold.
+                        # Cap duration at inactivity threshold so paste/copy actions
+                        # don't absorb long idle gaps into their duration.
                         _this_group = self._get_tableau_group(action_type)
                         if next_peek_group is None or next_peek_group == _this_group:
                             _cap = self.inactivity_threshold_ms
                         else:
                             _cap = self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS
                         capped_duration = min(duration_to_next, _cap)
-
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
@@ -745,8 +829,7 @@ class ActivityAnalyzer:
                             'content': curr_action_info.get('content', '') if self.log_content else '',
                             'code': row.get('fragment', '') if row.get('fragment') is not None else '',
                             'change_len': change_len,
-                            'lines_added': lines_added,
-                            'lines_removed': lines_removed
+                            'chars_inserted': chars_inserted,
                         })
                         last_action_end_ms = session_start + start_relative + capped_duration
                         last_action_group = self._get_tableau_group(action_type)
@@ -774,8 +857,7 @@ class ActivityAnalyzer:
                             'snapshot': row.get('fragment', ''),
                             'count': 1,
                             'change_len': change_len,
-                            'lines_added': lines_added,
-                            'lines_removed': lines_removed
+                            'chars_inserted': chars_inserted,
                         }
                     else:
                         # Extend existing group
@@ -784,8 +866,7 @@ class ActivityAnalyzer:
                         pending_group['snapshot'] = row.get('fragment', '')
                         pending_group['count'] += 1
                         pending_group['change_len'] = pending_group.get('change_len', 0) + change_len
-                        pending_group['lines_added'] = pending_group.get('lines_added', 0) + lines_added
-                        pending_group['lines_removed'] = pending_group.get('lines_removed', 0) + lines_removed
+                        pending_group['chars_inserted'] = pending_group.get('chars_inserted', 0) + chars_inserted
 
             previous_row = row
             previous_fragment = row.get('fragment', '')
@@ -873,8 +954,7 @@ class ActivityAnalyzer:
             'content': '',
             'code': '',
             'change_len': 0,
-            'lines_added': 0,
-            'lines_removed': 0
+            'chars_inserted': 0,
         })
 
         return actions
@@ -906,8 +986,7 @@ class ActivityAnalyzer:
             # new 'code' column: snapshot at group end
             'code': group.get('snapshot', ''),
             'change_len': group.get('change_len', 0),
-            'lines_added': group.get('lines_added', 0),
-            'lines_removed': group.get('lines_removed', 0)
+            'chars_inserted': group.get('chars_inserted', 0),
         })
 
     def _detect_action(self, prev_row, curr_row, prev_fragment):
@@ -940,8 +1019,8 @@ class ActivityAnalyzer:
         # compute numeric change length using opcode analysis
         change_len = self._compute_change_length(prev_fragment, curr_fragment)
 
-        # Large insertion - detect paste
-        if length_diff > 10:
+        # Large insertion - detect paste (>4 chars in one snapshot = paste, not typing)
+        if length_diff > 4:
             added_text = self._find_added_text(prev_fragment, curr_fragment)
             if added_text:
                 if added_text.strip() in prev_fragment:
@@ -1059,26 +1138,23 @@ class ActivityAnalyzer:
                 change += max(i2 - i1, j2 - j1)
         return change
 
-    def _compute_line_change(self, prev_text, curr_text):
-        """Compute the number of lines added and removed between two text versions.
+    def _compute_chars_inserted(self, prev_text, curr_text):
+        """Compute only the characters inserted (added) between two text versions.
 
-        Returns:
-            tuple: (lines_added, lines_removed)
+        Unlike _compute_change_length, this ignores deletions entirely — it only
+        counts characters that actually landed in the code. Used for the
+        Write vs Copy/Paste character plot so that backspaces and deletes do not
+        inflate the writing count.
         """
-        prev_lines = (prev_text or '').splitlines()
-        curr_lines = (curr_text or '').splitlines()
-        matcher = difflib.SequenceMatcher(None, prev_lines, curr_lines)
-        added = 0
-        removed = 0
+        matcher = difflib.SequenceMatcher(None, prev_text or '', curr_text or '')
+        inserted = 0
         for tag, i1, i2, j1, j2 in matcher.get_opcodes():
-            if tag == 'delete':
-                removed += (i2 - i1)
-            elif tag == 'insert':
-                added += (j2 - j1)
+            if tag == 'insert':
+                inserted += (j2 - j1)
             elif tag == 'replace':
-                removed += (i2 - i1)
-                added += (j2 - j1)
-        return added, removed
+                inserted += (j2 - j1)  # inserted side only
+        return inserted
+
 
     def _find_added_text(self, prev_text, curr_text):
         """Find text that was added between two versions."""
@@ -1174,8 +1250,7 @@ class ActivityAnalyzer:
                 'duration_min',
                 'details',
                 'change_len',
-                'lines_added',
-                'lines_removed',
+                'chars_inserted',
                 # always include 'code' (fragment snapshot / group snapshot at end)
                 'code',
                 # length of code fragment (characters)
@@ -1220,8 +1295,7 @@ class ActivityAnalyzer:
                     'duration_min': duration_min,
                     'details': action['details'],
                     'change_len': action.get('change_len', 0),
-                    'lines_added': action.get('lines_added', 0),
-                    'lines_removed': action.get('lines_removed', 0),
+                    'chars_inserted': action.get('chars_inserted', 0),
                     # always include the 'code' column
                     'code': code_val,
                     'code_len': code_len_val

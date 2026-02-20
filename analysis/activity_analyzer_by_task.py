@@ -117,8 +117,7 @@ class ActivityAnalyzerByTask:
             'duration_min',
             'details',
             'change_len',
-            'lines_added',
-            'lines_removed',
+            'chars_inserted',
             'code',
             'code_len',
         ]
@@ -178,8 +177,7 @@ class ActivityAnalyzerByTask:
                     'duration_min': round(duration / 60000, 2),
                     'details': action['details'],
                     'change_len': action.get('change_len', 0),
-                    'lines_added': action.get('lines_added', 0),
-                    'lines_removed': action.get('lines_removed', 0),
+                    'chars_inserted': action.get('chars_inserted', 0),
                     'code': code_val,
                     'code_len': code_len_val,
                 }
