@@ -483,6 +483,20 @@ class ActivityAnalyzer:
             else:
                 duration_to_next = 0
 
+            # Peek at the next row's action group so non-groupable actions can be
+            # capped at the right inactivity threshold (same-group vs cross-group).
+            if i + 1 < len(rows):
+                _next_row = rows[i + 1]
+                _next_ts_val = self._parse_timestamp(_next_row.get('date'))
+                _next_ide = self._find_matching_ide_event(_next_ts_val, ide_events_data)
+                if _next_ide:
+                    _next_desc = self.ACTION_DESCRIPTIONS.get(_next_ide, _next_ide)
+                    next_peek_group = self._get_tableau_group(_next_desc)
+                else:
+                    next_peek_group = None  # unknown; resolved conservatively below
+            else:
+                next_peek_group = None
+
             # ── Determine this row's action category BEFORE the inactivity check ──
             # so we know whether the current row continues the pending group or not.
             curr_ide_action = self._find_matching_ide_event(curr_ts, ide_events_data)
@@ -613,8 +627,8 @@ class ActivityAnalyzer:
                     row.get('fragment', '')
                 )
 
-                # compute numeric change length for this action
-                change_len = self._compute_change_length(previous_fragment, row.get('fragment', '')) if self.log_content else 0
+                # compute numeric change length for this action (always, not gated on log_content)
+                change_len = self._compute_change_length(previous_fragment, row.get('fragment', ''))
                 lines_added, lines_removed = self._compute_line_change(previous_fragment, row.get('fragment', ''))
 
                 # If this action is non-groupable, finalize any pending group and append it immediately
@@ -628,10 +642,19 @@ class ActivityAnalyzer:
                         pending_group = None
                         last_action_end_ms = abs_end
 
+                    # Cap duration at the appropriate inactivity threshold so a long
+                    # idle gap after a paste/copy/cut doesn't inflate its duration.
+                    _this_group = self._get_tableau_group(action_desc)
+                    if next_peek_group is None or next_peek_group == _this_group:
+                        _cap = self.inactivity_threshold_ms
+                    else:
+                        _cap = self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS
+                    capped_duration = min(duration_to_next, _cap)
+
                     actions.append({
                         'action': action_desc,
                         'start': start_relative,
-                        'duration': duration_to_next,
+                        'duration': capped_duration,
                         'inactivity': 0,
                         'details': action_desc,
                         'content': content if self.log_content else '',
@@ -641,7 +664,7 @@ class ActivityAnalyzer:
                         'lines_removed': lines_removed
                     })
                     # update last action end and group
-                    last_action_end_ms = session_start + start_relative + duration_to_next
+                    last_action_end_ms = session_start + start_relative + capped_duration
                     last_action_group = self._get_tableau_group(action_desc)
                     previous_row = row
                     previous_fragment = row.get('fragment', '')
@@ -705,10 +728,18 @@ class ActivityAnalyzer:
                             pending_group = None
                             last_action_end_ms = abs_end
 
+                        # Cap duration at the appropriate inactivity threshold.
+                        _this_group = self._get_tableau_group(action_type)
+                        if next_peek_group is None or next_peek_group == _this_group:
+                            _cap = self.inactivity_threshold_ms
+                        else:
+                            _cap = self.CROSS_GROUP_INACTIVITY_THRESHOLD_MS
+                        capped_duration = min(duration_to_next, _cap)
+
                         actions.append({
                             'action': action_type,
                             'start': start_relative,
-                            'duration': duration_to_next,
+                            'duration': capped_duration,
                             'inactivity': 0,
                             'details': curr_action_info.get('details', action_type),
                             'content': curr_action_info.get('content', '') if self.log_content else '',
@@ -717,7 +748,7 @@ class ActivityAnalyzer:
                             'lines_added': lines_added,
                             'lines_removed': lines_removed
                         })
-                        last_action_end_ms = session_start + start_relative + duration_to_next
+                        last_action_end_ms = session_start + start_relative + capped_duration
                         last_action_group = self._get_tableau_group(action_type)
                         # Continue to next row without creating/extending a pending group
                         previous_row = row
