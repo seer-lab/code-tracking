@@ -293,7 +293,7 @@
         <calculation class='tableau' formula='IF [action] IN (&#13;&#10;    &quot;Edit&quot;,&#13;&#10;    &quot;EditorStartNewLine&quot;,&#13;&#10;    &quot;EditorIndentSelection&quot;,&#13;&#10;    &quot;EditorUnindentSelection&quot;,&#13;&#10;    &quot;EditorDeleteToWordStart&quot;,&#13;&#10;    &quot;Replace text&quot;,&#13;&#10;    &quot;Enter&quot;&#13;&#10;) THEN &quot;Writing&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Paste&quot;,&#13;&#10;    &quot;Paste (external)&quot;,&#13;&#10;    &quot;Copy/Paste (internal)&quot;,&#13;&#10;    &quot;Cut&quot;,&#13;&#10;    &quot;Accept Inline Completion&quot;,&#13;&#10;    &quot;Choose Autocomplete&quot;,&#13;&#10;    &quot;Choose Autocomplete Item&quot;,&#13;&#10;    &quot;EditorChooseLookupItem&quot;,&#13;&#10;    &quot;EditorChooseLookupItemReplace&quot;,&#13;&#10;    &quot;InsertInlineCompletionAction&quot;&#13;&#10;) THEN &quot;Copy / Paste&quot;&#13;&#10;END' />
       </column>
       <column caption='Characters Written' datatype='integer' name='[Calculation_1785647319437312]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='IF [Calculation_0820824279863296] = &apos;Writing&apos; THEN [chars_inserted] ELSE 0 END' />
+        <calculation class='tableau' formula='IF &#13;&#10;[Calculation_0820824279863296] = &apos;Writing&apos; THEN [chars_inserted] &#13;&#10;ELSE 0 END' />
       </column>
       <column caption='Characters Copied/Pasted' datatype='integer' name='[Calculation_1785647319760897]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='IF [Calculation_0820824279863296] = &apos;Copy / Paste&apos; THEN [chars_inserted] ELSE 0 END' />
@@ -372,7 +372,7 @@
       <column-instance column='[start_sec]' derivation='Sum' name='[sum:start_sec:qk]' pivot='key' type='quantitative' />
       <column-instance column='[time_percent]' derivation='Sum' name='[sum:time_percent:qk]' pivot='key' type='quantitative' />
       <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Daniel/AppData/Local/Temp/TableauTemp/#TableauTemp_1fdsmvz1ugdwzg1bs353t18985oj.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/20/2026 05:37:56 AM' username='tableau_internal_user'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Daniel/AppData/Local/Temp/TableauTemp/#TableauTemp_0r3dbyn0qlemxx1a75iph13lxthz.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/25/2026 01:23:40 PM' username='tableau_internal_user'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
             <metadata-record class='column'>
@@ -837,6 +837,26 @@
     </datasource>
   </datasources>
   <worksheets>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{B1B5E833-7565-48D3-8A21-A183FDEE106B}' />
+    </worksheet>
     <worksheet name='Task 4 - Code Size'>
       <table>
         <view>
@@ -1090,7 +1110,7 @@
               <calculation class='tableau' formula='IF [action] IN (&#13;&#10;    &quot;Edit&quot;,&#13;&#10;    &quot;EditorStartNewLine&quot;,&#13;&#10;    &quot;EditorIndentSelection&quot;,&#13;&#10;    &quot;EditorUnindentSelection&quot;,&#13;&#10;    &quot;EditorDeleteToWordStart&quot;,&#13;&#10;    &quot;Replace text&quot;,&#13;&#10;    &quot;Enter&quot;&#13;&#10;) THEN &quot;Writing&quot;&#13;&#10;&#13;&#10;ELSEIF [action] IN (&#13;&#10;    &quot;Paste&quot;,&#13;&#10;    &quot;Paste (external)&quot;,&#13;&#10;    &quot;Copy/Paste (internal)&quot;,&#13;&#10;    &quot;Cut&quot;,&#13;&#10;    &quot;Accept Inline Completion&quot;,&#13;&#10;    &quot;Choose Autocomplete&quot;,&#13;&#10;    &quot;Choose Autocomplete Item&quot;,&#13;&#10;    &quot;EditorChooseLookupItem&quot;,&#13;&#10;    &quot;EditorChooseLookupItemReplace&quot;,&#13;&#10;    &quot;InsertInlineCompletionAction&quot;&#13;&#10;) THEN &quot;Copy / Paste&quot;&#13;&#10;END' />
             </column>
             <column caption='Characters Written' datatype='integer' name='[Calculation_1785647319437312]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='IF [Calculation_0820824279863296] = &apos;Writing&apos; THEN [chars_inserted] ELSE 0 END' />
+              <calculation class='tableau' formula='IF &#13;&#10;[Calculation_0820824279863296] = &apos;Writing&apos; THEN [chars_inserted] &#13;&#10;ELSE 0 END' />
             </column>
             <column caption='Characters Copied/Pasted' datatype='integer' name='[Calculation_1785647319760897]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='IF [Calculation_0820824279863296] = &apos;Copy / Paste&apos; THEN [chars_inserted] ELSE 0 END' />
@@ -1298,8 +1318,45 @@
       </viewpoint>
       <simple-id uuid='{2626CFAE-EBD2-4F32-9176-A4598C378111}' />
     </window>
+    <window class='worksheet' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{43F58055-9895-4913-94D1-4937245517D8}' />
+    </window>
   </windows>
   <thumbnails>
+    <thumbnail height='192' name='Sheet 4' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
     <thumbnail height='192' name='Task 4 - Code Size' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
       AAAgAElEQVR4nOy9V3AkSZrn9wuZOpHQKMhCad3VXS2nu2d2ZO+IHbHH3Vvu7tze7Z4w3hP5
