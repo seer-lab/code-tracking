@@ -1,5 +1,5 @@
 surveys:
-  - id: default
+  - id: limesurvey
     htmlQuestions:
       - !<Input>
         text: Please enter your LimeSurvey PIN
