@@ -31,7 +31,7 @@ fun Panel.agreementAcceptance() {
         checkAgreementInputs().runOnSuccess {
             if (!it) {
                 GlobalPluginStorage.agreementChecker?.let { agreement ->
-                    GlobalPluginStorage.userId = IdRequests.getUserId(agreement.name, agreement.email).also {
+                    GlobalPluginStorage.userId = IdRequests.getUserId(agreement.pin).also {
                         if (it == null) {
                             notifyError(
                                 project,

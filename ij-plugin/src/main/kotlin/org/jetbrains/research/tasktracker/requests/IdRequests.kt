@@ -16,15 +16,14 @@ object IdRequests {
     private val logger = Logger.getInstance(IdRequests::class.java)
 
     @Suppress("TooGenericExceptionCaught")
-    fun getUserId(name: String, email: String): Int? =
+    fun getUserId(pin: String): Int? =
         runBlocking {
             val url = getRoute("create-user")
             try {
                 return@runBlocking client.submitForm(
                     url = url,
                     formParameters = mapOf(
-                        "name" to name,
-                        "email" to email
+                        "pin" to pin,
                     ).buildParameters()
                 ).body<Int>()
             } catch (e: Exception) {

@@ -1,15 +1,10 @@
 <div class="container">
     <div class="box">
-        <p class="big-font">Register in study</p>
+        <p class="big-font">Please enter your PIN from LimeSurvey</p>
         <div class="form-group">
-            <input class="input" type="text" name="name" id="name" placeholder="Name" required>
-        </div>
-        <br>
-        <div class="form-group">
-            <input class="input" type="email" name="email" id="email" placeholder="Email" required>
+            <input class="input" type="text" name="pin" id="pin" placeholder="PIN" required>
         </div>
         <div class="agreement-container">
-            <p>I agree to the terms and conditions:</p>
             %s
             <p><span style="color: red">*</span> - Required field</p>
         </div>
@@ -49,11 +44,9 @@
     }
 
     function getData() {
-        let email = document.getElementById('email')
-        let name = document.getElementById('name')
+        let pin = document.getElementById('pin')
         let inputs = {
-            email: email.value,
-            name: name.value,
+            pin: pin.value,
             agreements: []
         }
         let checkboxes = document.querySelectorAll('input[type=checkbox]')

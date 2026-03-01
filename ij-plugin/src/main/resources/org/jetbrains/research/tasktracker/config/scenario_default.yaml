@@ -1,11 +1,9 @@
 scenario:
   steps:
     - units:
-        - !<Survey>
-          id: "limesurvey"
         - !<List>
           taskIds:
             - "print_error_statement_coverage"
             - "read_statement_coverage"
-            - "write_statement_coverage"
+            - "write_branch_coverage"
             - "read_path_coverage"
