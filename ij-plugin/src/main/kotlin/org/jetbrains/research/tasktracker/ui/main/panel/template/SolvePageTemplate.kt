@@ -9,11 +9,15 @@ class SolvePageTemplate(val task: Task) : HtmlBaseFileTemplate() {
         get() = arrayOf(task.name, task.description.reformFileLinks())
 
     private fun String.reformFileLinks(): String {
-        return FILE_PATTERN.replace(this) {
-            val matchText = it.groupValues[1]
-            val matchLink = it.groupValues[2]
-            """<a href="$matchLink" class="file" data-value="$matchLink">$matchText</a>"""
-        }
+        return this
+            .replace("\n", "<br>")
+            .let { text ->
+                FILE_PATTERN.replace(text) {
+                    val matchText = it.groupValues[1]
+                    val matchLink = it.groupValues[2]
+                    """<a href="$matchLink" class="file" data-value="$matchLink">$matchText</a>"""
+                }
+            }
     }
 
     companion object {

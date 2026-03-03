@@ -12,14 +12,15 @@ body {
 }
 
 .big-font {
-    font-size: 9vmin;
+    font-size: 6vmin;
     margin-top: 2vmin;
     margin-bottom: 5vmin;
+    text-align: center;
     font-weight: 900;
 }
 
 .small-font {
-    font-size: 4vmin;
+    font-size: 3vmin;
     margin-top: 0;
     margin-bottom: 2vmin;
 }
@@ -30,7 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     justify-content: center;
 }
 

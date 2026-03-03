@@ -45,7 +45,10 @@ object DefaultContentProvider {
                 }
             """.trimIndent()
 
-        Extension.PYTHON -> "# Write your code here"
+        Extension.PYTHON ->
+            """# Write your code here
+import pytest
+            """.trimIndent()
         else -> ""
     }
 
