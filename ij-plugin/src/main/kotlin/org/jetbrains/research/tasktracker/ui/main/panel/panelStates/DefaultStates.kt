@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import org.jetbrains.research.tasktracker.TaskTrackerPlugin
 import org.jetbrains.research.tasktracker.config.content.task.base.Task
 import org.jetbrains.research.tasktracker.config.content.task.base.TaskWithFiles
+import org.jetbrains.research.tasktracker.config.content.task.ProgrammingTask
 import org.jetbrains.research.tasktracker.config.scenario.models.*
 import org.jetbrains.research.tasktracker.requests.IdRequests
 import org.jetbrains.research.tasktracker.tracking.TaskFileHandler
@@ -84,7 +85,14 @@ fun Panel.processTask(id: String): Task {
     ApplicationManager.getApplication().invokeAndWait {
         TaskFileHandler.initTask(project, task)
     }
-    (task as? TaskWithFiles)?.focusFileId?.let { fileId ->
+    (task as? ProgrammingTask)?.let { programmingTask ->
+        if (programmingTask.openAllFiles) {
+            openAllTaskFiles(task)
+        }
+        programmingTask.focusFileId?.let { fileId ->
+            focusOnfFileById(task, fileId)
+        }
+    } ?: (task as? TaskWithFiles)?.focusFileId?.let { fileId ->
         focusOnfFileById(task, fileId)
     }
     return task
