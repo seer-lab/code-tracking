@@ -8,6 +8,11 @@ tasks:
         sourceSet: "SRC"
         extension: PYTHON
         id: "print_error_statement_coverage_file"
+      - filename: "print_error"
+        sourceSet: "SRC"
+        templateFile: "print_error"
+        extension: PYTHON
+        id: "print_error"
 
   - description: "Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import read.py and pytest."
     id: read_statement_coverage
@@ -18,6 +23,11 @@ tasks:
         sourceSet: "SRC"
         extension: PYTHON
         id: "read_statement_coverage_file"
+      - filename: "read"
+        sourceSet: "SRC"
+        templateFile: "read"
+        extension: PYTHON
+        id: "read"
 
   - description: "Branch Coverage: Causes every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import write.py and pytest."
     id: write_branch_coverage
@@ -28,6 +38,11 @@ tasks:
         sourceSet: "SRC"
         extension: PYTHON
         id: "write_branch_coverage_file"
+      - filename: "write"
+        sourceSet: "SRC"
+        templateFile: "write"
+        extension: PYTHON
+        id: "write"
 
   - description: "Path Coverage: Ensures that every unique path through the program, from start to finish, is executed at least once.\n\nSystem: Design test cases to cover all possible paths in the control flow graph of the program.\n\nCompletion criterion: A test case for every distinct control flow path.\n\nNote: You only need to do path coverage for the provided code for this study.\n\nYou will need to import read.py and pytest."
     id: read_path_coverage
@@ -38,3 +53,8 @@ tasks:
         sourceSet: "SRC"
         extension: PYTHON
         id: "read_path_coverage_file"
+      - filename: "read"
+        sourceSet: "SRC"
+        templateFile: "read"
+        extension: PYTHON
+        id: "read"
