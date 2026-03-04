@@ -4,7 +4,7 @@ tasks:
     name: "Print Error Statement Coverage"
     focusFileId: "print_error_statement_coverage_file"
     files:
-      - filename: "print_error_test"
+      - filename: "test_print_error"
         sourceSet: "SRC"
         extension: PYTHON
         id: "print_error_statement_coverage_file"
@@ -20,7 +20,7 @@ tasks:
     name: "Read Statement Coverage"
     focusFileId: "read_statement_coverage_file"
     files:
-      - filename: "read_statement_test"
+      - filename: "test_read_statement"
         sourceSet: "SRC"
         extension: PYTHON
         id: "read_statement_coverage_file"
@@ -36,7 +36,7 @@ tasks:
     name: "Write Branch Coverage"
     focusFileId: "write_branch_coverage_file"
     files:
-      - filename: "write_branch_test"
+      - filename: "test_write_branch"
         sourceSet: "SRC"
         extension: PYTHON
         id: "write_branch_coverage_file"
@@ -52,7 +52,7 @@ tasks:
     name: "Read Path Coverage"
     focusFileId: "read_path_coverage_file"
     files:
-      - filename: "read_branch_test"
+      - filename: "test_read_branch"
         sourceSet: "SRC"
         extension: PYTHON
         id: "read_path_coverage_file"
