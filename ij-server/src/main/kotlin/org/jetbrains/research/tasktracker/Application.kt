@@ -11,6 +11,12 @@ fun main() {
         Netty,
         port = getEnvOrNull("PORT")?.toIntOrNull() ?: 8080,
         host = getEnvOrNull("HOST") ?: "0.0.0.0",
+        configure = {
+            // Support 75+ concurrent students with multiple requests each
+            connectionGroupSize = 4
+            workerGroupSize = 16
+            callGroupSize = 32
+        },
         module = Application::module
     )
         .start(wait = true)

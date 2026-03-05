@@ -20,16 +20,35 @@ object IdRequests {
         runBlocking {
             val url = getRoute("create-user")
             try {
-                return@runBlocking client.submitForm(
+                val response = client.submitForm(
                     url = url,
                     formParameters = mapOf(
                         "pin" to pin,
                     ).buildParameters()
-                ).body<Int>()
+                )
+                val statusCode = response.status
+                val body = response.body<String>()
+                
+                if (statusCode.isSuccess()) {
+                    return@runBlocking if (body.isNotBlank()) {
+                        try {
+                            body.toInt()
+                        } catch (e: NumberFormatException) {
+                            logger.warn("Failed to parse user ID from response body. Status: $statusCode, Body: '$body', Pin: $pin")
+                            null
+                        }
+                    } else {
+                        logger.warn("Empty response body from server. Status: $statusCode, URL: $url, Pin: $pin")
+                        null
+                    }
+                } else {
+                    logger.warn("Server returned error status. Status: $statusCode, Body: '$body', URL: $url, Pin: $pin")
+                    null
+                }
             } catch (e: Exception) {
-                logger.warn("Server interaction error while getting user id! Url: $url", e)
+                logger.warn("Server interaction error while getting user id! Url: $url, Pin: $pin", e)
+                null
             }
-            return@runBlocking null
         }
 
     @Suppress("TooGenericExceptionCaught")

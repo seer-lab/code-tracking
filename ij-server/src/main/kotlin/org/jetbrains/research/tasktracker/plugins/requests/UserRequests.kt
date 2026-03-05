@@ -16,29 +16,41 @@ fun Routing.createUser() {
     post("/create-user") {
         val formParameters = call.receiveParameters()
         try {
+            val pin = formParameters.getOrFail("pin")
             val userId = transaction {
-                val pin = formParameters.getOrFail("pin")
                 getUserId(pin)
             }
-            call.respondText(
-                userId.toString(),
-                status = HttpStatusCode.OK
-            )
+            
+            if (userId != null) {
+                call.respondText(
+                    userId.toString(),
+                    status = HttpStatusCode.OK
+                )
+            } else {
+                call.respond(HttpStatusCode.InternalServerError, "Failed to create or retrieve user")
+            }
         } catch (e: IllegalArgumentException) {
-            call.respond(HttpStatusCode.BadRequest, e.localizedMessage)
+            call.respond(HttpStatusCode.BadRequest, e.localizedMessage ?: "Bad request")
         } catch (e: MissingRequestParameterException) {
-            call.respond(HttpStatusCode.BadRequest, e.localizedMessage)
+            call.respond(HttpStatusCode.BadRequest, e.localizedMessage ?: "Missing parameter")
+        } catch (e: Exception) {
+            call.respond(HttpStatusCode.InternalServerError, "Server error: ${e.localizedMessage ?: e.message}")
         }
     }
 }
 
 @Suppress("SwallowedException")
-fun getUserId(pin: String): Int {
-    val user = User.find { (Users.pin eq pin) }
-    if (user.empty()) {
-        return User.new {
-            this.pin = pin
-        }.id.value
+fun getUserId(pin: String): Int? {
+    return try {
+        val user = User.find { (Users.pin eq pin) }
+        if (user.empty()) {
+            User.new {
+                this.pin = pin
+            }.id.value
+        } else {
+            user.first().id.value
+        }
+    } catch (e: Exception) {
+        null
     }
-    return user.first().id.value
 }
