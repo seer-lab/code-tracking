@@ -1,4 +1,20 @@
 tasks:
+  - description: "Sample Task - Statement Coverage: This task is a sample for reference only to show what a basic Python unit test using pytest looks like.\n\nStatement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
+    id: sample_statement_coverage
+    name: "Statement Coverage Sample"
+    focusFileId: "statement_coverage_sample"
+    files:
+      - filename: "test_sample"
+        sourceSet: "SRC"
+        templateFile: "test_sample"
+        extension: PYTHON
+        id: "test_sample_file"
+      - filename: "sample"
+        sourceSet: "SRC"
+        templateFile: "sample"
+        extension: PYTHON
+        id: "sample"
+    openAllFiles: true
   - description: "Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
     id: print_error_statement_coverage
     name: "Print Error Statement Coverage"

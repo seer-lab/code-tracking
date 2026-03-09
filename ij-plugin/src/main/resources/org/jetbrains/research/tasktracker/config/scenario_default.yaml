@@ -3,7 +3,8 @@ scenario:
     - units:
         - !<List>
           taskIds:
+            - "sample_statement_coverage"
             - "print_error_statement_coverage"
             - "read_statement_coverage"
             - "write_branch_coverage"
-            - "read_path_coverage"
+#            - "read_path_coverage"
