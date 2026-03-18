@@ -1,5 +1,3 @@
-[![Gradle Build](https://github.com/JetBrains-Research/tasktracker-3/actions/workflows/build.yml/badge.svg)](https://github.com/JetBrains-Research/tasktracker-3/actions/workflows/build.yml)
-
 # KOALA (Knowledge Observation and Learning Analytics)
 
 **KOALA** is a powerful tool designed to run controlled experiments and collect data directly within JetBrains IDEs. Its
