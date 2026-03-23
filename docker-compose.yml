@@ -8,4 +8,4 @@ services:
     environment:
       - DB_URL=jdbc:postgresql://host.docker.internal:5432/tasktracker
       - DB_USERNAME=BishaFatima
-      - DB_PASSWORD=Bisha#333
+      - DB_PASSWORD=
