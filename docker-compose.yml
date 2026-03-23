@@ -1,10 +1,11 @@
 services:
   server:
-    image: koala-server:latest  # Create the local image: docker build --platform linux/amd64 -t koala-server .
-    platform: linux/amd64
+    image: registry.jetbrains.team/p/tasktracker-3/sharable/tasktracker-server:latest
     ports:
       - "8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      - DB_URL=jdbc:postgresql://host.docker.internal:5432/koala
-      - DB_USERNAME=
-      - DB_PASSWORD=
+      - DB_URL=jdbc:postgresql://host.docker.internal:5432/tasktracker
+      - DB_USERNAME=BishaFatima
+      - DB_PASSWORD=Bisha#333

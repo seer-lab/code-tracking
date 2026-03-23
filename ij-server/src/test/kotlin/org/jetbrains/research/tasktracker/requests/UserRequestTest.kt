@@ -21,8 +21,7 @@ class UserRequestTest {
         transaction {
             val user = User.findById(id)
             assertNotNull(user)
-            assertEquals("example", user.name)
-            assertEquals("example@example.example", user.email)
+            assertEquals("example", user.pin)
         }
     }
 

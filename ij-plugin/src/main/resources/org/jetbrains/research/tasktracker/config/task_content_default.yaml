@@ -1,4 +1,26 @@
 tasks:
-  - description: "Description should be specified here"
-    id: main
-    name: "Name Example"
+  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/java/MagicSquare/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. "
+    id: Task 1 - Magic Square
+    name: "Magic Square"
+    focusFileId: "print_error_statement_coverage_file"
+
+    files:
+      - filename: "MagicSquareStudy7x7"
+        sourceSet: "SRC"
+        templateFile: "MagicSquareStudy7x7"
+        extension: JAVA
+        id: "MagicSquareStudy7x7"
+    openAllFiles: true
+
+  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/java/WordSearch/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. "
+    id: Task 2 - Word Search
+    name: "Word Search"
+    focusFileId: "WordSearch7x7"
+    files:
+      - filename: "WordSearch7x7"
+        sourceSet: "SRC"
+        templateFile: "WordSearch7x7"
+        extension: JAVA
+        id: "WordSearch7x7"
+    openAllFiles: true
+

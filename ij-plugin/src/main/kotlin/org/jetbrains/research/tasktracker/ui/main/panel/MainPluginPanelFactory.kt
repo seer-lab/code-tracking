@@ -14,6 +14,7 @@ import kotlinx.serialization.json.Json
 import org.jetbrains.concurrency.Promise
 import org.jetbrains.research.tasktracker.TaskTrackerPlugin
 import org.jetbrains.research.tasktracker.config.content.task.base.Task
+import org.jetbrains.research.tasktracker.config.content.task.base.TaskWithFiles
 import org.jetbrains.research.tasktracker.tracking.TaskFileHandler
 import org.jetbrains.research.tasktracker.tracking.TrackingService
 import org.jetbrains.research.tasktracker.ui.main.panel.models.AgreementChecker
@@ -107,6 +108,21 @@ class MainPluginPanelFactory : ToolWindowFactory {
         } ?: TaskFileHandler.projectToTaskToFiles[project]?.get(task)?.first()?.let {
             focusOnFile(it)
         } ?: logger.error("Can't find any file for '$task' task")
+    }
+
+    /**
+     * Opens all files associated with a task in the editor.
+     */
+    fun openAllTaskFiles(task: Task) {
+        (task as? TaskWithFiles)?.let { taskWithFiles ->
+            taskWithFiles.files.forEach { taskFile ->
+                taskFile.id?.let { id ->
+                    TaskFileHandler.getVirtualFileByProjectTaskId(project, task, id)?.let {
+                        focusOnFile(it)
+                    }
+                }
+            }
+        }
     }
 
     /**

@@ -2,6 +2,7 @@ scenario:
   steps:
     - units:
         - !<Task>
-          id: "main"
-        - !<Survey>
-          id: "default"
+          id: "Task 1 - Magic Square"
+
+        - !<Task>
+          id: "Task 2 - Word Search"

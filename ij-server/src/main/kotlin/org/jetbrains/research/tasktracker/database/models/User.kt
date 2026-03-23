@@ -9,15 +9,13 @@ import org.jetbrains.research.tasktracker.database.models.Users.uniqueIndex
 class User(id: EntityID<Int>) : Entity<Int>(id) {
     companion object : EntityClass<Int, User>(Users)
 
-    var name by Users.name
-    var email by Users.email.uniqueIndex()
+    var pin by Users.pin
 }
 
 object Users : IntIdTable() {
-    val name = text("name")
-    val email = text("email")
+    val pin = text("pin")
 
     init {
-        uniqueIndex(name, email)
+        uniqueIndex(pin)
     }
 }
