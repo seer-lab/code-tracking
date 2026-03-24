@@ -1,4 +1,128 @@
 tasks:
-  - description: "Description should be specified here"
-    id: main
-    name: "Name Example"
+  - description: |
+      <html>
+      <b>Input:</b> one string containing one word. Length is 1 to 100.<br><br>
+      
+      <b>Output:</b> If the length is strictly more than 10 characters the word is considered too long.<br><br>
+      
+      </html>
+    id: "question1"
+    name: "First Question"
+    focusFileId: "example_one_file"
+    files:
+      - filename: "question_one"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_one"
+        isInternal: false
+        id: "example_one_file"
+  - description:  |
+      <html>
+      <b>Input:</b> first line contains the number of statements in the program (not inclusive). The following lines contain the operations. Operations are “++” for addition by 1 r “--” for subtraction of 1. With X (the current value) before or after the operation (eg “X++” or “++X”). Not a valid input if other characters are present of “X” not used.<br><br>
+      
+      <b>Output:</b> Print out the new value of X.<br><br>
+      
+      </html>
+    id: "question2"
+    name: "Second Question"
+    focusFileId: "question_two_file"
+    files:
+      - filename: "question_two"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_two"
+        isInternal: false
+        id: "question_two_file"
+  - description:  |
+      <html>
+      <b>Input:</b> Consists of a random sequence of 0 and 1s. If one of 0 or 1 is present 7 times in a row or more then the situation is considered dangerous; if not, then safe (inputs can not be greater than 100 characters). <br><br>
+      
+      <b>Output:</b> Print YES if safe and NO if not safe. <br><br>
+      
+      </html>
+    id: "question3"
+    name: "Third Question"
+    focusFileId: "question_three_file"
+    files:
+      - filename: "question_three"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_three"
+        isInternal: false
+        id: "question_three_file"
+  - description:  |
+      <html>
+      <b>Task:</b><br>
+      Vasya makes a remix by inserting the word "WUB" before the 
+      <br>first word, after the last word, and between words 
+      <br>(at least one between any pair). Your job is to restore 
+      <br>the original song by removing all "WUB" occurrences and 
+      <br>replacing them with single spaces where necessary.<br><br>
+      
+      <b>Input:</b><br>
+      The input consists of a single non-empty string consisting only 
+      <br>of uppercase English letters. The length of the string does 
+      <br>not exceed 200 characters.<br><br>
+
+      <b>Output:</b><br>
+      Print the words of the initial song that Vasya used to make a 
+      <br>dubsteb remix. Separate the words with a space.<br><br>
+
+      </html>
+    id: "question4"
+    name: "Fourth Question"
+    focusFileId: "question_four_file"
+    files:
+      - filename: "question_four"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_four"
+        isInternal: false
+        id: "question_four_file"
+  - description: |
+      <html>
+      <b>Task:</b><br> Petya needs a program that processes a given string by performing the following steps in order:<br>
+      1. Deletes all the vowels.<br>
+      2. Inserts a character "." before each remaining consonant.<br>
+      3. Replaces all uppercase consonants with corresponding lowercase ones.<br><br>
+      <i>Note:</i> Vowels are the letters "A", "O", "Y", "E", "U", "I", and the rest are consonants.<br><br>
+      <b>Input:</b><br>
+      One string consisting of uppercase and lowercase Latin letters with a length from 1 to 100, inclusive.<br><br>
+      
+      <b>Output:</b><br> Print the resulting string. It is guaranteed that this string is not empty.<br><br>
+      </html>
+    id: "question5"
+    name: "Fifth Question"
+    focusFileId: "question_five_file"
+    files:
+      - filename: "question_five"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_five"
+        isInternal: false
+        id: "question_five_file"
+  - description: |
+      <html>
+      <b>Task:</b><br>
+      Olesya loves numbers consisting of <b>n</b> digits, and Rodion loves numbers which are divisible by <b>t</b>.
+      Find a number that makes both of them happy—a number with exactly <b>n</b> digits that is divisible by <b>t</b>.<br><br>
+                             
+      If no such number exists, print -1.<br><br>
+                               
+      <b>Input:</b><br>
+      Two integers <b>n</b> and <b>t</b> (1 ≤ n ≤ 100, 2 ≤ t ≤ 10).<br><br>
+                               
+      <b>Output:</b><br>
+      Print any <b>n</b>-digit integer (without leading zeros) that is divisible by <b>t</b>. If there is no such number, print -1.<br><br>
+                                
+      </html>
+    id: "question6"
+    name: "Sixth Question"
+    focusFileId: "question_six_file"
+    files:
+      - filename: "question_six"
+        sourceSet: "SRC"
+        extension: PYTHON
+        templateFile: "question_six"
+        isInternal: false
+        id: "question_six_file"

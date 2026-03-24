@@ -2,6 +2,14 @@ scenario:
   steps:
     - units:
         - !<Task>
-          id: "main"
-        - !<Survey>
-          id: "default"
+          id: "question1"
+        - !<Task>
+          id: "question2"
+        - !<Task>
+          id: "question3"
+        - !<Task>
+          id: "question4"
+        - !<Task>
+          id: "question5"
+        - !<Task>
+          id: "question6"
