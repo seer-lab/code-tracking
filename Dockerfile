@@ -17,7 +17,7 @@ WORKDIR /home/gradle/src
 RUN gradle ij-server:buildFatJar --no-daemon
 
 # Stage 3: Create the Runtime Image
-FROM amazoncorretto:11 AS runtime
+FROM amazoncorretto:17 AS runtime
 EXPOSE 8080
 RUN mkdir /app
 RUN mkdir -p /data/tt-files && chmod -R 777 /data/tt-files
