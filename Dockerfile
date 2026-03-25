@@ -19,8 +19,7 @@ RUN gradle ij-server:buildFatJar --no-daemon
 # Stage 3: Create the Runtime Image
 FROM amazoncorretto:11 AS runtime
 EXPOSE 8080
-RUN mkdir /app \
-# Make sure /data/tt-files directory exists in the runtime image
+RUN mkdir /app
 RUN mkdir -p /data/tt-files && chmod -R 777 /data/tt-files
 COPY --from=build /home/gradle/src/ij-server/build/libs/ij-server-all.jar /app/ktor-docker-sample.jar
 ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]
