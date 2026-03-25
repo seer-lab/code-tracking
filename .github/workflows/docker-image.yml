@@ -28,7 +28,7 @@ jobs:
         BRANCH_MAP[adam]="code-tracking-emote"
         BRANCH_MAP[bisha]="code-tracking-ai"
 
-        BRANCH="${GITHUB_REF_NAME}"
+        BRANCH="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
         IMAGE_NAME="${BRANCH_MAP[$BRANCH]}"
 
         if [ -z "$IMAGE_NAME" ]; then
