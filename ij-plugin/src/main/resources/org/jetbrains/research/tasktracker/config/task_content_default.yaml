@@ -1,80 +1,50 @@
 tasks:
-  - description: "Sample Task - Statement Coverage: This task is a sample for reference only to show what a basic Python unit test using pytest looks like.\n\nStatement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
-    id: sample_statement_coverage
-    name: "Statement Coverage Sample"
-    focusFileId: "statement_coverage_sample"
+
+  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/python/MagicSquare/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
+    id: statement_coverage
+    name: "Calculate GPA Statement Coverage"
+    focusFileId: "test_calculate_gpa"
     files:
-      - filename: "test_sample"
-        sourceSet: "SRC"
-        templateFile: "test_sample"
-        extension: PYTHON
-        id: "test_sample_file"
-      - filename: "sample"
-        sourceSet: "SRC"
-        templateFile: "sample"
-        extension: PYTHON
-        id: "sample"
-    openAllFiles: true
-  - description: "Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
-    id: print_error_statement_coverage
-    name: "Print Error Statement Coverage"
-    focusFileId: "print_error_statement_coverage_file"
-    files:
-      - filename: "test_print_error"
+      - filename: "test_calculate_gpa"
         sourceSet: "SRC"
         extension: PYTHON
-        id: "print_error_statement_coverage_file"
-      - filename: "print_error"
+        id: "test_calculate_gpa"
+      - filename: "calculate_gpa"
         sourceSet: "SRC"
-        templateFile: "print_error"
+        templateFile: "calculate_gpa"
         extension: PYTHON
-        id: "print_error"
+        id: "calculate_gpa"
     openAllFiles: true
 
-  - description: "Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import read.py and pytest."
-    id: read_statement_coverage
-    name: "Read Statement Coverage"
-    focusFileId: "read_statement_coverage_file"
+  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/python/WordSearch/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. Branch Coverage: Causes every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import write.py and pytest."
+    id: branch_coverage
+    name: "Check Parcel Branch Coverage"
+    focusFileId: "test_check_parcel"
     files:
-      - filename: "test_read_statement"
+      - filename: "test_check_parcel"
         sourceSet: "SRC"
         extension: PYTHON
-        id: "read_statement_coverage_file"
-      - filename: "read"
+        id: "test_check_parcel"
+      - filename: "check_parcel"
         sourceSet: "SRC"
-        templateFile: "read"
+        templateFile: "check_parcel"
         extension: PYTHON
-        id: "read"
+        id: "check_parcel"
     openAllFiles: true
 
-  - description: "Branch Coverage: Causes every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import write.py and pytest."
-    id: write_branch_coverage
-    name: "Write Branch Coverage"
-    focusFileId: "write_branch_coverage_file"
-    files:
-      - filename: "test_write_branch"
-        sourceSet: "SRC"
-        extension: PYTHON
-        id: "write_branch_coverage_file"
-      - filename: "write"
-        sourceSet: "SRC"
-        templateFile: "write"
-        extension: PYTHON
-        id: "write"
-    openAllFiles: true
-
-  - description: "Path Coverage: Ensures that every unique path through the program, from start to finish, is executed at least once.\n\nSystem: Design test cases to cover all possible paths in the control flow graph of the program.\n\nCompletion criterion: A test case for every distinct control flow path.\n\nNote: You only need to do path coverage for the provided code for this study.\n\nYou will need to import read.py and pytest."
-    id: read_path_coverage
-    name: "Read Path Coverage"
-    focusFileId: "read_path_coverage_file"
-    files:
-      - filename: "test_read_branch"
-        sourceSet: "SRC"
-        extension: PYTHON
-        id: "read_path_coverage_file"
-      - filename: "read"
-        sourceSet: "SRC"
-        templateFile: "read"
-        extension: PYTHON
-        id: "read"
-    openAllFiles: true
+#  - description: "Sample Task - Statement Coverage: This task is a sample for reference only to show what a basic Python unit test using pytest looks like.\n\nStatement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
+#    id: sample_statement_coverage
+#    name: "Statement Coverage Sample"
+#    focusFileId: "statement_coverage_sample"
+#    files:
+#      - filename: "test_sample"
+#        sourceSet: "SRC"
+#        templateFile: "test_sample"
+#        extension: PYTHON
+#        id: "test_sample_file"
+#      - filename: "sample"
+#        sourceSet: "SRC"
+#        templateFile: "sample"
+#        extension: PYTHON
+#        id: "sample"
+#    openAllFiles: true
