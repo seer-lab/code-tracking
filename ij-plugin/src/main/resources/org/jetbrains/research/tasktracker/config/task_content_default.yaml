@@ -1,50 +1,65 @@
 tasks:
-
-  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/python/CalculateGPAStatementCoverage/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. Statement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
+  - description: "Using a Python testing framework of your choice, build a set of tests to meet statement coverage for grade_scale.py.\n\nPlease do not use AI tools to complete this task.\n\nStatement Coverage:\n\n- Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least 
+  capable of executing correctly.\n\n- System: Make a test case for each statement in the program, independent of the others.\n\n- Completion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please upload the file in LimeSurvey.\n\nThe files can be found in the tasktracker/Python/GradeScale/src in your project root."
     id: statement_coverage
-    name: "Calculate GPA Statement Coverage"
-    focusFileId: "test_calculate_gpa"
+    name: "Grade Scale"
+    focusFileId: "test_grade_scale"
     files:
-      - filename: "test_calculate_gpa"
+      - filename: "test_grade_scale"
         sourceSet: "SRC"
         extension: PYTHON
-        id: "test_calculate_gpa"
-      - filename: "calculate_gpa"
+        id: "test_grade_scale"
+      - filename: "grade_scale"
         sourceSet: "SRC"
-        templateFile: "calculate_gpa"
+        templateFile: "grade_scale"
         extension: PYTHON
-        id: "calculate_gpa"
+        id: "grade_scale"
     openAllFiles: true
 
-  - description: "Complete the task using the instructions on LimeSurvey. The task file will be under tasktracker/python/CheckParcelBranchCoverage/src. /n/n After completing the task, and submitting the files on LimeSurvey, click next. Branch Coverage: Causes every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import write.py and pytest."
-    id: branch_coverage
-    name: "Check Parcel Branch Coverage"
-    focusFileId: "test_check_parcel"
+  - description: "Using a Python testing framework of your choice, build a set of tests to meet branch coverage for summarize_numbers.py\n\nPlease do not use AI tools to complete this task.\n\nBranch Coverage:\n\nCauses every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please upload the file in LimeSurvey.\n\nThe files can be found in the tasktracker/Python/SummarizeNumbers/src in your project root."
+    id: branch_loop_coverage
+    name: "Summarize Numbers"
+    focusFileId: "test_summarize_numbers"
     files:
-      - filename: "test_check_parcel"
+      - filename: "test_summarize_numbers"
         sourceSet: "SRC"
         extension: PYTHON
-        id: "test_check_parcel"
-      - filename: "check_parcel"
+        id: "test_summarize_numbers"
+      - filename: "summarize_numbers"
         sourceSet: "SRC"
-        templateFile: "check_parcel"
+        templateFile: "summarize_numbers"
         extension: PYTHON
-        id: "check_parcel"
+        id: "summarize_numbers"
     openAllFiles: true
 
-#  - description: "Sample Task - Statement Coverage: This task is a sample for reference only to show what a basic Python unit test using pytest looks like.\n\nStatement Coverage: Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\nSystem: Make a test case for each statement in the program, independent of the others.\n\nCompletion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please back up the file in a separate location before submitting it.\n\nThe files can be found in the tasktracker directory.\n\nYou will need to import print_error.py and pytest."
-#    id: sample_statement_coverage
-#    name: "Statement Coverage Sample"
-#    focusFileId: "statement_coverage_sample"
-#    files:
-#      - filename: "test_sample"
-#        sourceSet: "SRC"
-#        templateFile: "test_sample"
-#        extension: PYTHON
-#        id: "test_sample_file"
-#      - filename: "sample"
-#        sourceSet: "SRC"
-#        templateFile: "sample"
-#        extension: PYTHON
-#        id: "sample"
-#    openAllFiles: true
+  - description: "Using a Python testing framework of your choice, build a set of tests to meet statement coverage for classify_triangle.py.\n\nYou are required to use Continue.dev as your AI Assistant for this part. Instructions on how to set it up in PyCharm are in LimeSurvey\n\nStatement Coverage:\n\n- Causes every statement in the program to be executed at least once, giving us confidence that every statement is at least capable of executing correctly.\n\n- System: Make a test case for each statement in the program, independent of the others.\n\n- Completion criterion: A test case for every statement.\n\nNote: You only need to do statement coverage for the provided code for this study.\n\nWhen you are done the task, please upload the file in LimeSurvey.\n\nThe files can be found in the tasktracker/Python/ClassifyTriangle/src in your project root."
+    id: statement_coverage_ai
+    name: "Classify Triangle"
+    focusFileId: "test_classify_triangle"
+    files:
+      - filename: "test_classify_triangle"
+        sourceSet: "SRC"
+        extension: PYTHON
+        id: "test_classify_triangle"
+      - filename: "classify_triangle"
+        sourceSet: "SRC"
+        templateFile: "classify_triangle"
+        extension: PYTHON
+        id: "classify_triangle"
+    openAllFiles: true
+
+  - description: "Using a Python testing framework of your choice, build a set of tests to meet branch coverage for process_cart.py\n\nYou are required to use Continue.dev as your AI Assistant for this part. Instructions on how to set it up in PyCharm are in LimeSurvey\n\nBranch Coverage:\n\nCauses every decision (if, switch, while, etc.) in the program to be made both ways (or every possible way for switch).\n\nSystem: Design a test case to exercise each decision in the program each way (true/false).\n\nCompletion criterion: A test case for each side of each decision.\n\nNote: You only need to do branch coverage for the provided code for this study.\n\nWhen you are done the task, please upload the file in LimeSurvey.\n\nThe files can be found in the tasktracker/Python/ProcessCart/src in your project root."
+    id: branch_loop_coverage_ai
+    name: "Process Cart"
+    focusFileId: "test_process_cart"
+    files:
+      - filename: "test_process_cart"
+        sourceSet: "SRC"
+        extension: PYTHON
+        id: "test_process_cart"
+      - filename: "process_cart"
+        sourceSet: "SRC"
+        templateFile: "process_cart"
+        extension: PYTHON
+        id: "process_cart"
+    openAllFiles: true
