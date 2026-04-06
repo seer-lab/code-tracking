@@ -1,14 +1,17 @@
-def grade_scale(score):
-    if score < 0 or score > 100:
+def grade_scale(test1, test2, test3):
+
+    average = (test1 + test2 + test3) / 3
+
+    if average < 0 or average > 100:
         return "invalid"
 
-    if score >= 90:
+    if average >= 80:
         grade = "A"
-    elif score >= 75:
+    elif average >= 70:
         grade = "B"
-    elif score >= 60:
+    elif average >= 60:
         grade = "C"
-    elif score >= 50:
+    elif average >= 50:
         grade = "D"
     else:
         grade = "F"
