@@ -2,20 +2,20 @@ scenario:
   steps:
     - units:
 #       EVEN NUMBERED PINS
-        - !<Task>
-          id: "statement_coverage"
-        - !<Task>
-          id: "branch_loop_coverage"
-        - !<Task>
-          id: "statement_coverage_ai"
-        - !<Task>
-          id: "branch_loop_coverage_ai"
-#        ODD NUMBERED PINS
-#        - !<Task>
-#          id: "statement_coverage_ai"
-#        - !<Task>
-#          id: "branch_loop_coverage_ai"
 #        - !<Task>
 #          id: "statement_coverage"
 #        - !<Task>
 #          id: "branch_loop_coverage"
+#        - !<Task>
+#          id: "statement_coverage_ai"
+#        - !<Task>
+#          id: "branch_loop_coverage_ai"
+#        ODD NUMBERED PINS
+        - !<Task>
+          id: "statement_coverage_ai"
+        - !<Task>
+          id: "branch_loop_coverage_ai"
+        - !<Task>
+          id: "statement_coverage"
+        - !<Task>
+          id: "branch_loop_coverage"
