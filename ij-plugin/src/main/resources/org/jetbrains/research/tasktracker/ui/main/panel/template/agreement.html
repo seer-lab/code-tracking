@@ -2,12 +2,14 @@
     <div class="box">
         <p class="big-font">Register in study</p>
         <div class="form-group">
-            <input class="input" type="text" name="name" id="name" placeholder="Name" required>
+            <input class="input" type="text" name="name" id="name" placeholder="PIN" required>
         </div>
         <br>
+        <!--
         <div class="form-group">
             <input class="input" type="email" name="email" id="email" placeholder="Email" required>
         </div>
+        -->
         <div class="agreement-container">
             <p>I agree to the terms and conditions:</p>
             %s
@@ -52,7 +54,7 @@
         let email = document.getElementById('email')
         let name = document.getElementById('name')
         let inputs = {
-            email: email.value,
+            email: "NA",
             name: name.value,
             agreements: []
         }

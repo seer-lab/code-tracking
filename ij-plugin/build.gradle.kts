@@ -101,8 +101,8 @@ tasks {
     }
 
     withType<JavaCompile> {
-        sourceCompatibility = jdkVersion
-        targetCompatibility = JavaVersion.VERSION_21.toString()
+        sourceCompatibility = "21"
+        targetCompatibility = "21"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         compilerOptions.jvmTarget.set(JvmTarget.JVM_21)
@@ -113,3 +113,14 @@ tasks {
     }
 
 }
+
+kotlin {
+    jvmToolchain(21)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
