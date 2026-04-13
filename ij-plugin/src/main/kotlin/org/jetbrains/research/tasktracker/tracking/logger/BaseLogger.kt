@@ -1,7 +1,5 @@
 package org.jetbrains.research.tasktracker.tracking.logger
 
-import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.application.runWriteAction
 import com.intellij.openapi.util.io.FileUtil
 import com.jetbrains.rd.util.AtomicInteger
 import org.apache.commons.csv.CSVFormat
@@ -21,48 +19,56 @@ abstract class BaseLogger {
 
     private val logPrinters = mutableListOf<LogPrinter>()
     private val atomicInteger = AtomicInteger(0)
+    private val lock = Any()
 
     protected fun log(dataToPrint: Iterable<*>) {
         val logPrinter = getActiveLogPrinter()
-        ApplicationManager.getApplication().invokeLater {
-            runWriteAction { logPrinter.csvPrinter.printRecord(dataToPrint) }
+        // Writing to a plain file via CSVPrinter does not require IDE write action; just ensure thread-safety.
+        synchronized(lock) {
+            logPrinter.csvPrinter.printRecord(dataToPrint)
         }
     }
 
     /**
      * Gets the active logPrinter or creates a new one if there was none or the active one was full
      */
-    private fun getActiveLogPrinter(): LogPrinter {
+    private fun getActiveLogPrinter(): LogPrinter = synchronized(lock) {
         val activePrinter = getLastPrinter()
-        return if (activePrinter.isFull()) {
+        if (activePrinter.isFull()) {
             addLogPrinter()
         } else {
             activePrinter
         }
     }
 
-    private fun getLastPrinter() = if (logPrinters.isEmpty()) {
-        addLogPrinter()
-    } else {
+    private fun getLastPrinter(): LogPrinter = synchronized(lock) {
+        if (logPrinters.isEmpty()) {
+            addLogPrinter()
+        } else {
+            logPrinters.last()
+        }
+    }
+
+    private fun addLogPrinter(): LogPrinter = synchronized(lock) {
+        val logFile = createLogFile("${logPrinterFilename}${atomicInteger.getAndIncrement()}.csv")
+        val fileWriter = OutputStreamWriter(FileOutputStream(logFile), StandardCharsets.UTF_8)
+        val csvPrinter = CSVPrinter(fileWriter, CSVFormat.DEFAULT)
+        csvPrinter.printRecord(loggedData.headers)
+        logPrinters.add(LogPrinter(csvPrinter, fileWriter, logFile))
         logPrinters.last()
     }
 
-    private fun addLogPrinter(): LogPrinter {
-        val logFile = createLogFile("$logPrinterFilename${atomicInteger.getAndIncrement()}.csv")
-        val fileWriter = OutputStreamWriter(FileOutputStream(logFile), StandardCharsets.UTF_8)
-        val csvPrinter = CSVPrinter(fileWriter, CSVFormat.DEFAULT)
-        runWriteAction { csvPrinter.printRecord(loggedData.headers) }
-        logPrinters.add(LogPrinter(csvPrinter, fileWriter, logFile))
-        return logPrinters.last()
-    }
-
-    private fun createLogFile(fileName: String): File = runWriteAction {
+    private fun createLogFile(fileName: String): File {
+        val logDir = File(MainTaskTrackerConfig.logFilesFolder)
+        if (!logDir.exists()) {
+            logDir.mkdirs()
+        }
         val logFile = File("${MainTaskTrackerConfig.logFilesFolder}/$fileName")
         FileUtil.createIfDoesntExist(logFile)
-        logFile
+        return logFile
     }
 
-    fun getLogFiles(): List<File> = runWriteAction {
+    fun getLogFiles(): List<File> = synchronized(lock) {
         logPrinters.map {
             it.csvPrinter.flush()
             it.logFile

@@ -1,128 +1,147 @@
 tasks:
   - description: |
       <html>
-      <b>Input:</b> one string containing one word. Length is 1 to 100.<br><br>
-      
-      <b>Output:</b> If the length is strictly more than 10 characters the word is considered too long.<br><br>
-      
+      <b>What to do:</b><br>
+      You are given a single word. If the word is <b>longer than 10 characters</b>, it is considered too long and needs to be shortened using a special abbreviation.<br><br>
+
+      <b>How to abbreviate:</b><br>
+      Keep the <b>first letter</b> and the <b>last letter</b> of the word, and replace everything in between with a <b>number</b> that represents how many letters were removed.<br>
+      For example, the word <code>internationalization</code> becomes <code>i18n</code> because there are 18 letters between the first <code>i</code> and the last <code>n</code>.<br><br>
+
+      If the word is <b>10 characters or fewer</b>, just print it as-is - no abbreviation needed.<br><br>
+
+      <b>Input:</b> A single word (1 to 100 characters long).<br><br>
+
+      <b>Output:</b> The abbreviated word if it is longer than 10 characters, or the original word if it is not.<br><br>
       </html>
     id: "question1"
     name: "First Question"
-    focusFileId: "example_one_file"
+    focusFileId: "question_one_first_year_file"
     files:
-      - filename: "question_one"
+      - filename: "question_one_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_one"
+        templateFile: "question_one_first_year"
         isInternal: false
-        id: "example_one_file"
-  - description:  |
+        id: "question_one_first_year_file"
+  - description: |
       <html>
-      <b>Input:</b> first line contains the number of statements in the program (not inclusive). The following lines contain the operations. Operations are “++” for addition by 1 r “--” for subtraction of 1. With X (the current value) before or after the operation (eg “X++” or “++X”). Not a valid input if other characters are present of “X” not used.<br><br>
-      
-      <b>Output:</b> Print out the new value of X.<br><br>
-      
+      <b>What to do:</b><br>
+      You are given a string made up of only <code>0</code>s and <code>1</code>s (like <code>1001101</code>). Your job is to check whether this string is <b>"safe"</b> or <b>"dangerous"</b>.<br><br>
+
+      The string is <b>dangerous</b> if the same digit (<code>0</code> or <code>1</code>) appears <b>7 or more times in a row</b>.<br>
+      Otherwise, it is <b>safe</b>.<br><br>
+
+      <b>Input:</b> A single string of <code>0</code>s and <code>1</code>s (up to 100 characters long).<br><br>
+
+      <b>Output:</b> Print <code>YES</code> if the string is safe, or <code>NO</code> if it is dangerous.<br><br>
       </html>
     id: "question2"
     name: "Second Question"
-    focusFileId: "question_two_file"
+    focusFileId: "question_two_first_year_file"
     files:
-      - filename: "question_two"
+      - filename: "question_two_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_two"
+        templateFile: "question_two_first_year"
         isInternal: false
-        id: "question_two_file"
-  - description:  |
+        id: "question_two_first_year_file"
+  - description: |
       <html>
-      <b>Input:</b> Consists of a random sequence of 0 and 1s. If one of 0 or 1 is present 7 times in a row or more then the situation is considered dangerous; if not, then safe (inputs can not be greater than 100 characters). <br><br>
-      
-      <b>Output:</b> Print YES if safe and NO if not safe. <br><br>
-      
+      <b>What to do:</b><br>
+      You are given a string of letters and need to transform it by following these three steps <b>in order</b>:<br><br>
+
+      <b>Step 1:</b> Remove all <b>vowels</b>. The vowels are: <code>A, E, I, O, U, Y</code> (both uppercase and lowercase).<br>
+      <b>Step 2:</b> Place a dot (<code>.</code>) before each remaining letter (these are all consonants now).<br>
+      <b>Step 3:</b> Convert any uppercase consonants to <b>lowercase</b>.<br><br>
+
+      <b>Input:</b> A single string of letters, between 1 and 100 characters long. It can contain both uppercase and lowercase letters.<br><br>
+
+      <b>Output:</b> The transformed string after applying all three steps.<br><br>
       </html>
     id: "question3"
     name: "Third Question"
-    focusFileId: "question_three_file"
+    focusFileId: "question_three_first_year_file"
     files:
-      - filename: "question_three"
+      - filename: "question_three_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_three"
+        templateFile: "question_three_first_year"
         isInternal: false
-        id: "question_three_file"
-  - description:  |
+        id: "question_three_first_year_file"
+  - description: |
       <html>
-      <b>Task:</b><br>
-      Vasya makes a remix by inserting the word "WUB" before the 
-      <br>first word, after the last word, and between words 
-      <br>(at least one between any pair). Your job is to restore 
-      <br>the original song by removing all "WUB" occurrences and 
-      <br>replacing them with single spaces where necessary.<br><br>
-      
+      <b>What to do:</b><br>
+      Imagine a simple program where a variable called <code>X</code> starts at <b>0</b>. The program contains a list of statements that either add 1 or subtract 1 from <code>X</code>.<br><br>
+
+      Each statement looks like one of these four options:<br>
+      <code>X++</code> -> adds 1 to X<br>
+      <code>++X</code> -> adds 1 to X<br>
+      <code>X--</code> -> subtracts 1 from X<br>
+      <code>--X</code> -> subtracts 1 from X<br><br>
+
+      (It does not matter whether <code>X</code> comes before or after the <code>++</code> or <code>--</code> — the result is the same.)<br><br>
+
       <b>Input:</b><br>
-      The input consists of a single non-empty string consisting only 
-      <br>of uppercase English letters. The length of the string does 
-      <br>not exceed 200 characters.<br><br>
+      The first line is a number telling you how many statements follow.<br>
+      Each following line contains one statement (like <code>X++</code> or <code>--X</code>).<br><br>
 
-      <b>Output:</b><br>
-      Print the words of the initial song that Vasya used to make a 
-      <br>dubsteb remix. Separate the words with a space.<br><br>
-
+      <b>Output:</b> Print the final value of <code>X</code> after all statements have been executed.<br><br>
       </html>
     id: "question4"
     name: "Fourth Question"
-    focusFileId: "question_four_file"
+    focusFileId: "question_four_first_year_file"
     files:
-      - filename: "question_four"
+      - filename: "question_four_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_four"
+        templateFile: "question_four_first_year"
         isInternal: false
-        id: "question_four_file"
+        id: "question_four_first_year_file"
   - description: |
       <html>
-      <b>Task:</b><br> Petya needs a program that processes a given string by performing the following steps in order:<br>
-      1. Deletes all the vowels.<br>
-      2. Inserts a character "." before each remaining consonant.<br>
-      3. Replaces all uppercase consonants with corresponding lowercase ones.<br><br>
-      <i>Note:</i> Vowels are the letters "A", "O", "Y", "E", "U", "I", and the rest are consonants.<br><br>
-      <b>Input:</b><br>
-      One string consisting of uppercase and lowercase Latin letters with a length from 1 to 100, inclusive.<br><br>
-      
-      <b>Output:</b><br> Print the resulting string. It is guaranteed that this string is not empty.<br><br>
+      <b>What to do:</b><br>
+      Someone has taken a song and turned it into a "dubstep remix" by inserting the word <code>WUB</code> everywhere — before the first word, after the last word, and between words.<br><br>
+
+      Your job is to recover the <b>original words</b> of the song by removing all the <code>WUB</code>s and printing the remaining words separated by spaces.<br><br>
+
+      <b>How it works:</b><br>
+      Think of <code>WUB</code> as a separator. Wherever you see one or more <code>WUB</code>s in a row, that is a gap between words (or padding at the start/end).<br><br>
+
+      <b>Input:</b> A single string of uppercase letters (up to 200 characters). It will contain at least one <code>WUB</code>.<br><br>
+
+      <b>Output:</b> Print the original words of the song, separated by single spaces.<br><br>
       </html>
     id: "question5"
     name: "Fifth Question"
-    focusFileId: "question_five_file"
+    focusFileId: "question_five_first_year_file"
     files:
-      - filename: "question_five"
+      - filename: "question_five_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_five"
+        templateFile: "question_five_first_year"
         isInternal: false
-        id: "question_five_file"
+        id: "question_five_first_year_file"
   - description: |
       <html>
-      <b>Task:</b><br>
-      Olesya loves numbers consisting of <b>n</b> digits, and Rodion loves numbers which are divisible by <b>t</b>.
-      Find a number that makes both of them happy—a number with exactly <b>n</b> digits that is divisible by <b>t</b>.<br><br>
-                             
-      If no such number exists, print -1.<br><br>
-                               
-      <b>Input:</b><br>
-      Two integers <b>n</b> and <b>t</b> (1 ≤ n ≤ 100, 2 ≤ t ≤ 10).<br><br>
-                               
-      <b>Output:</b><br>
-      Print any <b>n</b>-digit integer (without leading zeros) that is divisible by <b>t</b>. If there is no such number, print -1.<br><br>
-                                
+      <b>What to do:</b><br>
+      You are given two numbers: <b>n</b> and <b>t</b>. Your goal is to find <b>any</b> positive number that:<br>
+      1. Has exactly <b>n</b> digits (no leading zeros - so it cannot start with <code>0</code>).<br>
+      2. Is evenly divisible by <b>t</b> (meaning <code>number % t == 0</code>, i.e., there is no remainder).<br><br>
+
+      If no such number exists, print <code>-1</code>. If there are multiple valid answers, you can print any one of them.<br><br>
+
+      <b>Input:</b> Two integers on one line: <b>n</b> (1 ≤ n ≤ 100) and <b>t</b> (2 ≤ t ≤ 10).<br><br>
+
+      <b>Output:</b> A valid n-digit number divisible by t, or <code>-1</code> if none exists.<br><br>
       </html>
     id: "question6"
     name: "Sixth Question"
-    focusFileId: "question_six_file"
+    focusFileId: "question_six_first_year_file"
     files:
-      - filename: "question_six"
+      - filename: "question_six_first_year"
         sourceSet: "SRC"
         extension: PYTHON
-        templateFile: "question_six"
+        templateFile: "question_six_first_year"
         isInternal: false
-        id: "question_six_file"
+        id: "question_six_first_year_file"
