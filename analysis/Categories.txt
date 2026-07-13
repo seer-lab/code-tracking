@@ -1,0 +1,34 @@
+Autocompletion:
+- Action (where info = EditorChooseLookupItem, EditorChooseLookupItemReplace, InsertInlineCompletionAction, InsertInlineCompletionLineAction, InsertInlineCompletionWordAction, com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionPopupActionGroup, com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionTooltipActionsKt$shortcutActions$shortcutActions$1$1, com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly)
+
+Continue/AI:
+- Action (where info = continue.newContinueSession, continue.openConfigPage, continue.reloadPage)
+
+Copy/Paste:
+- Action (where info = EditorCopy, EditorCut, EditorPaste, $Copy)
+
+Editing/Writing:
+- KeyPressed
+- Action (where info = EditorDelete, EditorDeleteLine, EditorDeleteToWordEnd, EditorDeleteToWordStart, EditorDuplicateLines, EditorEnter, EditorIndentSelection, EditorTab, EditorUnindentSelection, $Delete, $SelectAll, $Undo, CommentByLineComment, MoveStatementDown, MoveStatementUp, EditorDownWithSelection, EditorUpWithSelection, EditorLeftWithSelection, EditorRightWithSelection, EditorLineEndWithSelection, EditorLineStartWithSelection, EditorPreviousWordWithSelection, SelectNextOccurrence, EditorBackSpace)
+
+Execution:
+- Execution
+- Action (where info = Debug, MoreRunToolbarActions, RedesignedRunConfigurationSelector, Run, RunAnything, RunClass, Stop, com.intellij.execution.actions.RunCurrentFileExecutorAction, com.intellij.execution.lineMarker.LineMarkerActionWrapper)
+
+Navigation:
+- MouseWheel
+- MouseMoved
+- MouseClicked
+- Action (where info = EditorDown, EditorLeft, EditorLineEnd, EditorLineStart, EditorNextWord, EditorPageUp, EditorPreviousWord, EditorRight, EditorTextEnd, EditorUp, GotoDeclaration, HideAllWindows, JumpToLastWindow, OpenFile, SearchEverywhere, com.intellij.ide.actions.ToolWindowViewModeAction, com.intellij.toolWindow.ToolWindowHeader$HideAction, com.intellij.toolWindow.ToolWindowHeader$ShowOptionsAction, RevealIn, Switcher, Tablist, com.intellij.openapi.fileEditor.impl.tabActions.CloseTab)
+
+Terminal:
+- Action (where info = ActivateTerminalToolWindow, Terminal.CommandCompletion.InsertSuggestion, Terminal.OpenInReworkedTerminal, Terminal.Paste, com.intellij.terminal.frontend.action.SendShortcutToTerminalAction)
+
+Other:
+- Action (where info = SaveAll, SaveAs, SaveDocument, ShowProjectStructureSettings, ShowSettings, com.intellij.ide.plugins.newui.TabbedPaneHeaderComponent$3, com.intellij.ide.plugins.newui.UninstallAction, com.intellij.notification.NotificationAction$Simple, com.intellij.openapi.actionSystem.EmptyAction, com.jetbrains.python.module.PySourceRootDetectionService$OkAction, com.jetbrains.python.sdk.AddLocalInterpreterAction, WelcomeScreen.Plugins, com.intellij.openapi.editor.impl.EditorMarkupModelImpl$createAction$result$1, com.intellij.openapi.editor.impl.EditorMarkupModelImpl$TrafficLightAction, com.intellij.diagnostic.IdeErrorsDialog$ForwardAction, com.intellij.openapi.editor.impl.TrafficLightPopup$MenuAction, com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction, com.intellij.openapi.project.LightEditActionFactory$SimpleLightEditCompatibleAction, com.intellij.openapi.wm.impl.customFrameDecorations.header.toolbar.MainMenuButton$ShowMenuAction, com.intellij.openapi.wm.impl.SquareAnActionButton, com.intellij.ui.components.BasicOptionButtonUI$ActionDelegate)
+
+Shortcut:
+- Shortcut - temporary category, can attempt to sort into proper categories later based on the shortcut
+
+Excluded:
+- KeyReleased - redundant with KeyPressed
