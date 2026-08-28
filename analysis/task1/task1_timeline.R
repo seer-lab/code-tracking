@@ -23,9 +23,8 @@ COLOR_MAP <- c(
   "Editing"        = "#D8B4E2",  # light lavender
   "Shortcut"       = "#2C5F8A",  # dark blue
   "Autocompletion" = "#FDE68A",  # light yellow
-  "Terminal"       = "#3A8FB7",  # medium blue
-  "Copy/Paste"     = "#B8C9D6",  # light blue-grey
-  "Execution"      = "#A6DDB8"   # light mint
+  "Copy/Paste"       = "#3A8FB7",  # medium blue
+  "Terminal"     = "#B8C9D6"   # light blue-grey
 )
 
 
@@ -266,9 +265,30 @@ DBI::dbDisconnect(con)
 # -----------------------------------------------------------------------------
 # Event-level segments are too narrow to remain legible at print size. For each
 # 10-second bin, choose the category occupying the greatest amount of time.
+#
+# Execution is handled differently from the duration categories: each execution
+# event is plotted later as an exact-time marker. A normal Execution interval
+# therefore does not compete to become a coloured bin. If the SQL inactivity
+# rule converted an Execution event to Inactivity, that inactivity interval is
+# still retained.
 
 dt <- raw[!is.na(duration) & duration > 0][order(id, time)]
 dt[, `:=`(event_start = time, event_end = time + duration)]
+
+# Exact execution-event positions for the marker overlay. These come directly
+# from the SQL elapsed-time field before any 10-second binning.
+execution_markers <- raw[
+  activity_category == "Execution",
+  .(
+    id,
+    research_id,
+    execution_time_seconds = time,
+    execution_time_minutes = time / 60,
+    type,
+    info
+  )
+]
+execution_markers[, marker_type := "Execution"]
 
 # Create bins independently for each student. The final bin may be shorter.
 bins <- dt[, .(total_time = max(event_end)), by = id][
@@ -284,7 +304,11 @@ bins <- dt[, .(total_time = max(event_end)), by = id][
 bins[, bin_id := .I]
 
 # Non-equi join: pair each event with every time bin it overlaps.
-overlaps <- dt[
+# Normal Execution intervals are omitted from colour competition because they
+# are represented by exact-time markers instead.
+plot_dt <- dt[timeline_category != "Execution"]
+
+overlaps <- plot_dt[
   bins,
   on = .(id, event_start < bin_end, event_end > bin_start),
   allow.cartesian = TRUE,
@@ -332,10 +356,20 @@ setorder(timeline, id, elapsed_start)
 # -----------------------------------------------------------------------------
 # Only students represented in the task data receive a row. Inactivity is white,
 # so every segment gets a thin black border to keep those intervals visible.
+# Execution markers are nudged above each student's tile (rather than sitting
+# on top of it) and rendered as a downward-pointing filled triangle so they
+# read as a tick indicating "execution happened here."
+#
+# Row spacing: each student occupies one unit of y (factor level spacing is
+# fixed at 1.0). Tile height controls how thick the timeline bar is within
+# that unit, so a smaller tile height leaves more open whitespace between
+# rows without changing the marker nudge distance needed above it.
 
-timeline[, student := factor(id, levels = rev(sort(unique(id))))]
+student_levels <- rev(sort(unique(timeline$id)))
+timeline[, student := factor(id, levels = student_levels)]
+execution_markers[, student := factor(id, levels = student_levels)]
 
-fig_height <- max(2.2, uniqueN(timeline$id) * 0.16 + 1.0)
+fig_height <- max(2.2, uniqueN(timeline$id) * 0.32 + 1.0)
 
 p <- ggplot(
   timeline,
@@ -346,22 +380,44 @@ p <- ggplot(
     fill = timeline_category
   )
 ) +
-  geom_tile(height = 0.8, color = "black", linewidth = 0.15) +
+  geom_tile(height = 0.5, color = "black", linewidth = 0.15) +
+  geom_point(
+    data = execution_markers,
+    aes(
+      x = execution_time_minutes,
+      y = student,
+      shape = marker_type
+    ),
+    inherit.aes = FALSE,
+    position = position_nudge(y = 0.48),  # lift marker just above the shorter tile
+    fill = "black",
+    color = "black",
+    size = 1.6,
+    stroke = 0.3
+  ) +
   scale_fill_manual(
     values = COLOR_MAP,
     breaks = sort(unique(timeline$timeline_category)),
     name = "Categories"
+  ) +
+  scale_shape_manual(
+    values = c("Execution" = 25),  # filled triangle pointing down = a tick
+    name = "Markers"
   ) +
   scale_x_continuous(
     breaks = scales::breaks_width(5),
     minor_breaks = scales::breaks_width(1),
     expand = expansion(mult = c(0, 0.01))
   ) +
+  scale_y_discrete(expand = expansion(add = 0.7)) +  # room for nudged markers on edge rows
   labs(
     x = "Elapsed Active Time (Minutes)",
     y = "Students"
   ) +
-  guides(fill = guide_legend(nrow = 2, byrow = TRUE)) +
+  guides(
+    fill = guide_legend(nrow = 2, byrow = TRUE, order = 1),
+    shape = guide_legend(order = 2)
+  ) +
   theme_minimal(base_size = 8) +
   theme(
     panel.grid.major.y = element_blank(),
@@ -377,5 +433,5 @@ print(p)
 
 ggsave(
   "task1_timeline.png", p,
-  width = 7.5, height = fig_height, units = "in", dpi = 300
+  width = 10, height = fig_height, units = "in", dpi = 300
 )

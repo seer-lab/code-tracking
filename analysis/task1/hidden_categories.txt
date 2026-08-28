@@ -1,0 +1,5 @@
+Shortcut: 587 events but 1.74 seconds in total and 17 students had them
+Autocompletion: 129 events with 5.37 seconds in total and 13 students using them
+Terminal: Just 20 events with 1.60 seconds and only 4 students.
+
+Move autocompletion to editing and terminal/shortcut to either separate markers or exclude them?
