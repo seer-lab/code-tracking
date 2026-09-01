@@ -1,0 +1,1094 @@
+# =============================================================================
+# Cross-task timeline summary
+#
+# Re-runs the exact validated queries from all four tasks (grade_scale.py,
+# summarize_numbers.py, classify_triangle.py, process_cart.py), tags each
+# result by task, and produces a multi-sheet Excel workbook:
+#   - "Overall"      -- category totals across all 4 tasks combined
+#   - "Task 1".."4"  -- category totals per task
+#   - one sheet per student -- that student's category breakdown by task
+#
+# This reuses each task's already-validated categorization query verbatim
+# (see task1-4_timeline.R / task1-4_validation.sql) rather than
+# reimplementing classification logic here, so there's no new risk of a
+# categorization bug being introduced by this script.
+#
+# Note: Task 1 and Task 2 do not classify a 'Continue' category (the AI
+# assistant plugin didn't factor into those tasks) -- this is expected,
+# not a gap in this script. Task 3 and Task 4 do.
+# =============================================================================
+
+library(data.table)
+library(openxlsx)
+
+# Store the database password outside the script, e.g. in .Renviron:
+#   PGPASSWORD=your_password
+con <- DBI::dbConnect(
+  RPostgres::Postgres(),
+  dbname = "csci3060_w26",
+  host = "localhost",
+  port = 5432,
+  user = Sys.getenv("DB_USERNAME"),
+  password = Sys.getenv("DB_PASSWORD")
+)
+
+task1_query <- "
+WITH params AS (
+    SELECT 10.0 AS inactivity_buffer_seconds
+),
+
+task_file_events AS (
+    SELECT
+        r.\"user\" AS user_id,
+        d.research_id,
+        d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r
+        ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%grade_scale.py%'
+
+    UNION ALL
+
+    SELECT
+        r.\"user\" AS user_id,
+        f.research_id,
+        f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r
+        ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%grade_scale.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%grade_scale.py%'
+),
+
+task_windows AS (
+    SELECT
+        user_id,
+        research_id,
+        MIN(date) AS task_start,
+        MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY
+        user_id,
+        research_id
+),
+
+task_activity AS (
+    SELECT
+        tw.user_id AS id,
+        tw.research_id,
+        a.date,
+        a.type,
+        a.info,
+        CASE
+            WHEN a.type = 'KeyPressed' THEN 'Editing'
+            WHEN a.type = 'MouseWheel' THEN 'Navigation'
+            WHEN a.type = 'MouseMoved' THEN 'Navigation'
+            WHEN a.type = 'MouseClicked' THEN 'Navigation'
+            WHEN a.type = 'Execution' THEN 'Execution'
+            WHEN a.type = 'Shortcut' THEN 'Shortcut'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorChooseLookupItem',
+                'EditorChooseLookupItemReplace',
+                'InsertInlineCompletionAction',
+                'InsertInlineCompletionLineAction',
+                'InsertInlineCompletionWordAction',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionPopupActionGroup',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionTooltipActionsKt$shortcutActions$shortcutActions$1$1',
+                'com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly'
+            ) THEN 'Autocompletion'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorCopy',
+                'EditorCut',
+                'EditorPaste',
+                '$Copy',
+                '$SelectAll'
+            ) THEN 'Copy/Paste'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDelete',
+                'EditorDeleteLine',
+                'EditorDeleteToWordEnd',
+                'EditorDeleteToWordStart',
+                'EditorDuplicateLines',
+                'EditorEnter',
+                'EditorIndentSelection',
+                'EditorTab',
+                'EditorUnindentSelection',
+                '$Delete',
+                '$Undo',
+                'CommentByLineComment',
+                'MoveStatementDown',
+                'MoveStatementUp',
+                'EditorDownWithSelection',
+                'EditorUpWithSelection',
+                'EditorLeftWithSelection',
+                'EditorRightWithSelection',
+                'EditorLineEndWithSelection',
+                'EditorLineStartWithSelection',
+                'EditorPreviousWordWithSelection',
+                'SelectNextOccurrence',
+                'EditorBackSpace',
+                'OpenFile'
+            ) THEN 'Editing'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'Debug',
+                'MoreRunToolbarActions',
+                'RedesignedRunConfigurationSelector',
+                'Run',
+                'RunAnything',
+                'RunClass',
+                'Stop',
+                'com.intellij.execution.actions.RunCurrentFileExecutorAction',
+                'com.intellij.execution.lineMarker.LineMarkerActionWrapper'
+            ) THEN 'Execution'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDown',
+                'EditorLeft',
+                'EditorLineEnd',
+                'EditorLineStart',
+                'EditorNextWord',
+                'EditorPageUp',
+                'EditorPreviousWord',
+                'EditorRight',
+                'EditorTextEnd',
+                'EditorUp',
+                'GotoDeclaration',
+                'HideAllWindows',
+                'JumpToLastWindow',
+                'SearchEverywhere',
+                'com.intellij.ide.actions.ToolWindowViewModeAction',
+                'com.intellij.toolWindow.ToolWindowHeader$HideAction',
+                'com.intellij.toolWindow.ToolWindowHeader$ShowOptionsAction',
+                'RevealIn',
+                'Switcher',
+                'Tablist'
+            ) THEN 'Navigation'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'ActivateTerminalToolWindow',
+                'Terminal.CommandCompletion.InsertSuggestion',
+                'Terminal.OpenInReworkedTerminal',
+                'Terminal.Paste',
+                'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
+            ) THEN 'Terminal'
+
+            ELSE 'Other'
+        END AS activity_category
+
+    FROM researches AS r
+    INNER JOIN activitydata AS a
+        ON a.research_id = r.id
+    INNER JOIN task_windows AS tw
+        ON tw.user_id = r.\"user\"
+       AND tw.research_id = r.id
+       AND a.date BETWEEN tw.task_start AND tw.task_end
+       AND a.date <= tw.task_start + INTERVAL '120 minutes'
+
+    WHERE a.type <> 'KeyReleased'
+),
+
+task_activity_timed AS (
+    SELECT
+        ta.*,
+
+        EXTRACT(
+            EPOCH FROM (
+                ta.date -
+                MIN(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                )
+            )
+        ) AS time,
+
+        EXTRACT(
+            EPOCH FROM (
+                LEAD(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                    ORDER BY ta.date
+                ) - ta.date
+            )
+        ) AS duration,
+
+        LEAD(ta.activity_category) OVER (
+            PARTITION BY ta.id, ta.research_id
+            ORDER BY ta.date
+        ) AS next_activity_category
+
+    FROM task_activity AS ta
+)
+
+SELECT
+    tat.id,
+    tat.research_id,
+    tat.time,
+    tat.duration,
+    tat.type,
+    tat.info,
+    tat.activity_category,
+
+    CASE
+        WHEN tat.duration > p.inactivity_buffer_seconds
+         AND tat.next_activity_category = tat.activity_category
+        THEN 'Inactivity'
+        ELSE tat.activity_category
+    END AS timeline_category
+
+FROM task_activity_timed AS tat
+CROSS JOIN params AS p
+
+ORDER BY
+    tat.id,
+    tat.research_id,
+    tat.time
+"
+
+task2_query <- "
+WITH params AS (
+    SELECT 10.0 AS inactivity_buffer_seconds
+),
+
+task_file_events AS (
+    SELECT
+        r.\"user\" AS user_id,
+        d.research_id,
+        d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r
+        ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%summarize_numbers.py%'
+
+    UNION ALL
+
+    SELECT
+        r.\"user\" AS user_id,
+        f.research_id,
+        f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r
+        ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%summarize_numbers.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%summarize_numbers.py%'
+),
+
+task_windows AS (
+    SELECT
+        user_id,
+        research_id,
+        MIN(date) AS task_start,
+        MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY
+        user_id,
+        research_id
+),
+
+task_activity AS (
+    SELECT
+        tw.user_id AS id,
+        tw.research_id,
+        a.date,
+        a.type,
+        a.info,
+        CASE
+            WHEN a.type = 'KeyPressed' THEN 'Editing'
+            WHEN a.type = 'MouseWheel' THEN 'Navigation'
+            WHEN a.type = 'MouseMoved' THEN 'Navigation'
+            WHEN a.type = 'MouseClicked' THEN 'Navigation'
+            WHEN a.type = 'Execution' THEN 'Execution'
+            WHEN a.type = 'Shortcut' THEN 'Shortcut'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorChooseLookupItem',
+                'EditorChooseLookupItemReplace',
+                'InsertInlineCompletionAction',
+                'InsertInlineCompletionLineAction',
+                'InsertInlineCompletionWordAction',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionPopupActionGroup',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionTooltipActionsKt$shortcutActions$shortcutActions$1$1',
+                'com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly'
+            ) THEN 'Autocompletion'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorCopy',
+                'EditorCut',
+                'EditorPaste',
+                '$Copy',
+                '$SelectAll'
+            ) THEN 'Copy/Paste'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDelete',
+                'EditorDeleteLine',
+                'EditorDeleteToWordEnd',
+                'EditorDeleteToWordStart',
+                'EditorDuplicateLines',
+                'EditorEnter',
+                'EditorIndentSelection',
+                'EditorTab',
+                'EditorUnindentSelection',
+                '$Delete',
+                '$Undo',
+                'CommentByLineComment',
+                'MoveStatementDown',
+                'MoveStatementUp',
+                'EditorDownWithSelection',
+                'EditorUpWithSelection',
+                'EditorLeftWithSelection',
+                'EditorRightWithSelection',
+                'EditorLineEndWithSelection',
+                'EditorLineStartWithSelection',
+                'EditorPreviousWordWithSelection',
+                'SelectNextOccurrence',
+                'EditorBackSpace',
+                'OpenFile'
+            ) THEN 'Editing'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'Debug',
+                'MoreRunToolbarActions',
+                'RedesignedRunConfigurationSelector',
+                'Run',
+                'RunAnything',
+                'RunClass',
+                'Stop',
+                'com.intellij.execution.actions.RunCurrentFileExecutorAction',
+                'com.intellij.execution.lineMarker.LineMarkerActionWrapper'
+            ) THEN 'Execution'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDown',
+                'EditorLeft',
+                'EditorLineEnd',
+                'EditorLineStart',
+                'EditorNextWord',
+                'EditorPageUp',
+                'EditorPreviousWord',
+                'EditorRight',
+                'EditorTextEnd',
+                'EditorUp',
+                'GotoDeclaration',
+                'HideAllWindows',
+                'JumpToLastWindow',
+                'SearchEverywhere',
+                'com.intellij.ide.actions.ToolWindowViewModeAction',
+                'com.intellij.toolWindow.ToolWindowHeader$HideAction',
+                'com.intellij.toolWindow.ToolWindowHeader$ShowOptionsAction',
+                'RevealIn',
+                'Switcher',
+                'Tablist'
+            ) THEN 'Navigation'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'ActivateTerminalToolWindow',
+                'Terminal.CommandCompletion.InsertSuggestion',
+                'Terminal.OpenInReworkedTerminal',
+                'Terminal.Paste',
+                'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
+            ) THEN 'Terminal'
+
+            ELSE 'Other'
+        END AS activity_category
+
+    FROM researches AS r
+    INNER JOIN activitydata AS a
+        ON a.research_id = r.id
+    INNER JOIN task_windows AS tw
+        ON tw.user_id = r.\"user\"
+       AND tw.research_id = r.id
+       AND a.date BETWEEN tw.task_start AND tw.task_end
+       AND a.date <= tw.task_start + INTERVAL '120 minutes'
+
+    WHERE a.type <> 'KeyReleased'
+),
+
+task_activity_timed AS (
+    SELECT
+        ta.*,
+
+        EXTRACT(
+            EPOCH FROM (
+                ta.date -
+                MIN(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                )
+            )
+        ) AS time,
+
+        EXTRACT(
+            EPOCH FROM (
+                LEAD(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                    ORDER BY ta.date
+                ) - ta.date
+            )
+        ) AS duration,
+
+        LEAD(ta.activity_category) OVER (
+            PARTITION BY ta.id, ta.research_id
+            ORDER BY ta.date
+        ) AS next_activity_category
+
+    FROM task_activity AS ta
+)
+
+SELECT
+    tat.id,
+    tat.research_id,
+    tat.time,
+    tat.duration,
+    tat.type,
+    tat.info,
+    tat.activity_category,
+
+    CASE
+        WHEN tat.duration > p.inactivity_buffer_seconds
+         AND tat.next_activity_category = tat.activity_category
+        THEN 'Inactivity'
+        ELSE tat.activity_category
+    END AS timeline_category
+
+FROM task_activity_timed AS tat
+CROSS JOIN params AS p
+
+ORDER BY
+    tat.id,
+    tat.research_id,
+    tat.time
+"
+
+task3_query <- "
+WITH params AS (
+    SELECT 10.0 AS inactivity_buffer_seconds
+),
+
+task_file_events AS (
+    SELECT
+        r.\"user\" AS user_id,
+        d.research_id,
+        d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r
+        ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+
+    UNION ALL
+
+    SELECT
+        r.\"user\" AS user_id,
+        f.research_id,
+        f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r
+        ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+),
+
+task_windows AS (
+    SELECT
+        user_id,
+        research_id,
+        MIN(date) AS task_start,
+        MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY
+        user_id,
+        research_id
+),
+
+task_activity AS (
+    SELECT
+        tw.user_id AS id,
+        tw.research_id,
+        a.date,
+        a.type,
+        a.info,
+        CASE
+            WHEN a.type = 'KeyPressed' THEN 'Editing'
+            WHEN a.type = 'MouseWheel' THEN 'Navigation'
+            WHEN a.type = 'MouseMoved' THEN 'Navigation'
+            WHEN a.type = 'MouseClicked' THEN 'Navigation'
+            WHEN a.type = 'Execution' THEN 'Execution'
+            WHEN a.type = 'Shortcut' THEN 'Shortcut'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorChooseLookupItem',
+                'EditorChooseLookupItemReplace',
+                'InsertInlineCompletionAction',
+                'InsertInlineCompletionLineAction',
+                'InsertInlineCompletionWordAction',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionPopupActionGroup',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionTooltipActionsKt$shortcutActions$shortcutActions$1$1',
+                'com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly'
+            ) THEN 'Autocompletion'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorCopy',
+                'EditorCut',
+                'EditorPaste',
+                '$Copy',
+                '$SelectAll'
+            ) THEN 'Copy/Paste'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDelete',
+                'EditorDeleteLine',
+                'EditorDeleteToWordEnd',
+                'EditorDeleteToWordStart',
+                'EditorDuplicateLines',
+                'EditorEnter',
+                'EditorIndentSelection',
+                'EditorTab',
+                'EditorUnindentSelection',
+                '$Delete',
+                '$Undo',
+                'CommentByLineComment',
+                'MoveStatementDown',
+                'MoveStatementUp',
+                'EditorDownWithSelection',
+                'EditorUpWithSelection',
+                'EditorLeftWithSelection',
+                'EditorRightWithSelection',
+                'EditorLineEndWithSelection',
+                'EditorLineStartWithSelection',
+                'EditorPreviousWordWithSelection',
+                'SelectNextOccurrence',
+                'EditorBackSpace',
+                'OpenFile'
+            ) THEN 'Editing'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'Debug',
+                'MoreRunToolbarActions',
+                'RedesignedRunConfigurationSelector',
+                'Run',
+                'RunAnything',
+                'RunClass',
+                'Stop',
+                'com.intellij.execution.actions.RunCurrentFileExecutorAction',
+                'com.intellij.execution.lineMarker.LineMarkerActionWrapper'
+            ) THEN 'Execution'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDown',
+                'EditorLeft',
+                'EditorLineEnd',
+                'EditorLineStart',
+                'EditorNextWord',
+                'EditorPageUp',
+                'EditorPreviousWord',
+                'EditorRight',
+                'EditorTextEnd',
+                'EditorUp',
+                'GotoDeclaration',
+                'HideAllWindows',
+                'JumpToLastWindow',
+                'SearchEverywhere',
+                'com.intellij.ide.actions.ToolWindowViewModeAction',
+                'com.intellij.toolWindow.ToolWindowHeader$HideAction',
+                'com.intellij.toolWindow.ToolWindowHeader$ShowOptionsAction',
+                'RevealIn',
+                'Switcher',
+                'Tablist'
+            ) THEN 'Navigation'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'ActivateTerminalToolWindow',
+                'Terminal.CommandCompletion.InsertSuggestion',
+                'Terminal.OpenInReworkedTerminal',
+                'Terminal.Paste',
+                'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
+            ) THEN 'Terminal'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'continue.reloadPage',
+                'continue.openConfigPage',
+                'continue.newContinueSession'
+            ) THEN 'Continue'
+
+            ELSE 'Other'
+        END AS activity_category
+
+    FROM researches AS r
+    INNER JOIN activitydata AS a
+        ON a.research_id = r.id
+    INNER JOIN task_windows AS tw
+        ON tw.user_id = r.\"user\"
+       AND tw.research_id = r.id
+       AND a.date BETWEEN tw.task_start AND tw.task_end
+       AND a.date <= tw.task_start + INTERVAL '120 minutes'
+
+    WHERE a.type <> 'KeyReleased'
+),
+
+task_activity_timed AS (
+    SELECT
+        ta.*,
+
+        EXTRACT(
+            EPOCH FROM (
+                ta.date -
+                MIN(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                )
+            )
+        ) AS time,
+
+        EXTRACT(
+            EPOCH FROM (
+                LEAD(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                    ORDER BY ta.date
+                ) - ta.date
+            )
+        ) AS duration,
+
+        LEAD(ta.activity_category) OVER (
+            PARTITION BY ta.id, ta.research_id
+            ORDER BY ta.date
+        ) AS next_activity_category
+
+    FROM task_activity AS ta
+)
+
+SELECT
+    tat.id,
+    tat.research_id,
+    tat.time,
+    tat.duration,
+    tat.type,
+    tat.info,
+    tat.activity_category,
+
+    CASE
+        WHEN tat.duration > p.inactivity_buffer_seconds
+         AND tat.next_activity_category = tat.activity_category
+        THEN 'Inactivity'
+        ELSE tat.activity_category
+    END AS timeline_category
+
+FROM task_activity_timed AS tat
+CROSS JOIN params AS p
+
+ORDER BY
+    tat.id,
+    tat.research_id,
+    tat.time
+"
+
+task4_query <- "
+WITH params AS (
+    SELECT 10.0 AS inactivity_buffer_seconds
+),
+
+task_file_events AS (
+    SELECT
+        r.\"user\" AS user_id,
+        d.research_id,
+        d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r
+        ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+
+    UNION ALL
+
+    SELECT
+        r.\"user\" AS user_id,
+        f.research_id,
+        f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r
+        ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+),
+
+task_windows AS (
+    SELECT
+        user_id,
+        research_id,
+        MIN(date) AS task_start,
+        MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY
+        user_id,
+        research_id
+),
+
+task_activity AS (
+    SELECT
+        tw.user_id AS id,
+        tw.research_id,
+        a.date,
+        a.type,
+        a.info,
+        CASE
+            WHEN a.type = 'KeyPressed' THEN 'Editing'
+            WHEN a.type = 'MouseWheel' THEN 'Navigation'
+            WHEN a.type = 'MouseMoved' THEN 'Navigation'
+            WHEN a.type = 'MouseClicked' THEN 'Navigation'
+            WHEN a.type = 'Execution' THEN 'Execution'
+            WHEN a.type = 'Shortcut' THEN 'Shortcut'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorChooseLookupItem',
+                'EditorChooseLookupItemReplace',
+                'InsertInlineCompletionAction',
+                'InsertInlineCompletionLineAction',
+                'InsertInlineCompletionWordAction',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionPopupActionGroup',
+                'com.intellij.codeInsight.inline.completion.tooltip.InlineCompletionTooltipActionsKt$shortcutActions$shortcutActions$1$1',
+                'com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly'
+            ) THEN 'Autocompletion'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorCopy',
+                'EditorCut',
+                'EditorPaste',
+                '$Copy',
+                '$SelectAll'
+            ) THEN 'Copy/Paste'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDelete',
+                'EditorDeleteLine',
+                'EditorDeleteToWordEnd',
+                'EditorDeleteToWordStart',
+                'EditorDuplicateLines',
+                'EditorEnter',
+                'EditorIndentSelection',
+                'EditorTab',
+                'EditorUnindentSelection',
+                '$Delete',
+                '$Undo',
+                'CommentByLineComment',
+                'MoveStatementDown',
+                'MoveStatementUp',
+                'EditorDownWithSelection',
+                'EditorUpWithSelection',
+                'EditorLeftWithSelection',
+                'EditorRightWithSelection',
+                'EditorLineEndWithSelection',
+                'EditorLineStartWithSelection',
+                'EditorPreviousWordWithSelection',
+                'SelectNextOccurrence',
+                'EditorBackSpace',
+                'OpenFile'
+            ) THEN 'Editing'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'Debug',
+                'MoreRunToolbarActions',
+                'RedesignedRunConfigurationSelector',
+                'Run',
+                'RunAnything',
+                'RunClass',
+                'Stop',
+                'com.intellij.execution.actions.RunCurrentFileExecutorAction',
+                'com.intellij.execution.lineMarker.LineMarkerActionWrapper'
+            ) THEN 'Execution'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'EditorDown',
+                'EditorLeft',
+                'EditorLineEnd',
+                'EditorLineStart',
+                'EditorNextWord',
+                'EditorPageUp',
+                'EditorPreviousWord',
+                'EditorRight',
+                'EditorTextEnd',
+                'EditorUp',
+                'GotoDeclaration',
+                'HideAllWindows',
+                'JumpToLastWindow',
+                'SearchEverywhere',
+                'com.intellij.ide.actions.ToolWindowViewModeAction',
+                'com.intellij.toolWindow.ToolWindowHeader$HideAction',
+                'com.intellij.toolWindow.ToolWindowHeader$ShowOptionsAction',
+                'RevealIn',
+                'Switcher',
+                'Tablist'
+            ) THEN 'Navigation'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'ActivateTerminalToolWindow',
+                'Terminal.CommandCompletion.InsertSuggestion',
+                'Terminal.OpenInReworkedTerminal',
+                'Terminal.Paste',
+                'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
+            ) THEN 'Terminal'
+
+            WHEN a.type = 'Action' AND a.info IN (
+                'continue.reloadPage',
+                'continue.openConfigPage',
+                'continue.newContinueSession'
+            ) THEN 'Continue'
+
+            ELSE 'Other'
+        END AS activity_category
+
+    FROM researches AS r
+    INNER JOIN activitydata AS a
+        ON a.research_id = r.id
+    INNER JOIN task_windows AS tw
+        ON tw.user_id = r.\"user\"
+       AND tw.research_id = r.id
+       AND a.date BETWEEN tw.task_start AND tw.task_end
+       AND a.date <= tw.task_start + INTERVAL '120 minutes'
+
+    WHERE a.type <> 'KeyReleased'
+),
+
+task_activity_timed AS (
+    SELECT
+        ta.*,
+
+        EXTRACT(
+            EPOCH FROM (
+                ta.date -
+                MIN(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                )
+            )
+        ) AS time,
+
+        EXTRACT(
+            EPOCH FROM (
+                LEAD(ta.date) OVER (
+                    PARTITION BY ta.id, ta.research_id
+                    ORDER BY ta.date
+                ) - ta.date
+            )
+        ) AS duration,
+
+        LEAD(ta.activity_category) OVER (
+            PARTITION BY ta.id, ta.research_id
+            ORDER BY ta.date
+        ) AS next_activity_category
+
+    FROM task_activity AS ta
+)
+
+SELECT
+    tat.id,
+    tat.research_id,
+    tat.time,
+    tat.duration,
+    tat.type,
+    tat.info,
+    tat.activity_category,
+
+    CASE
+        WHEN tat.duration > p.inactivity_buffer_seconds
+         AND tat.next_activity_category = tat.activity_category
+        THEN 'Inactivity'
+        ELSE tat.activity_category
+    END AS timeline_category
+
+FROM task_activity_timed AS tat
+CROSS JOIN params AS p
+
+ORDER BY
+    tat.id,
+    tat.research_id,
+    tat.time
+"
+
+# -----------------------------------------------------------------------------
+# Run all four queries and tag each result by task
+# -----------------------------------------------------------------------------
+
+task1_raw <- as.data.table(DBI::dbGetQuery(con, task1_query))
+task1_raw[, `:=`(task = 1L, task_name = "Task 1 (grade_scale.py)")]
+
+task2_raw <- as.data.table(DBI::dbGetQuery(con, task2_query))
+task2_raw[, `:=`(task = 2L, task_name = "Task 2 (summarize_numbers.py)")]
+
+task3_raw <- as.data.table(DBI::dbGetQuery(con, task3_query))
+task3_raw[, `:=`(task = 3L, task_name = "Task 3 (classify_triangle.py)")]
+
+task4_raw <- as.data.table(DBI::dbGetQuery(con, task4_query))
+task4_raw[, `:=`(task = 4L, task_name = "Task 4 (process_cart.py)")]
+
+DBI::dbDisconnect(con)
+
+all_data <- rbindlist(
+  list(task1_raw, task2_raw, task3_raw, task4_raw),
+  use.names = TRUE, fill = TRUE
+)
+
+# -----------------------------------------------------------------------------
+# Summary helper: category totals for a given slice of all_data
+# -----------------------------------------------------------------------------
+# events / total duration (seconds & minutes) / distinct students / % of that
+# slice's total active time. NA durations (one per student per task -- the
+# final event with no following timestamp) are naturally excluded from the
+# duration sum but still counted as an event.
+
+summarize_categories <- function(dt) {
+  total_duration <- sum(dt$duration, na.rm = TRUE)
+  out <- dt[, .(
+    events = .N,
+    duration_seconds = round(sum(duration, na.rm = TRUE), 2),
+    students = uniqueN(id)
+  ), by = timeline_category]
+  out[, duration_minutes := round(duration_seconds / 60, 2)]
+  out[, pct_of_active_time := round(100 * duration_seconds / total_duration, 3)]
+  setorder(out, -duration_seconds)
+  setcolorder(out, c("timeline_category", "events", "duration_seconds",
+                     "duration_minutes", "pct_of_active_time", "students"))
+  out
+}
+
+overall_summary <- summarize_categories(all_data)
+
+task_summaries <- lapply(1:4, function(t) summarize_categories(all_data[task == t]))
+names(task_summaries) <- paste("Task", 1:4)
+
+# -----------------------------------------------------------------------------
+# Per-student summary: category totals broken out by task, for one student
+# -----------------------------------------------------------------------------
+
+summarize_student <- function(dt, student_id) {
+  sub <- dt[id == student_id]
+  if (nrow(sub) == 0) return(NULL)
+  out <- sub[, .(
+    events = .N,
+    duration_seconds = round(sum(duration, na.rm = TRUE), 2)
+  ), by = .(task_name, timeline_category)]
+  out[, duration_minutes := round(duration_seconds / 60, 2)]
+  setorder(out, task_name, -duration_seconds)
+  out
+}
+
+student_ids <- sort(unique(all_data$id))
+
+# -----------------------------------------------------------------------------
+# Missing categories: which categories never win a single bin, per task
+# -----------------------------------------------------------------------------
+# "Missing" means invisible on that task's actual colored timeline -- not
+# just rare in the raw event count. This replicates each task's real
+# binning/dominant-category logic (BIN_SECONDS = 10, marker categories
+# excluded from bin-color competition) to find out which categories ever
+# actually win a bin, then reports the ones that never do, with their raw
+# event/duration/student stats.
+#
+# Marker categories (Execution always; Continue in Task 3/4) are excluded
+# from this list entirely -- they're shown as point markers by design, not
+# "missing", so the concept doesn't apply to them.
+
+BIN_SECONDS <- 10
+
+marker_categories_by_task <- list(
+  `1` = c("Execution"),
+  `2` = c("Execution"),
+  `3` = c("Execution", "Continue"),
+  `4` = c("Execution", "Continue")
+)
+
+compute_appearing_categories <- function(task_dt, marker_cats) {
+  dt <- task_dt[!is.na(duration) & duration > 0][order(id, time)]
+  dt[, `:=`(event_start = time, event_end = time + duration)]
+  plot_dt <- dt[!timeline_category %in% marker_cats]
+  
+  bins <- dt[, .(total_time = max(event_end)), by = id][
+    , {
+      starts <- seq(0, total_time - 1e-9, by = BIN_SECONDS)
+      .(bin_start = starts, bin_end = pmin(starts + BIN_SECONDS, total_time))
+    },
+    by = id
+  ]
+  bins[, bin_id := .I]
+  
+  overlaps <- plot_dt[
+    bins,
+    on = .(id, event_start < bin_end, event_end > bin_start),
+    allow.cartesian = TRUE,
+    nomatch = 0,
+    .(id = x.id, bin_id = i.bin_id, timeline_category = x.timeline_category,
+      event_start = x.event_start, event_end = x.event_end,
+      bin_start = i.bin_start, bin_end = i.bin_end)
+  ]
+  overlaps[, overlap_seconds := pmin(event_end, bin_end) - pmax(event_start, bin_start)]
+  
+  binned <- overlaps[
+    overlap_seconds > 0,
+    .(category_seconds = sum(overlap_seconds)),
+    by = .(id, bin_id, timeline_category)
+  ]
+  setorder(binned, id, bin_id, -category_seconds, timeline_category)
+  winners <- binned[, .SD[1], by = .(id, bin_id)]
+  
+  unique(winners$timeline_category)
+}
+
+missing_rows <- list()
+for (t in 1:4) {
+  task_dt <- all_data[task == t]
+  marker_cats <- marker_categories_by_task[[as.character(t)]]
+  
+  appearing <- compute_appearing_categories(task_dt, marker_cats)
+  
+  # Every category present in this task's data, minus marker categories
+  # (never "missing" by design), minus whatever actually won a bin.
+  candidate_cats <- setdiff(unique(task_dt$timeline_category), marker_cats)
+  missing_cats <- setdiff(candidate_cats, appearing)
+  
+  if (length(missing_cats) == 0) next
+  
+  stats <- task_dt[timeline_category %in% missing_cats, .(
+    events = .N,
+    duration_seconds = round(sum(duration, na.rm = TRUE), 2),
+    students = uniqueN(id)
+  ), by = timeline_category]
+  stats[, duration_minutes := round(duration_seconds / 60, 2)]
+  stats[, task := t]
+  stats[, task_name := unique(task_dt$task_name)]
+  
+  missing_rows[[t]] <- stats
+}
+
+missing_summary <- rbindlist(missing_rows)
+setcolorder(missing_summary, c("task", "task_name", "timeline_category",
+                               "events", "duration_seconds", "duration_minutes", "students"))
+setorder(missing_summary, task, -duration_seconds)
+
+# -----------------------------------------------------------------------------
+# Build the Excel workbook
+# -----------------------------------------------------------------------------
+
+wb <- createWorkbook()
+
+header_style <- createStyle(textDecoration = "bold", fgFill = "#E8E8E8", border = "Bottom")
+
+add_summary_sheet <- function(wb, sheet_name, dt) {
+  addWorksheet(wb, sheet_name)
+  writeData(wb, sheet_name, dt, headerStyle = header_style)
+  setColWidths(wb, sheet_name, cols = 1:ncol(dt), widths = "auto")
+  freezePane(wb, sheet_name, firstRow = TRUE)
+}
+
+add_summary_sheet(wb, "Overall", overall_summary)
+add_summary_sheet(wb, "Missing Categories", missing_summary)
+for (t in 1:4) {
+  add_summary_sheet(wb, paste("Task", t), task_summaries[[t]])
+}
+
+for (sid in student_ids) {
+  student_dt <- summarize_student(all_data, sid)
+  if (is.null(student_dt)) next
+  sheet_name <- paste0("Student ", sid)
+  # Excel sheet names cap at 31 characters -- safe here, but guard anyway.
+  sheet_name <- substr(sheet_name, 1, 31)
+  add_summary_sheet(wb, sheet_name, student_dt)
+}
+
+saveWorkbook(wb, "timeline_summary.xlsx", overwrite = TRUE)
+
+cat("Wrote timeline_summary.xlsx with", length(wb$sheet_names), "sheets\n")

@@ -4,8 +4,10 @@
 #   1. Query task-specific IDE activity from PostgreSQL.
 #   2. Convert events to time intervals and bin them into 10-second windows.
 #   3. Assign each bin its duration-weighted dominant activity category.
+#      (Execution is excluded from this competition and shown as a marker instead.)
 #   4. Merge adjacent bins with the same category.
-#   5. Plot one timeline per student and export PNG/PDF figures.
+#   5. Plot one timeline per student, with Execution overlaid as a point marker,
+#      and export PNG/PDF figures.
 
 library(data.table)
 library(ggplot2)
@@ -23,9 +25,10 @@ COLOR_MAP <- c(
   "Editing"        = "#D8B4E2",  # light lavender
   "Shortcut"       = "#2C5F8A",  # dark blue
   "Autocompletion" = "#FDE68A",  # light yellow
-  "Terminal"       = "#3A8FB7",  # medium blue
-  "Copy/Paste"     = "#B8C9D6",  # light blue-grey
-  "Execution"      = "#A6DDB8"   # light mint
+  "Copy/Paste"     = "#3A8FB7",  # medium blue
+  "Terminal"       = "#B8C9D6"   # light blue-grey
+  # Note: "Execution" intentionally has no bin fill color. It's excluded from
+  # bin-color competition below and shown only as a point marker (see §Plot).
 )
 
 # Store the database password outside the script, e.g. in .Renviron:
@@ -265,11 +268,35 @@ DBI::dbDisconnect(con)
 # -----------------------------------------------------------------------------
 # Event-level segments are too narrow to remain legible at print size. For each
 # 10-second bin, choose the category occupying the greatest amount of time.
+# Execution is excluded from this competition (see §Execution markers below)
+# and is instead drawn as an exact-time point marker on top of the timeline.
 
 dt <- raw[!is.na(duration) & duration > 0][order(id, time)]
 dt[, `:=`(event_start = time, event_end = time + duration)]
 
-# Create bins independently for each student. The final bin may be shorter.
+# --- Execution markers -------------------------------------------------------
+# Exact execution-event positions for the marker overlay. These come directly
+# from the SQL elapsed-time field before any 10-second binning, so they're
+# captured from raw (not dt) and are never subject to the duration filter.
+execution_markers <- raw[
+  activity_category == "Execution",
+  .(
+    id,
+    research_id,
+    execution_time_seconds = time,
+    execution_time_minutes = time / 60,
+    type,
+    info
+  )
+]
+execution_markers[, marker_type := "Execution"]
+
+# Non-Execution events only: this is what competes for bin-dominant category.
+plot_dt <- dt[timeline_category != "Execution"]
+
+# Create bins independently for each student. total_time is computed from the
+# full event set (dt) so the last bin still reflects the true session length,
+# even if the session's final event happens to be an Execution.
 bins <- dt[, .(total_time = max(event_end)), by = id][
   , {
     starts <- seq(0, total_time - 1e-9, by = BIN_SECONDS)
@@ -282,8 +309,8 @@ bins <- dt[, .(total_time = max(event_end)), by = id][
 ]
 bins[, bin_id := .I]
 
-# Non-equi join: pair each event with every time bin it overlaps.
-overlaps <- dt[
+# Non-equi join: pair each non-Execution event with every time bin it overlaps.
+overlaps <- plot_dt[
   bins,
   on = .(id, event_start < bin_end, event_end > bin_start),
   allow.cartesian = TRUE,
@@ -331,10 +358,14 @@ setorder(timeline, id, elapsed_start)
 # -----------------------------------------------------------------------------
 # Only students represented in the task data receive a row. Inactivity is white,
 # so every segment gets a thin black border to keep those intervals visible.
+# Execution events are overlaid as triangle markers, nudged slightly above each
+# row so they don't obscure the bin colors beneath them.
 
-timeline[, student := factor(id, levels = rev(sort(unique(id))))]
+student_levels <- rev(sort(unique(timeline$id)))
+timeline[, student := factor(id, levels = student_levels)]
+execution_markers[, student := factor(id, levels = student_levels)]
 
-fig_height <- max(2.2, uniqueN(timeline$id) * 0.16 + 1.0)
+fig_height <- max(2.2, uniqueN(timeline$id) * 0.32 + 1.0)
 
 p <- ggplot(
   timeline,
@@ -345,22 +376,44 @@ p <- ggplot(
     fill = timeline_category
   )
 ) +
-  geom_tile(height = 0.8, color = "black", linewidth = 0.15) +
+  geom_tile(height = 0.5, color = "black", linewidth = 0.15) +
+  geom_point(
+    data = execution_markers,
+    aes(
+      x = execution_time_minutes,
+      y = student,
+      shape = marker_type
+    ),
+    inherit.aes = FALSE,
+    position = position_nudge(y = 0.48),  # lift marker just above the shorter tile
+    fill = "black",
+    color = "black",
+    size = 1.6,
+    stroke = 0.3
+  ) +
   scale_fill_manual(
     values = COLOR_MAP,
     breaks = sort(unique(timeline$timeline_category)),
     name = "Categories"
+  ) +
+  scale_shape_manual(
+    values = c("Execution" = 25),  # filled triangle pointing down = a tick
+    name = "Markers"
   ) +
   scale_x_continuous(
     breaks = scales::breaks_width(5),
     minor_breaks = scales::breaks_width(1),
     expand = expansion(mult = c(0, 0.01))
   ) +
+  scale_y_discrete(expand = expansion(add = 0.7)) +  # room for nudged markers on edge rows
   labs(
     x = "Elapsed Active Time (Minutes)",
     y = "Students"
   ) +
-  guides(fill = guide_legend(nrow = 2, byrow = TRUE)) +
+  guides(
+    fill = guide_legend(nrow = 2, byrow = TRUE, order = 1),
+    shape = guide_legend(order = 2)
+  ) +
   theme_minimal(base_size = 8) +
   theme(
     panel.grid.major.y = element_blank(),
@@ -376,5 +429,5 @@ print(p)
 
 ggsave(
   "task2_timeline.png", p,
-  width = 7.5, height = fig_height, units = "in", dpi = 300
+  width = 10, height = fig_height, units = "in", dpi = 300
 )

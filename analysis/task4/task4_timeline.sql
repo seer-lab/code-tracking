@@ -13,6 +13,30 @@
 -- Navigation), the gap is left as-is with no minimum -- it's just
 -- normal transition time, not flagged as inactivity.
 -- ============================================================
+
+-- ============================================================
+-- 'Continue' category (AI assistant plugin), marker-only by design.
+-- An earlier version of this query tried to infer AI-panel *dwell time*
+-- by joining toolwindowdata window-focus intervals and reclassifying
+-- everything that happened while Continue was focused. That approach
+-- was abandoned: toolwindowdata never logs a row when focus returns to
+-- the main code editor (only tool-window panels are logged), so an
+-- interval-fill approach has no reliable way to know when a Continue
+-- session actually ended -- it silently swallowed large stretches of
+-- ordinary editor typing as if it were AI-panel time.
+--
+-- Instead, 'Continue' here is classified the same way every other
+-- category is: by the event's own type/info, from the three explicit
+-- continue.* actions the plugin logs (reload page, open config, start
+-- new session). These are exact, certain events -- just not a complete
+-- account of AI-panel dwell time. The R script plots them as point
+-- markers, not a filled bin color, for the same reason Execution is
+-- a marker: representing an instant as a colored span would overstate
+-- what's actually known.
+--
+-- Every other category (Editing, Navigation, Autocompletion, Shortcut,
+-- Copy/Paste, Terminal, Other) is unchanged from every other task.
+-- ============================================================
 WITH params AS (
     SELECT 10.0 AS inactivity_buffer_seconds
 ),
@@ -52,8 +76,6 @@ WITH params AS (
              research_id
      ),
 
-     -- Raw activity events with each one tagged by activity_category,
-     -- same as before (KOALA's `type`, or `info` for generic `Action` rows).
      task_activity AS (
          SELECT
              tw.user_id AS id,
@@ -76,9 +98,6 @@ WITH params AS (
                      'com.intellij.codeInsight.lookup.impl.actions.ChooseItemAction$FocusedOnly'
                      ) THEN 'Autocompletion'
                  WHEN a.type = 'Action' AND a.info IN (
-                     'EditorCopy', 'EditorCut', 'EditorPaste', '$Copy', '$SelectAll'
-                     ) THEN 'Copy/Paste'
-                 WHEN a.type = 'Action' AND a.info IN (
                      'EditorDelete', 'EditorDeleteLine', 'EditorDeleteToWordEnd', 'EditorDeleteToWordStart',
                      'EditorDuplicateLines', 'EditorEnter', 'EditorIndentSelection', 'EditorTab',
                      'EditorUnindentSelection', '$Delete', '$Undo', 'CommentByLineComment',
@@ -87,6 +106,9 @@ WITH params AS (
                      'EditorLineStartWithSelection', 'EditorPreviousWordWithSelection', 'SelectNextOccurrence',
                      'EditorBackSpace', 'OpenFile'
                      ) THEN 'Editing'
+                 WHEN a.type = 'Action' AND a.info IN (
+                     'EditorCopy', 'EditorCut', 'EditorPaste', '$Copy', '$SelectAll'
+                     ) THEN 'Copy/Paste'
                  WHEN a.type = 'Action' AND a.info IN (
                      'Debug', 'MoreRunToolbarActions', 'RedesignedRunConfigurationSelector', 'Run', 'RunAnything',
                      'RunClass', 'Stop', 'com.intellij.execution.actions.RunCurrentFileExecutorAction',
@@ -106,6 +128,9 @@ WITH params AS (
                      'Terminal.OpenInReworkedTerminal', 'Terminal.Paste',
                      'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
                      ) THEN 'Terminal'
+                 WHEN a.type = 'Action' AND a.info IN (
+                     'continue.reloadPage', 'continue.openConfigPage', 'continue.newContinueSession'
+                     ) THEN 'Continue'
                  ELSE 'Other'
                  END AS activity_category
          FROM researches AS r

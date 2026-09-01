@@ -1,0 +1,9 @@
+Shortcut: 340 events but 1.14 seconds in total and 19 students had them
+Autocompletion: 88 events with 6.13 seconds in total and 8 students using them
+Terminal: Just 5 events with 0.01 seconds and only 3 students.
+Copy/Paste: 171 events with 4.27 seconds in total and 18 students using it
+
+Move autocompletion to editing and terminal/shortcut to either separate markers or exclude them?
+
+Continue marker rationale:
+Limitations with KOALA, not really a flaw, but not designed for this use-case. In scale, they don't really use Continue that much in the way they would interact with code and other IDE features Most of the time they actually spend with an AI is the assistant thinknig and responding, which isn't reflected in  KOALA, because it wasn't designed to. If I had left it as a category, it would have been impossible to be reflected visibly clear and/or may not win any bins. Capped intervals to show it would overlap possibly real activity and it's impossible to tell when an interaction starts or ends without a timestamp on when Continue responds. A marker is the only real way to show when a student is actually writing in Continue.

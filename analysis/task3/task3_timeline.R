@@ -4,8 +4,25 @@
 #   1. Query task-specific IDE activity from PostgreSQL.
 #   2. Convert events to time intervals and bin them into 10-second windows.
 #   3. Assign each bin its duration-weighted dominant activity category.
+#      (Execution and Continue are excluded from this competition and shown
+#      as point markers instead -- see notes below. Terminal is untouched.)
 #   4. Merge adjacent bins with the same category.
-#   5. Plot one timeline per student and export PNG/PDF figures.
+#   5. Plot one timeline per student, with markers overlaid, and export
+#      PNG/PDF figures.
+#
+# CATEGORY PLACEMENT NOTES (Task 3):
+#   * Only Continue changed from every other task. It's classified in the
+#     SQL (so we know which events they are) but excluded from bin-color
+#     competition here and drawn as an exact-time point marker instead,
+#     same treatment as Execution. Continue was tried as a window-interval
+#     "fill" category (inferring dwell time from toolwindowdata) and
+#     reverted: toolwindowdata never logs when focus returns to the main
+#     editor, so any interval built that way silently over-claims however
+#     long it's been since the last logged tool-window event. Marking
+#     known moments is honest; filling inferred intervals was not.
+#   * Every other category -- Editing, Navigation, Autocompletion,
+#     Shortcut, Copy/Paste, Terminal, Other -- is UNCHANGED. Not merged,
+#     not dropped, not marked. Same as every other task.
 
 library(data.table)
 library(ggplot2)
@@ -23,9 +40,12 @@ COLOR_MAP <- c(
   "Editing"        = "#D8B4E2",  # light lavender
   "Shortcut"       = "#2C5F8A",  # dark blue
   "Autocompletion" = "#FDE68A",  # light yellow
-  "Terminal"       = "#3A8FB7",  # medium blue
-  "Copy/Paste"     = "#B8C9D6",  # light blue-grey
-  "Execution"      = "#A6DDB8"   # light mint
+  "Copy/Paste"     = "#3A8FB7",  # medium blue
+  "Terminal"       = "#B8C9D6"   # light blue-grey
+  # Note: "Execution" and "Continue" intentionally have no bin fill color.
+  # Both are excluded from bin-color competition below and shown only as
+  # point markers (see §Plot). Terminal is untouched -- still a normal
+  # bin-competing category, same as it's always been.
 )
 
 # Store the database password outside the script, e.g. in .Renviron:
@@ -187,6 +207,12 @@ task_activity AS (
                 'com.intellij.terminal.frontend.action.SendShortcutToTerminalAction'
             ) THEN 'Terminal'
 
+            WHEN a.type = 'Action' AND a.info IN (
+                'continue.reloadPage',
+                'continue.openConfigPage',
+                'continue.newContinueSession'
+            ) THEN 'Continue'
+
             ELSE 'Other'
         END AS activity_category
 
@@ -258,6 +284,68 @@ ORDER BY
 "
 
 raw <- as.data.table(DBI::dbGetQuery(con, query))
+
+# -----------------------------------------------------------------------------
+# Continue "opened" markers (Option A)
+# -----------------------------------------------------------------------------
+# Separate, lightweight query against toolwindowdata: only marks the moments
+# the Continue tool window was OPENED (not every FOCUSED repeat, which
+# clusters within milliseconds of an open and would just add visual noise).
+# This is intentionally NOT part of the main event/category pipeline above --
+# it's a supplementary marker source, not a claim about how long Continue
+# stayed focused (see notes at the top of this file for why that distinction
+# matters).
+
+continue_window_query <- "
+WITH task_file_events AS (
+    SELECT
+        r.\"user\" AS user_id,
+        d.research_id,
+        d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r
+        ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+
+    UNION ALL
+
+    SELECT
+        r.\"user\" AS user_id,
+        f.research_id,
+        f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r
+        ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%classify_triangle.py%'
+),
+
+task_windows AS (
+    SELECT
+        user_id,
+        research_id,
+        MIN(date) AS task_start,
+        MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY
+        user_id,
+        research_id
+)
+
+SELECT
+    tw.user_id AS id,
+    twd.research_id,
+    EXTRACT(EPOCH FROM (twd.date - tw.task_start)) / 60 AS continue_open_time_minutes
+FROM toolwindowdata AS twd
+INNER JOIN task_windows AS tw
+    ON tw.research_id = twd.research_id
+   AND twd.date BETWEEN tw.task_start AND tw.task_end
+   AND twd.date <= tw.task_start + INTERVAL '120 minutes'
+WHERE twd.active_window ILIKE '%continue%'
+  AND twd.action = 'OPENED'
+"
+
+continue_windows <- as.data.table(DBI::dbGetQuery(con, continue_window_query))
 DBI::dbDisconnect(con)
 
 # -----------------------------------------------------------------------------
@@ -265,11 +353,50 @@ DBI::dbDisconnect(con)
 # -----------------------------------------------------------------------------
 # Event-level segments are too narrow to remain legible at print size. For each
 # 10-second bin, choose the category occupying the greatest amount of time.
+# Execution and Continue are excluded from this competition (see notes at the
+# top of this file) and are instead drawn as exact-time point markers on top
+# of the timeline. Terminal is untouched -- still a normal competing category.
 
 dt <- raw[!is.na(duration) & duration > 0][order(id, time)]
 dt[, `:=`(event_start = time, event_end = time + duration)]
 
-# Create bins independently for each student. The final bin may be shorter.
+MARKER_CATEGORIES <- c("Execution", "Continue")
+
+# --- Point markers -----------------------------------------------------------
+# Exact event positions for the marker overlay. These come directly from the
+# SQL elapsed-time field before any 10-second binning, so they're captured
+# from raw (not dt) and are never subject to the duration filter.
+event_markers <- raw[
+  activity_category %in% MARKER_CATEGORIES,
+  .(
+    id,
+    research_id,
+    marker_time_minutes = time / 60,
+    marker_type = activity_category
+  )
+]
+
+# Continue "opened" markers from the separate toolwindowdata query, folded
+# into the same marker table under the same "Continue" marker type.
+if (nrow(continue_windows) > 0) {
+  continue_open_markers <- continue_windows[
+    , .(
+      id,
+      research_id,
+      marker_time_minutes = continue_open_time_minutes,
+      marker_type = "Continue"
+    )
+  ]
+  event_markers <- rbindlist(list(event_markers, continue_open_markers))
+}
+
+# Non-marker events only: this is what competes for bin-dominant category.
+# Terminal remains eligible here -- it was never added to MARKER_CATEGORIES.
+plot_dt <- dt[!timeline_category %in% MARKER_CATEGORIES]
+
+# Create bins independently for each student. total_time is computed from the
+# full event set (dt) so the last bin still reflects the true session length,
+# even if the session's final event happens to be a marker-category event.
 bins <- dt[, .(total_time = max(event_end)), by = id][
   , {
     starts <- seq(0, total_time - 1e-9, by = BIN_SECONDS)
@@ -282,8 +409,8 @@ bins <- dt[, .(total_time = max(event_end)), by = id][
 ]
 bins[, bin_id := .I]
 
-# Non-equi join: pair each event with every time bin it overlaps.
-overlaps <- dt[
+# Non-equi join: pair each non-marker event with every time bin it overlaps.
+overlaps <- plot_dt[
   bins,
   on = .(id, event_start < bin_end, event_end > bin_start),
   allow.cartesian = TRUE,
@@ -331,10 +458,15 @@ setorder(timeline, id, elapsed_start)
 # -----------------------------------------------------------------------------
 # Only students represented in the task data receive a row. Inactivity is white,
 # so every segment gets a thin black border to keep those intervals visible.
+# Execution/Continue events are overlaid as point markers, nudged slightly
+# above each row so they don't obscure the bin colors beneath them.
 
-timeline[, student := factor(id, levels = rev(sort(unique(id))))]
+student_levels <- rev(sort(unique(timeline$id)))
+timeline[, student := factor(id, levels = student_levels)]
+event_markers[, student := factor(id, levels = student_levels)]
+event_markers <- event_markers[!is.na(student)]  # drop ids with no timeline row
 
-fig_height <- max(2.2, uniqueN(timeline$id) * 0.16 + 1.0)
+fig_height <- max(2.2, uniqueN(timeline$id) * 0.32 + 1.0)
 
 p <- ggplot(
   timeline,
@@ -345,22 +477,47 @@ p <- ggplot(
     fill = timeline_category
   )
 ) +
-  geom_tile(height = 0.8, color = "black", linewidth = 0.15) +
+  geom_tile(height = 0.5, color = "black", linewidth = 0.15) +
+  geom_point(
+    data = event_markers,
+    aes(
+      x = marker_time_minutes,
+      y = student,
+      shape = marker_type
+    ),
+    inherit.aes = FALSE,
+    position = position_nudge(y = 0.48),  # lift marker just above the shorter tile
+    fill = "black",
+    color = "black",
+    size = 1.6,
+    stroke = 0.3
+  ) +
   scale_fill_manual(
     values = COLOR_MAP,
     breaks = sort(unique(timeline$timeline_category)),
     name = "Categories"
+  ) +
+  scale_shape_manual(
+    values = c(
+      "Execution" = 25,  # filled triangle, point down
+      "Continue"  = 23   # filled diamond
+    ),
+    name = "Markers"
   ) +
   scale_x_continuous(
     breaks = scales::breaks_width(5),
     minor_breaks = scales::breaks_width(1),
     expand = expansion(mult = c(0, 0.01))
   ) +
+  scale_y_discrete(expand = expansion(add = 0.7)) +  # room for nudged markers on edge rows
   labs(
     x = "Elapsed Active Time (Minutes)",
     y = "Students"
   ) +
-  guides(fill = guide_legend(nrow = 2, byrow = TRUE)) +
+  guides(
+    fill = guide_legend(nrow = 2, byrow = TRUE, order = 1),
+    shape = guide_legend(order = 2)
+  ) +
   theme_minimal(base_size = 8) +
   theme(
     panel.grid.major.y = element_blank(),
@@ -376,5 +533,5 @@ print(p)
 
 ggsave(
   "task3_timeline.png", p,
-  width = 7.5, height = fig_height, units = "in", dpi = 300
+  width = 10, height = fig_height, units = "in", dpi = 300
 )

@@ -1,0 +1,10 @@
+1. Reference it directly in each figure's caption or footnote. Something like "Shortcut, Autocompletion, and Terminal do not appear as bin colors due to negligible total duration — see Missing Categories summary." 
+
+2. Use it as a QA gate for any future task. Before finalizing a new task's figure, run the summary script and check its Missing Categories entry first. That would have caught the Continue situation immediately rather than requiring you to notice it was absent and ask about it — the workbook now makes that a five-second check instead of a manual investigation.
+
+3. Split the missing categories into two groups in your writeup, since the data actually supports a real distinction:
+
+Structurally invisible — Shortcut, Autocompletion, Terminal are missing in all 4 tasks. That's not task-specific behavior, it's a property of how brief those actions inherently are. Worth stating once, generally, rather than re-explaining per task.
+Task-variable — Copy/Paste is missing in 3 of 4 tasks but wins bins in Task 1; Other is missing in 2 of 4. That variability is actually a finding, not noise — it suggests those tasks genuinely differed in how much copying/pasting or miscellaneous IDE activity happened, which might be worth a sentence of its own if this feeds into any analysis of task design or student behavior differences.
+
+4. If this is going into a paper or report with a methods/limitations section, the fact that duration-weighted 10-second binning structurally suppresses certain categories regardless of student count or event frequency is a legitimate methodological caveat worth stating explicitly — it's not a flaw exactly, but it's a real property of the visualization choice that a reader should know about before drawing conclusions from what colors they do/don't see.
