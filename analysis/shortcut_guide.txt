@@ -1,3 +1,4 @@
+The numbers represent an ASCII decimal - https://www.ascii-code.com/. Translate from there, and identify a corresponding shortcut
 Control 86 = EditorPaste
 Control 67 = EditorCopy
 Control 88 = EditorCut
