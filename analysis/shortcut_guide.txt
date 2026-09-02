@@ -1,0 +1,3 @@
+Control 86 = EditorPaste
+Control 67 = EditorCopy
+Control 88 = EditorCut

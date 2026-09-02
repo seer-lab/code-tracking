@@ -1,7 +1,7 @@
 Shortcut: 412 events but 1.35 seconds in total and 16 students had them
-Autocompletion: 107 events with 4.39 seconds in total and 12 students using them
-Terminal: Just 9 events with 0.02 seconds and only 2 students.
-Copy/Paste: 169 events with 4.81 seconds in total and 16 students using it
+Autocompletion: 107 events with 4.39 seconds in total and 12 students using them- marker
+Terminal: Just 9 events with 0.02 seconds and only 2 students. 
+Copy/Paste: 169 events with 4.81 seconds in total and 16 students using it - marker
 Other: 170 events with 14.88 seconds in total and 17 students using it
 
 Move autocompletion to editing and terminal/shortcut to either separate markers or exclude them?
