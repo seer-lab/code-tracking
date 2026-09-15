@@ -1,0 +1,333 @@
+# Task 4 focus timeline: Code vs Continue vs Neither (v2)
+#
+# Rebuilt on the same architecture as the main activity timeline:
+#   1. Query focus-classified events from PostgreSQL. Every activitydata
+#      event is the backbone (see task3_focus_timeline.sql for why this
+#      replaces the v1 approach, which relied on fileeditordata's own
+#      sparse OPEN/FOCUS/CLOSE events and broke for students who never
+#      re-triggered one after leaving Continue).
+#   2. Bin into 10-second windows, same as the main timeline.
+#   3. Assign each bin its duration-weighted dominant focus_type.
+#   4. Merge adjacent bins with the same focus_type.
+#   5. Plot one timeline per student and export a PNG.
+#
+# No markers needed here -- unlike Execution/Continue on the main timeline,
+# duration is exactly the point of this chart, so every focus_type
+# legitimately competes for bin color.
+#
+# KNOWN REMAINING LIMITATION (carried from the SQL): if a student opens a
+# tool window once and never touches another tool window for the rest of
+# the session, that whole remaining span still gets attributed to it, since
+# toolwindowdata itself has no "returned to Code" signal. Worth spot-
+# checking any student whose row is almost entirely one color.
+
+library(data.table)
+library(ggplot2)
+
+# -----------------------------------------------------------------------------
+# Configuration
+# -----------------------------------------------------------------------------
+
+BIN_SECONDS <- 10
+
+COLOR_MAP <- c(
+  "Code"     = "#D8B4E2",  # light lavender -- matches "Editing" on the main timeline
+  "Continue" = "#E07A5F",  # warm coral -- matches the Continue marker color
+  "Neither"  = "#B4B2A9"   # neutral gray -- focus was on some other tool window
+)
+
+# Store the database password outside the script, e.g. in .Renviron:
+#   PGPASSWORD=your_password
+con <- DBI::dbConnect(
+  RPostgres::Postgres(),
+  dbname = "csci3060_w26",
+  host = "localhost",
+  port = 5432,
+  user = Sys.getenv("DB_USERNAME"),
+  password = Sys.getenv("DB_PASSWORD")
+)
+
+# -----------------------------------------------------------------------------
+# Query focus-classified events
+# -----------------------------------------------------------------------------
+
+query <- "
+-- ============================================================================
+-- Task 4: Focus timeline -- Code vs Continue vs Neither (v2)
+--
+-- Rebuilt on the SAME architecture as the main activity timeline: every
+-- activitydata event is the backbone (dense -- fires on every keystroke,
+-- mouse move, etc.), classified by whichever tool-window-focus span it
+-- falls into.
+--
+-- window_intervals is built from toolwindowdata alone, using the same
+-- LEAD-over-ALL-rows-then-classify technique already validated in Task 2:
+-- compute the next window-focus change first, THEN split into Continue vs
+-- everything else -- never filter before computing LEAD.
+--
+-- 'Code' is the DEFAULT state, not something with its own explicit signal:
+-- if an activitydata event's timestamp doesn't fall inside any known
+-- tool-window-focus span, the student is assumed to be in the code editor.
+--
+-- KNOWN REMAINING LIMITATION: toolwindowdata itself can still have gaps --
+-- if a student opens Continue once and then never touches ANY other tool
+-- window for the rest of the session, that Continue interval still runs to
+-- task_end.
+-- ============================================================================
+
+WITH task_file_events AS (
+    SELECT r.\"user\" AS user_id, d.research_id, d.date
+    FROM documentdata AS d
+    INNER JOIN researches AS r ON d.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(d.filename, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+
+    UNION ALL
+
+    SELECT r.\"user\" AS user_id, f.research_id, f.date
+    FROM fileeditordata AS f
+    INNER JOIN researches AS r ON f.research_id = r.id
+    WHERE LOWER(REPLACE(COALESCE(f.old_file, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+       OR LOWER(REPLACE(COALESCE(f.new_file, ''), '\\\\', '/')) LIKE '%process_cart.py%'
+),
+
+task_windows AS (
+    SELECT user_id, research_id, MIN(date) AS task_start, MAX(date) AS task_end
+    FROM task_file_events
+    GROUP BY user_id, research_id
+),
+
+-- CAP: each toolwindowdata row's interval is capped at 90 seconds -- without
+-- it, window_intervals is wall-to-wall by construction (window_end of one
+-- row = window_start of the next), so there would never be a gap for 'Code'
+-- to default into.
+--
+-- IMPORTANT NUANCE: this cap limits how far a window_interval can extend
+-- for classifying FUTURE activitydata events -- it does NOT retroactively
+-- split the DURATION of an event already classified. An event's duration is
+-- time-until-the-next-activitydata-event; if a student generates no
+-- activitydata during a pause (e.g. reading an AI response without typing),
+-- the one event right before that silence still carries its FULL duration
+-- under whatever category it was classified as, even past the 90s cap.
+-- Confirmed directly: two students with 90%+ Continue share had raw
+-- toolwindowdata gaps of 138s and 242s (over the cap), yet each showed
+-- under 3 seconds of Code total -- there was simply no activitydata during
+-- those gaps for the cap to hand back to Code.
+window_intervals AS (
+    SELECT
+        twd.research_id,
+        twd.active_window,
+        twd.date AS window_start,
+        LEAST(
+            COALESCE(
+                LEAD(twd.date) OVER (PARTITION BY twd.research_id ORDER BY twd.date),
+                tw.task_end
+            ),
+            twd.date + INTERVAL '90 seconds'
+        ) AS window_end
+    FROM toolwindowdata AS twd
+    INNER JOIN task_windows AS tw
+        ON tw.research_id = twd.research_id
+),
+
+focus_activity AS (
+    SELECT
+        tw.user_id AS id,
+        a.research_id,
+        a.date,
+        CASE
+            WHEN wi.active_window ILIKE '%continue%' THEN 'Continue'
+            WHEN wi.active_window IS NOT NULL THEN 'Neither'
+            ELSE 'Code'
+        END AS focus_type
+    FROM researches AS r
+    INNER JOIN activitydata AS a
+        ON a.research_id = r.id
+    INNER JOIN task_windows AS tw
+        ON tw.user_id = r.\"user\"
+       AND tw.research_id = r.id
+       AND a.date BETWEEN tw.task_start AND tw.task_end
+       AND a.date <= tw.task_start + INTERVAL '120 minutes'
+    LEFT JOIN window_intervals AS wi
+        ON wi.research_id = a.research_id
+       AND a.date >= wi.window_start
+       AND a.date < wi.window_end
+    WHERE a.type <> 'KeyReleased'
+),
+
+focus_timed AS (
+    SELECT
+        fa.*,
+        EXTRACT(EPOCH FROM (
+            fa.date - MIN(fa.date) OVER (PARTITION BY fa.id, fa.research_id)
+        )) AS time,
+        EXTRACT(EPOCH FROM (
+            LEAD(fa.date) OVER (PARTITION BY fa.id, fa.research_id ORDER BY fa.date) - fa.date
+        )) AS duration
+    FROM focus_activity AS fa
+)
+
+SELECT
+    id,
+    research_id,
+    time,
+    duration,
+    focus_type
+FROM focus_timed
+ORDER BY id, research_id, time
+"
+
+raw <- as.data.table(DBI::dbGetQuery(con, query))
+DBI::dbDisconnect(con)
+
+# -----------------------------------------------------------------------------
+# Bin activity into fixed-width windows
+# -----------------------------------------------------------------------------
+# Same mechanics as the main activity timeline: 10-second bins, each one
+# colored by whichever focus_type occupies the most time within it.
+
+dt <- raw[!is.na(duration) & duration > 0][order(id, time)]
+dt[, `:=`(event_start = time, event_end = time + duration)]
+
+bins <- dt[, .(total_time = max(event_end)), by = id][
+  , {
+    starts <- seq(0, total_time - 1e-9, by = BIN_SECONDS)
+    .(
+      bin_start = starts,
+      bin_end = pmin(starts + BIN_SECONDS, total_time)
+    )
+  },
+  by = id
+]
+bins[, bin_id := .I]
+
+overlaps <- dt[
+  bins,
+  on = .(id, event_start < bin_end, event_end > bin_start),
+  allow.cartesian = TRUE,
+  nomatch = 0,
+  .(
+    id = x.id,
+    bin_id = i.bin_id,
+    bin_start = i.bin_start,
+    bin_end = i.bin_end,
+    focus_type = x.focus_type,
+    event_start = x.event_start,
+    event_end = x.event_end
+  )
+]
+
+overlaps[, overlap_seconds :=
+           pmin(event_end, bin_end) - pmax(event_start, bin_start)]
+
+binned <- overlaps[
+  overlap_seconds > 0,
+  .(category_seconds = sum(overlap_seconds)),
+  by = .(id, bin_id, bin_start, bin_end, focus_type)
+]
+setorder(binned, id, bin_id, -category_seconds, focus_type)
+binned <- binned[, .SD[1], by = .(id, bin_id)]
+
+binned[, bin_duration := (bin_end - bin_start) / 60]
+binned[, bin_start := bin_start / 60]
+setorder(binned, id, bin_start)
+binned[, run_id := rleid(focus_type), by = id]
+
+timeline <- binned[, .(
+  elapsed_start = min(bin_start),
+  duration_minutes = sum(bin_duration)
+), by = .(id, run_id, focus_type)]
+setorder(timeline, id, elapsed_start)
+
+# -----------------------------------------------------------------------------
+# Plot
+# -----------------------------------------------------------------------------
+
+timeline[, student := factor(id, levels = rev(sort(unique(id))))]
+
+fig_height <- max(2.2, uniqueN(timeline$id) * 0.32 + 1.0)
+
+p <- ggplot(
+  timeline,
+  aes(
+    x = elapsed_start + duration_minutes / 2,
+    y = student,
+    width = duration_minutes,
+    fill = focus_type
+  )
+) +
+  geom_tile(height = 0.5, color = "black", linewidth = 0.15) +
+  scale_fill_manual(
+    values = COLOR_MAP,
+    breaks = c("Code", "Continue", "Neither"),
+    name = "Focus"
+  ) +
+  scale_x_continuous(
+    breaks = scales::breaks_width(5),
+    minor_breaks = scales::breaks_width(1),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  labs(
+    x = "Elapsed Active Time (Minutes)",
+    y = "Students"
+  ) +
+  theme_minimal(base_size = 8) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor.y = element_blank(),
+    legend.position = "bottom"
+  )
+
+print(p)
+
+# -----------------------------------------------------------------------------
+# Export
+# -----------------------------------------------------------------------------
+
+ggsave(
+  "task4_focus_timeline.png", p,
+  width = 10, height = fig_height, units = "in", dpi = 300
+)
+
+# -----------------------------------------------------------------------------
+# Verification checks
+# -----------------------------------------------------------------------------
+# Run automatically every time. Prints two things to check before trusting
+# the chart:
+#   1. Coverage completeness -- each student's Code+Continue+Neither total
+#      should equal their total active time. A mismatch means something is
+#      being dropped or double-counted somewhere upstream.
+#   2. Single-color outliers -- any student where one focus_type claims an
+#      implausible share of their session (>90% by default). This is the
+#      exact check that caught the earlier bug where one student's entire
+#      session came back as Continue; running it again confirms that
+#      failure mode is actually gone, not just less visible in the plot.
+
+cat("\n=== Verification: coverage completeness ===\n")
+coverage_check <- timeline[, .(total_minutes = sum(duration_minutes)), by = id]
+raw_total <- dt[, .(raw_total_minutes = sum(duration) / 60), by = id]
+coverage_check <- merge(coverage_check, raw_total, by = "id")
+coverage_check[, diff_seconds := round(abs(total_minutes - raw_total_minutes) * 60, 3)]
+mismatches <- coverage_check[diff_seconds > 0.1]
+if (nrow(mismatches) > 0) {
+  cat("MISMATCHES FOUND -- coverage does not sum correctly for these students:\n")
+  print(mismatches)
+} else {
+  cat("OK -- every student's Code+Continue+Neither time matches their total active time.\n")
+}
+
+cat("\n=== Verification: single-color outliers (>90% one category) ===\n")
+outlier_threshold <- 0.90
+student_shares <- timeline[, .(duration_minutes = sum(duration_minutes)), by = .(id, focus_type)]
+student_totals <- student_shares[, .(total = sum(duration_minutes)), by = id]
+student_shares <- merge(student_shares, student_totals, by = "id")
+student_shares[, share := duration_minutes / total]
+outliers <- student_shares[share > outlier_threshold]
+if (nrow(outliers) > 0) {
+  cat("OUTLIERS FOUND -- these students have one focus_type claiming over",
+      outlier_threshold * 100, "% of their session:\n")
+  print(outliers[order(-share)])
+} else {
+  cat("OK -- no student has a single focus_type claiming more than",
+      outlier_threshold * 100, "% of their session.\n")
+}
+
