@@ -1,0 +1,17 @@
+Shortcuts:
+Uses Java Keycode Events: https://docs.oracle.com/javase/8/docs/api/constant-values.html#java.awt.event.KeyEvent.VK_ENTER
+
+In many cases, it looks like it's doubled with an action (e.g., Ctrl+V followed by Paste actions)
+
+Continue prompts:
+Good: The info record for corresponding KeyPressed entries documented as:
+401:
+:10
+is enter. Enter is also a valid way to submit prompts into Continue so it's possible at the end of a prompt we can infer that they were submitting the prompt as long as they were focused on Continue.
+Bad:
+For mouse clicks to submit a prompt, the most likely action is SquareAnActionButton, but there is no further data and the x/y coordinates in the activity table likely vary by computer dimensions. Further, this action could also be copying code with Continue or importing it directly into the code and I do not see a way to differentiate these actions so I don't see a way to detect sending prompts by mouse click
+
+Other discoveries: 
+- Keyboard actions format: <eventID>:<char>:<keycode> (ex. 401:c:67 = KeyPressed is C)
+- MouseClicked: x:y:clickCount:button:modifiersEx (ex. 1520:259:1:1:0)
+- MouseMoved: x:y:modifiersEx (ex. 1520:259:0)
