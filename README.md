@@ -57,6 +57,20 @@ Here we want to notice that the plugin and the server would not collect any of t
 The [plugin](ij-plugin) works in conjunction with the [server](ij-server), which is located in the same repository. The
 server receives, processes, and saves the data that was sent from the plugin side.
 
+## Continue AI Plugin
+
+This repository also includes a modified copy of [Continue](https://github.com/continuedev/continue) (Apache 2.0
+licensed) in the [`continue/`](continue) directory. Continue is an open-source AI coding assistant plugin for
+JetBrains IDEs, used in this study to give students an AI pair-programming assistant while their interactions are
+recorded by KOALA.
+
+The copy in this repository includes a one-line fix to
+`continue/extensions/intellij/src/main/resources/META-INF/plugin.xml`, adding
+`<depends>com.intellij.modules.jcef</depends>`, which resolves a `NoClassDefFoundError: com/intellij/ui/jcef/JBCefApp`
+crash affecting Continue on IntelliJ Platform 2026.2.1 and later (e.g. PyCharm 2026.2, IntelliJ IDEA 2026.2.1+).
+
+See the [Continue README](continue/README.md) for build instructions.
+
 ## The previous versions of the tool:
 
 - The first version - [repository](https://github.com/JetBrains-Research/task-tracker-plugin)

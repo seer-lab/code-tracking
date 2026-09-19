@@ -5,3 +5,13 @@ build
 
 ij-plugin/src/main/resources/properties/actual
 .Rproj.user
+
+node_modules/
+build/
+out/
+binary/bin/
+binary/out/
+extensions/*/node_modules/
+extensions/*/build/
+.gradle/
+*.log
