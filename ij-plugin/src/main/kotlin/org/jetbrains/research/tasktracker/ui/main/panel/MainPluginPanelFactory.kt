@@ -2,6 +2,7 @@ package org.jetbrains.research.tasktracker.ui.main.panel
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
@@ -73,7 +74,13 @@ class MainPluginPanelFactory : ToolWindowFactory {
         listenRedirection()
     }
 
-    override fun isApplicable(project: Project) = super.isApplicable(project) && JBCefApp.isSupported()
+    override fun isApplicable(project: Project): Boolean =
+        try {
+            JBCefApp.isSupported()
+        } catch (e: LinkageError) {
+            thisLogger().warn("KOALA: JCEF classes not available, hiding tool window", e)
+            false
+        }
 
     @Suppress("LongParameterList")
     fun loadBasePage(

@@ -5,6 +5,9 @@
     <vendor>JetBrains Research</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <dependencies>
+        <module name="intellij.platform.ui.jcef"/>
+    </dependencies>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
