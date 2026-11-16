@@ -123,9 +123,14 @@ object TaskFileHandler {
         val sourceFolders = task.files.map { Pair(it.extension, it.sourceSet) }.toSet().map {
             "$PLUGIN_NAME/${it.first?.getDirectoryName()}/${task.root.pathOrEmpty()}/${it.second.path}"
         }
+        val module = ModuleManager.getInstance(project).modules.lastOrNull()
+        if (module == null) {
+            logger.warn("Project '${project.name}' has no modules; skipping source folder registration for task '${task.name}'")
+            return
+        }
         sourceFolders.forEach {
             ApplicationManager.getApplication().runWriteAction {
-                addSourceFolder(ModuleManager.getInstance(project).modules.last(), it) // TODO array is empty
+                addSourceFolder(module, it)
             }
         }
     }
