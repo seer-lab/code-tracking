@@ -90,7 +90,7 @@ class MainPluginPanelFactory : ToolWindowFactory {
         backButtonText: String? = null,
         isVisibleNextButton: Boolean = true,
         pauseButtonText: String? = null,
-        isVisiblePauseButton: Boolean = true
+        isVisiblePauseButton: Boolean = false
     ) {
         mainWindow.loadHtmlTemplate(template)
         backButton.isVisible = isVisibleBackButton
